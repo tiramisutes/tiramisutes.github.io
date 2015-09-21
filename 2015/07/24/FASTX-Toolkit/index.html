@@ -1,0 +1,1024 @@
+
+ <!DOCTYPE HTML>
+<html lang="default">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>FASTX-Toolkit | Hope</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="tiramisutes">
+    
+
+    
+    <meta name="description" content="Here you’ll find a short description and examples of how to use the FASTX-toolkit from the command line.
+Command Line ArgumentsMost tools show usage information with -h.Tools can read from STDIN and w">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FASTX-Toolkit">
+<meta property="og:url" content="http://tiramisutes.github.io/2015/07/24/FASTX-Toolkit/index.html">
+<meta property="og:site_name" content="Hope">
+<meta property="og:description" content="Here you’ll find a short description and examples of how to use the FASTX-toolkit from the command line.
+Command Line ArgumentsMost tools show usage information with -h.Tools can read from STDIN and w">
+<meta property="og:image" content="http://7xk19o.com1.z0.glb.clouddn.com/bc54_quality.png">
+<meta property="og:image" content="http://7xk19o.com1.z0.glb.clouddn.com/bc54_nuc.png">
+<meta property="og:updated_time" content="2015-07-25T12:44:45.137Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="FASTX-Toolkit">
+<meta name="twitter:description" content="Here you’ll find a short description and examples of how to use the FASTX-toolkit from the command line.
+Command Line ArgumentsMost tools show usage information with -h.Tools can read from STDIN and w">
+<meta name="twitter:creator" content="@xzpgocxx">
+<link rel="publisher" href="103840563918867166597">
+
+    
+    <link rel="alternative" href="/sitemaps-rss/atom.xml" title="Hope" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Hope">Hope</a></h1>
+				<h2 class="blog-motto">A new day is coming,whether we like it or not. The question is will you conutrol it,or will it control you?</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/coding">Coding</a></li>
+					
+						<li><a href="/huazhong">HuaZhong</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/07/24/FASTX-Toolkit/" title="FASTX-Toolkit" itemprop="url">FASTX-Toolkit</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/103840563918867166597?rel=author" title="tiramisutes" target="_blank" itemprop="author">tiramisutes</a>
+		
+  <p class="article-time">
+    <time datetime="2015-07-24T14:51:33.000Z" itemprop="datePublished"> Published 2015-07-24</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Command_Line_Arguments"><span class="toc-number">1.</span> <span class="toc-text">Command Line Arguments</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#FASTQ-to-FASTA"><span class="toc-number">1.1.</span> <span class="toc-text">FASTQ-to-FASTA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FASTX_Statistics"><span class="toc-number">1.2.</span> <span class="toc-text">FASTX Statistics</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FASTQ_Quality_Chart"><span class="toc-number">1.3.</span> <span class="toc-text">FASTQ Quality Chart</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FASTA/Q_Nucleotide_Distribution"><span class="toc-number">1.4.</span> <span class="toc-text">FASTA/Q Nucleotide Distribution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FASTA/Q_Clipper"><span class="toc-number">1.5.</span> <span class="toc-text">FASTA/Q Clipper</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FASTA/Q_Renamer"><span class="toc-number">1.6.</span> <span class="toc-text">FASTA/Q Renamer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FASTA/Q_Trimmer"><span class="toc-number">1.7.</span> <span class="toc-text">FASTA/Q Trimmer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FASTA/Q_Collapser"><span class="toc-number">1.8.</span> <span class="toc-text">FASTA/Q Collapser</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FASTQ/A_Artifacts_Filter"><span class="toc-number">1.9.</span> <span class="toc-text">FASTQ/A Artifacts Filter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FASTQ_Quality_Filter"><span class="toc-number">1.10.</span> <span class="toc-text">FASTQ Quality Filter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FASTQ/A_Reverse_Complement"><span class="toc-number">1.11.</span> <span class="toc-text">FASTQ/A Reverse Complement</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FASTA_Formatter"><span class="toc-number">1.12.</span> <span class="toc-text">FASTA Formatter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FASTA_Nucleotides_Changer"><span class="toc-number">1.13.</span> <span class="toc-text">FASTA Nucleotides Changer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FASTA_Clipping_Histogram"><span class="toc-number">1.14.</span> <span class="toc-text">FASTA Clipping Histogram</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FASTX_Barcode_Splitter"><span class="toc-number">1.15.</span> <span class="toc-text">FASTX Barcode Splitter</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example:_FASTQ_Information"><span class="toc-number">2.</span> <span class="toc-text">Example: FASTQ Information</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Genrating_Quality_Information_on_BC54-fq:"><span class="toc-number">2.1.</span> <span class="toc-text">Genrating Quality Information on BC54.fq:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example:_FASTQ/A_Manipulation"><span class="toc-number">3.</span> <span class="toc-text">Example: FASTQ/A Manipulation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Common_pre-processing_work-flow:"><span class="toc-number">3.1.</span> <span class="toc-text">Common pre-processing work-flow:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Using_the_FASTX-toolkit_from_the_command_line:"><span class="toc-number">3.2.</span> <span class="toc-text">Using the FASTX-toolkit from the command line:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mapping_(or_any_other_kind_of_analysis)_of_the_Clipped_+_Collapsed_FASTA_file_will_be:"><span class="toc-number">3.3.</span> <span class="toc-text">Mapping (or any other kind of analysis) of the Clipped + Collapsed FASTA file will be:</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<p>Here you’ll find a short description and examples of how to use the FASTX-toolkit from the command line.</p>
+<h2 id="Command_Line_Arguments">Command Line Arguments</h2><p>Most tools show usage information with -h.<br>Tools can read from STDIN and write to STDOUT, or<br>from a specific input file (-i) and specific output file (-o).<br>Tools can operate silently (producing no output if everything was OK), or<br>print a short summary (-v).<br>If output goes to STDOUT, the summary will be printed to STDERR.<br>If output goes to a file, the summary will be printed to STDOUT.<br>Some tools can compress the output with GZIP (-z).</p>
+<h3 id="FASTQ-to-FASTA">FASTQ-to-FASTA</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$ fastq_to_fasta -h</span><br><span class="line">usage: fastq_to_fasta [-h] [-r] [-n] [-v] [-z] [-i INFILE] [-o OUTFILE]</span><br><span class="line"></span><br><span class="line">version <span class="number">0.0</span>.<span class="number">6</span></span><br><span class="line">   [-h]         = This helpful <span class="built_in">help</span> screen.</span><br><span class="line">   [-r]         = Rename sequence identifiers to numbers.</span><br><span class="line">   [-n]         = keep sequences with unknown (N) nucleotides.</span><br><span class="line">		  Default is to discard such sequences.</span><br><span class="line">   [-v]         = Verbose - report number of sequences.</span><br><span class="line">		  If [-o] is specified,  report will be printed to STDOUT.</span><br><span class="line">		  If [-o] is not specified (and output goes to STDOUT),</span><br><span class="line">		  report will be printed to STDERR.</span><br><span class="line">   [-z]         = Compress output with GZIP.</span><br><span class="line">   [-i INFILE]  = FASTA/Q input file. default is STDIN.</span><br><span class="line">   [-o OUTFILE] = FASTA output file. default is STDOUT.</span><br></pre></td></tr></table></figure>
+<h3 id="FASTX_Statistics">FASTX Statistics</h3><pre><code>$ fastx_quality_stats -<span class="literal">h</span>
+usage: fastx_quality_stats [-<span class="keyword">h</span>] [-i <span class="keyword">INFILE</span>] [-o <span class="keyword">OUTFILE</span>]
+
+<span class="keyword">version</span> 0.0.6 (C) 2008 <span class="keyword">by</span> Assaf Gordon (gordon@cshl.edu)
+   [-<span class="keyword">h</span>] = This helpful <span class="keyword">help</span> screen.
+   [-i <span class="keyword">INFILE</span>]  = FASTA/Q <span class="keyword">input</span> <span class="keyword">file</span>. default is STDIN.
+                  <span class="keyword">If</span> FASTA <span class="keyword">file</span> is given, only nucleotides
+          distribution is calculated (there's <span class="keyword">no</span> quality info).
+   [-o <span class="keyword">OUTFILE</span>] = TEXT output <span class="keyword">file</span>. default is STDOUT.
+
+The output TEXT <span class="keyword">file</span> will have the following fields (<span class="keyword">one</span> row per column):
+    column    = column number (1 to 36 <span class="keyword">for</span> a 36-cycles <span class="keyword">read</span> solexa <span class="keyword">file</span>)
+    <span class="keyword">count</span>   = number of bases found <span class="keyword">in</span> this column.
+    min     = Lowest quality <span class="keyword">score</span> value found <span class="keyword">in</span> this column.
+    max     = Highest quality <span class="keyword">score</span> value found <span class="keyword">in</span> this column.
+    <span class="keyword">sum</span>     = <span class="keyword">Sum</span> of quality <span class="keyword">score</span> values <span class="keyword">for</span> this column.
+    <span class="keyword">mean</span>    = <span class="keyword">Mean</span> quality <span class="keyword">score</span> value <span class="keyword">for</span> this column.
+    Q1    = 1st quartile quality <span class="keyword">score</span>.
+    med    = <span class="keyword">Median</span> quality <span class="keyword">score</span>.
+    Q3    = 3rd quartile quality <span class="keyword">score</span>.
+    IQR    = Inter-Quartile <span class="keyword">range</span> (Q3-Q1).
+    lW    = 'Left-Whisker' value (<span class="keyword">for</span> boxplotting).
+    rW    = 'Right-Whisker' value (<span class="keyword">for</span> boxplotting).
+    A_Count    = <span class="keyword">Count</span> of 'A' nucleotides found <span class="keyword">in</span> this column.
+    C_Count    = <span class="keyword">Count</span> of 'C' nucleotides found <span class="keyword">in</span> this column.
+    G_Count    = <span class="keyword">Count</span> of '<span class="keyword">G</span>' nucleotides found <span class="keyword">in</span> this column.
+    T_Count    = <span class="keyword">Count</span> of 'T' nucleotides found <span class="keyword">in</span> this column.
+    N_Count = <span class="keyword">Count</span> of '<span class="keyword">N</span>' nucleotides found <span class="keyword">in</span> this column.
+    max-<span class="keyword">count</span> = max. number of bases (<span class="keyword">in</span> all cycles)
+</code></pre><h3 id="FASTQ_Quality_Chart">FASTQ Quality Chart</h3><pre><code>$ fastq_quality_boxplot_graph.<span class="keyword">sh</span> -<span class="literal">h</span>
+Solexa-Quality BoxPlot plotter
+Generates a solexa quality <span class="keyword">score</span> box-<span class="keyword">plot</span> <span class="keyword">graph</span> 
+
+Usage: /usr/<span class="keyword">local</span>/bin/fastq_quality_boxplot_graph.<span class="keyword">sh</span> [-i <span class="keyword">INPUT</span>.TXT] [-t TITLE] [-p] [-o OUTPUT]
+
+  [-p]           - <span class="keyword">Generate</span> PostScript (.PS) <span class="keyword">file</span>. Default is PNG image.
+  [-i <span class="keyword">INPUT</span>.TXT] - <span class="keyword">Input</span> <span class="keyword">file</span>. Should be the output of <span class="string">"solexa_quality_statistics"</span> <span class="keyword">program</span>.
+  [-o OUTPUT]    - Output <span class="keyword">file</span> name. default is STDOUT.
+  [-t TITLE]     - Title (usually the solexa <span class="keyword">file</span> name) - will be plotted <span class="keyword">on</span> the <span class="keyword">graph</span>.
+</code></pre><h3 id="FASTA/Q_Nucleotide_Distribution">FASTA/Q Nucleotide Distribution</h3><pre><code>$ fastx_nucleotide_distribution_graph.<span class="keyword">sh</span> -<span class="literal">h</span>
+FASTA/Q Nucleotide Distribution Plotter
+
+Usage: /usr/<span class="keyword">local</span>/bin/fastx_nucleotide_distribution_graph.<span class="keyword">sh</span> [-i <span class="keyword">INPUT</span>.TXT] [-t TITLE] [-p] [-o OUTPUT]
+
+  [-p]           - <span class="keyword">Generate</span> PostScript (.PS) <span class="keyword">file</span>. Default is PNG image.
+  [-i <span class="keyword">INPUT</span>.TXT] - <span class="keyword">Input</span> <span class="keyword">file</span>. Should be the output of <span class="string">"fastx_quality_statistics"</span> <span class="keyword">program</span>.
+  [-o OUTPUT]    - Output <span class="keyword">file</span> name. default is STDOUT.
+  [-t TITLE]     - Title - will be plotted <span class="keyword">on</span> the <span class="keyword">graph</span>.
+</code></pre><h3 id="FASTA/Q_Clipper">FASTA/Q Clipper</h3><pre><code>$ fastx_clipper -h
+usage: fastx_clipper [-h] [-a ADAPTER] [-D] [-l N] [-n] [-d N] [-c] [-C] [-o] [-v] [-z] [-i INFILE] [-o OUTFILE]
+
+version 0.0.6
+   [-h]         = This helpful <span class="operator"><span class="keyword">help</span> screen.
+   [-a ADAPTER] = ADAPTER <span class="keyword">string</span>. <span class="keyword">default</span> <span class="keyword">is</span> CCTTAAGG (dummy adapter).
+   [-l N]       = discard sequences shorter than N nucleotides. <span class="keyword">default</span> <span class="keyword">is</span> <span class="number">5.</span>
+   [-d N]       = Keep the adapter <span class="keyword">and</span> N bases <span class="keyword">after</span> it.
+          (<span class="keyword">using</span> <span class="string">'-d 0'</span> <span class="keyword">is</span> the same <span class="keyword">as</span> <span class="keyword">not</span> <span class="keyword">using</span> <span class="string">'-d'</span> <span class="keyword">at</span> <span class="keyword">all</span>. which <span class="keyword">is</span> the <span class="keyword">default</span>).
+   [-c]         = Discard non-clipped sequences (i.e. - keep <span class="keyword">only</span> sequences which contained the adapter).
+   [-C]         = Discard clipped sequences (i.e. - keep <span class="keyword">only</span> sequences which did <span class="keyword">not</span> contained the adapter).
+   [-k]         = Report Adapter-<span class="keyword">Only</span> sequences.
+   [-n]         = keep sequences <span class="keyword">with</span> <span class="keyword">unknown</span> (N) nucleotides. <span class="keyword">default</span> <span class="keyword">is</span> <span class="keyword">to</span> discard such sequences.
+   [-v]         = Verbose - report <span class="built_in">number</span> <span class="keyword">of</span> sequences.
+          <span class="keyword">If</span> [-o] <span class="keyword">is</span> specified,  report will be printed <span class="keyword">to</span> STDOUT.
+          <span class="keyword">If</span> [-o] <span class="keyword">is</span> <span class="keyword">not</span> specified (<span class="keyword">and</span> <span class="keyword">output</span> goes <span class="keyword">to</span> STDOUT),
+          report will be printed <span class="keyword">to</span> STDERR.
+   [-z]         = <span class="keyword">Compress</span> <span class="keyword">output</span> <span class="keyword">with</span> GZIP.
+   [-D]        = DEBUG <span class="keyword">output</span>.
+   [-i <span class="keyword">INFILE</span>]  = FASTA/Q <span class="keyword">input</span> file. <span class="keyword">default</span> <span class="keyword">is</span> STDIN.
+   [-o <span class="keyword">OUTFILE</span>] = FASTA/Q <span class="keyword">output</span> file. <span class="keyword">default</span> <span class="keyword">is</span> STDOUT.</span>
+</code></pre><h3 id="FASTA/Q_Renamer">FASTA/Q Renamer</h3><pre><code>$ fastx_renamer -<span class="literal">h</span>
+usage: fastx_renamer [-<span class="keyword">n</span> <span class="keyword">TYPE</span>] [-<span class="keyword">h</span>] [-z] [-v] [-i <span class="keyword">INFILE</span>] [-o <span class="keyword">OUTFILE</span>]
+Part of FASTX Toolkit 0.0.10 <span class="keyword">by</span> A. Gordon (gordon@cshl.edu)
+
+   [-<span class="keyword">n</span> <span class="keyword">TYPE</span>]    = <span class="keyword">rename</span> <span class="keyword">type</span>:
+          SEQ - <span class="keyword">use</span> the nucleotides sequence <span class="keyword">as</span> the name.
+          <span class="keyword">COUNT</span> - <span class="keyword">use</span> simply counter <span class="keyword">as</span> the name.
+   [-<span class="keyword">h</span>]         = This helpful <span class="keyword">help</span> screen.
+   [-z]         = <span class="keyword">Compress</span> output with GZIP.
+   [-i <span class="keyword">INFILE</span>]  = FASTA/Q <span class="keyword">input</span> <span class="keyword">file</span>. default is STDIN.
+   [-o <span class="keyword">OUTFILE</span>] = FASTA/Q output <span class="keyword">file</span>. default is STDOUT.
+</code></pre><h3 id="FASTA/Q_Trimmer">FASTA/Q Trimmer</h3><pre><code>$ fastx_trimmer -h
+usage: fastx_trimmer [-h] [-f N] [-l N] [-z] [-v] [-i INFILE] [-o OUTFILE]
+
+version 0.0.6
+   [-h]         = This helpful <span class="operator"><span class="keyword">help</span> screen.
+   [-f N]       = <span class="keyword">First</span> base <span class="keyword">to</span> keep. <span class="keyword">Default</span> <span class="keyword">is</span> <span class="number">1</span> (=<span class="keyword">first</span> base).
+   [-l N]       = <span class="keyword">Last</span> base <span class="keyword">to</span> keep. <span class="keyword">Default</span> <span class="keyword">is</span> entire <span class="keyword">read</span>.
+   [-z]         = <span class="keyword">Compress</span> <span class="keyword">output</span> <span class="keyword">with</span> GZIP.
+   [-i <span class="keyword">INFILE</span>]  = FASTA/Q <span class="keyword">input</span> file. <span class="keyword">default</span> <span class="keyword">is</span> STDIN.
+   [-o <span class="keyword">OUTFILE</span>] = FASTA/Q <span class="keyword">output</span> file. <span class="keyword">default</span> <span class="keyword">is</span> STDOUT.</span>
+</code></pre><h3 id="FASTA/Q_Collapser">FASTA/Q Collapser</h3><pre><code>$ fastx_collapser -<span class="literal">h</span>
+usage: fastx_collapser [-<span class="keyword">h</span>] [-v] [-i <span class="keyword">INFILE</span>] [-o <span class="keyword">OUTFILE</span>]
+
+<span class="keyword">version</span> 0.0.6
+   [-<span class="keyword">h</span>]         = This helpful <span class="keyword">help</span> screen.
+   [-v]         = verbose: <span class="keyword">print</span> short summary of <span class="keyword">input</span>/output counts
+   [-i <span class="keyword">INFILE</span>]  = FASTA/Q <span class="keyword">input</span> <span class="keyword">file</span>. default is STDIN.
+   [-o <span class="keyword">OUTFILE</span>] = FASTA/Q output <span class="keyword">file</span>. default is STDOUT.
+</code></pre><h3 id="FASTQ/A_Artifacts_Filter">FASTQ/A Artifacts Filter</h3><pre><code>$ fastx_artifacts_filter -h
+usage: fastq_artifacts_filter [-h] [-v] [-z] [-i INFILE] [-o OUTFILE]
+
+version 0.0.6
+   [-h]         = This helpful <span class="operator"><span class="keyword">help</span> screen.
+   [-i <span class="keyword">INFILE</span>]  = FASTA/Q <span class="keyword">input</span> file. <span class="keyword">default</span> <span class="keyword">is</span> STDIN.
+   [-o <span class="keyword">OUTFILE</span>] = FASTA/Q <span class="keyword">output</span> file. <span class="keyword">default</span> <span class="keyword">is</span> STDOUT.
+   [-z]         = <span class="keyword">Compress</span> <span class="keyword">output</span> <span class="keyword">with</span> GZIP.
+   [-v]         = Verbose - report <span class="built_in">number</span> <span class="keyword">of</span> processed reads.
+          <span class="keyword">If</span> [-o] <span class="keyword">is</span> specified,  report will be printed <span class="keyword">to</span> STDOUT.
+          <span class="keyword">If</span> [-o] <span class="keyword">is</span> <span class="keyword">not</span> specified (<span class="keyword">and</span> <span class="keyword">output</span> goes <span class="keyword">to</span> STDOUT),
+          report will be printed <span class="keyword">to</span> STDERR.</span>
+</code></pre><h3 id="FASTQ_Quality_Filter">FASTQ Quality Filter</h3><pre><code>$ <span class="atom">fastq_quality_filter</span> -<span class="atom">h</span>
+<span class="atom">usage</span>: <span class="atom">fastq_quality_filter</span> [-<span class="atom">h</span>] [-<span class="atom">v</span>] [-<span class="atom">q</span> <span class="name">N</span>] [-<span class="atom">p</span> <span class="name">N</span>] [-<span class="atom">z</span>] [-<span class="atom">i</span> <span class="name">INFILE</span>] [-<span class="atom">o</span> <span class="name">OUTFILE</span>]
+
+<span class="atom">version</span> <span class="number">0.0</span>.6
+   [-<span class="atom">h</span>]         = <span class="name">This</span> <span class="atom">helpful</span> <span class="atom">help</span> <span class="atom">screen</span>.
+   [-<span class="atom">q</span> <span class="name">N</span>]       = <span class="name">Minimum</span> <span class="atom">quality</span> <span class="atom">score</span> <span class="atom">to</span> <span class="atom">keep</span>.
+   [-<span class="atom">p</span> <span class="name">N</span>]       = <span class="name">Minimum</span> <span class="atom">percent</span> <span class="atom">of</span> <span class="atom">bases</span> <span class="atom">that</span> <span class="atom">must</span> <span class="atom">have</span> [-<span class="atom">q</span>] <span class="atom">quality</span>.
+   [-<span class="atom">z</span>]         = <span class="name">Compress</span> <span class="atom">output</span> <span class="atom">with</span> <span class="name">GZIP</span>.
+   [-<span class="atom">i</span> <span class="name">INFILE</span>]  = <span class="name">FASTA</span>/<span class="name">Q</span> <span class="atom">input</span> <span class="atom">file</span>. <span class="atom">default</span> <span class="atom">is</span> <span class="name">STDIN</span>.
+   [-<span class="atom">o</span> <span class="name">OUTFILE</span>] = <span class="name">FASTA</span>/<span class="name">Q</span> <span class="atom">output</span> <span class="atom">file</span>. <span class="atom">default</span> <span class="atom">is</span> <span class="name">STDOUT</span>.
+   [-<span class="atom">v</span>]         = <span class="name">Verbose</span> - <span class="atom">report</span> <span class="atom">number</span> <span class="atom">of</span> <span class="atom">sequences</span>.
+          <span class="name">If</span> [-<span class="atom">o</span>] <span class="atom">is</span> <span class="atom">specified</span>,  <span class="atom">report</span> <span class="atom">will</span> <span class="atom">be</span> <span class="atom">printed</span> <span class="atom">to</span> <span class="name">STDOUT</span>.
+          <span class="name">If</span> [-<span class="atom">o</span>] <span class="atom">is</span> <span class="atom">not</span> <span class="atom">specified</span> (<span class="atom">and</span> <span class="atom">output</span> <span class="atom">goes</span> <span class="atom">to</span> <span class="name">STDOUT</span>),
+          <span class="atom">report</span> <span class="atom">will</span> <span class="atom">be</span> <span class="atom">printed</span> <span class="atom">to</span> <span class="name">STDERR</span>.
+</code></pre><h3 id="FASTQ/A_Reverse_Complement">FASTQ/A Reverse Complement</h3><pre><code>$ <span class="atom">fastx_reverse_complement</span> -<span class="atom">h</span>
+<span class="atom">usage</span>: <span class="atom">fastx_reverse_complement</span> [-<span class="atom">h</span>] [-<span class="atom">r</span>] [-<span class="atom">z</span>] [-<span class="atom">v</span>] [-<span class="atom">i</span> <span class="name">INFILE</span>] [-<span class="atom">o</span> <span class="name">OUTFILE</span>]
+
+<span class="atom">version</span> <span class="number">0.0</span>.6
+   [-<span class="atom">h</span>]         = <span class="name">This</span> <span class="atom">helpful</span> <span class="atom">help</span> <span class="atom">screen</span>.
+   [-<span class="atom">z</span>]         = <span class="name">Compress</span> <span class="atom">output</span> <span class="atom">with</span> <span class="name">GZIP</span>.
+   [-<span class="atom">i</span> <span class="name">INFILE</span>]  = <span class="name">FASTA</span>/<span class="name">Q</span> <span class="atom">input</span> <span class="atom">file</span>. <span class="atom">default</span> <span class="atom">is</span> <span class="name">STDIN</span>.
+   [-<span class="atom">o</span> <span class="name">OUTFILE</span>] = <span class="name">FASTA</span>/<span class="name">Q</span> <span class="atom">output</span> <span class="atom">file</span>. <span class="atom">default</span> <span class="atom">is</span> <span class="name">STDOUT</span>.
+</code></pre><h3 id="FASTA_Formatter">FASTA Formatter</h3><pre><code>$ fasta_formatter -h
+usage: fasta_formatter [-h] [-i INFILE] [-o OUTFILE] [-w N] [-t] [-e]
+Part of FASTX Toolkit 0.0.7 by gordon@cshl.edu
+
+   [-h]         = This helpful <span class="operator"><span class="keyword">help</span> screen.
+   [-i <span class="keyword">INFILE</span>]  = FASTA/Q <span class="keyword">input</span> file. <span class="keyword">default</span> <span class="keyword">is</span> STDIN.
+   [-o <span class="keyword">OUTFILE</span>] = FASTA/Q <span class="keyword">output</span> file. <span class="keyword">default</span> <span class="keyword">is</span> STDOUT.
+   [-w N]       = <span class="keyword">max</span>. sequence line width <span class="keyword">for</span> <span class="keyword">output</span> FASTA file.
+          <span class="keyword">When</span> ZERO (the <span class="keyword">default</span>), sequence <span class="keyword">lines</span> will <span class="keyword">NOT</span> be wrapped -
+          <span class="keyword">all</span> nucleotides <span class="keyword">of</span> <span class="keyword">each</span> sequences will appear <span class="keyword">on</span> a single 
+          line (good <span class="keyword">for</span> scripting).
+   [-t]         = <span class="keyword">Output</span> tabulated <span class="keyword">format</span> (instead <span class="keyword">of</span> FASTA <span class="keyword">format</span>).
+          Sequence-Identifiers will be <span class="keyword">on</span> <span class="keyword">first</span> <span class="keyword">column</span>,
+          Nucleotides will appear <span class="keyword">on</span> <span class="keyword">second</span> <span class="keyword">column</span> (<span class="keyword">as</span> single line).
+   [-e]         = <span class="keyword">Output</span> empty sequences (<span class="keyword">default</span> <span class="keyword">is</span> <span class="keyword">to</span> discard them).
+          Empty sequences <span class="keyword">are</span> ones who have <span class="keyword">only</span> a sequence identifier,
+          but <span class="keyword">not</span> actual nucleotides.
+
+<span class="keyword">Input</span> Example:
+   &gt;MY-ID
+   AAAAAGGGGG
+   CCCCCTTTTT
+   AGCTN
+
+<span class="keyword">Output</span> example <span class="keyword">with</span> unlimited line width [-w <span class="number">0</span>]:
+   &gt;MY-ID
+   AAAAAGGGGGCCCCCTTTTTAGCTN
+
+<span class="keyword">Output</span> example <span class="keyword">with</span> <span class="keyword">max</span>. line width=<span class="number">7</span> [-w <span class="number">7</span>]:
+   &gt;MY-ID
+   AAAAAGG
+   GGGTTTT
+   TCCCCCA
+   GCTN
+
+<span class="keyword">Output</span> example <span class="keyword">with</span> tabular <span class="keyword">output</span> [-t]:
+   MY-ID    AAAAAGGGGGCCCCCTTTTAGCTN
+
+example <span class="keyword">of</span> empty sequence:
+(will be discarded unless [-e] <span class="keyword">is</span> used)
+  &gt;REGULAR-SEQUENCE-<span class="number">1</span>
+  AAAGGGTTTCCC
+  &gt;EMPTY-SEQUENCE
+  &gt;REGULAR-SEQUENCE-<span class="number">2</span>
+  AAGTAGTAGTAGTAGT
+  GTATTTTATAT</span>
+</code></pre><h3 id="FASTA_Nucleotides_Changer">FASTA Nucleotides Changer</h3><pre><code>$ <span class="atom">fasta_nucleotide_changer</span> -<span class="atom">h</span>
+<span class="atom">usage</span>: <span class="atom">fasta_nucleotide_changer</span> [-<span class="atom">h</span>] [-<span class="atom">z</span>] [-<span class="atom">v</span>] [-<span class="atom">i</span> <span class="name">INFILE</span>] [-<span class="atom">o</span> <span class="name">OUTFILE</span>] [-<span class="atom">r</span>] [-<span class="atom">d</span>]
+
+<span class="atom">version</span> <span class="number">0.0</span>.7
+   [-<span class="atom">h</span>]         = <span class="name">This</span> <span class="atom">helpful</span> <span class="atom">help</span> <span class="atom">screen</span>.
+   [-<span class="atom">z</span>]         = <span class="name">Compress</span> <span class="atom">output</span> <span class="atom">with</span> <span class="name">GZIP</span>.
+   [-<span class="atom">v</span>]         = <span class="name">Verbose</span> <span class="atom">mode</span>. <span class="name">Prints</span> <span class="atom">a</span> <span class="atom">short</span> <span class="atom">summary</span>.
+          <span class="atom">with</span> [-<span class="atom">o</span>], <span class="atom">summary</span> <span class="atom">is</span> <span class="atom">printed</span> <span class="atom">to</span> <span class="name">STDOUT</span>.
+          <span class="name">Otherwise</span>, <span class="atom">summary</span> <span class="atom">is</span> <span class="atom">printed</span> <span class="atom">to</span> <span class="name">STDERR</span>.
+   [-<span class="atom">i</span> <span class="name">INFILE</span>]  = <span class="name">FASTA</span>/<span class="name">Q</span> <span class="atom">input</span> <span class="atom">file</span>. <span class="atom">default</span> <span class="atom">is</span> <span class="name">STDIN</span>.
+   [-<span class="atom">o</span> <span class="name">OUTFILE</span>] = <span class="name">FASTA</span>/<span class="name">Q</span> <span class="atom">output</span> <span class="atom">file</span>. <span class="atom">default</span> <span class="atom">is</span> <span class="name">STDOUT</span>.
+   [-<span class="atom">r</span>]         = <span class="name">DNA</span>-<span class="atom">to</span>-<span class="name">RNA</span> <span class="atom">mode</span> - <span class="atom">change</span> <span class="name">T</span><span class="string">'s into U'</span><span class="atom">s</span>.
+   [-<span class="atom">d</span>]         = <span class="name">RNA</span>-<span class="atom">to</span>-<span class="name">DNA</span> <span class="atom">mode</span> - <span class="atom">change</span> <span class="name">U</span><span class="string">'s into T'</span><span class="atom">s</span>.
+</code></pre><h3 id="FASTA_Clipping_Histogram">FASTA Clipping Histogram</h3><pre><code>$ fasta_clipping_histogram<span class="class">.pl</span>
+Create <span class="tag">a</span> Linker Clipping Information Histogram
+
+usage: fasta_clipping_histogram<span class="class">.pl</span> INPUT_FILE<span class="class">.FA</span> OUTPUT_FILE<span class="class">.PNG</span>
+
+    INPUT_FILE<span class="class">.FA</span>   = <span class="tag">input</span> file (<span class="keyword">in</span> FASTA format, can be GZIPped)
+    OUTPUT_FILE<span class="class">.PNG</span> = histogram image
+</code></pre><h3 id="FASTX_Barcode_Splitter">FASTX Barcode Splitter</h3><pre><code>$ fastx_barcode_splitter.pl
+Barcode Splitter, <span class="keyword">by</span> Assaf Gordon (gordon@cshl.edu), <span class="number">11</span>sep2008
+
+This program reads FASTA/FASTQ <span class="type">file</span> <span class="keyword">and</span> splits <span class="keyword">it</span> <span class="keyword">into</span> several smaller files,
+Based <span class="function_start"><span class="keyword">on</span></span> barcode matching.
+FASTA/FASTQ data <span class="keyword">is</span> <span class="command">read</span> <span class="keyword">from</span> STDIN (format <span class="keyword">is</span> auto-detected.)
+Output files will be writen <span class="keyword">to</span> disk.
+Summary will be printed <span class="keyword">to</span> STDOUT.
+
+usage: /usr/<span class="keyword">local</span>/bin/fastx_barcode_splitter.pl <span class="comment">--bcfile FILE --prefix PREFIX [--suffix SUFFIX] [--bol|--eol] </span>
+     [<span class="comment">--mismatches N] [--exact] [--partial N] [--help] [--quiet] [--debug]</span>
+
+Arguments:
+
+<span class="comment">--bcfile FILE    - Barcodes file name. (see explanation below.)</span>
+<span class="comment">--prefix PREFIX    - File prefix. will be added to the output files. Can be used</span>
+          <span class="keyword">to</span> specify output directories.
+<span class="comment">--suffix SUFFIX    - File suffix (optional). Can be used to specify file</span>
+          extensions.
+<span class="comment">--bol        - Try to match barcodes at the BEGINNING of sequences.</span>
+          (What biologists would call <span class="keyword">the</span> <span class="number">5</span>' <span class="keyword">end</span>, <span class="keyword">and</span> programmers
+          would call index <span class="number">0.</span>)
+<span class="comment">--eol        - Try to match barcodes at the END of sequences.</span>
+          (What biologists would call <span class="keyword">the</span> <span class="number">3</span>' <span class="keyword">end</span>, <span class="keyword">and</span> programmers
+          would call <span class="keyword">the</span> <span class="keyword">end</span> <span class="keyword">of</span> <span class="keyword">the</span> <span class="type">string</span>.)
+          NOTE: one <span class="keyword">of</span> <span class="comment">--bol, --eol must be specified, but not both.</span>
+<span class="comment">--mismatches N    - Max. number of mismatches allowed. default is 1.</span>
+<span class="comment">--exact        - Same as '--mismatches 0'. If both --exact and --mismatches </span>
+          are specified, '<span class="comment">--exact' takes precedence.</span>
+<span class="comment">--partial N    - Allow partial overlap of barcodes. (see explanation below.)</span>
+          (Default <span class="keyword">is</span> <span class="keyword">not</span> partial matching)
+<span class="comment">--quiet        - Don't print counts and summary at the end of the run.</span>
+          (Default <span class="keyword">is</span> <span class="keyword">to</span> print.)
+<span class="comment">--debug        - Print lots of useless debug information to STDERR.</span>
+<span class="comment">--help        - This helpful help screen.</span>
+
+Example (Assuming 's_2_100.txt' <span class="keyword">is</span> a FASTQ <span class="type">file</span>, 'mybarcodes.txt' <span class="keyword">is</span> 
+
+<span class="keyword">the</span> barcodes <span class="type">file</span>):
+
+   $ cat s_2_100.txt | /usr/<span class="keyword">local</span>/bin/fastx_barcode_splitter.pl <span class="comment">--bcfile mybarcodes.txt --bol --mismatches 2 \</span>
+    <span class="comment">--prefix /tmp/bla_ --suffix ".txt"</span>
+
+Barcode <span class="type">file</span> format
+<span class="comment">-------------------</span>
+Barcode files are simple <span class="type">text</span> files. Each line should <span class="keyword">contain</span> an identifier 
+(descriptive <span class="property">name</span> <span class="keyword">for</span> <span class="keyword">the</span> barcode), <span class="keyword">and</span> <span class="keyword">the</span> barcode itself (A/C/G/T), 
+separated <span class="keyword">by</span> a TAB <span class="property">character</span>. Example:
+
+    <span class="comment">#This line is a comment (starts with a 'number' sign)</span>
+    BC1 GATCT
+    BC2 ATCGT
+    BC3 GTGAT
+    BC4 TGTCT
+
+For each barcode, a new FASTQ <span class="type">file</span> will be created (<span class="keyword">with</span> <span class="keyword">the</span> barcode's 
+identifier <span class="keyword">as</span> part <span class="keyword">of</span> <span class="keyword">the</span> <span class="type">file</span> <span class="property">name</span>). Sequences matching <span class="keyword">the</span> barcode 
+will be stored <span class="keyword">in</span> <span class="keyword">the</span> appropriate <span class="type">file</span>.
+
+Running <span class="keyword">the</span> <span class="keyword">above</span> example (assuming <span class="string">"mybarcodes.txt"</span> <span class="keyword">contains</span> <span class="keyword">the</span> <span class="keyword">above</span> 
+barcodes), will create <span class="keyword">the</span> following files:
+    /tmp/bla_BC1.txt
+    /tmp/bla_BC2.txt
+    /tmp/bla_BC3.txt
+    /tmp/bla_BC4.txt
+    /tmp/bla_unmatched.txt
+The 'unmatched' <span class="type">file</span> will <span class="keyword">contain</span> all sequences <span class="keyword">that</span> didn't match any barcode.
+
+Barcode matching
+<span class="comment">----------------</span>
+
+** Without partial matching:
+
+Count mismatches <span class="keyword">between</span> <span class="keyword">the</span> FASTA/Q sequences <span class="keyword">and</span> <span class="keyword">the</span> barcodes.
+The barcode which matched <span class="keyword">with</span> <span class="keyword">the</span> lowest mismatches <span class="command">count</span> (providing <span class="keyword">the</span>
+<span class="command">count</span> <span class="keyword">is</span> small <span class="keyword">or</span> <span class="keyword">equal</span> <span class="keyword">to</span> '<span class="comment">--mismatches N') 'gets' the sequences.</span>
+
+Example (using <span class="keyword">the</span> <span class="keyword">above</span> barcodes):
+Input Sequence:
+    GATTTACTATGTAAAGATAGAAGGAATAAGGTGAAG
+
+Matching <span class="keyword">with</span> '<span class="comment">--bol --mismatches 1':</span>
+   GATTTACTATGTAAAGATAGAAGGAATAAGGTGAAG
+   GATCT (<span class="number">1</span> mismatch, BC1)
+   ATCGT (<span class="number">4</span> mismatches, BC2)
+   GTGAT (<span class="number">3</span> mismatches, BC3)
+   TGTCT (<span class="number">3</span> mismatches, BC4)
+
+This sequence will be classified <span class="keyword">as</span> 'BC1' (<span class="keyword">it</span> has <span class="keyword">the</span> lowest mismatch <span class="command">count</span>).
+If '<span class="comment">--exact' or '--mismatches 0' were specified, this sequence would be </span>
+classified <span class="keyword">as</span> 'unmatched' (because, although BC1 had <span class="keyword">the</span> lowest mismatch <span class="command">count</span>,
+<span class="keyword">it</span> <span class="keyword">is</span> <span class="keyword">above</span> <span class="keyword">the</span> maximum allowed mismatches).
+
+Matching <span class="keyword">with</span> '<span class="comment">--eol' (end of line) does the same, but from the other side</span>
+<span class="keyword">of</span> <span class="keyword">the</span> sequence.
+
+** With partial matching (very similar <span class="keyword">to</span> indels):
+
+Same <span class="keyword">as</span> <span class="keyword">above</span>, <span class="keyword">with</span> <span class="keyword">the</span> following addition: barcodes are also checked <span class="keyword">for</span>
+partial overlap (<span class="type">number</span> <span class="keyword">of</span> allowed non-overlapping bases <span class="keyword">is</span> '<span class="comment">--partial N').</span>
+
+Example:
+Input sequence <span class="keyword">is</span> ATTTACTATGTAAAGATAGAAGGAATAAGGTGAAG
+(Same <span class="keyword">as</span> <span class="keyword">above</span>, <span class="keyword">but</span> note <span class="keyword">the</span> missing 'G' <span class="keyword">at</span> <span class="keyword">the</span> <span class="keyword">beginning</span>.)
+
+Matching (<span class="keyword">without</span> partial overlapping) <span class="keyword">against</span> BC1 yields <span class="number">4</span> mismatches:
+   ATTTACTATGTAAAGATAGAAGGAATAAGGTGAAG
+   GATCT (<span class="number">4</span> mismatches)
+
+Partial overlapping would also <span class="keyword">try</span> <span class="keyword">the</span> following match:
+   -ATTTACTATGTAAAGATAGAAGGAATAAGGTGAAG
+   GATCT (<span class="number">1</span> mismatch)
+
+Note: scoring counts a missing base <span class="keyword">as</span> a mismatch, so <span class="keyword">the</span> final
+mismatch <span class="command">count</span> <span class="keyword">is</span> <span class="number">2</span> (<span class="number">1</span> '<span class="type">real</span>' mismatch, <span class="number">1</span> 'missing base' mismatch).
+If <span class="property">running</span> <span class="keyword">with</span> '<span class="comment">--mismatches 2' (meaning allowing upto 2 mismatches) - this </span>
+seqeunce will be classified <span class="keyword">as</span> BC1.
+</code></pre><h2 id="Example:_FASTQ_Information">Example: FASTQ Information</h2><h3 id="Genrating_Quality_Information_on_BC54-fq:">Genrating Quality Information on BC54.fq:</h3><p>$ fastx_quality_stats -i BC54.fq -o bc54_stats.txt<br>$ fastq_quality_boxplot_graph.sh -i bc54_stats.txt -o bc54_quality.png -t “My Library”<br>$ fastx_nucleotide_distribution_graph.sh -i bc54_stats.txt -o bc54_nuc.png -t “My Library”</p>
+<p></p><p><img src="http://7xk19o.com1.z0.glb.clouddn.com/bc54_quality.png" alt=""><br><img src="http://7xk19o.com1.z0.glb.clouddn.com/bc54_nuc.png" alt=""></p> <p></p>
+<h2 id="Example:_FASTQ/A_Manipulation">Example: FASTQ/A Manipulation</h2><h3 id="Common_pre-processing_work-flow:">Common pre-processing work-flow:</h3><p>Covnerting FASTQ to FASTA<br>Clipping the Adapter/Linker<br>Trimming to 27nt (if you’re analyzing miRNAs, for example)<br>Collapsing the sequences<br>Plotting the clipping results</p>
+<h3 id="Using_the_FASTX-toolkit_from_the_command_line:">Using the FASTX-toolkit from the command line:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$ fastq_to_fasta -v -n -i BC54.fq -o BC54.fa</span><br><span class="line">Input: <span class="number">100000</span> reads.</span><br><span class="line">Output: <span class="number">100000</span> reads.</span><br><span class="line">$ fastx_clipper -v -i BC54.fa <span class="operator">-a</span> CTGTAGGCACCATCAATTCGTA -o BC54.clipped.fa</span><br><span class="line">Clipping Adapter: CTGTAGGCACCATCAATTCGTA</span><br><span class="line">Min. Length: <span class="number">15</span></span><br><span class="line">Input: <span class="number">100000</span> reads.</span><br><span class="line">Output: <span class="number">92533</span> reads.</span><br><span class="line">discarded <span class="number">468</span> too-short reads.</span><br><span class="line">discarded <span class="number">6939</span> adapter-only reads.</span><br><span class="line">discarded <span class="number">60</span> N reads.</span><br><span class="line">$ fastx_trimmer -v <span class="operator">-f</span> <span class="number">1</span> <span class="operator">-l</span> <span class="number">27</span> -i BC54.clipped.fa -o BC54.trimmed.fa</span><br><span class="line">Trimming: base <span class="number">1</span> to <span class="number">27</span></span><br><span class="line">Input: <span class="number">92533</span> reads.</span><br><span class="line">Output: <span class="number">92533</span> reads.</span><br><span class="line">$ fastx_collapser -v -i BC54.trimmed.fa -o BC54.collapsed.fa</span><br><span class="line">Collapsd <span class="number">92533</span> reads into <span class="number">36431</span> unique sequences.</span><br><span class="line">$ fasta_clipping_histogram.pl BC54.collapsed.fa bc54_clipping.png</span><br></pre></td></tr></table></figure>
+<h3 id="Mapping_(or_any_other_kind_of_analysis)_of_the_Clipped_+_Collapsed_FASTA_file_will_be:">Mapping (or any other kind of analysis) of the Clipped + Collapsed FASTA file will be:</h3><p>quicker - each unique sequence appears only once in the FASTA file.<br>more accurate - the Adapter/Linker sequence was removed from the 3’ end, and will affect the mapping results.</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Bioinformatics/">Bioinformatics</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/FASTX/">FASTX</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://tiramisutes.github.io/2015/07/24/FASTX-Toolkit/" data-title="FASTX-Toolkit | Hope" data-tsina="2458965923" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/07/25/Linux-sort/" title="Linux-sort">
+  <strong>Prev →：</strong><br/>
+  <span>
+  Linux-sort</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/07/24/hello-world/"  title="Hello World">
+ <strong>← Next：</strong><br/> 
+ <span>Hello World
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/07/24/FASTX-Toolkit/" data-title="FASTX-Toolkit" data-url="http://tiramisutes.github.io/2015/07/24/FASTX-Toolkit/"></div>
+</section>
+
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Command_Line_Arguments"><span class="toc-number">1.</span> <span class="toc-text">Command Line Arguments</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#FASTQ-to-FASTA"><span class="toc-number">1.1.</span> <span class="toc-text">FASTQ-to-FASTA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FASTX_Statistics"><span class="toc-number">1.2.</span> <span class="toc-text">FASTX Statistics</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FASTQ_Quality_Chart"><span class="toc-number">1.3.</span> <span class="toc-text">FASTQ Quality Chart</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FASTA/Q_Nucleotide_Distribution"><span class="toc-number">1.4.</span> <span class="toc-text">FASTA/Q Nucleotide Distribution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FASTA/Q_Clipper"><span class="toc-number">1.5.</span> <span class="toc-text">FASTA/Q Clipper</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FASTA/Q_Renamer"><span class="toc-number">1.6.</span> <span class="toc-text">FASTA/Q Renamer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FASTA/Q_Trimmer"><span class="toc-number">1.7.</span> <span class="toc-text">FASTA/Q Trimmer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FASTA/Q_Collapser"><span class="toc-number">1.8.</span> <span class="toc-text">FASTA/Q Collapser</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FASTQ/A_Artifacts_Filter"><span class="toc-number">1.9.</span> <span class="toc-text">FASTQ/A Artifacts Filter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FASTQ_Quality_Filter"><span class="toc-number">1.10.</span> <span class="toc-text">FASTQ Quality Filter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FASTQ/A_Reverse_Complement"><span class="toc-number">1.11.</span> <span class="toc-text">FASTQ/A Reverse Complement</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FASTA_Formatter"><span class="toc-number">1.12.</span> <span class="toc-text">FASTA Formatter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FASTA_Nucleotides_Changer"><span class="toc-number">1.13.</span> <span class="toc-text">FASTA Nucleotides Changer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FASTA_Clipping_Histogram"><span class="toc-number">1.14.</span> <span class="toc-text">FASTA Clipping Histogram</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FASTX_Barcode_Splitter"><span class="toc-number">1.15.</span> <span class="toc-text">FASTX Barcode Splitter</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example:_FASTQ_Information"><span class="toc-number">2.</span> <span class="toc-text">Example: FASTQ Information</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Genrating_Quality_Information_on_BC54-fq:"><span class="toc-number">2.1.</span> <span class="toc-text">Genrating Quality Information on BC54.fq:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example:_FASTQ/A_Manipulation"><span class="toc-number">3.</span> <span class="toc-text">Example: FASTQ/A Manipulation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Common_pre-processing_work-flow:"><span class="toc-number">3.1.</span> <span class="toc-text">Common pre-processing work-flow:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Using_the_FASTX-toolkit_from_the_command_line:"><span class="toc-number">3.2.</span> <span class="toc-text">Using the FASTX-toolkit from the command line:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mapping_(or_any_other_kind_of_analysis)_of_the_Clipped_+_Collapsed_FASTA_file_will_be:"><span class="toc-number">3.3.</span> <span class="toc-text">Mapping (or any other kind of analysis) of the Clipped + Collapsed FASTA file will be:</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Bioinformatics/" title="Bioinformatics">Bioinformatics<sup>10</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Google/" title="Google">Google<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Hexo/" title="Hexo">Hexo<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/R/" title="R">R<sup>6</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/error-bars/" title="error_bars">error_bars<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/awk/" title="awk">awk<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/resequencing/" title="resequencing">resequencing<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/perl/" title="perl">perl<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/perl-diff/" title="perl_diff">perl_diff<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/mytheme/" title="mytheme">mytheme<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/linux-command/" title="linux_command">linux_command<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CRISPR-Cas9/" title="CRISPR/Cas9">CRISPR/Cas9<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/grep/" title="grep">grep<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Google/" title="Google">Google<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/sitemap/" title="sitemap">sitemap<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/经典配色/" title="经典配色">经典配色<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Chrome-Plug-in/" title="Chrome Plug-in">Chrome Plug-in<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/bio-online/" title="bio-online">bio-online<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/rss/" title="rss">rss<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tophat/" title="tophat">tophat<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/RStudio-RPubs/" title="RStudio_RPubs">RStudio_RPubs<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/R-PCA/" title="R_PCA">R_PCA<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">Tag Cloud</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/CRISPR-Cas9/" style="font-size: 10px;">CRISPR/Cas9</a> <a href="/tags/Chrome-Plug-in/" style="font-size: 10px;">Chrome Plug-in</a> <a href="/tags/Cufflinks/" style="font-size: 10px;">Cufflinks</a> <a href="/tags/CummeRbund/" style="font-size: 10px;">CummeRbund</a> <a href="/tags/FASTX/" style="font-size: 10px;">FASTX</a> <a href="/tags/Google/" style="font-size: 10px;">Google</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Linux-backup/" style="font-size: 10px;">Linux_backup</a> <a href="/tags/RStudio-RPubs/" style="font-size: 10px;">RStudio_RPubs</a> <a href="/tags/R-PCA/" style="font-size: 10px;">R_PCA</a> <a href="/tags/awk/" style="font-size: 15px;">awk</a> <a href="/tags/bio-online/" style="font-size: 10px;">bio-online</a> <a href="/tags/error-bars/" style="font-size: 20px;">error_bars</a> <a href="/tags/firewall/" style="font-size: 10px;">firewall</a> <a href="/tags/grep/" style="font-size: 10px;">grep</a> <a href="/tags/linux-command/" style="font-size: 10px;">linux_command</a> <a href="/tags/mytheme/" style="font-size: 10px;">mytheme</a> <a href="/tags/perl/" style="font-size: 10px;">perl</a> <a href="/tags/perl-diff/" style="font-size: 10px;">perl_diff</a> <a href="/tags/resequencing/" style="font-size: 10px;">resequencing</a> <a href="/tags/rss/" style="font-size: 10px;">rss</a> <a href="/tags/sitemap/" style="font-size: 10px;">sitemap</a> <a href="/tags/tophat/" style="font-size: 10px;">tophat</a> <a href="/tags/经典配色/" style="font-size: 10px;">经典配色</a>
+    </div>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://cotton.hzau.edu.cn/" target="_blank" title="作物遗传改良国家重点实验室">棉花遗传改良团队</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.bio-info-trainee.com/" target="_blank" title="生信菜鸟团-深圳大学城">生信菜鸟团-深圳大学城</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.sequencing.uio.no/" target="_blank" title="NSC-sequenceing">NSC-sequenceing</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.jobbole.com/" target="_blank" title="伯乐在线">伯乐在线</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://linux.cn/" target="_blank" title="Linux开源中文社区">Linux开源中文社区</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.r-bloggers.com/" target="_blank" title="R news and tutorials">R-bloggers</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://cran.r-project.org/other-docs.html" target="_blank" title="R Contributed Documentation">R-resource</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=2458965923&verifier=0cb325a7&dpc=1"></iframe>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/sitemaps-rss/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  
+
+<div >
+	<a src="http://7xk19o.com1.z0.glb.clouddn.com/IMG_2460.JPG"></a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m hope in Google. <br/>
+			I&#39;ll share my learning experience with you at this blog.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/http://weibo.com/tiramisutesTes" target="_blank" class="icon-weibo" title="Weibo"></a>
+		
+		
+		<a href="https://github.com/tiramisutes" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/xzpgocxx" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		<a href="https://www.facebook.com/xzpiphone" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		
+		
+		
+		<a href="https://www.evernote.com/Home.action#n=2899a4d8-15a8-478c-8946-2ce0c637d34b&amp;ses=4&amp;sh=2&amp;sds=5&amp;" target="_blank" class="icon-zhihu" title="Evernote"></a>
+		
+		
+		<a href="https://plus.google.com/103840563918867166597?rel=author" target="_blank" class="icon-google_plus" title="Google+"></a>
+		
+		
+		<a href="mailto:1099808298@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="tiramisutes">tiramisutes</a>
+		
+		<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+                </script>
+		<span id="busuanzi_container_site_pv" style='display:none'>
+                      | <a style="line-height: 1.5;" href="http://c4.gostats.cn/last_guests.xml?id=397056" target="_blank">The total visits <span id="busuanzi_value_site_pv"></span> times</a>
+                </span>
+		</p>
+		<!-- GoStats JavaScript Based Code -->
+                <script type="text/javascript" src="http://gostats.cn/js/counter.js"></script>
+                <script type="text/javascript">_gos='c4.gostats.cn';_goa=397056;
+                _got=5;_goi=1;_GoStatsRun();</script>
+                <noscript><a target="_blank" 
+                href="http://gostats.cn"><img src="http://c4.gostats.cn/bin/count/a_397056/t_5/i_1/counter.png" 
+                style="border-width:0" /></a></noscript>
+                <!-- End GoStats JavaScript Based Code -->		
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="WeChat"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="RenRen"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"Hope"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'Hope';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fe4648af2d5afaf376a4a8b2a3b1a8d## e.g. e6d1f421bbc9962127a50488f9ed37d1 your baidu tongji site code' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

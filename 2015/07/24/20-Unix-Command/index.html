@@ -1,0 +1,739 @@
+
+ <!DOCTYPE HTML>
+<html lang="default">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>20 Unix Command Line Tricks | Hope</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="tiramisutes">
+    
+
+    
+    <meta name="description" content="Let us start new year with these Unix command line tricks to increase productivity at the Terminal. I have found them over the years and I’m now going to share with you.
+ 
+Deleting a HUGE fileI had a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="20 Unix Command Line Tricks">
+<meta property="og:url" content="http://tiramisutes.github.io/2015/07/24/20-Unix-Command/index.html">
+<meta property="og:site_name" content="Hope">
+<meta property="og:description" content="Let us start new year with these Unix command line tricks to increase productivity at the Terminal. I have found them over the years and I’m now going to share with you.
+ 
+Deleting a HUGE fileI had a">
+<meta property="og:image" content="http://s0.cyberciti.org/uploads/cms/2015/01/unix-command-line-tricks.001.jpg">
+<meta property="og:image" content="http://s0.cyberciti.org/uploads/cms/2015/01/differences-between-folders.jpg">
+<meta property="og:updated_time" content="2015-07-25T06:16:23.975Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="20 Unix Command Line Tricks">
+<meta name="twitter:description" content="Let us start new year with these Unix command line tricks to increase productivity at the Terminal. I have found them over the years and I’m now going to share with you.
+ 
+Deleting a HUGE fileI had a">
+<meta name="twitter:creator" content="@xzpgocxx">
+<link rel="publisher" href="103840563918867166597">
+
+    
+    <link rel="alternative" href="/sitemaps-rss/atom.xml" title="Hope" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Hope">Hope</a></h1>
+				<h2 class="blog-motto">A new day is coming,whether we like it or not. The question is will you conutrol it,or will it control you?</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/coding">Coding</a></li>
+					
+						<li><a href="/huazhong">HuaZhong</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/07/24/20-Unix-Command/" title="20 Unix Command Line Tricks" itemprop="url">20 Unix Command Line Tricks</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/103840563918867166597?rel=author" title="tiramisutes" target="_blank" itemprop="author">tiramisutes</a>
+		
+  <p class="article-time">
+    <time datetime="2015-07-24T14:03:30.000Z" itemprop="datePublished"> Published 2015-07-24</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Deleting_a_HUGE_file"><span class="toc-number">1.</span> <span class="toc-text">Deleting a HUGE file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Want_to_cache_console_output?"><span class="toc-number">2.</span> <span class="toc-text">Want to cache console output?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Restoring_deleted_/tmp_folder"><span class="toc-number">3.</span> <span class="toc-text">Restoring deleted /tmp folder</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Locking_a_directory"><span class="toc-number">4.</span> <span class="toc-text">Locking a directory</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Password_protecting_file_in_vim_text_editor"><span class="toc-number">5.</span> <span class="toc-text">Password protecting file in vim text editor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Becoming_human"><span class="toc-number">6.</span> <span class="toc-text">Becoming human</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Show_information_about_known_users_in_the_Linux_based_system"><span class="toc-number">7.</span> <span class="toc-text">Show information about known users in the Linux based system</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How_do_I_fix_mess_created_by_accidentally_untarred_files_in_the_current_dir?"><span class="toc-number">8.</span> <span class="toc-text">How do I fix mess created by accidentally untarred files in the current dir?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Confused_on_a_top_command_output?"><span class="toc-number">9.</span> <span class="toc-text">Confused on a top command output?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Want_to_run_the_same_command_again?"><span class="toc-number">10.</span> <span class="toc-text">Want to run the same command again?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Get_a_reminder_you_when_you_have_to_leave"><span class="toc-number">11.</span> <span class="toc-text">Get a reminder you when you have to leave</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Home_sweet_home"><span class="toc-number">12.</span> <span class="toc-text">Home sweet home</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Editing_a_file_being_viewed_with_less_pager"><span class="toc-number">13.</span> <span class="toc-text">Editing a file being viewed with less pager</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Quickly_find_differences_between_two_directories"><span class="toc-number">14.</span> <span class="toc-text">Quickly find differences between two directories</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Text_formatting"><span class="toc-number">15.</span> <span class="toc-text">Text formatting</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#See_the_output_and_write_it_to_a_file"><span class="toc-number">16.</span> <span class="toc-text">See the output and write it to a file</span></a></li></ol>
+		
+		</div>
+		
+		<p>Let us start new year with these Unix command line tricks to increase productivity at the Terminal. I have found them over the years and I’m now going to share with you.</p>
+<p></p><p><img src="http://s0.cyberciti.org/uploads/cms/2015/01/unix-command-line-tricks.001.jpg" alt=""></p> <p></p>
+<h3 id="Deleting_a_HUGE_file">Deleting a HUGE file</h3><p>I had a huge log file 200GB I need to delete on a production web server. My rm and ls command was crashed and I was afraid that the system to a crawl with huge disk I/O load. To remove a HUGE file, enter:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; /path/to/file.log</span><br><span class="line"><span class="comment"># or use the following syntax</span></span><br><span class="line">: &gt; /path/to/file.log</span><br><span class="line"> </span><br><span class="line"><span class="comment"># finally delete it </span></span><br><span class="line">rm /path/to/file.log</span><br></pre></td></tr></table></figure>
+<h3 id="Want_to_cache_console_output?">Want to cache console output?</h3><p>Try the script command line utility to create a typescript of everything printed on your terminal.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">script my.terminal.session</span><br></pre></td></tr></table></figure>
+<p>Type commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ls</span><br><span class="line">date</span><br><span class="line">sudo service foo stop</span><br></pre></td></tr></table></figure></p>
+<p>To exit (to end script session) type exit or logout or press control-D<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure></p>
+<p>To view type:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">more my.terminal.session</span><br><span class="line">less my.terminal.session</span><br><span class="line">cat my.terminal.session</span><br></pre></td></tr></table></figure>
+<h3 id="Restoring_deleted_/tmp_folder">Restoring deleted /tmp folder</h3><p>As my journey continues with Linux and Unix shell, I made a few mistakes. I accidentally deleted /tmp folder. To restore it all you have to do is:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir /tmp</span><br><span class="line">chmod <span class="number">1777</span> /tmp</span><br><span class="line">chown root:root /tmp</span><br><span class="line">ls -ld /tmp</span><br></pre></td></tr></table></figure></p>
+<h3 id="Locking_a_directory">Locking a directory</h3><p>For privacy of my data I wanted to lock down /downloads on my file server. So I ran:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod <span class="number">0000</span> /downloads</span><br></pre></td></tr></table></figure></p>
+<p>The root user can still has access and ls and cd commands will not work. To go back:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod <span class="number">0755</span> /downloads</span><br></pre></td></tr></table></figure></p>
+<h3 id="Password_protecting_file_in_vim_text_editor">Password protecting file in vim text editor</h3><p>Afraid that root user or someone may snoop into your personal text files? Try password protection to a file in vim, type:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">vim +X filename</span><br><span class="line">``` </span><br><span class="line">Or, before quitting <span class="keyword">in</span> vim use :X vim <span class="built_in">command</span> to encrypt your file and vim will prompt <span class="keyword">for</span> a password.</span><br><span class="line"></span><br><span class="line"><span class="comment">### Clear gibberish all over the screen</span></span><br><span class="line"></span><br><span class="line">Just <span class="built_in">type</span>:</span><br><span class="line"></span><br><span class="line">``` bash </span><br><span class="line">reset</span><br></pre></td></tr></table></figure></p>
+<h3 id="Becoming_human">Becoming human</h3><p>Pass the -h or -H (and other options) command line option to GNU or BSD utilities to get output of command commands like ls, df, du, in human-understandable formats:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">ls -lh</span><br><span class="line"><span class="comment"># print sizes in human readable format (e.g., 1K 234M 2G)</span></span><br><span class="line">df -h</span><br><span class="line">df -k</span><br><span class="line"><span class="comment"># show output in bytes, KB, MB, or GB</span></span><br><span class="line">free -b</span><br><span class="line">free -k</span><br><span class="line">free -m</span><br><span class="line">free -g</span><br><span class="line"><span class="comment"># print sizes in human readable format (e.g., 1K 234M 2G)</span></span><br><span class="line">du -h</span><br><span class="line"><span class="comment"># get file system perms in human readable format</span></span><br><span class="line"><span class="built_in">stat</span> -c %A /boot</span><br><span class="line"><span class="comment"># compare human readable numbers</span></span><br><span class="line">sort -h <span class="operator">-a</span> file</span><br><span class="line"><span class="comment"># display the CPU information in human readable format on a Linux</span></span><br><span class="line">lscpu</span><br><span class="line">lscpu <span class="operator">-e</span></span><br><span class="line">lscpu <span class="operator">-e</span>=cpu,node</span><br><span class="line"><span class="comment"># Show the  size of each file but in a more human readable way</span></span><br><span class="line">tree -h</span><br><span class="line">tree -h /boot</span><br></pre></td></tr></table></figure>
+<h3 id="Show_information_about_known_users_in_the_Linux_based_system">Show information about known users in the Linux based system</h3><p>Just type:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## linux version ##</span></span><br><span class="line">lslogins</span><br><span class="line"> </span><br><span class="line"><span class="comment">## BSD version ##</span></span><br><span class="line">logins</span><br></pre></td></tr></table></figure></p>
+<p>Sample outputs:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">UID USER      PWD-LOCK PWD-DENY LAST-LOGIN GECOS</span><br><span class="line">  <span class="number">0</span> root             <span class="number">0</span>        <span class="number">0</span>   <span class="number">22</span>:<span class="number">37</span>:<span class="number">59</span> root</span><br><span class="line">  <span class="number">1</span> bin              <span class="number">0</span>        <span class="number">1</span>            bin</span><br><span class="line">  <span class="number">2</span> daemon           <span class="number">0</span>        <span class="number">1</span>            daemon</span><br><span class="line">  <span class="number">3</span> adm              <span class="number">0</span>        <span class="number">1</span>            adm</span><br><span class="line">  <span class="number">4</span> lp               <span class="number">0</span>        <span class="number">1</span>            lp</span><br><span class="line">  <span class="number">5</span> sync             <span class="number">0</span>        <span class="number">1</span>            sync</span><br><span class="line">  <span class="number">6</span> shutdown         <span class="number">0</span>        <span class="number">1</span> <span class="number">2014</span>-Dec17 shutdown</span><br><span class="line">  <span class="number">7</span> halt             <span class="number">0</span>        <span class="number">1</span>            halt</span><br><span class="line">  <span class="number">8</span> mail             <span class="number">0</span>        <span class="number">1</span>            mail</span><br><span class="line"> <span class="number">10</span> uucp             <span class="number">0</span>        <span class="number">1</span>            uucp</span><br><span class="line"> <span class="number">11</span> operator         <span class="number">0</span>        <span class="number">1</span>            operator</span><br><span class="line"> <span class="number">12</span> games            <span class="number">0</span>        <span class="number">1</span>            games</span><br><span class="line"> <span class="number">13</span> gopher           <span class="number">0</span>        <span class="number">1</span>            gopher</span><br><span class="line"> <span class="number">14</span> ftp              <span class="number">0</span>        <span class="number">1</span>            FTP User</span><br><span class="line"> <span class="number">27</span> mysql            <span class="number">0</span>        <span class="number">1</span>            MySQL Server</span><br><span class="line"> <span class="number">38</span> ntp              <span class="number">0</span>        <span class="number">1</span></span><br><span class="line"> <span class="number">48</span> apache           <span class="number">0</span>        <span class="number">1</span>            Apache</span><br><span class="line"> <span class="number">68</span> haldaemon        <span class="number">0</span>        <span class="number">1</span>            HAL daemon</span><br><span class="line"> <span class="number">69</span> vcsa             <span class="number">0</span>        <span class="number">1</span>            virtual console memory owner</span><br><span class="line"> <span class="number">72</span> tcpdump          <span class="number">0</span>        <span class="number">1</span></span><br><span class="line"> <span class="number">74</span> sshd             <span class="number">0</span>        <span class="number">1</span>            Privilege-separated SSH</span><br><span class="line"> <span class="number">81</span> dbus             <span class="number">0</span>        <span class="number">1</span>            System message bus</span><br><span class="line"> <span class="number">89</span> postfix          <span class="number">0</span>        <span class="number">1</span></span><br><span class="line"> <span class="number">99</span> nobody           <span class="number">0</span>        <span class="number">1</span>            Nobody</span><br><span class="line"><span class="number">173</span> abrt             <span class="number">0</span>        <span class="number">1</span></span><br><span class="line"><span class="number">497</span> vnstat           <span class="number">0</span>        <span class="number">1</span>            vnStat user</span><br><span class="line"><span class="number">498</span> nginx            <span class="number">0</span>        <span class="number">1</span>            nginx user</span><br><span class="line"><span class="number">499</span> saslauth         <span class="number">0</span>        <span class="number">1</span>            <span class="string">"Saslauthd user"</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="How_do_I_fix_mess_created_by_accidentally_untarred_files_in_the_current_dir?">How do I fix mess created by accidentally untarred files in the current dir?</h3><p>So I accidentally untar a tarball in /var/www/html/ directory instead of /home/projects/www/current. It created mess in /var/www/html/. The easiest way to fix this mess:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/www/html/</span><br><span class="line">/bin/rm <span class="operator">-f</span> <span class="string">"<span class="variable">$(tar ztf /path/to/file.tar.gz)</span>"</span></span><br></pre></td></tr></table></figure>
+<h3 id="Confused_on_a_top_command_output?">Confused on a top command output?</h3><p>Seriously, you need to try out htop instead of top:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo htop</span><br></pre></td></tr></table></figure></p>
+<h3 id="Want_to_run_the_same_command_again?">Want to run the same command again?</h3><p>Just type !!. For example:</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/myhome/dir/script/name arg1 arg2</span><br><span class="line"> </span><br><span class="line"><span class="comment"># To run the same command again </span></span><br><span class="line">!!</span><br><span class="line"> </span><br><span class="line"><span class="comment">## To run the last command again as root user</span></span><br><span class="line">sudo !!</span><br></pre></td></tr></table></figure>
+<p>The !! repeats the most recent command. To run the most recent command beginning with “foo”:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">!foo</span><br><span class="line"><span class="comment"># Run the most recent command beginning with "service" as root</span></span><br><span class="line">sudo !service</span><br></pre></td></tr></table></figure></p>
+<p>The !$ use to run command with the last argument of the most recent command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Edit nginx.conf</span></span><br><span class="line">sudo vi /etc/nginx/nginx.conf</span><br><span class="line"> </span><br><span class="line"><span class="comment"># Test nginx.conf for errors</span></span><br><span class="line">/sbin/nginx -t -c /etc/nginx/nginx.conf</span><br><span class="line"> </span><br><span class="line"><span class="comment"># After testing a file with "/sbin/nginx -t -c /etc/nginx/nginx.conf", you</span></span><br><span class="line"><span class="comment"># can edit file again with vi</span></span><br><span class="line">sudo vi !$</span><br></pre></td></tr></table></figure></p>
+<h3 id="Get_a_reminder_you_when_you_have_to_leave">Get a reminder you when you have to leave</h3><p>If you need a reminder to leave your terminal, type the following command:</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">leave +hhmm</span><br></pre></td></tr></table></figure>
+<p>Where,</p>
+<p>hhmm - The time of day is in the form hhmm where hh is a time in hours (on a 12 or 24 hour clock), and mm are minutes. All times are converted to a 12 hour clock, and assumed to be in the next 12 hours.</p>
+<h3 id="Home_sweet_home">Home sweet home</h3><p>Want to go the directory you were just in? Run:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> -</span><br></pre></td></tr></table></figure></p>
+<p>Need to quickly return to your home directory? Enter:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span></span><br></pre></td></tr></table></figure></p>
+<p>The variable CDPATH defines the search path for the directory containing directories:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> CDPATH=/var/www:/nas10</span><br></pre></td></tr></table></figure></p>
+<p>Now, instead of typing cd /var/www/html/ I can simply type the following to cd into /var/www/html path:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> html</span><br></pre></td></tr></table></figure></p>
+<h3 id="Editing_a_file_being_viewed_with_less_pager">Editing a file being viewed with less pager</h3><p>To edit a file being viewed with less pager, press v. You will have the file for edit under $EDITOR:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">less *.c</span><br><span class="line">less foo.html</span><br><span class="line"><span class="comment">## Press v to edit file ##</span></span><br><span class="line"><span class="comment">## Quit from editor and you would return to the less pager again ##</span></span><br><span class="line">``` bash</span><br><span class="line"><span class="comment">### List all files or directories on your system</span></span><br><span class="line"></span><br><span class="line">To see all of the directories on your system, run:</span><br><span class="line">``` bash</span><br><span class="line">find / -type d | less</span><br><span class="line"> </span><br><span class="line"><span class="comment"># List all directories in your $HOME</span></span><br><span class="line">find <span class="variable">$HOME</span> -type d -ls | less</span><br><span class="line">``` </span><br><span class="line">To see all of the files, run:</span><br><span class="line">``` bash</span><br><span class="line">find / -type f | less</span><br><span class="line"> </span><br><span class="line"><span class="comment"># List all files in your $HOME</span></span><br><span class="line">find <span class="variable">$HOME</span> -type f -ls | less</span><br><span class="line">``` </span><br><span class="line"><span class="comment">### Build directory trees in a single command</span></span><br><span class="line"></span><br><span class="line">You can create directory trees one at a time using mkdir <span class="built_in">command</span> by passing the -p option:</span><br><span class="line">``` bash</span><br><span class="line">mkdir -p /jail/&#123;dev,bin,sbin,etc,usr,lib,lib64&#125;</span><br><span class="line">ls <span class="operator">-l</span> /jail/</span><br><span class="line">``` </span><br><span class="line"><span class="comment">### Copy file into multiple directories</span></span><br><span class="line"></span><br><span class="line">Instead of running:</span><br><span class="line">``` bash</span><br><span class="line">cp /path/to/file /usr/dir1</span><br><span class="line">cp /path/to/file /var/dir2</span><br><span class="line">cp /path/to/file /nas/dir3</span><br><span class="line">``` </span><br><span class="line">Run the following <span class="built_in">command</span> to copy file into multiple <span class="built_in">dirs</span>:</span><br><span class="line">``` bash</span><br><span class="line"><span class="built_in">echo</span> /usr/dir1 /var/dir2 /nas/dir3 |  xargs -n <span class="number">1</span> cp -v /path/to/file</span><br></pre></td></tr></table></figure>
+<p>Creating a shell function is left as an exercise for the reader</p>
+<h3 id="Quickly_find_differences_between_two_directories">Quickly find differences between two directories</h3><p>The diff command compare files line by line. It can also compare two directories:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ls <span class="operator">-l</span> /tmp/r</span><br><span class="line">ls <span class="operator">-l</span> /tmp/s</span><br><span class="line"><span class="comment"># Compare two folders using diff ##</span></span><br><span class="line">diff /tmp/r/ /tmp/s/</span><br></pre></td></tr></table></figure></p>
+<p></p><p><img src="http://s0.cyberciti.org/uploads/cms/2015/01/differences-between-folders.jpg" alt=""></p><br>Fig. : Finding differences between folders<p></p>
+<h3 id="Text_formatting">Text formatting</h3><p>You can reformat each paragraph with fmt command. In this example, I’m going to reformat file by wrapping overlong lines and filling short lines:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fmt file.txt</span><br></pre></td></tr></table></figure></p>
+<p>You can also split long lines, but do not refill i.e. wrap overlong lines, but do not fill short lines:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fmt <span class="operator">-s</span> file.txt</span><br></pre></td></tr></table></figure></p>
+<h3 id="See_the_output_and_write_it_to_a_file">See the output and write it to a file</h3><p>Use the tee command as follows to see the output on screen and also write to a log file named my.log:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mycoolapp arg1 arg2 input.file | tee my.log</span><br></pre></td></tr></table></figure></p>
+<p>The tee command ensures that you will see mycoolapp output on on the screen and to a file same time.</p>
+<p>More info: <a href="http://www.cyberciti.biz/open-source/command-line-hacks/20-unix-command-line-tricks-part-i/" target="_blank" rel="external">Unix Command</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Linux/">Linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Linux/">Linux</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://tiramisutes.github.io/2015/07/24/20-Unix-Command/" data-title="20 Unix Command Line Tricks | Hope" data-tsina="2458965923" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/07/24/hello-world/" title="Hello World">
+  <strong>Prev →：</strong><br/>
+  <span>
+  Hello World</span>
+</a>
+</div>
+
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/07/24/20-Unix-Command/" data-title="20 Unix Command Line Tricks" data-url="http://tiramisutes.github.io/2015/07/24/20-Unix-Command/"></div>
+</section>
+
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Deleting_a_HUGE_file"><span class="toc-number">1.</span> <span class="toc-text">Deleting a HUGE file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Want_to_cache_console_output?"><span class="toc-number">2.</span> <span class="toc-text">Want to cache console output?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Restoring_deleted_/tmp_folder"><span class="toc-number">3.</span> <span class="toc-text">Restoring deleted /tmp folder</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Locking_a_directory"><span class="toc-number">4.</span> <span class="toc-text">Locking a directory</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Password_protecting_file_in_vim_text_editor"><span class="toc-number">5.</span> <span class="toc-text">Password protecting file in vim text editor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Becoming_human"><span class="toc-number">6.</span> <span class="toc-text">Becoming human</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Show_information_about_known_users_in_the_Linux_based_system"><span class="toc-number">7.</span> <span class="toc-text">Show information about known users in the Linux based system</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#How_do_I_fix_mess_created_by_accidentally_untarred_files_in_the_current_dir?"><span class="toc-number">8.</span> <span class="toc-text">How do I fix mess created by accidentally untarred files in the current dir?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Confused_on_a_top_command_output?"><span class="toc-number">9.</span> <span class="toc-text">Confused on a top command output?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Want_to_run_the_same_command_again?"><span class="toc-number">10.</span> <span class="toc-text">Want to run the same command again?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Get_a_reminder_you_when_you_have_to_leave"><span class="toc-number">11.</span> <span class="toc-text">Get a reminder you when you have to leave</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Home_sweet_home"><span class="toc-number">12.</span> <span class="toc-text">Home sweet home</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Editing_a_file_being_viewed_with_less_pager"><span class="toc-number">13.</span> <span class="toc-text">Editing a file being viewed with less pager</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Quickly_find_differences_between_two_directories"><span class="toc-number">14.</span> <span class="toc-text">Quickly find differences between two directories</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Text_formatting"><span class="toc-number">15.</span> <span class="toc-text">Text formatting</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#See_the_output_and_write_it_to_a_file"><span class="toc-number">16.</span> <span class="toc-text">See the output and write it to a file</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Bioinformatics/" title="Bioinformatics">Bioinformatics<sup>10</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Google/" title="Google">Google<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Hexo/" title="Hexo">Hexo<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/R/" title="R">R<sup>6</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/error-bars/" title="error_bars">error_bars<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/awk/" title="awk">awk<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/resequencing/" title="resequencing">resequencing<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/perl/" title="perl">perl<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/perl-diff/" title="perl_diff">perl_diff<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/mytheme/" title="mytheme">mytheme<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/linux-command/" title="linux_command">linux_command<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CRISPR-Cas9/" title="CRISPR/Cas9">CRISPR/Cas9<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/grep/" title="grep">grep<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Google/" title="Google">Google<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/sitemap/" title="sitemap">sitemap<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/经典配色/" title="经典配色">经典配色<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Chrome-Plug-in/" title="Chrome Plug-in">Chrome Plug-in<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/bio-online/" title="bio-online">bio-online<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/rss/" title="rss">rss<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tophat/" title="tophat">tophat<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/RStudio-RPubs/" title="RStudio_RPubs">RStudio_RPubs<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/R-PCA/" title="R_PCA">R_PCA<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">Tag Cloud</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/CRISPR-Cas9/" style="font-size: 10px;">CRISPR/Cas9</a> <a href="/tags/Chrome-Plug-in/" style="font-size: 10px;">Chrome Plug-in</a> <a href="/tags/Cufflinks/" style="font-size: 10px;">Cufflinks</a> <a href="/tags/CummeRbund/" style="font-size: 10px;">CummeRbund</a> <a href="/tags/FASTX/" style="font-size: 10px;">FASTX</a> <a href="/tags/Google/" style="font-size: 10px;">Google</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Linux-backup/" style="font-size: 10px;">Linux_backup</a> <a href="/tags/RStudio-RPubs/" style="font-size: 10px;">RStudio_RPubs</a> <a href="/tags/R-PCA/" style="font-size: 10px;">R_PCA</a> <a href="/tags/awk/" style="font-size: 15px;">awk</a> <a href="/tags/bio-online/" style="font-size: 10px;">bio-online</a> <a href="/tags/error-bars/" style="font-size: 20px;">error_bars</a> <a href="/tags/firewall/" style="font-size: 10px;">firewall</a> <a href="/tags/grep/" style="font-size: 10px;">grep</a> <a href="/tags/linux-command/" style="font-size: 10px;">linux_command</a> <a href="/tags/mytheme/" style="font-size: 10px;">mytheme</a> <a href="/tags/perl/" style="font-size: 10px;">perl</a> <a href="/tags/perl-diff/" style="font-size: 10px;">perl_diff</a> <a href="/tags/resequencing/" style="font-size: 10px;">resequencing</a> <a href="/tags/rss/" style="font-size: 10px;">rss</a> <a href="/tags/sitemap/" style="font-size: 10px;">sitemap</a> <a href="/tags/tophat/" style="font-size: 10px;">tophat</a> <a href="/tags/经典配色/" style="font-size: 10px;">经典配色</a>
+    </div>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://cotton.hzau.edu.cn/" target="_blank" title="作物遗传改良国家重点实验室">棉花遗传改良团队</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.bio-info-trainee.com/" target="_blank" title="生信菜鸟团-深圳大学城">生信菜鸟团-深圳大学城</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.sequencing.uio.no/" target="_blank" title="NSC-sequenceing">NSC-sequenceing</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.jobbole.com/" target="_blank" title="伯乐在线">伯乐在线</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://linux.cn/" target="_blank" title="Linux开源中文社区">Linux开源中文社区</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.r-bloggers.com/" target="_blank" title="R news and tutorials">R-bloggers</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://cran.r-project.org/other-docs.html" target="_blank" title="R Contributed Documentation">R-resource</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=2458965923&verifier=0cb325a7&dpc=1"></iframe>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/sitemaps-rss/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  
+
+<div >
+	<a src="http://7xk19o.com1.z0.glb.clouddn.com/IMG_2460.JPG"></a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m hope in Google. <br/>
+			I&#39;ll share my learning experience with you at this blog.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/http://weibo.com/tiramisutesTes" target="_blank" class="icon-weibo" title="Weibo"></a>
+		
+		
+		<a href="https://github.com/tiramisutes" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/xzpgocxx" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		<a href="https://www.facebook.com/xzpiphone" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		
+		
+		
+		<a href="https://www.evernote.com/Home.action#n=2899a4d8-15a8-478c-8946-2ce0c637d34b&amp;ses=4&amp;sh=2&amp;sds=5&amp;" target="_blank" class="icon-zhihu" title="Evernote"></a>
+		
+		
+		<a href="https://plus.google.com/103840563918867166597?rel=author" target="_blank" class="icon-google_plus" title="Google+"></a>
+		
+		
+		<a href="mailto:1099808298@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="tiramisutes">tiramisutes</a>
+		
+		<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+                </script>
+		<span id="busuanzi_container_site_pv" style='display:none'>
+                      | <a style="line-height: 1.5;" href="http://c4.gostats.cn/last_guests.xml?id=397056" target="_blank">The total visits <span id="busuanzi_value_site_pv"></span> times</a>
+                </span>
+		</p>
+		<!-- GoStats JavaScript Based Code -->
+                <script type="text/javascript" src="http://gostats.cn/js/counter.js"></script>
+                <script type="text/javascript">_gos='c4.gostats.cn';_goa=397056;
+                _got=5;_goi=1;_GoStatsRun();</script>
+                <noscript><a target="_blank" 
+                href="http://gostats.cn"><img src="http://c4.gostats.cn/bin/count/a_397056/t_5/i_1/counter.png" 
+                style="border-width:0" /></a></noscript>
+                <!-- End GoStats JavaScript Based Code -->		
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="WeChat"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="RenRen"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"Hope"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'Hope';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fe4648af2d5afaf376a4a8b2a3b1a8d## e.g. e6d1f421bbc9962127a50488f9ed37d1 your baidu tongji site code' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

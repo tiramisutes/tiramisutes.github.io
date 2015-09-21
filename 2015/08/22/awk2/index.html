@@ -1,0 +1,868 @@
+
+ <!DOCTYPE HTML>
+<html lang="default">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>AWK程序设计语言 | Hope</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="tiramisutes">
+    
+
+    
+    <meta name="description" content="一. AWK入门指南Awk是一种便于使用且表达能力强的程序设计语言，可应用于各种计算和数据处理任务。本章是个入门指南，让你能够尽快地开始编写你自己的程序。第二章将描述整个语言，而剩下的章节将向你展示如何使用Awk来解决许多不同方面的问题。纵观全书，我们尽量选择了一些对你有用、有趣并且有指导意义的实例。
+1.1 起步有用的awk程序往往很简短，仅仅一两行。假设你有一个名为 emp.data 的文件，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AWK程序设计语言">
+<meta property="og:url" content="http://tiramisutes.github.io/2015/08/22/awk2/index.html">
+<meta property="og:site_name" content="Hope">
+<meta property="og:description" content="一. AWK入门指南Awk是一种便于使用且表达能力强的程序设计语言，可应用于各种计算和数据处理任务。本章是个入门指南，让你能够尽快地开始编写你自己的程序。第二章将描述整个语言，而剩下的章节将向你展示如何使用Awk来解决许多不同方面的问题。纵观全书，我们尽量选择了一些对你有用、有趣并且有指导意义的实例。
+1.1 起步有用的awk程序往往很简短，仅仅一两行。假设你有一个名为 emp.data 的文件，">
+<meta property="og:updated_time" content="2015-08-22T06:12:52.662Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AWK程序设计语言">
+<meta name="twitter:description" content="一. AWK入门指南Awk是一种便于使用且表达能力强的程序设计语言，可应用于各种计算和数据处理任务。本章是个入门指南，让你能够尽快地开始编写你自己的程序。第二章将描述整个语言，而剩下的章节将向你展示如何使用Awk来解决许多不同方面的问题。纵观全书，我们尽量选择了一些对你有用、有趣并且有指导意义的实例。
+1.1 起步有用的awk程序往往很简短，仅仅一两行。假设你有一个名为 emp.data 的文件，">
+<meta name="twitter:creator" content="@xzpgocxx">
+<link rel="publisher" href="103840563918867166597">
+
+    
+    <link rel="alternative" href="/sitemaps-rss/atom.xml" title="Hope" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Hope">Hope</a></h1>
+				<h2 class="blog-motto">A new day is coming,whether we like it or not. The question is will you conutrol it,or will it control you?</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/coding">Coding</a></li>
+					
+						<li><a href="/huazhong">HuaZhong</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/08/22/awk2/" title="AWK程序设计语言" itemprop="url">AWK程序设计语言</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/103840563918867166597?rel=author" title="tiramisutes" target="_blank" itemprop="author">tiramisutes</a>
+		
+  <p class="article-time">
+    <time datetime="2015-08-22T05:48:08.000Z" itemprop="datePublished"> Published 2015-08-22</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一-_AWK入门指南"><span class="toc-number">1.</span> <span class="toc-text">一. AWK入门指南</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1_起步"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 起步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2_简单输出"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 简单输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3_高级输出"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 高级输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4_选择"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5_使用AWK进行计算"><span class="toc-number">1.5.</span> <span class="toc-text">1.5 使用AWK进行计算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#计数"><span class="toc-number">1.5.1.</span> <span class="toc-text">计数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#求和与平均值"><span class="toc-number">1.5.2.</span> <span class="toc-text">求和与平均值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#处理文本"><span class="toc-number">1.5.3.</span> <span class="toc-text">处理文本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#字符串连接"><span class="toc-number">1.5.4.</span> <span class="toc-text">字符串连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#打印最后一个输入行"><span class="toc-number">1.5.5.</span> <span class="toc-text">打印最后一个输入行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内置函数"><span class="toc-number">1.5.6.</span> <span class="toc-text">内置函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#行、单词以及字符的计数"><span class="toc-number">1.5.7.</span> <span class="toc-text">行、单词以及字符的计数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6_控制语句"><span class="toc-number">1.6.</span> <span class="toc-text">1.6 控制语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7_数组"><span class="toc-number">1.7.</span> <span class="toc-text">1.7 数组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-_AWK语言详解"><span class="toc-number">2.</span> <span class="toc-text">二. AWK语言详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1_模式"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 模式</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h2 id="一-_AWK入门指南">一. AWK入门指南</h2><p>Awk是一种便于使用且表达能力强的程序设计语言，可应用于各种计算和数据处理任务。本章是个入门指南，让你能够尽快地开始编写你自己的程序。第二章将描述整个语言，而剩下的章节将向你展示如何使用Awk来解决许多不同方面的问题。纵观全书，我们尽量选择了一些对你有用、有趣并且有指导意义的实例。</p>
+<h3 id="1-1_起步">1.1 起步</h3><p>有用的awk程序往往很简短，仅仅一两行。假设你有一个名为 emp.data 的文件，其中包含员工的姓名、薪资（美元/小时）以及小时数，一个员工一行数据，如下所示：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Beth	<span class="number">4.00</span>	<span class="number">0</span></span><br><span class="line">Dan	<span class="number">3.75</span>	<span class="number">0</span></span><br><span class="line">kathy	<span class="number">4.00</span>	<span class="number">10</span></span><br><span class="line">Mark	<span class="number">5.00</span>	<span class="number">20</span></span><br><span class="line">Mary	<span class="number">5.50</span>	<span class="number">22</span></span><br><span class="line">Susie	<span class="number">4.25</span>	<span class="number">18</span></span><br></pre></td></tr></table></figure></p>
+<p>现在你想打印出工作时间超过零小时的员工的姓名和工资（薪资乘以时间）。这种任务对于awk来说就是小菜一碟。输入这个命令行就可以了：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'$3 &gt;0 &#123; print $1, $2 * $3 &#125;'</span> emp.data</span><br></pre></td></tr></table></figure></p>
+<p>你应该会得到如下输出：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Kathy <span class="number">40</span></span><br><span class="line">Mark <span class="number">100</span></span><br><span class="line">Mary <span class="number">121</span></span><br><span class="line">Susie <span class="number">76.5</span></span><br></pre></td></tr></table></figure></p>
+<p>该命令行告诉系统执行引号内的awk程序，从输入文件 emp.data 获取程序所需的数据。引号内的部分是个完整的awk程序，包含单个模式-动作语句。模式 $3&gt;0 用于匹配第三列大于0的输入行，动作:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="built_in">print</span> <span class="variable">$1</span>, <span class="variable">$2</span> * <span class="variable">$3</span> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>打印每个匹配行的第一个字段以及第二第三字段的乘积。</p>
+<p>如果你想打印出还没工作过的员工的姓名，则输入命令行：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'$3 == 0 &#123; print $1 &#125;'</span> emp.data</span><br></pre></td></tr></table></figure></p>
+<p>这里，模式 $3 == 0 匹配第三个字段等于0的行，动作:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="built_in">print</span> <span class="variable">$1</span> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>打印该行的第一个字段。</p>
+<p>当你阅读本书时，应该尝试执行与修改示例程序。大多数程序都很简短，所以你能快速理解awk是如何工作的。在Unix系统上，以上两个事务在终端里看起来是这样的：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ awk <span class="string">'$3 &gt; 0 &#123; print $1, $2 * $3 &#125;'</span> emp.data</span><br><span class="line">Kathy <span class="number">40</span></span><br><span class="line">Mark <span class="number">100</span></span><br><span class="line">Mary <span class="number">121</span></span><br><span class="line">Susie <span class="number">76.5</span></span><br><span class="line">$ awk <span class="string">'$3 == 0 &#123; print $1 &#125;'</span> emp.data</span><br><span class="line">Beth</span><br><span class="line">Dan</span><br><span class="line">$</span><br></pre></td></tr></table></figure></p>
+<p>行首的 $ 是系统提示符，也许在你的机器上不一样。</p>
+<p>AWK程序的结构</p>
+<p>让我们回头看一下到底发生了什么事情。上述的命令行中，引号之间的部分是awk编程语言写就的程序。本章中的每个awk程序都是一个或多个模式-动作语句的序列：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pattern &#123; action &#125;</span><br><span class="line">pattern &#123; action &#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p>awk的基本操作是一行一行地扫描输入，搜索匹配任意程序中模式的行。词语”匹配”的准确意义是视具体的模式而言，对于模式 $3 &gt;0 来说，意思是”条件为真”。</p>
+<p>每个模式依次测试每个输入行。对于匹配到行的模式，其对应的动作（也许包含多步）得到执行，然后读取下一行并继续匹配，直到所有的输入读取完毕。</p>
+<p>上面的程序都是模式与动作的典型示例。:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$3</span> == <span class="number">0</span> &#123; <span class="built_in">print</span> <span class="variable">$1</span> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>是单个模式-动作语句；对于第三个字段为0的每行，打印其第一个字段。</p>
+<p>模式-动作语句中的模式或动作（但不是同时两者）都可以省略。如果某个模式没有动作，例如：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$3</span> == <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+<p>那么模式匹配到的每一行（即，对于该行，条件为真）都会被打印出来。该程序会打印 emp.data 文件中第三个字段为0的两行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Beth <span class="number">4.00</span> <span class="number">0</span></span><br><span class="line">Dan <span class="number">3.75</span> <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+<p>如果有个没有模式的动作，例如：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="built_in">print</span> <span class="variable">$1</span> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>那么这种情况下的动作会打印每个输入行的第一列。</p>
+<p>由于模式和动作两者任一都是可选的，所以需要使用大括号包围动作以区分于其他模式。</p>
+<p>执行AWK程序</p>
+<p>执行awk程序的方式有多种。你可以输入如下形式的命令行：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'program'</span> input files</span><br></pre></td></tr></table></figure></p>
+<p>从而在每个指定的输入文件上执行这个program。例如，你可以输入：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'$3 == 0 &#123; print $1 &#125;'</span> file1 file2</span><br></pre></td></tr></table></figure></p>
+<p>打印file1和file2文件中第三个字段为0的每一行的第一个字段。</p>
+<p>你可以省略命令行中的输入文件，仅输入：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'program'</span></span><br></pre></td></tr></table></figure></p>
+<p>这种情况下，awk会将program应用于你在终端中接着输入的任意数据行，直到你输入一个文件结束信号（Unix系统上为control-d）。如下是Unix系统的一个会话示例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ awk <span class="string">'$3 == 0 &#123; print $1 &#125;'</span></span><br><span class="line">Beth <span class="number">4.00</span> <span class="number">0</span></span><br><span class="line">Beth</span><br><span class="line"></span><br><span class="line">Dan <span class="number">3.75</span> <span class="number">0</span></span><br><span class="line">Dan</span><br><span class="line"></span><br><span class="line">Kathy <span class="number">3.75</span> <span class="number">10</span></span><br><span class="line">Kathy <span class="number">3.75</span> <span class="number">0</span></span><br><span class="line">Kathy</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p>加粗的字符是计算机打印的。</p>
+<p>这个动作非常便于尝试awk：输入你的程序，然后输入数据，观察发生了什么。我们再次鼓励你尝试这些示例并进行改动。</p>
+<p>注意命令行中的程序是用单引号包围着的。这会防止shell解释程序中 $ 这样的字符，也允许程序的长度超过一行。</p>
+<p>当程序比较短小（几行的长度）的时候，这种约定会很方便。然而，如果程序较长，将程序写到一个单独的文件中会更加方便。假设存在程序 progfile ，输入命令行：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="operator">-f</span> progfile     optional list of input files</span><br></pre></td></tr></table></figure></p>
+<p>其中 -f 选项指示awk从指定文件中获取程序。可以使用任意文件名替换 progfile 。</p>
+<p>错误</p>
+<p>如果你的awk程序存在错误，awk会给你一段诊断信息。例如，如果你打错了大括号，如下所示：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'$3 == 0 [ print $1 &#125;'</span> emp.data</span><br></pre></td></tr></table></figure></p>
+<p>你会得到如下信息：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">awk: syntax error at <span class="built_in">source</span> line <span class="number">1</span></span><br><span class="line">context is</span><br><span class="line"><span class="variable">$3</span> == <span class="number">0</span> &gt;&gt;&gt; [ &lt;&lt;&lt;</span><br><span class="line">extra &#125;</span><br><span class="line">missing ]</span><br><span class="line">awk: bailing out at <span class="built_in">source</span> line <span class="number">1</span></span><br></pre></td></tr></table></figure></p>
+<p>“Syntax error”意味着在 &gt;&gt;&gt; &lt;&lt;&lt; 标记的地方检测到语法错误。”Bailing out”意味着没有试图恢复。有时你会得到更多的帮助-关于错误是什么，比如大括号或括弧不匹配。</p>
+<p>因为存在句法错误，awk就不会尝试执行这个程序。然而，有些错误，直到你的程序被执行才会检测出来。例如，如果你试图用零去除某个数，awk会在这个除法的地方停止处理并报告输入行的行号以及在程序中的行号（这话是什么意思？难道输入行的行号是忽略空行后的行号？）。</p>
+<h3 id="1-2_简单输出">1.2 简单输出</h3><p>这一节接下来的部分包含了一些短小，典型的awk程序，基于操纵上文中提到的 emp.data 文件. 我们会简单的解释程序在做什么，但这些例子主要是为了介绍 awk 中常见的一些简单有用的操作 – 打印字段, 选择输入, 转换数据. 我们并 没有展现 awk 程序能做的所有事情, 也并不打算深入的去探讨例子中的一些细节. 但在你读完这一节之后, 你将能够完成一些简单的任务, 并且你将发现在阅读后 面章节的时候会变的容易的多.</p>
+<p>我们通常只会列出程序部分, 而不是整个命令行. 在任何情况下, 程序都可以用 引号包含起来放到 awk 命令的地一个参数中运行, 就像上文中展示的那样, 或者 把它放到一个文件中使用 awk 的 -f 参数调用它.</p>
+<p>在 awk 中仅仅只有两种数据类型: 数值 和 字符构成的字符串. emp.data 是 一个包含这类信息的典型文件 – 混合了被空格和(或)制表符分割的数字和词语.</p>
+<p>Awk 程序一次从输入文件的中读取一行内容并把它分割成一个个字段, 通常默认 情况下, 一个字段是一个不包含任何空格或制表符的连续字符序列. 当前输入的 行中的地一个字段被称做 $1, 第二个是 $2, 以此类推. 整个行的内容被定 义为 $0. 每一行的字段数量可以不同.</p>
+<p>通常, 我们要做的仅仅只是打印出每一行中的某些字段, 也许还要做一些计算. 这一节的程序基本上都是这种形式.</p>
+<p>打印每一行</p>
+<p>如果一个动作没有任何模式, 这个动作会对所有输入的行进行操作. print 语 句用来打印(输出)当前输入的行, 所以程序</p>
+<p>{ print }<br>会输出所有输入的内容到标准输出. 由于 $0 表示整行,</p>
+<p>{ print $0 }<br>也会做一样的事情.</p>
+<p>打印特定字段</p>
+<p>使用一个 print 语句可以在同一行中输出不止一个字段. 下面的程序输出了每 行输入中的第一和第三个字段<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="built_in">print</span> <span class="variable">$1</span>, <span class="variable">$3</span> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>使用 emp.data 作为输入, 它将会得到<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Beth <span class="number">0</span></span><br><span class="line">Dan <span class="number">0</span></span><br><span class="line">Kathy <span class="number">10</span></span><br><span class="line">Mark <span class="number">20</span></span><br><span class="line">Mary <span class="number">22</span></span><br><span class="line">Susie <span class="number">18</span></span><br></pre></td></tr></table></figure></p>
+<p>在 print 语句中被逗号分割的表达式, 在默认情况下他们将会用一个空格分割 来输出. 每一行 print 生成的内容都会以一个换行符作为结束. 但这些默认行 为都可以自定义; 我们将在第二章中介绍具体的方法.</p>
+<p>NF, 字段数量</p>
+<p>很显然你可能会发现你总是需要通过 $1, $2 这样来指定不同的字段, 但任何表 达式都可以使用在$之后来表达一个字段的序号; 表达式会被求值并用于表示字段 序号. Awk会对当前输入的行有多少个字段进行计数, 并且将当前行的字段数量存 储在一个内建的称作 NF 的变量中. 因此, 下面的程序<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="built_in">print</span> NF, <span class="variable">$1</span>, <span class="variable">$NF</span> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>会依次打印出每一行的字段数量, 第一个字段的值, 最后一个字段的值.</p>
+<p>计算和打印</p>
+<p>你也可以对字段的值进行计算后再打印出来. 下面的程序<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="built_in">print</span> <span class="variable">$1</span>, <span class="variable">$2</span> * <span class="variable">$3</span> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>是一个典型的例子. 它会打印出姓名和员工的合计支出(以小时计算):<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Beth <span class="number">0</span></span><br><span class="line">Dan <span class="number">0</span></span><br><span class="line">Kathy <span class="number">40</span></span><br><span class="line">Mark <span class="number">100</span></span><br><span class="line">Mary <span class="number">121</span></span><br><span class="line">Susie <span class="number">76.5</span></span><br></pre></td></tr></table></figure></p>
+<p>我们马上就会学到怎么让这个输出看起来更漂亮.</p>
+<p>打印行号</p>
+<p>Awk提供了另一个内建变量, 叫做 NR, 它会存储当前已经读取了多少行的计数. 我们可以使用 NR 和 $0 给 emp.data 的没一行加上行号:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="built_in">print</span> NR, <span class="variable">$0</span> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>打印的输出看起来会是这样:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> Beth   <span class="number">4.00</span>     <span class="number">0</span></span><br><span class="line"><span class="number">2</span> Dan    <span class="number">3.75</span>     <span class="number">0</span></span><br><span class="line"><span class="number">3</span> Kathy  <span class="number">4.00</span>    <span class="number">10</span></span><br><span class="line"><span class="number">4</span> Mark   <span class="number">5.00</span>    <span class="number">20</span></span><br><span class="line"><span class="number">5</span> Mary   <span class="number">5.50</span>    <span class="number">22</span></span><br><span class="line"><span class="number">6</span> Susie  <span class="number">4.25</span>   <span class="number">1</span> <span class="number">8</span></span><br></pre></td></tr></table></figure></p>
+<p>在输出中添加内容</p>
+<p>你当然也可以在字段中间或者计算的值中间打印输出想要的内容:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="built_in">print</span> <span class="string">"total pay for"</span>, <span class="variable">$1</span>, <span class="string">"is"</span>, <span class="variable">$2</span> * <span class="variable">$3</span> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>输出<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">total pay <span class="keyword">for</span> Beth is <span class="number">0</span></span><br><span class="line">total pay <span class="keyword">for</span> Dan is <span class="number">0</span></span><br><span class="line">total pay <span class="keyword">for</span> Kathy is <span class="number">40</span></span><br><span class="line">total pay <span class="keyword">for</span> Mark is <span class="number">100</span></span><br><span class="line">total pay <span class="keyword">for</span> Mary is <span class="number">121</span></span><br><span class="line">total pay <span class="keyword">for</span> Susie is <span class="number">76.5</span></span><br></pre></td></tr></table></figure></p>
+<p>在打印语句中, 双引号内的文字将会在字段和计算的值中插入输出.</p>
+<h3 id="1-3_高级输出">1.3 高级输出</h3><p>print 语句可用于快速而简单的输出。若要严格按照你所想的格式化输出，则需要使用 printf 语句。正如我将在2.4节所见， printf 几乎可以产生任何形式的输出，但在本节中，我们仅展示其部分功能。</p>
+<p>字段排队</p>
+<p>printf 语句的形式如下：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(format, value1, value2, ..., valuen)</span><br></pre></td></tr></table></figure></p>
+<p>其中 format 是字符串，包含要逐字打印的文本，穿插着 format 之后的每个值该如何打印的规格(specification)。一个规格是一个 % 符，后面跟着一些字符，用来控制一个 value 的格式。第一个规格说明如何打印 value1 ，第二个说明如何打印 value2 ，… 。因此，有多少 value 要打印，在 format 中就要有多少个 % 规格。</p>
+<p>这里有个程序使用 printf 打印每位员工的总薪酬：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="built_in">printf</span>(<span class="string">"total pay for %s is $%.2f\n"</span>, <span class="variable">$1</span>, <span class="variable">$2</span> * <span class="variable">$3</span>) &#125;</span><br></pre></td></tr></table></figure></p>
+<p>printf 语句中的规格字符串包含两个 % 规格。第一个是 %s ，说明以字符串的方式打印第一个值 $1 。第二个是 %.2f ，说明以数字的方式打印第二个值 $2*$3 ，并保留小数点后面两位。规格字符串中其他东西，包括美元符号，仅逐字打印。字符串尾部的 \n 代表开始新的一行，使得后续输出将从下一行开始。以 emp.data 为输入，该程序产生：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">total pay <span class="keyword">for</span> Beth is <span class="variable">$0</span>.<span class="number">00</span></span><br><span class="line">total pay <span class="keyword">for</span> Dan is <span class="variable">$0</span>.<span class="number">00</span></span><br><span class="line">total pay <span class="keyword">for</span> Kathy is <span class="variable">$40</span>.<span class="number">00</span></span><br><span class="line">total pay <span class="keyword">for</span> Mark is <span class="variable">$100</span>.<span class="number">00</span></span><br><span class="line">total pay <span class="keyword">for</span> Mary is <span class="variable">$121</span>.<span class="number">00</span></span><br><span class="line">total pay <span class="keyword">for</span> Susie is <span class="variable">$76</span>.<span class="number">50</span></span><br></pre></td></tr></table></figure></p>
+<p>printf 不会自动产生空格或者新的行，必须是你自己来创建，所以不要忘了 \n 。</p>
+<p>另一个程序是打印每位员工的姓名与薪酬：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="built_in">printf</span>(<span class="string">"%-8s $%6.2f\n"</span>, <span class="variable">$1</span>, <span class="variable">$2</span> * <span class="variable">$3</span>) &#125;</span><br></pre></td></tr></table></figure></p>
+<p>第一个规格 %-8s 将一个姓名以字符串形式在8个字符宽度的字段中左对齐输出。第二个规格 %6.2f 将薪酬以数字的形式，保留小数点后两位，在6个字符宽度的字段中输出。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Beth     $  <span class="number">0.00</span></span><br><span class="line">Dan      $  <span class="number">0.00</span></span><br><span class="line">Kathy    $ <span class="number">40.00</span></span><br><span class="line">Mark     <span class="variable">$100</span>.<span class="number">00</span></span><br><span class="line">Mary     <span class="variable">$121</span>.<span class="number">00</span></span><br><span class="line">Susie    $ <span class="number">76.50</span></span><br></pre></td></tr></table></figure></p>
+<p>之后我们将展示更多的 printf 示例。一切精彩尽在2.4小节。</p>
+<p>排序输出</p>
+<p>假设你想打印每位员工的所有数据，包括他或她的薪酬，并以薪酬递增的方式进行排序输出。最简单的方式是使用awk将每位员工的总薪酬置于其记录之前，然后利用一个排序程序来处理awk的输出。Unix上，命令行如下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'&#123; printf("%6.2f    %s\n", $2 * $3, $0) &#125;'</span> emp.data | sort</span><br></pre></td></tr></table></figure></p>
+<p>将awk的输出通过管道传给 sort 命令，输出为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">  <span class="number">0.00</span>    Beth  <span class="number">4.00</span> <span class="number">0</span></span><br><span class="line">  <span class="number">0.00</span>    Dan   <span class="number">3.75</span> <span class="number">0</span></span><br><span class="line"> <span class="number">40.00</span>    Kathy <span class="number">4.00</span> <span class="number">10</span></span><br><span class="line"> <span class="number">76.50</span>    Susie <span class="number">4.25</span> <span class="number">18</span></span><br><span class="line"><span class="number">100.00</span>    Mark  <span class="number">5.00</span> <span class="number">20</span></span><br><span class="line"><span class="number">121.00</span>    Mary  <span class="number">5.50</span> <span class="number">22</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="1-4_选择">1.4 选择</h3><p>Awk的模式适合用于为进一步的处理从输入中选择相关的数据行。由于不带动作的模式会打印所有匹配模式的行，所以很多awk程序仅包含一个模式。本节将给出一些有用的模式示例。</p>
+<p>通过对比选择</p>
+<p>这个程序使用一个对比模式来选择每小时赚5美元或更多的员工记录，也就是，第二个字段大于等于5的行：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$2</span> &gt;= <span class="number">5</span></span><br></pre></td></tr></table></figure></p>
+<p>从 emp.data 中选出这些行：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Mark    <span class="number">5.00</span>    <span class="number">20</span></span><br><span class="line">Mary    <span class="number">5.50</span>    <span class="number">22</span></span><br></pre></td></tr></table></figure></p>
+<p>通过计算选择</p>
+<p>程序<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$2</span> * <span class="variable">$3</span> &gt; <span class="number">50</span> &#123; <span class="built_in">printf</span>(<span class="string">"$%.2f for %s\n"</span>, <span class="variable">$2</span> * <span class="variable">$3</span>, <span class="variable">$1</span>) &#125;</span><br></pre></td></tr></table></figure></p>
+<p>打印出总薪资超过50美元的员工的薪酬。</p>
+<p>通过文本内容选择</p>
+<p>除了数值测试，你还可以选择包含特定单词或短语的输入行。这个程序会打印所有第一个字段为 Susie 的行：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$1</span> == <span class="string">"Susie"</span></span><br></pre></td></tr></table></figure></p>
+<p>操作符 == 用于测试相等性。你也可以使用称为 正则表达式 的模式查找包含任意字母组合，单词或短语的文本。这个程序打印任意位置包含 Susie 的行：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Susie/</span><br></pre></td></tr></table></figure></p>
+<p>输出为这一行：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Susie   <span class="number">4.25</span>    <span class="number">18</span></span><br></pre></td></tr></table></figure></p>
+<p>正则表达式可用于指定复杂的多的模式；2.1节将会有全面的论述。</p>
+<p>模式组合</p>
+<p>可以使用括号和逻辑操作符与 &amp;&amp; ， 或 || ， 以及非 ! 对模式进行组合。程序:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$2</span> &gt;= <span class="number">4</span> || <span class="variable">$3</span> &gt;= <span class="number">20</span></span><br></pre></td></tr></table></figure></p>
+<p>会打印 $2 (第二个字段) 大于等于 4 或者 $3 (第三个字段) 大于等于 20 的行：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Beth    <span class="number">4.00</span>    <span class="number">0</span></span><br><span class="line">kathy   <span class="number">4.00</span>    <span class="number">10</span></span><br><span class="line">Mark    <span class="number">5.00</span>    <span class="number">20</span></span><br><span class="line">Mary    <span class="number">5.50</span>    <span class="number">22</span></span><br><span class="line">Susie   <span class="number">4.25</span>    <span class="number">18</span></span><br></pre></td></tr></table></figure></p>
+<p>两个条件都满足的行仅打印一次。与如下包含两个模式程序相比：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$2</span> &gt;= <span class="number">4</span></span><br><span class="line"><span class="variable">$3</span> &gt;= <span class="number">20</span></span><br></pre></td></tr></table></figure></p>
+<p>如果某个输入行两个条件都满足，这个程序会打印它两遍：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Beth    <span class="number">4.00</span>    <span class="number">0</span></span><br><span class="line">Kathy   <span class="number">4.00</span>    <span class="number">10</span></span><br><span class="line">Mark    <span class="number">5.00</span>    <span class="number">20</span></span><br><span class="line">Mark    <span class="number">5.00</span>    <span class="number">20</span></span><br><span class="line">Mary    <span class="number">5.50</span>    <span class="number">22</span></span><br><span class="line">Mary    <span class="number">5.50</span>    <span class="number">22</span></span><br><span class="line">Susie   <span class="number">4.25</span>    <span class="number">18</span></span><br></pre></td></tr></table></figure></p>
+<p>注意如下程序:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!(<span class="variable">$2</span> &lt; <span class="number">4</span> &amp;&amp; <span class="variable">$3</span> &lt; <span class="number">20</span>)</span><br></pre></td></tr></table></figure></p>
+<p>会打印极不满足 $2 小于4也不满足 $3 小于20的行；这个条件与上面第一个模式组合等价，虽然也许可读性差了点。</p>
+<p>数据验证</p>
+<p>实际的数据中总是会存在错误的。在数据验证-检查数据的值是否合理以及格式是否正确-方面，Awk是个优秀的工具。</p>
+<p>数据验证本质上是否定的：不是打印具备期望属性的行，而是打印可疑的行。如下程序使用对比模式 将5个数据合理性测试应用于 emp.data 的每一行：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NF != <span class="number">3</span>     &#123; <span class="built_in">print</span> <span class="variable">$0</span>, <span class="string">"number of fields is not equal to 3"</span> &#125;</span><br><span class="line"><span class="variable">$2</span> &lt; <span class="number">3.35</span>   &#123; <span class="built_in">print</span> <span class="variable">$0</span>, <span class="string">"rate is below minimum wage"</span> &#125;</span><br><span class="line"><span class="variable">$2</span> &gt; <span class="number">10</span>     &#123; <span class="built_in">print</span> <span class="variable">$0</span>, <span class="string">"rate exceeds <span class="variable">$10</span> per hour"</span> &#125;</span><br><span class="line"><span class="variable">$3</span> &lt; <span class="number">0</span>      &#123; <span class="built_in">print</span> <span class="variable">$0</span>, <span class="string">"negative hours worked"</span> &#125;</span><br><span class="line"><span class="variable">$3</span> &gt; <span class="number">60</span>     &#123; <span class="built_in">print</span> <span class="variable">$0</span>, <span class="string">"too many hours worked"</span> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果没有错误，则没有输出。</p>
+<p>BEGIN与END</p>
+<p>特殊模式 BEGIN 用于匹配第一个输入文件的第一行之前的位置， END 则用于匹配处理过的最后一个文件的最后一行之后的位置。这个程序使用 BEGIN 来输出一个标题：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BEGIN &#123; <span class="built_in">print</span> <span class="string">"Name    RATE    HOURS"</span>; <span class="built_in">print</span> <span class="string">""</span>&#125;</span><br><span class="line">      &#123; <span class="built_in">print</span> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>输出为：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">NAME    RATE    HOURS</span><br><span class="line"></span><br><span class="line">Beth    <span class="number">4.00</span>    <span class="number">0</span></span><br><span class="line">Dan     <span class="number">3.75</span>    <span class="number">0</span></span><br><span class="line"></span><br><span class="line">Kathy   <span class="number">4.00</span>    <span class="number">10</span></span><br><span class="line">Mark    <span class="number">5.00</span>    <span class="number">20</span></span><br><span class="line">Mary    <span class="number">5.50</span>    <span class="number">22</span></span><br><span class="line">Susie   <span class="number">4.25</span>    <span class="number">18</span></span><br></pre></td></tr></table></figure></p>
+<p>程序的动作部分你可以在一行上放多个语句，不过要使用分号进行分隔。注意 普通的 print 是打印当前输入行，与之不同的是 print “” 会打印一个空行。</p>
+<h3 id="1-5_使用AWK进行计算">1.5 使用AWK进行计算</h3><p>一个动作就是一个以新行或者分号分隔的语句序列。你已经见过一些其动作仅是单个 print 语句的例子。本节将提供一些执行简单的数值以及字符串计算的语句示例。在这些语句中，你不仅可以使用像 NF 这样的内置变量，还可以创建自己的变量用于计算、存储数据诸如此类的操作。awk中，用户创建的变量不需要声明。</p>
+<h4 id="计数">计数</h4><p>这个程序使用一个变量 emp 来统计工作超过15个小时的员工的数目：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$3</span> &gt; <span class="number">15</span> &#123; emp = emp + <span class="number">1</span> &#125;</span><br><span class="line">END     &#123; <span class="built_in">print</span> emp, <span class="string">"employees worked more than 15 hours"</span> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>对于第三个字段超过15的每行， emp 的前一个值加1。以 emp.data 为输入，该程序产生：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span> employees worked more than <span class="number">15</span> hours</span><br></pre></td></tr></table></figure></p>
+<p>用作数字的awk变量的默认初始值为0，所以我们不需要初始化 emp 。</p>
+<h4 id="求和与平均值">求和与平均值</h4><p>为计算员工的数目，我们可以使用内置变量 NR ，它保存着到目前位置读取的行数；在所有输入的结尾它的值就是所读的所有行数。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">END &#123; <span class="built_in">print</span> NR, <span class="string">"employees"</span> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>输出为：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">6</span> employees</span><br></pre></td></tr></table></figure></p>
+<p>如下是一个使用 NR 来计算薪酬均值的程序：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    &#123; pay = pay + <span class="variable">$2</span> * <span class="variable">$3</span> &#125;</span><br><span class="line">END &#123; <span class="built_in">print</span> NR, <span class="string">"employees"</span></span><br><span class="line">      <span class="built_in">print</span> <span class="string">"total pay is"</span>, pay</span><br><span class="line">      <span class="built_in">print</span> <span class="string">"average pay is"</span>, pay/NR</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>第一个动作累计所有员工的总薪酬。 END 动作打印出<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">6</span> employees</span><br><span class="line">total pay is <span class="number">337.5</span></span><br><span class="line">average pay is <span class="number">56.25</span></span><br></pre></td></tr></table></figure></p>
+<p>很明显， printf 可用来产生更简洁的输出。并且该程序也有个潜在的错误：在某种不太可能发生的情况下， NR 等于0，那么程序会试图执行零除，从而产生错误信息。</p>
+<h4 id="处理文本">处理文本</h4><p>awk的优势之一是能像大多数语言处理数字一样方便地处理字符串。awk变量可以保存数字也可以保存字符串。这个程序会找出时薪最高的员工：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$2</span> &gt; maxrate &#123; maxrate = <span class="variable">$2</span>; maxemp = <span class="variable">$1</span> &#125;</span><br><span class="line">END &#123; <span class="built_in">print</span> <span class="string">"highest hourly rate:"</span>, maxrate, <span class="string">"for"</span>, maxemp &#125;</span><br></pre></td></tr></table></figure></p>
+<p>输出<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">highest hourly rate: <span class="number">5.50</span> <span class="keyword">for</span> Mary</span><br></pre></td></tr></table></figure></p>
+<p>这个程序中，变量 maxrate 保存着一个数值，而变量 maxemp 则是保存着一个字符串。（如果有几个员工都有着相同的最大时薪，该程序则只找出第一个。）</p>
+<h4 id="字符串连接">字符串连接</h4><p>可以合并老字符串来创建新字符串。这种操作称为 连接（concatenation） 。程序<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">    &#123; names = names <span class="variable">$1</span> <span class="string">" "</span>&#125;</span><br><span class="line">END &#123; <span class="built_in">print</span> names &#125;</span><br></pre></td></tr></table></figure></p>
+<p>通过将每个姓名和一个空格附加到变量 names 的前一个值， 来将所有员工的姓名收集进单个字符串中。最后 END 动作打印出 names 的值：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Beth Dan Kathy Mark Mary Susie</span><br></pre></td></tr></table></figure></p>
+<p>awk程序中，连接操作的表现形式是将字符串值一个接一个地写出来。对于每个输入行，程序的第一个语句先连接三个字符串： names 的前一个值、当前行的第一个字段以及一个空格，然后将得到的字符串赋值给 names 。因此，读取所有的输入行之后， names 就是个字符串，包含所有员工的姓名，每个姓名后面跟着一个空格。用于保存字符串的变量的默认初始值是空字符串(也就是说该字符串包含零个字符)，因此这个程序中的 names 不需要显式初始化。</p>
+<h4 id="打印最后一个输入行">打印最后一个输入行</h4><p>虽然在 END 动作中 NR 还保留着它的值，但 $0 没有。程序<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">    &#123; last = <span class="variable">$0</span> &#125;</span><br><span class="line">END &#123; <span class="built_in">print</span> last &#125;</span><br></pre></td></tr></table></figure></p>
+<p>是打印最后一个输入行的一种方式：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Susie   <span class="number">4.25</span>    <span class="number">18</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="内置函数">内置函数</h4><p>我们已看到awk提供了内置变量来保存某些频繁使用的数量，比如：字段的数量和输入行的数量。类似地，也有内置函数用来计算其他有用的数值。除了平方根、对数、随机数诸如此类的算术函数，也有操作文本的函数。其中之一是 length ，计算一个字符串中的字符数量。例如，这个程序会计算每个人的姓名的长度：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="built_in">print</span> <span class="variable">$1</span>, length(<span class="variable">$1</span>) &#125;</span><br></pre></td></tr></table></figure></p>
+<p>结果：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Beth <span class="number">4</span></span><br><span class="line">Dan <span class="number">3</span></span><br><span class="line">Kathy <span class="number">5</span></span><br><span class="line">Mark <span class="number">4</span></span><br><span class="line">Mary <span class="number">4</span></span><br><span class="line">Susie <span class="number">5</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="行、单词以及字符的计数">行、单词以及字符的计数</h4><p>这个程序使用了 length 、 NF 、以及 NR 来统计输入中行、单词以及字符的数量。为了简便，我们将每个字段看作一个单词。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">    &#123; nc = nc + length(<span class="variable">$0</span>) + <span class="number">1</span></span><br><span class="line">      nw = nw + NF</span><br><span class="line">    &#125;</span><br><span class="line">END &#123; <span class="built_in">print</span> NR, <span class="string">"lines,"</span>, nw, <span class="string">"words,"</span>, nc, <span class="string">"characters"</span> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>文件 emp.data 有:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">6</span> lines, <span class="number">18</span> words, <span class="number">77</span> characters</span><br></pre></td></tr></table></figure></p>
+<p>$0 并不包含每个输入行的末尾的换行符，所以我们要另外加个1。</p>
+<h3 id="1-6_控制语句">1.6 控制语句</h3><p>Awk为选择提供了一个 if-else 语句，以及为循环提供了几个语句，所以都效仿C语言中对应的控制语句。它们仅可以在动作中使用。</p>
+<p>if-else语句</p>
+<p>如下程序将计算时薪超过6美元的员工的总薪酬与平均薪酬。它使用一个 if 来防范计算平均薪酬时的零除问题。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$2</span> &gt; <span class="number">6</span> &#123; n = n + <span class="number">1</span>; pay = pay + <span class="variable">$2</span> * <span class="variable">$3</span> &#125;</span><br><span class="line">END    &#123; <span class="keyword">if</span> (n &gt; <span class="number">0</span>)</span><br><span class="line">            <span class="built_in">print</span> n, <span class="string">"employees, total pay is"</span>, pay,</span><br><span class="line">                     <span class="string">"average pay is"</span>, pay/n</span><br><span class="line">         <span class="keyword">else</span></span><br><span class="line">             <span class="built_in">print</span> <span class="string">"no employees are paid more than <span class="variable">$6</span>/hour"</span></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
+<p>emp.data 的输出是：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">no employees are paid more than <span class="variable">$6</span>/hour</span><br></pre></td></tr></table></figure></p>
+<p>if-else 语句中，if 后的条件会被计算。如果为真，执行第一个 print 语句。否则，执行第二个 print 语句。注意我们可以使用一个逗号将一个长语句截断为多行来书写。</p>
+<p>while语句</p>
+<p>一个 while 语句有一个条件和一个执行体。条件为真时执行体中的语句会被重复执行。这个程序使用公式 [Math Processing Error]</p>
+<p>来演示以特定的利率投资一定量的钱，其数值是如何随着年数增长的。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># interest1 - 计算复利</span></span><br><span class="line"><span class="comment">#   输入: 钱数    利率    年数</span></span><br><span class="line"><span class="comment">#   输出: 复利值</span></span><br><span class="line"></span><br><span class="line">&#123;   i = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> (i &lt;= <span class="variable">$3</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\t%.2f\n"</span>, <span class="variable">$1</span> * (<span class="number">1</span> + <span class="variable">$2</span>) ^ i)</span><br><span class="line">        i = i + <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>条件是 while 后括弧包围的表达式；循环体是条件后大括号包围的两个表达式。 printf 规格字符串中的 \t 代表制表符； ^ 是指数操作符。从 # 开始到行尾的文本是注释，会被awk忽略，但能帮助程序的读者理解程序做的事情。</p>
+<p>你可以为这程序输入三个一组的数字，看看不一样的钱数、利率、以及年数会产生什么。例如，如下事务演示了1000美元，利率为6%与12%，5年的复利分别是如何增长的：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ awk <span class="operator">-f</span> interest1</span><br><span class="line"><span class="number">1000</span> .<span class="number">06</span> <span class="number">5</span></span><br><span class="line">        <span class="number">1060.00</span></span><br><span class="line">        <span class="number">1123.60</span></span><br><span class="line">        <span class="number">1191.02</span></span><br><span class="line">        <span class="number">1262.48</span></span><br><span class="line">        <span class="number">1338.23</span></span><br><span class="line"><span class="number">1000</span> .<span class="number">12</span> <span class="number">5</span></span><br><span class="line">        <span class="number">1120.00</span></span><br><span class="line">        <span class="number">1254.40</span></span><br><span class="line">        <span class="number">1404.93</span></span><br><span class="line">        <span class="number">1573.52</span></span><br><span class="line">        <span class="number">1762.34</span></span><br></pre></td></tr></table></figure></p>
+<p>for语句</p>
+<p>另一个语句， for ，将大多数循环都包含的初始化、测试、以及自增压缩成一行。如下是之前利息计算的 for 版本：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># interest1 - 计算复利</span></span><br><span class="line"><span class="comment">#   输入: 钱数    利率    年数</span></span><br><span class="line"><span class="comment">#   输出: 每年末的复利</span></span><br><span class="line"></span><br><span class="line">&#123; <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= <span class="variable">$3</span>; i = i + <span class="number">1</span>)</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\t%.2f\n"</span>, <span class="variable">$1</span> * (<span class="number">1</span> + <span class="variable">$2</span>) ^ i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>初始化 i = 1 只执行一次。接下来，测试条件 i &lt;= $3 ；如果为真，则执行循环体的 printf 语句。循环体执行结束后执行自增 i = i + 1 ，接着由另一次条件测试开始下一个循环迭代。代码更加紧凑，并且由于循环体仅是一条语句，所以不需要大括号来包围它。</p>
+<h3 id="1-7_数组">1.7 数组</h3><p>awk为存储一组相关的值提供了数组。虽然数组给予了awk很强的能力，但在这里我们仅展示一个简单的例子。如下程序将按行逆序打印输入。第一个动作将输入行存为数组 line 的连续元素；即第一行放在 line[1] ，第二行放在 line[2] , 依次继续。 END 动作使用一个 while 语句从后往前打印数组中的输入行：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 反转 - 按行逆序打印输入</span></span><br><span class="line"></span><br><span class="line">    &#123; line[NR] = <span class="variable">$0</span> &#125;  <span class="comment"># 记下每个输入行</span></span><br><span class="line"></span><br><span class="line">END &#123; i = NR           <span class="comment"># 逆序打印</span></span><br><span class="line">      <span class="keyword">while</span> (i &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">print</span> line[i]</span><br><span class="line">        i = i - <span class="number">1</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>以 emp.data 为输入，输出为<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Susie    <span class="number">4.25</span>   <span class="number">18</span></span><br><span class="line">Mary     <span class="number">5.50</span>   <span class="number">22</span></span><br><span class="line">Mark     <span class="number">5.00</span>   <span class="number">20</span></span><br><span class="line">Kathy    <span class="number">4.00</span>   <span class="number">10</span></span><br><span class="line">Dan      <span class="number">3.75</span>   <span class="number">0</span></span><br><span class="line">Beth     <span class="number">4.00</span>   <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+<p>如下是使用 for 语句实现的相同示例：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 反转 - 按行逆序打印输入</span></span><br><span class="line"></span><br><span class="line">    &#123; line[NR] = <span class="variable">$0</span> &#125;   <span class="comment"># 记下每个输入行</span></span><br><span class="line"></span><br><span class="line">END &#123; <span class="keyword">for</span> (i = NR; i &gt; <span class="number">0</span>; i = i - <span class="number">1</span>)</span><br><span class="line">        <span class="built_in">print</span> line[i]</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="二-_AWK语言详解">二. AWK语言详解</h2><p>本章将主要通过示例来解释构成awk程序的概念。因为这是对语言的全面描述，材料会很详细，因此我们推荐你浏览略读，需要的时候再回来核对细节。</p>
+<p>最简单的awk程序就是一个模式-动作语句的序列：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pattern    &#123; action &#125;</span><br><span class="line">pattern    &#123; action &#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p>某些语句中，可能没有模式；另一些语句中，可能没有动作及其大括号。awk检查你的程序以确认不存在语法错误后，一次读取一行输入，并对每一行按序处理模式。对于每个匹配到当前输入行的模式，执行其关联的动作。不存在模式，则匹配每个输入行，因此没有模式的每个动作对于每个输入行都要执行。一个仅包含模式的模式-动作语句将打印匹配该模式的每个输入行。本章的大部分内容中，名词”输入行(input-line)”和”记录(record)” 是同义的。2.5小节中，我们将讨论多行记录，即一个记录包含多行输入。</p>
+<p>本章的第一节将详细描述模式。第二节通过表达式、赋值以及控制语句来描述动作。剩下的章节覆盖函数定义，输出，输入，以及awk程序如何调用其他程序等内容。多数章节包含了主要特性的概要。</p>
+<p>输入文件 countries</p>
+<p>本章中，我们使用一个名为 countries 的文件作为许多awk程序的输入。文件的每行包含一个国家的名字，以千平方英里为单位的面积，以百万为单位的人口数，以及属于哪个洲。数据是1984年的，苏联(USSR)被武断地归入了亚洲。文件中，四列数据以制表符tab分隔；以单个空格将 North 、 South 与 America 分隔开。</p>
+<p>文件 countries 包含如下数据行：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">USSR    <span class="number">8649</span>    <span class="number">275</span>     Asia</span><br><span class="line">Canada  <span class="number">3852</span>    <span class="number">25</span>      North America</span><br><span class="line">China   <span class="number">3705</span>    <span class="number">1032</span>    Asia</span><br><span class="line">USA     <span class="number">3615</span>    <span class="number">237</span>     North America</span><br><span class="line">Brazil  <span class="number">3286</span>    <span class="number">134</span>     South America</span><br><span class="line">India   <span class="number">1267</span>    <span class="number">746</span>     Asia</span><br><span class="line">Mexico  <span class="number">762</span>     <span class="number">78</span>      North America</span><br><span class="line">France  <span class="number">211</span>     <span class="number">55</span>      Europe</span><br><span class="line">Japan   <span class="number">144</span>     <span class="number">120</span>     Asia</span><br><span class="line">Germany <span class="number">96</span>      <span class="number">61</span>      Europe</span><br><span class="line">England <span class="number">94</span>      <span class="number">56</span>      Europe</span><br></pre></td></tr></table></figure></p>
+<p>本章的其余部分，如果没有明确说明输入文件，那么就是使用文件 countries 。</p>
+<p>程序的格式</p>
+<p>模式-动作语句以及动作中的语句通常以换行分隔，如果它们以分号分隔，则多个语句可以出现在一行中。分号可以放在任意语句的尾部。</p>
+<p>动作的开大括号必须与其对应的模式处于同一行；动作的其余部分，包括闭大括号，则可以出现接下来的行中。</p>
+<p>空行会被忽略；一般为了提高程序的可读性会在语句的前面或者后面插入空行。在操作符和操作数的两边插入空格和制表符也是为了提高可读性。</p>
+<p>任意行的末尾可能会有注释。注释以符号 # 开始，结束于行尾，就像这样<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="built_in">print</span> <span class="variable">$1</span>, <span class="variable">$3</span> &#125;        <span class="comment"># print country name and population</span></span><br></pre></td></tr></table></figure></p>
+<p>长语句可以跨越多行，但要在断行的地方加入一个反斜杠和一个换行符：:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="built_in">print</span> \</span><br><span class="line">                <span class="variable">$1</span>,             <span class="comment"># country name</span></span><br><span class="line">                <span class="variable">$2</span>,             <span class="comment"># area in thousands of square miles</span></span><br><span class="line">                <span class="variable">$3</span> &#125;    <span class="comment"># population in millions</span></span><br></pre></td></tr></table></figure></p>
+<p>如上例所示，语句也可以逗号断行，在每个断行的末尾也可以加入注释。</p>
+<p>本书中，我们使用了多种格式风格，部分是为了说明相异之处，部分是为了避免程序占用太多的行空间。类似于本章中的简短程序，格式并不是很重要，但一致性与可读性可以帮助更长的程序保持可控。</p>
+<h3 id="2-1_模式">2.1 模式</h3><p>模式控制着动作的执行：模式匹配，其关联的动作则执行。本节将描述6种模式及其匹配条件。</p>
+<p>模式摘要</p>
+<ol>
+<li>BEGIN { 语句 }<br>在读取任何输入前执行一次 语句</li>
+<li>END { 语句 }<br>读取所有输入之后执行一次 语句</li>
+<li>表达式 { 语句 }<br>对于 表达式 为真（即，非零或非空）的行，执行 语句</li>
+<li>/正则表达式/ { 语句 }<br>如果输入行包含字符串与 正则表达式 相匹配，则执行 语句</li>
+<li>组合模式 { 语句 }<br>一个 组合模式 通过与（&amp;&amp;），或（||），非（|），以及括弧来组合多个表达式；对于组合模式为真的每个输入行，执行 语句</li>
+<li>模式1，模式2 { 语句 }<br>范围模式(range pattern)匹配从与 模式1 相匹配的行到与 模式2 相匹配的行（包含该行）之间的所有行，对于这些输入行，执行 语句 。<br>BEGIN和END不与其他模式组合。范围模式不可以是任何其他模式的一部分。BEGIN和END是仅有的必须搭配动作的模式。</li>
+</ol>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Linux/">Linux</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/awk/">awk</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://tiramisutes.github.io/2015/08/22/awk2/" data-title="AWK程序设计语言 | Hope" data-tsina="2458965923" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/08/22/etc/" title="Linux环境变量">
+  <strong>Prev →：</strong><br/>
+  <span>
+  Linux环境变量</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/08/05/bio-online/"  title="常用生物信息在线工具">
+ <strong>← Next：</strong><br/> 
+ <span>常用生物信息在线工具
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/08/22/awk2/" data-title="AWK程序设计语言" data-url="http://tiramisutes.github.io/2015/08/22/awk2/"></div>
+</section>
+
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一-_AWK入门指南"><span class="toc-number">1.</span> <span class="toc-text">一. AWK入门指南</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1_起步"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 起步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2_简单输出"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 简单输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3_高级输出"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 高级输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4_选择"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5_使用AWK进行计算"><span class="toc-number">1.5.</span> <span class="toc-text">1.5 使用AWK进行计算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#计数"><span class="toc-number">1.5.1.</span> <span class="toc-text">计数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#求和与平均值"><span class="toc-number">1.5.2.</span> <span class="toc-text">求和与平均值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#处理文本"><span class="toc-number">1.5.3.</span> <span class="toc-text">处理文本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#字符串连接"><span class="toc-number">1.5.4.</span> <span class="toc-text">字符串连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#打印最后一个输入行"><span class="toc-number">1.5.5.</span> <span class="toc-text">打印最后一个输入行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#内置函数"><span class="toc-number">1.5.6.</span> <span class="toc-text">内置函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#行、单词以及字符的计数"><span class="toc-number">1.5.7.</span> <span class="toc-text">行、单词以及字符的计数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6_控制语句"><span class="toc-number">1.6.</span> <span class="toc-text">1.6 控制语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7_数组"><span class="toc-number">1.7.</span> <span class="toc-text">1.7 数组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-_AWK语言详解"><span class="toc-number">2.</span> <span class="toc-text">二. AWK语言详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1_模式"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 模式</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Bioinformatics/" title="Bioinformatics">Bioinformatics<sup>10</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Google/" title="Google">Google<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Hexo/" title="Hexo">Hexo<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/R/" title="R">R<sup>6</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/error-bars/" title="error_bars">error_bars<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/awk/" title="awk">awk<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/resequencing/" title="resequencing">resequencing<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/perl/" title="perl">perl<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/perl-diff/" title="perl_diff">perl_diff<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/mytheme/" title="mytheme">mytheme<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/linux-command/" title="linux_command">linux_command<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CRISPR-Cas9/" title="CRISPR/Cas9">CRISPR/Cas9<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/grep/" title="grep">grep<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Google/" title="Google">Google<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/sitemap/" title="sitemap">sitemap<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/经典配色/" title="经典配色">经典配色<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Chrome-Plug-in/" title="Chrome Plug-in">Chrome Plug-in<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/bio-online/" title="bio-online">bio-online<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/rss/" title="rss">rss<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tophat/" title="tophat">tophat<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/RStudio-RPubs/" title="RStudio_RPubs">RStudio_RPubs<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/R-PCA/" title="R_PCA">R_PCA<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">Tag Cloud</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/CRISPR-Cas9/" style="font-size: 10px;">CRISPR/Cas9</a> <a href="/tags/Chrome-Plug-in/" style="font-size: 10px;">Chrome Plug-in</a> <a href="/tags/Cufflinks/" style="font-size: 10px;">Cufflinks</a> <a href="/tags/CummeRbund/" style="font-size: 10px;">CummeRbund</a> <a href="/tags/FASTX/" style="font-size: 10px;">FASTX</a> <a href="/tags/Google/" style="font-size: 10px;">Google</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Linux-backup/" style="font-size: 10px;">Linux_backup</a> <a href="/tags/RStudio-RPubs/" style="font-size: 10px;">RStudio_RPubs</a> <a href="/tags/R-PCA/" style="font-size: 10px;">R_PCA</a> <a href="/tags/awk/" style="font-size: 15px;">awk</a> <a href="/tags/bio-online/" style="font-size: 10px;">bio-online</a> <a href="/tags/error-bars/" style="font-size: 20px;">error_bars</a> <a href="/tags/firewall/" style="font-size: 10px;">firewall</a> <a href="/tags/grep/" style="font-size: 10px;">grep</a> <a href="/tags/linux-command/" style="font-size: 10px;">linux_command</a> <a href="/tags/mytheme/" style="font-size: 10px;">mytheme</a> <a href="/tags/perl/" style="font-size: 10px;">perl</a> <a href="/tags/perl-diff/" style="font-size: 10px;">perl_diff</a> <a href="/tags/resequencing/" style="font-size: 10px;">resequencing</a> <a href="/tags/rss/" style="font-size: 10px;">rss</a> <a href="/tags/sitemap/" style="font-size: 10px;">sitemap</a> <a href="/tags/tophat/" style="font-size: 10px;">tophat</a> <a href="/tags/经典配色/" style="font-size: 10px;">经典配色</a>
+    </div>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://cotton.hzau.edu.cn/" target="_blank" title="作物遗传改良国家重点实验室">棉花遗传改良团队</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.bio-info-trainee.com/" target="_blank" title="生信菜鸟团-深圳大学城">生信菜鸟团-深圳大学城</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.sequencing.uio.no/" target="_blank" title="NSC-sequenceing">NSC-sequenceing</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.jobbole.com/" target="_blank" title="伯乐在线">伯乐在线</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://linux.cn/" target="_blank" title="Linux开源中文社区">Linux开源中文社区</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.r-bloggers.com/" target="_blank" title="R news and tutorials">R-bloggers</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://cran.r-project.org/other-docs.html" target="_blank" title="R Contributed Documentation">R-resource</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=2458965923&verifier=0cb325a7&dpc=1"></iframe>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/sitemaps-rss/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  
+
+<div >
+	<a src="http://7xk19o.com1.z0.glb.clouddn.com/IMG_2460.JPG"></a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m hope in Google. <br/>
+			I&#39;ll share my learning experience with you at this blog.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/http://weibo.com/tiramisutesTes" target="_blank" class="icon-weibo" title="Weibo"></a>
+		
+		
+		<a href="https://github.com/tiramisutes" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/xzpgocxx" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		<a href="https://www.facebook.com/xzpiphone" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		
+		
+		
+		<a href="https://www.evernote.com/Home.action#n=2899a4d8-15a8-478c-8946-2ce0c637d34b&amp;ses=4&amp;sh=2&amp;sds=5&amp;" target="_blank" class="icon-zhihu" title="Evernote"></a>
+		
+		
+		<a href="https://plus.google.com/103840563918867166597?rel=author" target="_blank" class="icon-google_plus" title="Google+"></a>
+		
+		
+		<a href="mailto:1099808298@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="tiramisutes">tiramisutes</a>
+		
+		<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+                </script>
+		<span id="busuanzi_container_site_pv" style='display:none'>
+                      | <a style="line-height: 1.5;" href="http://c4.gostats.cn/last_guests.xml?id=397056" target="_blank">The total visits <span id="busuanzi_value_site_pv"></span> times</a>
+                </span>
+		</p>
+		<!-- GoStats JavaScript Based Code -->
+                <script type="text/javascript" src="http://gostats.cn/js/counter.js"></script>
+                <script type="text/javascript">_gos='c4.gostats.cn';_goa=397056;
+                _got=5;_goi=1;_GoStatsRun();</script>
+                <noscript><a target="_blank" 
+                href="http://gostats.cn"><img src="http://c4.gostats.cn/bin/count/a_397056/t_5/i_1/counter.png" 
+                style="border-width:0" /></a></noscript>
+                <!-- End GoStats JavaScript Based Code -->		
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="WeChat"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="RenRen"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"Hope"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'Hope';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fe4648af2d5afaf376a4a8b2a3b1a8d## e.g. e6d1f421bbc9962127a50488f9ed37d1 your baidu tongji site code' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

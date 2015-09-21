@@ -1,0 +1,732 @@
+
+ <!DOCTYPE HTML>
+<html lang="default">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>ggplot2 fine drawing using mytheme | Hope</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="tiramisutes">
+    
+
+    
+    <meta name="description" content="ggplot2本身自带了很漂亮的主题格式，如theme_gray和theme_bw。但是在工作用图上，很多时候对图表格式配色字体等均有明文的规定。ggplot2允许我们事先定制好图表样式，我们可以生成如mytheme或者myline这样的有明确配色主题的对象，到时候就可以定制保存图表模板或者格式刷，直接在生成的图表里引用格式刷型的主题配色，就可以快捷方便的更改图表内容，保持风格的统一了。
+画图前的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ggplot2 fine drawing using mytheme">
+<meta property="og:url" content="http://tiramisutes.github.io/2015/07/31/mytheme/index.html">
+<meta property="og:site_name" content="Hope">
+<meta property="og:description" content="ggplot2本身自带了很漂亮的主题格式，如theme_gray和theme_bw。但是在工作用图上，很多时候对图表格式配色字体等均有明文的规定。ggplot2允许我们事先定制好图表样式，我们可以生成如mytheme或者myline这样的有明确配色主题的对象，到时候就可以定制保存图表模板或者格式刷，直接在生成的图表里引用格式刷型的主题配色，就可以快捷方便的更改图表内容，保持风格的统一了。
+画图前的">
+<meta property="og:image" content="http://7xk19o.com1.z0.glb.clouddn.com/Rplot01.jpeg">
+<meta property="og:image" content="http://7xk19o.com1.z0.glb.clouddn.com/Rplot.jpeg">
+<meta property="og:image" content="http://7xk19o.com1.z0.glb.clouddn.com/11.jpeg">
+<meta property="og:image" content="http://7xk19o.com1.z0.glb.clouddn.com/22.jpeg">
+<meta property="og:image" content="http://7xk19o.com1.z0.glb.clouddn.com/33.jpeg">
+<meta property="og:image" content="http://7xk19o.com1.z0.glb.clouddn.com/66.jpeg">
+<meta property="og:image" content="http://7xk19o.com1.z0.glb.clouddn.com/77.jpeg">
+<meta property="og:image" content="http://7xk19o.com1.z0.glb.clouddn.com/88.jpeg">
+<meta property="og:updated_time" content="2015-09-21T04:48:26.084Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ggplot2 fine drawing using mytheme">
+<meta name="twitter:description" content="ggplot2本身自带了很漂亮的主题格式，如theme_gray和theme_bw。但是在工作用图上，很多时候对图表格式配色字体等均有明文的规定。ggplot2允许我们事先定制好图表样式，我们可以生成如mytheme或者myline这样的有明确配色主题的对象，到时候就可以定制保存图表模板或者格式刷，直接在生成的图表里引用格式刷型的主题配色，就可以快捷方便的更改图表内容，保持风格的统一了。
+画图前的">
+<meta name="twitter:creator" content="@xzpgocxx">
+<link rel="publisher" href="103840563918867166597">
+
+    
+    <link rel="alternative" href="/sitemaps-rss/atom.xml" title="Hope" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Hope">Hope</a></h1>
+				<h2 class="blog-motto">A new day is coming,whether we like it or not. The question is will you conutrol it,or will it control you?</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/coding">Coding</a></li>
+					
+						<li><a href="/huazhong">HuaZhong</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/07/31/mytheme/" title="ggplot2 fine drawing using mytheme" itemprop="url">ggplot2 fine drawing using mytheme</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/103840563918867166597?rel=author" title="tiramisutes" target="_blank" itemprop="author">tiramisutes</a>
+		
+  <p class="article-time">
+    <time datetime="2015-07-31T14:45:06.000Z" itemprop="datePublished"> Published 2015-07-31</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#画图前的准备：自定义ggplot2格式刷"><span class="toc-number">1.</span> <span class="toc-text">画图前的准备：自定义ggplot2格式刷</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#载入例子数据"><span class="toc-number">1.1.</span> <span class="toc-text">载入例子数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不用自定义格式画图"><span class="toc-number">1.2.</span> <span class="toc-text">不用自定义格式画图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#利用自定义格式画图"><span class="toc-number">1.3.</span> <span class="toc-text">利用自定义格式画图</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#画图前的准备：数据塑形利器dplyr/tidyr"><span class="toc-number">2.</span> <span class="toc-text">画图前的准备：数据塑形利器dplyr/tidyr</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#载入数据，数据来源:_股票的成交明细-"><span class="toc-number">2.1.</span> <span class="toc-text">载入数据，数据来源: 股票的成交明细.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将数据汇总(group_by_&_summarize)_甚至再拆分_(spread)"><span class="toc-number">2.2.</span> <span class="toc-text">将数据汇总(group_by & summarize) 甚至再拆分 (spread)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用图形"><span class="toc-number">3.</span> <span class="toc-text">常用图形</span></a></li></ol>
+		
+		</div>
+		
+		<p>ggplot2本身自带了很漂亮的主题格式，如theme_gray和theme_bw。但是在工作用图上，很多时候对图表格式配色字体等均有明文的规定。ggplot2允许我们事先定制好图表样式，我们可以生成如mytheme或者myline这样的有明确配色主题的对象，到时候就可以定制保存图表模板或者格式刷，直接在生成的图表里引用格式刷型的主题配色，就可以快捷方便的更改图表内容，保持风格的统一了。</p>
+<h2 id="画图前的准备：自定义ggplot2格式刷">画图前的准备：自定义ggplot2格式刷</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">library(ggplot2)</span><br><span class="line">library(dplyr)</span><br><span class="line">library(RColorBrewer)</span><br><span class="line">library(tidyr)</span><br><span class="line">library(grid)</span><br><span class="line"><span class="comment">#定义好字体</span></span><br><span class="line">windowsFonts(CA=windowsFont(<span class="string">"Calibri"</span>))</span><br><span class="line"><span class="comment">#事先定制好要加图形的形状、颜色、主题等</span></span><br><span class="line"><span class="comment">#定制主题，要求背景全白，没有边框。然后所有的字体都是某某颜色</span></span><br><span class="line">mytheme&lt;-theme_bw()+theme(legend.position=<span class="string">"right"</span>,</span><br><span class="line">                          panel.border=element_blank(),</span><br><span class="line">                          panel.grid.major=element_line(linetype=<span class="string">"dashed"</span>),</span><br><span class="line">                          panel.grid.minor=element_blank(),</span><br><span class="line">                          plot.title=element_text(size=<span class="number">15</span>,</span><br><span class="line">                                                  colour=<span class="string">"#003087"</span>,</span><br><span class="line">                                                  family=<span class="string">"CA"</span>),</span><br><span class="line">                          legend.text=element_text(size=<span class="number">9</span>,colour=<span class="string">"#003087"</span>,</span><br><span class="line">                                                   family=<span class="string">"CA"</span>),</span><br><span class="line">                          legend.key=element_blank(),</span><br><span class="line">                          axis.text=element_text(size=<span class="number">10</span>,colour=<span class="string">"#003087"</span>,</span><br><span class="line">                                                 family=<span class="string">"CA"</span>),</span><br><span class="line">                          strip.text=element_text(size=<span class="number">12</span>,colour=<span class="string">"#EF0808"</span>,</span><br><span class="line">                                                  family=<span class="string">"CA"</span>),</span><br><span class="line">                          strip.background=element_blank()</span><br><span class="line"></span><br><span class="line">                        )</span><br><span class="line"><span class="comment">#饼图主题</span></span><br><span class="line">pie_theme=mytheme+theme(axis.text=element_blank(),</span><br><span class="line">                        axis.ticks=element_blank(),</span><br><span class="line">                        axis.title=element_blank(),</span><br><span class="line">                        panel.grid.major=element_blank())</span><br><span class="line"><span class="comment">#定制线的大小</span></span><br><span class="line">myline_blue&lt;-geom_line(colour=<span class="string">"#085A9C"</span>,size=<span class="number">2</span>)</span><br><span class="line">myline_red&lt;-geom_line(colour=<span class="string">"#EF0808"</span>,size=<span class="number">2</span>)</span><br><span class="line">myarea=geom_area(colour=NA,fill=<span class="string">"#003087"</span>,alpha=.<span class="number">2</span>)</span><br><span class="line">mypoint=geom_point(size=<span class="number">3</span>,shape=<span class="number">21</span>,colour=<span class="string">"#003087"</span>,fill=<span class="string">"white"</span>)</span><br><span class="line">mybar=geom_bar(fill=<span class="string">"#0C8DC4"</span>,<span class="built_in">stat</span>=<span class="string">"identity"</span>)</span><br><span class="line"><span class="comment">#然后是配色（主要是图形配色），考虑到样本的多样性，可以事先设定颜色，如3种颜色或7种颜色的组合，如果想要用原来默认主题颜色则这部分注释掉即可</span></span><br><span class="line">mycolour_3&lt;-scale_fill_manual(values=c(<span class="string">"#085A9C"</span>,<span class="string">"#EF0808"</span>,<span class="string">"#526373"</span>))</span><br><span class="line">mycolour_7&lt;-scale_fill_manual(values=c(<span class="string">"#085A9C"</span>,<span class="string">"#EF0808"</span>,<span class="string">"#526373"</span>,</span><br><span class="line"><span class="string">"#FFFFE7"</span>,<span class="string">"#FF9418"</span>,<span class="string">"#219431"</span>,<span class="string">"#9C52AD"</span>))</span><br><span class="line">mycolour_line_7&lt;-scale_color_manual(values=c(<span class="string">"#085A9C"</span>,<span class="string">"#EF0808"</span>,<span class="string">"#526373"</span>,</span><br><span class="line">                                             <span class="string">"#0C8DC4"</span>,<span class="string">"#FF9418"</span>,<span class="string">"#219431"</span>,<span class="string">"#9C52AD"</span>))</span><br><span class="line"><span class="comment">#定制标题</span></span><br><span class="line">mytitle&lt;-labs(title = <span class="string">"hope 实例"</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="载入例子数据">载入例子数据</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">require(ggplot2)</span><br><span class="line">data(diamonds)</span><br><span class="line">set.seed(<span class="number">42</span>)</span><br><span class="line">small &lt;- diamonds[sample(nrow(diamonds), <span class="number">1000</span>), ]</span><br><span class="line">head(small)</span><br></pre></td></tr></table></figure>
+<h3 id="不用自定义格式画图">不用自定义格式画图</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ggplot(small)+geom_bar(aes(x=clarity, fill=cut))+coord_polar()</span><br></pre></td></tr></table></figure>
+<p><img src="http://7xk19o.com1.z0.glb.clouddn.com/Rplot01.jpeg" alt=""></p>
+<h3 id="利用自定义格式画图">利用自定义格式画图</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ggplot(small)+geom_bar(aes(x=clarity, fill=cut))+coord_polar()+ mytheme + mytitle</span><br></pre></td></tr></table></figure>
+<p><img src="http://7xk19o.com1.z0.glb.clouddn.com/Rplot.jpeg" alt=""></p>
+<h2 id="画图前的准备：数据塑形利器dplyr/tidyr">画图前的准备：数据塑形利器dplyr/tidyr</h2><p>在R里，则是用一些常用的包，如dplyr及tidyr，基本用的都是reshape2+plyr的组合对数据进行重塑再造.</p>
+<h3 id="载入数据，数据来源:_股票的成交明细-">载入数据，数据来源: <a style="line-height: 1.5;" href="http://www.yucezhe.com/product?name=tick-data-push" target="_blank">股票的成交明细.</a></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt; data&lt;-read.table(<span class="string">"gupiao.txt"</span>,header=TRUE)</span><br><span class="line">&gt; head(data)</span><br><span class="line">     Time Price BuySell Volume     Money</span><br><span class="line"><span class="number">1</span> <span class="number">9</span>:<span class="number">25</span>:<span class="number">08</span> <span class="number">18.03</span>    <span class="number">0.00</span>  <span class="number">73520</span> <span class="number">132557642</span></span><br><span class="line"><span class="number">2</span> <span class="number">9</span>:<span class="number">29</span>:<span class="number">59</span> <span class="number">17.99</span>   -<span class="number">0.04</span>  <span class="number">11034</span>  <span class="number">19857700</span></span><br><span class="line"><span class="number">3</span> <span class="number">9</span>:<span class="number">30</span>:<span class="number">09</span> <span class="number">17.99</span>    <span class="number">0.00</span>  <span class="number">28920</span>  <span class="number">52089378</span></span><br><span class="line"><span class="number">4</span> <span class="number">9</span>:<span class="number">30</span>:<span class="number">09</span> <span class="number">17.99</span>    <span class="number">0.00</span>   <span class="number">9272</span>  <span class="number">16681906</span></span><br><span class="line"><span class="number">5</span> <span class="number">9</span>:<span class="number">30</span>:<span class="number">14</span> <span class="number">17.96</span>   -<span class="number">0.03</span>    <span class="number">556</span>    <span class="number">998913</span></span><br><span class="line"><span class="number">6</span> <span class="number">9</span>:<span class="number">30</span>:<span class="number">19</span> <span class="number">17.96</span>    <span class="number">0.00</span>    <span class="number">873</span>   <span class="number">1567490</span></span><br><span class="line">&gt; dim(data)</span><br><span class="line">[<span class="number">1</span>] <span class="number">2345</span>    <span class="number">5</span></span><br></pre></td></tr></table></figure>
+<h3 id="将数据汇总(group_by_&amp;_summarize)_甚至再拆分_(spread)">将数据汇总(group_by &amp; summarize) 甚至再拆分 (spread)</h3><p>示例里面就是把成交记录按照成交Price和BuySell拆分<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt; data %&gt;% group_by(Price,BuySell) %&gt;% summarize(Money=sum(Money,na.rm=TRUE)) %&gt;% spread(BuySell,Money)</span><br><span class="line">Source: <span class="built_in">local</span> data frame [<span class="number">46</span> x <span class="number">16</span>]</span><br><span class="line"></span><br><span class="line">   Price -<span class="number">0.07</span> -<span class="number">0.06</span> -<span class="number">0.05</span>    -<span class="number">0.04</span>   -<span class="number">0.03</span>    -<span class="number">0.02</span>    -<span class="number">0.01</span>        <span class="number">0</span>     <span class="number">0.01</span></span><br><span class="line"><span class="number">1</span>  <span class="number">17.58</span>    NA    NA    NA       NA      NA       NA <span class="number">41631769</span> <span class="number">29645465</span>       NA</span><br><span class="line"><span class="number">2</span>  <span class="number">17.59</span>    NA    NA    NA       NA      NA <span class="number">17173618</span> <span class="number">37029276</span>       NA <span class="number">24179724</span></span><br><span class="line"><span class="number">3</span>  <span class="number">17.60</span>    NA    NA    NA       NA      NA   <span class="number">318581</span> <span class="number">42756941</span> <span class="number">15987562</span> <span class="number">11197676</span></span><br><span class="line"><span class="number">4</span>  <span class="number">17.61</span>    NA    NA    NA       NA      NA       NA <span class="number">58098336</span> <span class="number">36701330</span> <span class="number">14999088</span></span><br><span class="line"><span class="number">5</span>  <span class="number">17.62</span>    NA    NA    NA       NA      NA       NA <span class="number">32385632</span> <span class="number">51156365</span> <span class="number">24341609</span></span><br><span class="line"><span class="number">6</span>  <span class="number">17.63</span>    NA    NA    NA       NA      NA  <span class="number">5191027</span> <span class="number">16112558</span> <span class="number">32054647</span> <span class="number">23599759</span></span><br><span class="line"><span class="number">7</span>  <span class="number">17.64</span>    NA    NA    NA <span class="number">24642084</span> <span class="number">3725529</span> <span class="number">14682967</span>  <span class="number">4791698</span> <span class="number">18864232</span>  <span class="number">4731619</span></span><br><span class="line"><span class="number">8</span>  <span class="number">17.65</span>    NA    NA    NA       NA <span class="number">3918096</span>  <span class="number">6003983</span> <span class="number">16293279</span> <span class="number">19115145</span> <span class="number">13177514</span></span><br><span class="line"><span class="number">9</span>  <span class="number">17.66</span>    NA    NA    NA       NA <span class="number">5175002</span>       NA <span class="number">54169855</span> <span class="number">16671362</span>  <span class="number">7801764</span></span><br><span class="line"><span class="number">10</span> <span class="number">17.67</span>    NA    NA    NA       NA      NA <span class="number">10951987</span> <span class="number">38090607</span>  <span class="number">8704892</span>  <span class="number">7911066</span></span><br><span class="line">..   ...   ...   ...   ...      ...     ...      ...      ...      ...      ...</span><br><span class="line">Variables not shown: <span class="number">0.02</span> (int), <span class="number">0.03</span> (int), <span class="number">0.04</span> (int), <span class="number">0.05</span> (int), <span class="number">0.06</span> (int),</span><br><span class="line">  <span class="number">0.07</span> (int)</span><br></pre></td></tr></table></figure></p>
+<p>然后便可用ggplot等包绘图。</p>
+<h2 id="常用图形">常用图形</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">简单柱形图+文本（单一变量） </span><br><span class="line">分面柱形图（facet_wrap/facet_grid) </span><br><span class="line">簇型柱形图(position=<span class="string">"dodge"</span>) </span><br><span class="line">堆积柱形图(需要先添加百分比，再对百分比的变量做柱形图) </span><br><span class="line">饼图、极坐标图 </span><br><span class="line">多重线性图</span><br></pre></td></tr></table></figure>
+<p>1)简单柱形图 </p>
+<p><img src="http://7xk19o.com1.z0.glb.clouddn.com/11.jpeg" alt=""><br>代码组成如下，这里使用格式刷mybar和mytheme，然后用geom_text添加柱形图标签(vjust=1表示在柱形图里面显示)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">data1&lt;-diamonds %&gt;% group_by(cut) %&gt;% summarize(avg_price=mean(price))</span><br><span class="line">bar_chart&lt;-ggplot(data1,aes(x=cut,y=avg_price,fill=as.factor(cut)))+</span><br><span class="line">        mybar+mytheme+mytitle+</span><br><span class="line">        geom_text(aes(label=round(avg_price)),vjust=<span class="number">1</span>,colour=<span class="string">"white"</span>)</span><br><span class="line">bar_chart</span><br></pre></td></tr></table></figure></p>
+<p>2）带分类的柱形图<br>使用facet_wrap或者facet_grid可以快速绘制相应图形。这也是ggplot2不太支持双坐标的原因：可以快速绘图，就不需要做那么多无用功了。<br><img src="http://7xk19o.com1.z0.glb.clouddn.com/22.jpeg" alt=""><br>代码如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#dplyr处理数据</span></span><br><span class="line">data2&lt;-diamonds %&gt;% group_by(cut,color) %&gt;% summarize(avg_price=mean(price))</span><br><span class="line"><span class="comment">#画图，套用设定好的绘图元素</span></span><br><span class="line">ggplot(data2,aes(x=color,y=avg_price))+facet_wrap(~cut,ncol = <span class="number">2</span>)+</span><br><span class="line">        mybar+mytheme+mytitle</span><br><span class="line"><span class="comment">#在facet_wrap里面，如果加上scales="free"的话，坐标就不一样了。</span></span><br></pre></td></tr></table></figure></p>
+<p>3）簇型图<br>制图要点是，对数据作图后，添加geom_bar时，position=”dodge”（分开的）如果去掉这部分，默认是生成堆积图.</p>
+<p><img src="http://7xk19o.com1.z0.glb.clouddn.com/33.jpeg" alt=""><br>代码如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">data3&lt;-diamonds %&gt;% filter(cut %<span class="keyword">in</span>% c(<span class="string">"Fair"</span>,<span class="string">"Very Good"</span>,<span class="string">"Ideal"</span>)) %&gt;%</span><br><span class="line">        group_by(cut,color) %&gt;% summarize(avg_price=mean(price))</span><br><span class="line"><span class="comment">#簇状图</span></span><br><span class="line">簇状柱形图&lt;-ggplot(data3,aes(x=color,y=avg_price,fill=cut))+</span><br><span class="line">        geom_bar(<span class="built_in">stat</span>=<span class="string">"identity"</span>,position=<span class="string">"dodge"</span>)+</span><br><span class="line">        mytheme+mytitle+mycolour_3</span><br></pre></td></tr></table></figure>
+<p>这里如果想要定义颜色的相应顺序的话，可以使用factor </p>
+<p>譬如以下,只是用这行代码对颜色重新定义一下，用levels改变factor顺序，再画图的时候，颜色以及柱子顺序就会跟着改变了。非常方便。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data3<span class="variable">$cut</span>&lt;-factor(data3<span class="variable">$cut</span>,levels=c(<span class="string">"Very Good"</span>,<span class="string">"Ideal"</span>,<span class="string">"Fair"</span>))</span><br></pre></td></tr></table></figure></p>
+<p>4）百分比堆积图<br>制图前要事先添加一个百分比的数据之后才好作图，这里我们用mutate(percent=n/sum(n))添加该百分比数据。同时去掉position=”dodge”<br><img src="http://7xk19o.com1.z0.glb.clouddn.com/66.jpeg" alt=""><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">data4&lt;-diamonds %&gt;% filter(cut %<span class="keyword">in</span>% c(<span class="string">"Fair"</span>,<span class="string">"Very Good"</span>,<span class="string">"Ideal"</span>)) %&gt;%</span><br><span class="line">         count(color,cut) %&gt;% </span><br><span class="line">        mutate(percent=n/sum(n))</span><br><span class="line">堆积图&lt;-ggplot(data4,aes(x=color,y=percent,fill=cut))+mytitle+</span><br><span class="line">        geom_bar(<span class="built_in">stat</span>=<span class="string">"identity"</span>)+mytheme+mycolour_3</span><br></pre></td></tr></table></figure></p>
+<p>当然，也可以做面积图。不过如果数据有缺失，面积图出错几率蛮大的</p>
+<p>5）饼图以及极坐标图</p>
+<p>在ggplot2里并没有直接画饼图的方法，基本上都是先画出柱形图，再用coord_polar转化为饼图.<br>不指定x轴，直接用geom_bar生成y轴，然后fill=分类颜色，coord_polar直接投影y轴，该方法的好处代码是比较简单：coord_polar(“y”) 。<br>加标签方法请见： <a href="http://stackoverflow.com/questions/8952077/pie-plot-getting-its-text-on-top-of-each-other" target="_blank" rel="external">http://stackoverflow.com/questions/8952077/pie-plot-getting-its-text-on-top-of-each-other</a><br><img src="http://7xk19o.com1.z0.glb.clouddn.com/77.jpeg" alt=""><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">data5&lt;-diamonds %&gt;% count(cut) %&gt;% </span><br><span class="line">        mutate(percent=n/sum(n))</span><br><span class="line">ggplot(data5,aes(x=factor(<span class="number">1</span>),y=percent,fill=cut))+geom_bar(<span class="built_in">stat</span>=<span class="string">"identity"</span>,width=<span class="number">3</span>)+mycolour_7+</span><br><span class="line">        coord_polar(<span class="string">"y"</span>)+pie_theme+mytitle</span><br></pre></td></tr></table></figure></p>
+<p>6、折线图<br><img src="http://7xk19o.com1.z0.glb.clouddn.com/88.jpeg" alt=""><br>要点是，先做成如A-B-变量这样的二联表，然后，x轴为A，group为b,colour为b<br>下面代码展示了这个处理<br>如果去掉group的话，折线图会不知道怎么去处理数字。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">data6&lt;-diamonds %&gt;% count(color,cut) %&gt;% filter(color %<span class="keyword">in</span>% c(<span class="string">"D"</span>,<span class="string">"E"</span>,<span class="string">"F"</span>))%&gt;%</span><br><span class="line">        mutate(percent=n/sum(n))</span><br><span class="line">ggplot(data6,aes(x=cut,y=n,group=color,colour=color))+geom_line(size=<span class="number">1.5</span>)+mypoint+</span><br><span class="line">        mycolour_line_7+mytheme+mytitle</span><br></pre></td></tr></table></figure></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/R/">R</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/mytheme/">mytheme</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://tiramisutes.github.io/2015/07/31/mytheme/" data-title="ggplot2 fine drawing using mytheme | Hope" data-tsina="2458965923" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/07/31/color/" title="杂志图表的经典用色">
+  <strong>Prev →：</strong><br/>
+  <span>
+  杂志图表的经典用色</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/07/29/grep/"  title="14 个 grep 命令的例子">
+ <strong>← Next：</strong><br/> 
+ <span>14 个 grep 命令的例子
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/07/31/mytheme/" data-title="ggplot2 fine drawing using mytheme" data-url="http://tiramisutes.github.io/2015/07/31/mytheme/"></div>
+</section>
+
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#画图前的准备：自定义ggplot2格式刷"><span class="toc-number">1.</span> <span class="toc-text">画图前的准备：自定义ggplot2格式刷</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#载入例子数据"><span class="toc-number">1.1.</span> <span class="toc-text">载入例子数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不用自定义格式画图"><span class="toc-number">1.2.</span> <span class="toc-text">不用自定义格式画图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#利用自定义格式画图"><span class="toc-number">1.3.</span> <span class="toc-text">利用自定义格式画图</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#画图前的准备：数据塑形利器dplyr/tidyr"><span class="toc-number">2.</span> <span class="toc-text">画图前的准备：数据塑形利器dplyr/tidyr</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#载入数据，数据来源:_股票的成交明细-"><span class="toc-number">2.1.</span> <span class="toc-text">载入数据，数据来源: 股票的成交明细.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将数据汇总(group_by_&_summarize)_甚至再拆分_(spread)"><span class="toc-number">2.2.</span> <span class="toc-text">将数据汇总(group_by & summarize) 甚至再拆分 (spread)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用图形"><span class="toc-number">3.</span> <span class="toc-text">常用图形</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Bioinformatics/" title="Bioinformatics">Bioinformatics<sup>10</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Google/" title="Google">Google<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Hexo/" title="Hexo">Hexo<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/R/" title="R">R<sup>6</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/error-bars/" title="error_bars">error_bars<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/awk/" title="awk">awk<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/resequencing/" title="resequencing">resequencing<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/perl/" title="perl">perl<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/perl-diff/" title="perl_diff">perl_diff<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/mytheme/" title="mytheme">mytheme<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/linux-command/" title="linux_command">linux_command<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CRISPR-Cas9/" title="CRISPR/Cas9">CRISPR/Cas9<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/grep/" title="grep">grep<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Google/" title="Google">Google<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/sitemap/" title="sitemap">sitemap<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/经典配色/" title="经典配色">经典配色<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Chrome-Plug-in/" title="Chrome Plug-in">Chrome Plug-in<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/bio-online/" title="bio-online">bio-online<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/rss/" title="rss">rss<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tophat/" title="tophat">tophat<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/RStudio-RPubs/" title="RStudio_RPubs">RStudio_RPubs<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/R-PCA/" title="R_PCA">R_PCA<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">Tag Cloud</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/CRISPR-Cas9/" style="font-size: 10px;">CRISPR/Cas9</a> <a href="/tags/Chrome-Plug-in/" style="font-size: 10px;">Chrome Plug-in</a> <a href="/tags/Cufflinks/" style="font-size: 10px;">Cufflinks</a> <a href="/tags/CummeRbund/" style="font-size: 10px;">CummeRbund</a> <a href="/tags/FASTX/" style="font-size: 10px;">FASTX</a> <a href="/tags/Google/" style="font-size: 10px;">Google</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Linux-backup/" style="font-size: 10px;">Linux_backup</a> <a href="/tags/RStudio-RPubs/" style="font-size: 10px;">RStudio_RPubs</a> <a href="/tags/R-PCA/" style="font-size: 10px;">R_PCA</a> <a href="/tags/awk/" style="font-size: 15px;">awk</a> <a href="/tags/bio-online/" style="font-size: 10px;">bio-online</a> <a href="/tags/error-bars/" style="font-size: 20px;">error_bars</a> <a href="/tags/firewall/" style="font-size: 10px;">firewall</a> <a href="/tags/grep/" style="font-size: 10px;">grep</a> <a href="/tags/linux-command/" style="font-size: 10px;">linux_command</a> <a href="/tags/mytheme/" style="font-size: 10px;">mytheme</a> <a href="/tags/perl/" style="font-size: 10px;">perl</a> <a href="/tags/perl-diff/" style="font-size: 10px;">perl_diff</a> <a href="/tags/resequencing/" style="font-size: 10px;">resequencing</a> <a href="/tags/rss/" style="font-size: 10px;">rss</a> <a href="/tags/sitemap/" style="font-size: 10px;">sitemap</a> <a href="/tags/tophat/" style="font-size: 10px;">tophat</a> <a href="/tags/经典配色/" style="font-size: 10px;">经典配色</a>
+    </div>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://cotton.hzau.edu.cn/" target="_blank" title="作物遗传改良国家重点实验室">棉花遗传改良团队</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.bio-info-trainee.com/" target="_blank" title="生信菜鸟团-深圳大学城">生信菜鸟团-深圳大学城</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.sequencing.uio.no/" target="_blank" title="NSC-sequenceing">NSC-sequenceing</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.jobbole.com/" target="_blank" title="伯乐在线">伯乐在线</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://linux.cn/" target="_blank" title="Linux开源中文社区">Linux开源中文社区</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.r-bloggers.com/" target="_blank" title="R news and tutorials">R-bloggers</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://cran.r-project.org/other-docs.html" target="_blank" title="R Contributed Documentation">R-resource</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=2458965923&verifier=0cb325a7&dpc=1"></iframe>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/sitemaps-rss/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  
+
+<div >
+	<a src="http://7xk19o.com1.z0.glb.clouddn.com/IMG_2460.JPG"></a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m hope in Google. <br/>
+			I&#39;ll share my learning experience with you at this blog.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/http://weibo.com/tiramisutesTes" target="_blank" class="icon-weibo" title="Weibo"></a>
+		
+		
+		<a href="https://github.com/tiramisutes" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/xzpgocxx" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		<a href="https://www.facebook.com/xzpiphone" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		
+		
+		
+		<a href="https://www.evernote.com/Home.action#n=2899a4d8-15a8-478c-8946-2ce0c637d34b&amp;ses=4&amp;sh=2&amp;sds=5&amp;" target="_blank" class="icon-zhihu" title="Evernote"></a>
+		
+		
+		<a href="https://plus.google.com/103840563918867166597?rel=author" target="_blank" class="icon-google_plus" title="Google+"></a>
+		
+		
+		<a href="mailto:1099808298@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="tiramisutes">tiramisutes</a>
+		
+		<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+                </script>
+		<span id="busuanzi_container_site_pv" style='display:none'>
+                      | <a style="line-height: 1.5;" href="http://c4.gostats.cn/last_guests.xml?id=397056" target="_blank">The total visits <span id="busuanzi_value_site_pv"></span> times</a>
+                </span>
+		</p>
+		<!-- GoStats JavaScript Based Code -->
+                <script type="text/javascript" src="http://gostats.cn/js/counter.js"></script>
+                <script type="text/javascript">_gos='c4.gostats.cn';_goa=397056;
+                _got=5;_goi=1;_GoStatsRun();</script>
+                <noscript><a target="_blank" 
+                href="http://gostats.cn"><img src="http://c4.gostats.cn/bin/count/a_397056/t_5/i_1/counter.png" 
+                style="border-width:0" /></a></noscript>
+                <!-- End GoStats JavaScript Based Code -->		
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="WeChat"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="RenRen"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"Hope"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'Hope';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fe4648af2d5afaf376a4a8b2a3b1a8d## e.g. e6d1f421bbc9962127a50488f9ed37d1 your baidu tongji site code' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

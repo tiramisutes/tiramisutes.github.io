@@ -1,0 +1,721 @@
+
+ <!DOCTYPE HTML>
+<html lang="default">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>PCA分析 | Hope</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="tiramisutes">
+    
+
+    
+    <meta name="description" content="主成分分析（PCA）是一种数据降维技巧，它能将大量相关变量转化为一组很少的不相关变量，这些无关变量称为主成分，它们是观测变量的线性组合。如第一主成分为：PC1=a1X1=a2X 2+…+akXk它是k个观测变量的加权组合，对初始变量集的方差解释性最大。第二主成分也是初始变量的线性组合，对方差的解释性排第二，同时与第一主成分正交（不相关）。后面每一个主成分都最大化它对方差的解释程度，同时与之前所有的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PCA分析">
+<meta property="og:url" content="http://tiramisutes.github.io/2015/07/29/PCA/index.html">
+<meta property="og:site_name" content="Hope">
+<meta property="og:description" content="主成分分析（PCA）是一种数据降维技巧，它能将大量相关变量转化为一组很少的不相关变量，这些无关变量称为主成分，它们是观测变量的线性组合。如第一主成分为：PC1=a1X1=a2X 2+…+akXk它是k个观测变量的加权组合，对初始变量集的方差解释性最大。第二主成分也是初始变量的线性组合，对方差的解释性排第二，同时与第一主成分正交（不相关）。后面每一个主成分都最大化它对方差的解释程度，同时与之前所有的">
+<meta property="og:image" content="http://7xk19o.com1.z0.glb.clouddn.com/PCA.png">
+<meta property="og:image" content="http://pic002.cnblogs.com/images/2012/366262/2012061816452819.jpg">
+<meta property="og:updated_time" content="2015-08-02T05:53:02.661Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PCA分析">
+<meta name="twitter:description" content="主成分分析（PCA）是一种数据降维技巧，它能将大量相关变量转化为一组很少的不相关变量，这些无关变量称为主成分，它们是观测变量的线性组合。如第一主成分为：PC1=a1X1=a2X 2+…+akXk它是k个观测变量的加权组合，对初始变量集的方差解释性最大。第二主成分也是初始变量的线性组合，对方差的解释性排第二，同时与第一主成分正交（不相关）。后面每一个主成分都最大化它对方差的解释程度，同时与之前所有的">
+<meta name="twitter:creator" content="@xzpgocxx">
+<link rel="publisher" href="103840563918867166597">
+
+    
+    <link rel="alternative" href="/sitemaps-rss/atom.xml" title="Hope" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Hope">Hope</a></h1>
+				<h2 class="blog-motto">A new day is coming,whether we like it or not. The question is will you conutrol it,or will it control you?</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/coding">Coding</a></li>
+					
+						<li><a href="/huazhong">HuaZhong</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="Search" />
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/07/29/PCA/" title="PCA分析" itemprop="url">PCA分析</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/103840563918867166597?rel=author" title="tiramisutes" target="_blank" itemprop="author">tiramisutes</a>
+		
+  <p class="article-time">
+    <time datetime="2015-07-29T13:54:45.000Z" itemprop="datePublished"> Published 2015-07-29</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			
+		
+		</div>
+		
+		<p>主成分分析（PCA）是一种数据降维技巧，它能将大量相关变量转化为一组很少的不相关变量，这些无关变量称为主成分，它们是观测变量的线性组合。如第一主成分为：<br>PC1=a1X1=a2X 2+…+akXk<br>它是k个观测变量的加权组合，对初始变量集的方差解释性最大。第二主成分也是初始变量的线性组合，对方差的解释性排第二，同时与第一主成分正交（不相关）。后面每一个主成分都最大化它对方差的解释程度，同时与之前所有的主成分都正交。<br>PCA分析模型如下图：<br><img src="http://7xk19o.com1.z0.glb.clouddn.com/PCA.png" alt=""><br>例如如下数据的PCA分析：<br>学生身体4 项指标的主成份分析<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">学生序号	x1身高	x2体重	x3胸围	x4坐高</span><br><span class="line"><span class="number">1</span>	<span class="number">148</span>	<span class="number">41</span>	<span class="number">72</span>	<span class="number">78</span></span><br><span class="line"><span class="number">2</span>	<span class="number">139</span>	<span class="number">34</span>	<span class="number">71</span>	<span class="number">76</span></span><br><span class="line"><span class="number">3</span>	<span class="number">160</span>	<span class="number">49</span>	<span class="number">77</span>	<span class="number">86</span></span><br><span class="line"><span class="number">4</span>	<span class="number">149</span>	<span class="number">36</span>	<span class="number">67</span>	<span class="number">79</span></span><br><span class="line"><span class="number">5</span>	<span class="number">159</span>	<span class="number">45</span>	<span class="number">80</span>	<span class="number">86</span></span><br><span class="line"><span class="number">6</span>	<span class="number">142</span>	<span class="number">31</span>	<span class="number">66</span>	<span class="number">76</span></span><br><span class="line"><span class="number">7</span>	<span class="number">153</span>	<span class="number">43</span>	<span class="number">76</span>	<span class="number">83</span></span><br><span class="line"><span class="number">8</span>	<span class="number">150</span>	<span class="number">43</span>	<span class="number">77</span>	<span class="number">79</span></span><br><span class="line"><span class="number">9</span>	<span class="number">151</span>	<span class="number">42</span>	<span class="number">77</span>	<span class="number">80</span></span><br><span class="line"><span class="number">10</span>	<span class="number">139</span>	<span class="number">31</span>	<span class="number">68</span>	<span class="number">74</span></span><br><span class="line"><span class="number">11</span>	<span class="number">140</span>	<span class="number">29</span>	<span class="number">64</span>	<span class="number">74</span></span><br><span class="line"><span class="number">12</span>	<span class="number">161</span>	<span class="number">47</span>	<span class="number">78</span>	<span class="number">84</span></span><br><span class="line"><span class="number">13</span>	<span class="number">158</span>	<span class="number">49</span>	<span class="number">78</span>	<span class="number">83</span></span><br><span class="line"><span class="number">14</span>	<span class="number">140</span>	<span class="number">33</span>	<span class="number">67</span>	<span class="number">77</span></span><br><span class="line"><span class="number">15</span>	<span class="number">137</span>	<span class="number">31</span>	<span class="number">66</span>	<span class="number">73</span></span><br><span class="line"><span class="number">16</span>	<span class="number">152</span>	<span class="number">35</span>	<span class="number">73</span>	<span class="number">79</span></span><br><span class="line"><span class="number">17</span>	<span class="number">149</span>	<span class="number">47</span>	<span class="number">82</span>	<span class="number">79</span></span><br><span class="line"><span class="number">18</span>	<span class="number">145</span>	<span class="number">35</span>	<span class="number">70</span>	<span class="number">77</span></span><br><span class="line"><span class="number">19</span>	<span class="number">160</span>	<span class="number">47</span>	<span class="number">74</span>	<span class="number">87</span></span><br><span class="line"><span class="number">20</span>	<span class="number">156</span>	<span class="number">44</span>	<span class="number">78</span>	<span class="number">85</span></span><br><span class="line"><span class="number">21</span>	<span class="number">151</span>	<span class="number">42</span>	<span class="number">73</span>	<span class="number">82</span></span><br><span class="line"><span class="number">22</span>	<span class="number">147</span>	<span class="number">38</span>	<span class="number">73</span>	<span class="number">78</span></span><br><span class="line"><span class="number">23</span>	<span class="number">157</span>	<span class="number">39</span>	<span class="number">68</span>	<span class="number">80</span></span><br><span class="line"><span class="number">24</span>	<span class="number">147</span>	<span class="number">30</span>	<span class="number">65</span>	<span class="number">75</span></span><br><span class="line"><span class="number">25</span>	<span class="number">157</span>	<span class="number">48</span>	<span class="number">80</span>	<span class="number">88</span></span><br><span class="line"><span class="number">26</span>	<span class="number">151</span>	<span class="number">36</span>	<span class="number">74</span>	<span class="number">80</span></span><br><span class="line"><span class="number">27</span>	<span class="number">144</span>	<span class="number">36</span>	<span class="number">68</span>	<span class="number">76</span></span><br><span class="line"><span class="number">28</span>	<span class="number">141</span>	<span class="number">30</span>	<span class="number">67</span>	<span class="number">76</span></span><br><span class="line"><span class="number">29</span>	<span class="number">139</span>	<span class="number">32</span>	<span class="number">68</span>	<span class="number">73</span></span><br><span class="line"><span class="number">30</span>	<span class="number">148</span>	<span class="number">38</span>	<span class="number">70</span>	<span class="number">78</span></span><br></pre></td></tr></table></figure></p>
+<p>数据读入R软件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&gt; d=read.table(<span class="string">"clipboard"</span>,header=T)</span><br><span class="line">&gt; d</span><br><span class="line">x1身高 x2体重 x3胸围 x4坐高</span><br><span class="line"><span class="number">1</span> <span class="number">148</span> <span class="number">41</span> <span class="number">72</span> <span class="number">78</span></span><br><span class="line"><span class="number">2</span> <span class="number">139</span> <span class="number">34</span> <span class="number">71</span> <span class="number">76</span></span><br><span class="line"><span class="number">3</span> <span class="number">160</span> <span class="number">49</span> <span class="number">77</span> <span class="number">86</span></span><br><span class="line"><span class="number">4</span> <span class="number">149</span> <span class="number">36</span> <span class="number">67</span> <span class="number">79</span></span><br><span class="line"><span class="number">5</span> <span class="number">159</span> <span class="number">45</span> <span class="number">80</span> <span class="number">86</span></span><br><span class="line"><span class="number">6</span> <span class="number">142</span> <span class="number">31</span> <span class="number">66</span> <span class="number">76</span></span><br><span class="line"><span class="number">7</span> <span class="number">153</span> <span class="number">43</span> <span class="number">76</span> <span class="number">83</span></span><br><span class="line"><span class="number">8</span> <span class="number">150</span> <span class="number">43</span> <span class="number">77</span> <span class="number">79</span></span><br><span class="line"><span class="number">9</span> <span class="number">151</span> <span class="number">42</span> <span class="number">77</span> <span class="number">80</span></span><br><span class="line"><span class="number">10</span> <span class="number">139</span> <span class="number">31</span> <span class="number">68</span> <span class="number">74</span></span><br><span class="line"><span class="number">11</span> <span class="number">140</span> <span class="number">29</span> <span class="number">64</span> <span class="number">74</span></span><br><span class="line"><span class="number">12</span> <span class="number">161</span> <span class="number">47</span> <span class="number">78</span> <span class="number">84</span></span><br><span class="line"><span class="number">13</span> <span class="number">158</span> <span class="number">49</span> <span class="number">78</span> <span class="number">83</span></span><br><span class="line"><span class="number">14</span> <span class="number">140</span> <span class="number">33</span> <span class="number">67</span> <span class="number">77</span></span><br><span class="line"><span class="number">15</span> <span class="number">137</span> <span class="number">31</span> <span class="number">66</span> <span class="number">73</span></span><br><span class="line"><span class="number">16</span> <span class="number">152</span> <span class="number">35</span> <span class="number">73</span> <span class="number">79</span></span><br><span class="line"><span class="number">17</span> <span class="number">149</span> <span class="number">47</span> <span class="number">82</span> <span class="number">79</span></span><br><span class="line"><span class="number">18</span> <span class="number">145</span> <span class="number">35</span> <span class="number">70</span> <span class="number">77</span></span><br><span class="line"><span class="number">19</span> <span class="number">160</span> <span class="number">47</span> <span class="number">74</span> <span class="number">87</span></span><br><span class="line"><span class="number">20</span> <span class="number">156</span> <span class="number">44</span> <span class="number">78</span> <span class="number">85</span></span><br><span class="line"><span class="number">21</span> <span class="number">151</span> <span class="number">42</span> <span class="number">73</span> <span class="number">82</span></span><br><span class="line"><span class="number">22</span> <span class="number">147</span> <span class="number">38</span> <span class="number">73</span> <span class="number">78</span></span><br><span class="line"><span class="number">23</span> <span class="number">157</span> <span class="number">39</span> <span class="number">68</span> <span class="number">80</span></span><br><span class="line"><span class="number">24</span> <span class="number">147</span> <span class="number">30</span> <span class="number">65</span> <span class="number">75</span></span><br><span class="line"><span class="number">25</span> <span class="number">157</span> <span class="number">48</span> <span class="number">80</span> <span class="number">88</span></span><br><span class="line"><span class="number">26</span> <span class="number">151</span> <span class="number">36</span> <span class="number">74</span> <span class="number">80</span></span><br><span class="line"><span class="number">27</span> <span class="number">144</span> <span class="number">36</span> <span class="number">68</span> <span class="number">76</span></span><br><span class="line"><span class="number">28</span> <span class="number">141</span> <span class="number">30</span> <span class="number">67</span> <span class="number">76</span></span><br><span class="line"><span class="number">29</span> <span class="number">139</span> <span class="number">32</span> <span class="number">68</span> <span class="number">73</span></span><br><span class="line"><span class="number">30</span> <span class="number">148</span> <span class="number">38</span> <span class="number">70</span> <span class="number">78</span></span><br></pre></td></tr></table></figure>
+<p>原始数据标准化<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; sd=scale(d)</span><br></pre></td></tr></table></figure></p>
+<p>标准化数据展示<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&gt; sd</span><br><span class="line">x1身高 x2体重 x3胸围 x4坐高</span><br><span class="line">[<span class="number">1</span>,] -<span class="number">0.1366952</span> <span class="number">0.35602486</span> -<span class="number">0.04530114</span> -<span class="number">0.31999814</span></span><br><span class="line">[<span class="number">2</span>,] -<span class="number">1.3669516</span> -<span class="number">0.72752905</span> -<span class="number">0.23944887</span> -<span class="number">0.78828809</span></span><br><span class="line">[<span class="number">3</span>,] <span class="number">1.5036468</span> <span class="number">1.59437218</span> <span class="number">0.92543751</span> <span class="number">1.55316168</span></span><br><span class="line">[<span class="number">4</span>,] <span class="number">0.0000000</span> -<span class="number">0.41794222</span> -<span class="number">1.01603978</span> -<span class="number">0.08585316</span></span><br><span class="line">[<span class="number">5</span>,] <span class="number">1.3669516</span> <span class="number">0.97519852</span> <span class="number">1.50788070</span> <span class="number">1.55316168</span></span><br><span class="line">[<span class="number">6</span>,] -<span class="number">0.9568661</span> -<span class="number">1.19190930</span> -<span class="number">1.21018751</span> -<span class="number">0.78828809</span></span><br><span class="line">[<span class="number">7</span>,] <span class="number">0.5467806</span> <span class="number">0.66561169</span> <span class="number">0.73128978</span> <span class="number">0.85072675</span></span><br><span class="line">[<span class="number">8</span>,] <span class="number">0.1366952</span> <span class="number">0.66561169</span> <span class="number">0.92543751</span> -<span class="number">0.08585316</span></span><br><span class="line">[<span class="number">9</span>,] <span class="number">0.2733903</span> <span class="number">0.51081827</span> <span class="number">0.92543751</span> <span class="number">0.14829182</span></span><br><span class="line">[<span class="number">10</span>,] -<span class="number">1.3669516</span> -<span class="number">1.19190930</span> -<span class="number">0.82189205</span> -<span class="number">1.25657805</span></span><br><span class="line">[<span class="number">11</span>,] -<span class="number">1.2302564</span> -<span class="number">1.50149613</span> -<span class="number">1.59848297</span> -<span class="number">1.25657805</span></span><br><span class="line">[<span class="number">12</span>,] <span class="number">1.6403419</span> <span class="number">1.28478535</span> <span class="number">1.11958524</span> <span class="number">1.08487173</span></span><br><span class="line">[<span class="number">13</span>,] <span class="number">1.2302564</span> <span class="number">1.59437218</span> <span class="number">1.11958524</span> <span class="number">0.85072675</span></span><br><span class="line">[<span class="number">14</span>,] -<span class="number">1.2302564</span> -<span class="number">0.88232247</span> -<span class="number">1.01603978</span> -<span class="number">0.55414311</span></span><br><span class="line">[<span class="number">15</span>,] -<span class="number">1.6403419</span> -<span class="number">1.19190930</span> -<span class="number">1.21018751</span> -<span class="number">1.49072302</span></span><br><span class="line">[<span class="number">16</span>,] <span class="number">0.4100855</span> -<span class="number">0.57273564</span> <span class="number">0.14884659</span> -<span class="number">0.08585316</span></span><br><span class="line">[<span class="number">17</span>,] <span class="number">0.0000000</span> <span class="number">1.28478535</span> <span class="number">1.89617616</span> -<span class="number">0.08585316</span></span><br><span class="line">[<span class="number">18</span>,] -<span class="number">0.5467806</span> -<span class="number">0.57273564</span> -<span class="number">0.43359660</span> -<span class="number">0.55414311</span></span><br><span class="line">[<span class="number">19</span>,] <span class="number">1.5036468</span> <span class="number">1.28478535</span> <span class="number">0.34299432</span> <span class="number">1.78730666</span></span><br><span class="line">[<span class="number">20</span>,] <span class="number">0.9568661</span> <span class="number">0.82040510</span> <span class="number">1.11958524</span> <span class="number">1.31901671</span></span><br><span class="line">[<span class="number">21</span>,] <span class="number">0.2733903</span> <span class="number">0.51081827</span> <span class="number">0.14884659</span> <span class="number">0.61658177</span></span><br><span class="line">[<span class="number">22</span>,] -<span class="number">0.2733903</span> -<span class="number">0.10835539</span> <span class="number">0.14884659</span> -<span class="number">0.31999814</span></span><br><span class="line">[<span class="number">23</span>,] <span class="number">1.0935613</span> <span class="number">0.04643802</span> -<span class="number">0.82189205</span> <span class="number">0.14829182</span></span><br><span class="line">[<span class="number">24</span>,] -<span class="number">0.2733903</span> -<span class="number">1.34670271</span> -<span class="number">1.40433524</span> -<span class="number">1.02243307</span></span><br><span class="line">[<span class="number">25</span>,] <span class="number">1.0935613</span> <span class="number">1.43957876</span> <span class="number">1.50788070</span> <span class="number">2.02145164</span></span><br><span class="line">[<span class="number">26</span>,] <span class="number">0.2733903</span> -<span class="number">0.41794222</span> <span class="number">0.34299432</span> <span class="number">0.14829182</span></span><br><span class="line">[<span class="number">27</span>,] -<span class="number">0.6834758</span> -<span class="number">0.41794222</span> -<span class="number">0.82189205</span> -<span class="number">0.78828809</span></span><br><span class="line">[<span class="number">28</span>,] -<span class="number">1.0935613</span> -<span class="number">1.34670271</span> -<span class="number">1.01603978</span> -<span class="number">0.78828809</span></span><br><span class="line">[<span class="number">29</span>,] -<span class="number">1.3669516</span> -<span class="number">1.03711588</span> -<span class="number">0.82189205</span> -<span class="number">1.49072302</span></span><br><span class="line">[<span class="number">30</span>,] -<span class="number">0.1366952</span> -<span class="number">0.10835539</span> -<span class="number">0.43359660</span> -<span class="number">0.31999814</span></span><br><span class="line">attr(,<span class="string">"scaled:center"</span>)</span><br><span class="line">x1身高 x2体重 x3胸围 x4坐高 </span><br><span class="line"><span class="number">149.00000</span> <span class="number">38.70000</span> <span class="number">72.23333</span> <span class="number">79.36667</span> </span><br><span class="line">attr(,<span class="string">"scaled:scale"</span>)</span><br><span class="line">x1身高 x2体重 x3胸围 x4坐高 </span><br><span class="line"><span class="number">7.315548</span> <span class="number">6.460223</span> <span class="number">5.150717</span> <span class="number">4.270858</span></span><br></pre></td></tr></table></figure></p>
+<p>读取标准化数据<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; d=read.table(<span class="string">"clipboard"</span>,header=T)</span><br></pre></td></tr></table></figure></p>
+<p>主成分分析<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; pca=princomp(d,cor=T)</span><br></pre></td></tr></table></figure></p>
+<p>碎石图<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; screeplot(pca,<span class="built_in">type</span>=<span class="string">"line"</span>,main=<span class="string">"碎石图"</span>,lwd=<span class="number">2</span>)</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://pic002.cnblogs.com/images/2012/366262/2012061816452819.jpg" alt=""><br>主成分1贡献率较高</p>
+<p>求相关矩阵<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; dcor=cor(d)</span><br></pre></td></tr></table></figure></p>
+<p>输出<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; dcor</span><br><span class="line">               x1身高       x2体重       x3胸围       x4坐高</span><br><span class="line">x1身高 <span class="number">1.0000000</span> <span class="number">0.8631621</span> <span class="number">0.7321119</span> <span class="number">0.9204624</span></span><br><span class="line">x2体重 <span class="number">0.8631621</span> <span class="number">1.0000000</span> <span class="number">0.8965058</span> <span class="number">0.8827313</span></span><br><span class="line">x3胸围 <span class="number">0.7321119</span> <span class="number">0.8965058</span> <span class="number">1.0000000</span> <span class="number">0.7828827</span></span><br><span class="line">x4坐高 <span class="number">0.9204624</span> <span class="number">0.8827313</span> <span class="number">0.7828827</span> <span class="number">1.0000000</span></span><br></pre></td></tr></table></figure></p>
+<p>求相关矩阵的特征向量 特征值<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; deig=eigen(dcor)</span><br></pre></td></tr></table></figure></p>
+<p>输出<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;deig</span><br><span class="line"><span class="variable">$values</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">3.54109800</span> <span class="number">0.31338316</span> <span class="number">0.07940895</span> <span class="number">0.06610989</span></span><br><span class="line"><span class="variable">$vectors</span></span><br><span class="line">[,<span class="number">1</span>] [,<span class="number">2</span>] [,<span class="number">3</span>] [,<span class="number">4</span>]</span><br><span class="line">[<span class="number">1</span>,] -<span class="number">0.4969661</span> <span class="number">0.5432128</span> -<span class="number">0.4496271</span> <span class="number">0.5057471</span></span><br><span class="line">[<span class="number">2</span>,] -<span class="number">0.5145705</span> -<span class="number">0.2102455</span> -<span class="number">0.4623300</span> -<span class="number">0.6908436</span></span><br><span class="line">[<span class="number">3</span>,] -<span class="number">0.4809007</span> -<span class="number">0.7246214</span> <span class="number">0.1751765</span> <span class="number">0.4614884</span></span><br><span class="line">[<span class="number">4</span>,] -<span class="number">0.5069285</span> <span class="number">0.3682941</span> <span class="number">0.7439083</span> -<span class="number">0.2323433</span></span><br></pre></td></tr></table></figure></p>
+<p>输出特征值<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; deig<span class="variable">$values</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">3.54109800</span> <span class="number">0.31338316</span> <span class="number">0.07940895</span> <span class="number">0.06610989</span></span><br><span class="line">&gt; sumeigv=sum(deig<span class="variable">$values</span>)</span><br><span class="line">&gt; sumeigv</span><br><span class="line">[<span class="number">1</span>] <span class="number">4</span></span><br></pre></td></tr></table></figure></p>
+<p>求前2个主成分的累积方差贡献率<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; sum(deig<span class="variable">$value</span>[<span class="number">1</span>:<span class="number">2</span>])/<span class="number">4</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">0.9636203</span></span><br><span class="line">&gt; sum(deig<span class="variable">$value</span>[<span class="number">1</span>:<span class="number">1</span>])/<span class="number">4</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">0.8852745</span></span><br></pre></td></tr></table></figure></p>
+<p>第一主成份有88.53%的方差贡献率,前两个主成份累计贡献率更高达96.36%,故只需前两个主成份就能很好地概括这组数据.</p>
+<p>输出前两个主成分的载荷系数（特征向量）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&gt; pca<span class="variable">$loadings</span>[,<span class="number">1</span>:<span class="number">2</span>]</span><br><span class="line">              Comp.<span class="number">1</span>     Comp.<span class="number">2</span></span><br><span class="line">x1身高 -<span class="number">0.4969661</span> <span class="number">0.5432128</span></span><br><span class="line">x2体重 -<span class="number">0.5145705</span> -<span class="number">0.2102455</span></span><br><span class="line">x3胸围 -<span class="number">0.4809007</span> -<span class="number">0.7246214</span></span><br><span class="line">x4坐高 -<span class="number">0.5069285</span> <span class="number">0.3682941</span></span><br><span class="line"></span><br><span class="line">-----------------------------------------</span><br><span class="line"></span><br><span class="line">z1=-<span class="number">0.4969661</span> x1+-<span class="number">0.5145705</span> x2 +-<span class="number">0.4809007</span>x3+-<span class="number">0.5069285</span>x4</span><br><span class="line"></span><br><span class="line">z2=<span class="number">0.5432128</span> x1+-<span class="number">0.2102455</span> x2 +-<span class="number">0.7246214</span>x3+<span class="number">0.3682941</span>x4</span><br><span class="line"></span><br><span class="line">z= <span class="number">3.54109800</span>/<span class="number">4</span> z1 + <span class="number">0.31338316</span>/<span class="number">4</span> z2=<span class="number">0.8852745</span> z1 +<span class="number">0.07834579</span> Z2</span><br><span class="line"></span><br><span class="line">=<span class="number">0.8852745</span>(-<span class="number">0.4969661</span> x1+-<span class="number">0.5145705</span> x2 +-<span class="number">0.4809007</span>x3+-<span class="number">0.5069285</span>x4)</span><br><span class="line"></span><br><span class="line">+<span class="number">0.07834579</span> (<span class="number">0.5432128</span> x1+-<span class="number">0.2102455</span> x2 +-<span class="number">0.7246214</span>x3+<span class="number">0.3682941</span>x4)</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">-----------------------------------------</span><br></pre></td></tr></table></figure></p>
+<p>计算主成分C1和C2的系数b1 和b2：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; deig<span class="variable">$values</span>[<span class="number">1</span>]/<span class="number">4</span>;deig<span class="variable">$values</span>[<span class="number">2</span>]/<span class="number">4</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">0.8852745</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">0.07834579</span></span><br></pre></td></tr></table></figure></p>
+<p>综合得分函数C 为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C=(b1*C1+b2*C2)/(b1+b2)=<span class="number">0.9187</span>*C1+<span class="number">0.0813</span>*C2</span><br></pre></td></tr></table></figure></p>
+<p>输出前2 个主成分的得分<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; s=pca<span class="variable">$scores</span>[,<span class="number">1</span>:<span class="number">2</span>]</span><br></pre></td></tr></table></figure></p>
+<p>计算综合得分<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt; c=s[<span class="number">1</span>:<span class="number">30</span>,<span class="number">1</span>]*<span class="number">0.918696</span>+s[<span class="number">1</span>:<span class="number">30</span>,<span class="number">2</span>]*<span class="number">0.0813</span></span><br><span class="line"></span><br><span class="line">&gt; s[<span class="number">1</span>:<span class="number">30</span>,<span class="number">1</span>]</span><br><span class="line">[<span class="number">1</span>] <span class="number">0.06990950</span> <span class="number">1.59526340</span> -<span class="number">2.84793151</span> <span class="number">0.75996988</span> -<span class="number">2.73966777</span> <span class="number">2.10583168</span></span><br><span class="line">[<span class="number">7</span>] -<span class="number">1.42105591</span> -<span class="number">0.82583977</span> -<span class="number">0.93464402</span> <span class="number">2.36463820</span> <span class="number">2.83741916</span> -<span class="number">2.60851224</span></span><br><span class="line">[<span class="number">13</span>] -<span class="number">2.44253342</span> <span class="number">1.86630669</span> <span class="number">2.81347421</span> <span class="number">0.06392983</span> -<span class="number">1.55561022</span> <span class="number">1.07392251</span></span><br><span class="line">[<span class="number">19</span>] -<span class="number">2.52174212</span> -<span class="number">2.14072377</span> -<span class="number">0.79624422</span> <span class="number">0.28708321</span> -<span class="number">0.25151075</span> <span class="number">2.05706032</span></span><br><span class="line">[<span class="number">25</span>] -<span class="number">3.08596855</span> -<span class="number">0.16367555</span> <span class="number">1.37265053</span> <span class="number">2.16097778</span> <span class="number">2.40434827</span> <span class="number">0.50287468</span></span><br></pre></td></tr></table></figure></p>
+<p>输出综合得分信息<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&gt; cbind(s,c)</span><br><span class="line">          Comp.<span class="number">1</span>       Comp.<span class="number">2</span>           c</span><br><span class="line">[<span class="number">1</span>,] <span class="number">0.06990950</span> -<span class="number">0.23813701</span> <span class="number">0.04486504</span></span><br><span class="line">[<span class="number">2</span>,] <span class="number">1.59526340</span> -<span class="number">0.71847399</span> <span class="number">1.40715017</span></span><br><span class="line">[<span class="number">3</span>,] -<span class="number">2.84793151</span> <span class="number">0.38956679</span> -<span class="number">2.58471151</span></span><br><span class="line">[<span class="number">4</span>,] <span class="number">0.75996988</span> <span class="number">0.80604335</span> <span class="number">0.76371262</span></span><br><span class="line">[<span class="number">5</span>,] -<span class="number">2.73966777</span> <span class="number">0.01718087</span> -<span class="number">2.51552502</span></span><br><span class="line">[<span class="number">6</span>,] <span class="number">2.10583168</span> <span class="number">0.32284393</span> <span class="number">1.96086635</span></span><br><span class="line">[<span class="number">7</span>,] -<span class="number">1.42105591</span> -<span class="number">0.06053165</span> -<span class="number">1.31043961</span></span><br><span class="line">[<span class="number">8</span>,] -<span class="number">0.82583977</span> -<span class="number">0.78102576</span> -<span class="number">0.82219309</span></span><br><span class="line">[<span class="number">9</span>,] -<span class="number">0.93464402</span> -<span class="number">0.58469242</span> -<span class="number">0.90618922</span></span><br><span class="line">[<span class="number">10</span>,] <span class="number">2.36463820</span> -<span class="number">0.36532199</span> <span class="number">2.14268298</span></span><br><span class="line">[<span class="number">11</span>,] <span class="number">2.83741916</span> <span class="number">0.34875841</span> <span class="number">2.63507969</span></span><br><span class="line">[<span class="number">12</span>,] -<span class="number">2.60851224</span> <span class="number">0.21278728</span> -<span class="number">2.37913015</span></span><br><span class="line">[<span class="number">13</span>,] -<span class="number">2.44253342</span> -<span class="number">0.16769496</span> -<span class="number">2.25757928</span></span><br><span class="line">[<span class="number">14</span>,] <span class="number">1.86630669</span> <span class="number">0.05021384</span> <span class="number">1.71865087</span></span><br><span class="line">[<span class="number">15</span>,] <span class="number">2.81347421</span> -<span class="number">0.31790107</span> <span class="number">2.55888214</span></span><br><span class="line">[<span class="number">16</span>,] <span class="number">0.06392983</span> <span class="number">0.20718448</span> <span class="number">0.07557617</span></span><br><span class="line">[<span class="number">17</span>,] -<span class="number">1.55561022</span> -<span class="number">1.70439674</span> -<span class="number">1.56770034</span></span><br><span class="line">[<span class="number">18</span>,] <span class="number">1.07392251</span> -<span class="number">0.06763418</span> <span class="number">0.98110965</span></span><br><span class="line">[<span class="number">19</span>,] -<span class="number">2.52174212</span> <span class="number">0.97274301</span> -<span class="number">2.23763039</span></span><br><span class="line">[<span class="number">20</span>,] -<span class="number">2.14072377</span> <span class="number">0.02217881</span> -<span class="number">1.96487123</span></span><br><span class="line">[<span class="number">21</span>,] -<span class="number">0.79624422</span> <span class="number">0.16307887</span> -<span class="number">0.71824807</span></span><br><span class="line">[<span class="number">22</span>,] <span class="number">0.28708321</span> -<span class="number">0.35744666</span> <span class="number">0.23468178</span></span><br><span class="line">[<span class="number">23</span>,] -<span class="number">0.25151075</span> <span class="number">1.25555188</span> -<span class="number">0.12898555</span></span><br><span class="line">[<span class="number">24</span>,] <span class="number">2.05706032</span> <span class="number">0.78894494</span> <span class="number">1.95395431</span></span><br><span class="line">[<span class="number">25</span>,] -<span class="number">3.08596855</span> -<span class="number">0.05775318</span> -<span class="number">2.83976229</span></span><br><span class="line">[<span class="number">26</span>,] -<span class="number">0.16367555</span> <span class="number">0.04317932</span> -<span class="number">0.14685759</span></span><br><span class="line">[<span class="number">27</span>,] <span class="number">1.37265053</span> <span class="number">0.02220972</span> <span class="number">1.26285420</span></span><br><span class="line">[<span class="number">28</span>,] <span class="number">2.16097778</span> <span class="number">0.13733233</span> <span class="number">1.99644676</span></span><br><span class="line">[<span class="number">29</span>,] <span class="number">2.40434827</span> -<span class="number">0.48613137</span> <span class="number">2.16934265</span></span><br><span class="line">[<span class="number">30</span>,] <span class="number">0.50287468</span> <span class="number">0.14734317</span> <span class="number">0.47396795</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+<p> 排序<br> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">11</span>,]	<span class="number">2.83741916</span>	<span class="number">0.34875841</span>	<span class="number">2.63507969</span></span><br><span class="line">[<span class="number">15</span>,]	<span class="number">2.81347421</span>	-<span class="number">0.31790107</span>	<span class="number">2.55888214</span></span><br><span class="line">[<span class="number">29</span>,]	<span class="number">2.40434827</span>	-<span class="number">0.48613137</span>	<span class="number">2.16934265</span></span><br><span class="line">[<span class="number">10</span>,]	<span class="number">2.3646382</span>	-<span class="number">0.36532199</span>	<span class="number">2.14268298</span></span><br><span class="line">[<span class="number">28</span>,]	<span class="number">2.16097778</span>	<span class="number">0.13733233</span>	<span class="number">1.99644676</span></span><br><span class="line">[<span class="number">6</span>,]	<span class="number">2.10583168</span>	<span class="number">0.32284393</span>	<span class="number">1.96086635</span></span><br><span class="line">[<span class="number">24</span>,]	<span class="number">2.05706032</span>	<span class="number">0.78894494</span>	<span class="number">1.95395431</span></span><br><span class="line">[<span class="number">14</span>,]	<span class="number">1.86630669</span>	<span class="number">0.05021384</span>	<span class="number">1.71865087</span></span><br><span class="line">[<span class="number">2</span>,]	<span class="number">1.5952634</span>	-<span class="number">0.71847399</span>	<span class="number">1.40715017</span></span><br><span class="line">[<span class="number">27</span>,]	<span class="number">1.37265053</span>	<span class="number">0.02220972</span>	<span class="number">1.2628542</span></span><br><span class="line">[<span class="number">18</span>,]	<span class="number">1.07392251</span>	-<span class="number">0.06763418</span>	<span class="number">0.98110965</span></span><br><span class="line">[<span class="number">4</span>,]	<span class="number">0.75996988</span>	<span class="number">0.80604335</span>	<span class="number">0.76371262</span></span><br><span class="line">[<span class="number">30</span>,]	<span class="number">0.50287468</span>	<span class="number">0.14734317</span>	<span class="number">0.47396795</span></span><br><span class="line">[<span class="number">22</span>,]	<span class="number">0.28708321</span>	-<span class="number">0.35744666</span>	<span class="number">0.23468178</span></span><br><span class="line">[<span class="number">16</span>,]	<span class="number">0.06392983</span>	<span class="number">0.20718448</span>	<span class="number">0.07557617</span></span><br><span class="line">[<span class="number">1</span>,]	<span class="number">0.0699095</span>	-<span class="number">0.23813701</span>	<span class="number">0.04486504</span></span><br><span class="line">[<span class="number">23</span>,]	-<span class="number">0.25151075</span>	<span class="number">1.25555188</span>	-<span class="number">0.12898555</span></span><br><span class="line">[<span class="number">26</span>,]	-<span class="number">0.16367555</span>	<span class="number">0.04317932</span>	-<span class="number">0.14685759</span></span><br><span class="line">[<span class="number">21</span>,]	-<span class="number">0.79624422</span>	<span class="number">0.16307887</span>	-<span class="number">0.71824807</span></span><br><span class="line">[<span class="number">8</span>,]	-<span class="number">0.82583977</span>	-<span class="number">0.78102576</span>	-<span class="number">0.82219309</span></span><br><span class="line">[<span class="number">9</span>,]	-<span class="number">0.93464402</span>	-<span class="number">0.58469242</span>	-<span class="number">0.90618922</span></span><br><span class="line">[<span class="number">7</span>,]	-<span class="number">1.42105591</span>	-<span class="number">0.06053165</span>	-<span class="number">1.31043961</span></span><br><span class="line">[<span class="number">17</span>,]	-<span class="number">1.55561022</span>	-<span class="number">1.70439674</span>	-<span class="number">1.56770034</span></span><br><span class="line">[<span class="number">20</span>,]	-<span class="number">2.14072377</span>	<span class="number">0.02217881</span>	-<span class="number">1.96487123</span></span><br><span class="line">[<span class="number">19</span>,]	-<span class="number">2.52174212</span>	<span class="number">0.97274301</span>	-<span class="number">2.23763039</span></span><br><span class="line">[<span class="number">13</span>,]	-<span class="number">2.44253342</span>	-<span class="number">0.16769496</span>	-<span class="number">2.25757928</span></span><br><span class="line">[<span class="number">12</span>,]	-<span class="number">2.60851224</span>	<span class="number">0.21278728</span>	-<span class="number">2.37913015</span></span><br><span class="line">[<span class="number">5</span>,]	-<span class="number">2.73966777</span>	<span class="number">0.01718087</span>	-<span class="number">2.51552502</span></span><br><span class="line">[<span class="number">3</span>,]	-<span class="number">2.84793151</span>	<span class="number">0.38956679</span>	-<span class="number">2.58471151</span></span><br><span class="line">[<span class="number">25</span>,]	-<span class="number">3.08596855</span>	-<span class="number">0.05775318</span>	-<span class="number">2.83976229</span></span><br></pre></td></tr></table></figure></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Bioinformatics/">Bioinformatics</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/R-PCA/">R_PCA</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://tiramisutes.github.io/2015/07/29/PCA/" data-title="PCA分析 | Hope" data-tsina="2458965923" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/07/29/sitemap/" title="如何向google提交sitemap">
+  <strong>Prev →：</strong><br/>
+  <span>
+  如何向google提交sitemap</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/07/29/perl/"  title="根据一个ID列表文件从一个fasta文件里面挑取符合要求的序列">
+ <strong>← Next：</strong><br/> 
+ <span>根据一个ID列表文件从一个fasta文件里面挑取符合要求的序列
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/07/29/PCA/" data-title="PCA分析" data-url="http://tiramisutes.github.io/2015/07/29/PCA/"></div>
+</section>
+
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ 
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Bioinformatics/" title="Bioinformatics">Bioinformatics<sup>10</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Google/" title="Google">Google<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Hexo/" title="Hexo">Hexo<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/R/" title="R">R<sup>6</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Linux/" title="Linux">Linux<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/error-bars/" title="error_bars">error_bars<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/awk/" title="awk">awk<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/resequencing/" title="resequencing">resequencing<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/perl/" title="perl">perl<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/perl-diff/" title="perl_diff">perl_diff<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/mytheme/" title="mytheme">mytheme<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/linux-command/" title="linux_command">linux_command<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CRISPR-Cas9/" title="CRISPR/Cas9">CRISPR/Cas9<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/grep/" title="grep">grep<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Google/" title="Google">Google<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/sitemap/" title="sitemap">sitemap<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/经典配色/" title="经典配色">经典配色<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Chrome-Plug-in/" title="Chrome Plug-in">Chrome Plug-in<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/bio-online/" title="bio-online">bio-online<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/rss/" title="rss">rss<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/tophat/" title="tophat">tophat<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/RStudio-RPubs/" title="RStudio_RPubs">RStudio_RPubs<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/R-PCA/" title="R_PCA">R_PCA<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">Tag Cloud</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/CRISPR-Cas9/" style="font-size: 10px;">CRISPR/Cas9</a> <a href="/tags/Chrome-Plug-in/" style="font-size: 10px;">Chrome Plug-in</a> <a href="/tags/Cufflinks/" style="font-size: 10px;">Cufflinks</a> <a href="/tags/CummeRbund/" style="font-size: 10px;">CummeRbund</a> <a href="/tags/FASTX/" style="font-size: 10px;">FASTX</a> <a href="/tags/Google/" style="font-size: 10px;">Google</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 20px;">Linux</a> <a href="/tags/Linux-backup/" style="font-size: 10px;">Linux_backup</a> <a href="/tags/RStudio-RPubs/" style="font-size: 10px;">RStudio_RPubs</a> <a href="/tags/R-PCA/" style="font-size: 10px;">R_PCA</a> <a href="/tags/awk/" style="font-size: 15px;">awk</a> <a href="/tags/bio-online/" style="font-size: 10px;">bio-online</a> <a href="/tags/error-bars/" style="font-size: 20px;">error_bars</a> <a href="/tags/firewall/" style="font-size: 10px;">firewall</a> <a href="/tags/grep/" style="font-size: 10px;">grep</a> <a href="/tags/linux-command/" style="font-size: 10px;">linux_command</a> <a href="/tags/mytheme/" style="font-size: 10px;">mytheme</a> <a href="/tags/perl/" style="font-size: 10px;">perl</a> <a href="/tags/perl-diff/" style="font-size: 10px;">perl_diff</a> <a href="/tags/resequencing/" style="font-size: 10px;">resequencing</a> <a href="/tags/rss/" style="font-size: 10px;">rss</a> <a href="/tags/sitemap/" style="font-size: 10px;">sitemap</a> <a href="/tags/tophat/" style="font-size: 10px;">tophat</a> <a href="/tags/经典配色/" style="font-size: 10px;">经典配色</a>
+    </div>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://cotton.hzau.edu.cn/" target="_blank" title="作物遗传改良国家重点实验室">棉花遗传改良团队</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.bio-info-trainee.com/" target="_blank" title="生信菜鸟团-深圳大学城">生信菜鸟团-深圳大学城</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.sequencing.uio.no/" target="_blank" title="NSC-sequenceing">NSC-sequenceing</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.jobbole.com/" target="_blank" title="伯乐在线">伯乐在线</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://linux.cn/" target="_blank" title="Linux开源中文社区">Linux开源中文社区</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.r-bloggers.com/" target="_blank" title="R news and tutorials">R-bloggers</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://cran.r-project.org/other-docs.html" target="_blank" title="R Contributed Documentation">R-resource</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=2458965923&verifier=0cb325a7&dpc=1"></iframe>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/sitemaps-rss/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  
+
+<div >
+	<a src="http://7xk19o.com1.z0.glb.clouddn.com/IMG_2460.JPG"></a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m hope in Google. <br/>
+			I&#39;ll share my learning experience with you at this blog.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/http://weibo.com/tiramisutesTes" target="_blank" class="icon-weibo" title="Weibo"></a>
+		
+		
+		<a href="https://github.com/tiramisutes" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		<a href="https://twitter.com/xzpgocxx" target="_blank" class="icon-twitter" title="twitter"></a>
+		
+		
+		<a href="https://www.facebook.com/xzpiphone" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		
+		
+		
+		<a href="https://www.evernote.com/Home.action#n=2899a4d8-15a8-478c-8946-2ce0c637d34b&amp;ses=4&amp;sh=2&amp;sds=5&amp;" target="_blank" class="icon-zhihu" title="Evernote"></a>
+		
+		
+		<a href="https://plus.google.com/103840563918867166597?rel=author" target="_blank" class="icon-google_plus" title="Google+"></a>
+		
+		
+		<a href="mailto:1099808298@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="tiramisutes">tiramisutes</a>
+		
+		<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+                </script>
+		<span id="busuanzi_container_site_pv" style='display:none'>
+                      | <a style="line-height: 1.5;" href="http://c4.gostats.cn/last_guests.xml?id=397056" target="_blank">The total visits <span id="busuanzi_value_site_pv"></span> times</a>
+                </span>
+		</p>
+		<!-- GoStats JavaScript Based Code -->
+                <script type="text/javascript" src="http://gostats.cn/js/counter.js"></script>
+                <script type="text/javascript">_gos='c4.gostats.cn';_goa=397056;
+                _got=5;_goi=1;_GoStatsRun();</script>
+                <noscript><a target="_blank" 
+                href="http://gostats.cn"><img src="http://c4.gostats.cn/bin/count/a_397056/t_5/i_1/counter.png" 
+                style="border-width:0" /></a></noscript>
+                <!-- End GoStats JavaScript Based Code -->		
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="WeChat"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="RenRen"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"Hope"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'Hope';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fe4648af2d5afaf376a4a8b2a3b1a8d## e.g. e6d1f421bbc9962127a50488f9ed37d1 your baidu tongji site code' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
