@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<title>Inspiration for Article Intro Effects | Demo 1</title>
+		<meta name="description" content="Inspiration for Article Intro Effects">
+		<meta name="keywords" content="title, header, effect, scroll, inspiration, medium, web design">
+		<meta name="author" content="Codrops">
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css">
+		<link rel="stylesheet" type="text/css" href="css/demo.css">
+		<link rel="stylesheet" type="text/css" href="css/component.css">
+		<!--[if IE]>
+  		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body class="demo-1">
+		<div id="container" class="container intro-effect-push">
+			<!-- Top Navigation -->
+			<div class="codrops-top clearfix">
+				<a class="codrops-icon codrops-icon-prev" href="http://tiramisutes.github.io/"><span>Back to hope homepage</span></a>
+				<span class="right"><a class="codrops-icon codrops-icon-drop" href="http://tiramisutes.github.io/"><span>Back to hope homepage</span></a></span>
+			</div>
+			<header class="header">
+				<div class="bg-img"><img src="img/our.jpg" alt="Background Image"></div>
+				<div class="title">
+					<nav class="codrops-demos">
+						<a class="current-demo" href="index.html">Our Story</a>
+						<a href="index2.html">Anniversary</a>
+						<a href="index3.html">Sliced</a>
+						<a href="index4.html">Side</a>
+						<a href="index5.html">Fixed Side</a>
+						<a href="index6.html">Grid</a>
+						<a href="index7.html">Jam 3</a>
+					</nav>
+					<h1>第一次聚会：A modern day love story</h1>
+				</div>
+			</header>
+			<button class="trigger" data-info="偷窥更多关于我们的故事"><span>Trigger</span></button>
+			<div class="title">
+				<nav class="codrops-demos">
+						<a class="current-demo" href="index.html">Our Story</a>
+						<a href="index2.html">Anniversary</a>
+						<a href="index3.html">Sliced</a>
+						<a href="index4.html">Side</a>
+						<a href="index5.html">Fixed Side</a>
+						<a href="index6.html">Grid</a>
+						<a href="index7.html">Jam 3</a>
+					</nav>
+				<h1>第一次聚会</h1>
+				<p class="subline">A modern day love story</p>
+				<p>by <strong>hope</strong> &#8212; Posted in <strong>Christmas</strong> on <strong>Nov 25, 2017</strong></p>
+			</div>
+			<article class="content">
+				<div>
+					<embed src="//music.163.com/style/swf/widget.swf?sid=5255987&type=2&auto=0&width=320&height=66" width="340" height="86" allownetworking="all">
+					<p>此次月底的例常活动选在光谷的轰趴（英语 "Home Party",即私人派对），第一次玩，百度了下这个词汇😂。</p>
+					<p>位置处于商业区，买东西方便。空间不是很大，不过环境还不错，蛮干净的，KTV，游戏机，桌游，厨房，吃喝玩乐两不误。</p>
+					<p><img style="max-width:100%;overflow:hidden;" src="img/party.jpg" alt="玩" width="100%"></p>
+					<p>最初我以为我会像上面他们一样玩，but，她在厨房唉，So，怎么能少了我\(≧▽≦)/</p>
+					<p>于是就看到下面厨房中的我了，关系总是在接触中加深的，也就是在这厨房中忙活的过程，彼此间的互动让我有了家的感觉，属于我们的家，两个不懂厨房的我们就像 DO PCR 那样学着做饭，外面那么多人，那么热闹，就像是过年......</p>
+					<p><img src="img/First.jpg" alt="厨房" width="100%"></p>
+					<p><font color="#value"><b><big>可乐鸡翅</big></b></font>这是我们今天的主打菜，赶快百度怎么做😂</p>
+					<p>第一步......</p>
+					<p>第N步，加适量可乐，适量what ？？？？？？？</p>
+					<p>下面就是成品了，味道很不错唉</p>
+					<p><img src="img/Coke-Chicken.jpg" alt="可乐鸡翅" width="100%"></p>
+					<p>饭后的 KTV 也是醉醉的，儿歌大开唱，瞬间年轻 20 岁......</p>
+					<p>美好的时光总是去也匆匆，但是 Story 已经开始，后续篇章将会接踵而来......</p>
+				</div>
+			</article>
+		</div><!-- /container -->
+		<script src="js/classie.js"></script>
+		<script>
+			(function() {
+
+				// detect if IE : from http://stackoverflow.com/a/16657946		
+				var ie = (function(){
+					var undef,rv = -1; // Return value assumes failure.
+					var ua = window.navigator.userAgent;
+					var msie = ua.indexOf('MSIE ');
+					var trident = ua.indexOf('Trident/');
+
+					if (msie > 0) {
+						// IE 10 or older => return version number
+						rv = parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+					} else if (trident > 0) {
+						// IE 11 (or newer) => return version number
+						var rvNum = ua.indexOf('rv:');
+						rv = parseInt(ua.substring(rvNum + 3, ua.indexOf('.', rvNum)), 10);
+					}
+
+					return ((rv > -1) ? rv : undef);
+				}());
+
+
+				// disable/enable scroll (mousewheel and keys) from http://stackoverflow.com/a/4770179					
+				// left: 37, up: 38, right: 39, down: 40,
+				// spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+				var keys = [32, 37, 38, 39, 40], wheelIter = 0;
+
+				function preventDefault(e) {
+					e = e || window.event;
+					if (e.preventDefault)
+					e.preventDefault();
+					e.returnValue = false;  
+				}
+
+				function keydown(e) {
+					for (var i = keys.length; i--;) {
+						if (e.keyCode === keys[i]) {
+							preventDefault(e);
+							return;
+						}
+					}
+				}
+
+				function touchmove(e) {
+					preventDefault(e);
+				}
+
+				function wheel(e) {
+					// for IE 
+					//if( ie ) {
+						//preventDefault(e);
+					//}
+				}
+
+				function disable_scroll() {
+					window.onmousewheel = document.onmousewheel = wheel;
+					document.onkeydown = keydown;
+					document.body.ontouchmove = touchmove;
+				}
+
+				function enable_scroll() {
+					window.onmousewheel = document.onmousewheel = document.onkeydown = document.body.ontouchmove = null;  
+				}
+
+				var docElem = window.document.documentElement,
+					scrollVal,
+					isRevealed, 
+					noscroll, 
+					isAnimating,
+					container = document.getElementById( 'container' ),
+					trigger = container.querySelector( 'button.trigger' );
+
+				function scrollY() {
+					return window.pageYOffset || docElem.scrollTop;
+				}
+				
+				function scrollPage() {
+					scrollVal = scrollY();
+					
+					if( noscroll && !ie ) {
+						if( scrollVal < 0 ) return false;
+						// keep it that way
+						window.scrollTo( 0, 0 );
+					}
+
+					if( classie.has( container, 'notrans' ) ) {
+						classie.remove( container, 'notrans' );
+						return false;
+					}
+
+					if( isAnimating ) {
+						return false;
+					}
+					
+					if( scrollVal <= 0 && isRevealed ) {
+						toggle(0);
+					}
+					else if( scrollVal > 0 && !isRevealed ){
+						toggle(1);
+					}
+				}
+
+				function toggle( reveal ) {
+					isAnimating = true;
+					
+					if( reveal ) {
+						classie.add( container, 'modify' );
+					}
+					else {
+						noscroll = true;
+						disable_scroll();
+						classie.remove( container, 'modify' );
+					}
+
+					// simulating the end of the transition:
+					setTimeout( function() {
+						isRevealed = !isRevealed;
+						isAnimating = false;
+						if( reveal ) {
+							noscroll = false;
+							enable_scroll();
+						}
+					}, 1200 );
+				}
+
+				// refreshing the page...
+				var pageScroll = scrollY();
+				noscroll = pageScroll === 0;
+				
+				disable_scroll();
+				
+				if( pageScroll ) {
+					isRevealed = true;
+					classie.add( container, 'notrans' );
+					classie.add( container, 'modify' );
+				}
+				
+				window.addEventListener( 'scroll', scrollPage );
+				trigger.addEventListener( 'click', function() { toggle( 'reveal' ); } );
+			})();
+		</script>
+	</body>
+</html>
