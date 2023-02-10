@@ -1,0 +1,2392 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=66189719" charset="UTF-8"></script>
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"/>
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/han.min.css"/>
+
+
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+
+
+  <meta name="google-site-verification" content="b12Zu40L63PLgCtcn0IW8KCNRolmyQlaF22tf4rRLEg"/>
+
+
+
+  <meta name="msvalidate.01" content="74A687E04D4EF9914B7AA20824207409"/>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="https://fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"/>
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/small_favicon.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/favicon.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":true,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="简介Python 是一个高层次的结合了解释性、编译性、互动性和面向对象的脚本语言。Python 的设计具有很强的可读性，相比其他语言经常使用英文关键字，其他语言的一些标点符号，它具有比其他语言更有特色语法结构。Python 是一种解释型语言： 这意味着开发过程中没有了编译这个环节。类似于PHP和Perl语言。Python 是交互式语言： 这意味着，您可以在一个Python提示符，直接互动执行写你">
+<meta name="keywords" content="python basic">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python基础教程总结">
+<meta property="og:url" content="http://tiramisutes.github.io/2015/12/03/python-basic.html">
+<meta property="og:site_name" content="hope">
+<meta property="og:description" content="简介Python 是一个高层次的结合了解释性、编译性、互动性和面向对象的脚本语言。Python 的设计具有很强的可读性，相比其他语言经常使用英文关键字，其他语言的一些标点符号，它具有比其他语言更有特色语法结构。Python 是一种解释型语言： 这意味着开发过程中没有了编译这个环节。类似于PHP和Perl语言。Python 是交互式语言： 这意味着，您可以在一个Python提示符，直接互动执行写你">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/pythonlogo.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/python—path.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/shuxue.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/str.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/zhuanfan.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/5xunhuan.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/open.png">
+<meta property="og:updated_time" content="2018-09-28T02:42:11.057Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python基础教程总结">
+<meta name="twitter:description" content="简介Python 是一个高层次的结合了解释性、编译性、互动性和面向对象的脚本语言。Python 的设计具有很强的可读性，相比其他语言经常使用英文关键字，其他语言的一些标点符号，它具有比其他语言更有特色语法结构。Python 是一种解释型语言： 这意味着开发过程中没有了编译这个环节。类似于PHP和Perl语言。Python 是交互式语言： 这意味着，您可以在一个Python提示符，直接互动执行写你">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/pythonlogo.jpg">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="hope" type="application/atom+xml"/>
+
+
+
+
+  <link rel="canonical" href="http://tiramisutes.github.io/2015/12/03/python-basic.html"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>python基础教程总结 | hope</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?08b17c69c7ba460d9ab5f188a048ee6d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">hope</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">A new day is coming,whether we like it or not. The question is will you control it,or will it control you?</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-code">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/code/" rel="section"><i class="menu-item-icon fa fa-fw fa-code"></i> <br/>Code</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-footprint">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/footprint/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br/>Footprint</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-qrt-pcr">
+
+    
+    
+    
+      
+    
+
+    
+
+    <span class="exturl" data-url="aHR0cHM6Ly9paG9wZS5zaGlueWFwcHMuaW8vcVJULVBDUi1QaXBlbGluZS8="><i class="menu-item-icon fa fa-fw fa-cloud"></i> <br/>qRT-PCR</span>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-project">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/project/" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br/>Project</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-publish">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/publish/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br/>Publish</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sci-figure">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/SCIFigure/" rel="section"><i class="menu-item-icon fa fa-fw fa-angellist"></i> <br/>SCI Figure</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-cv">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/resume/" rel="section"><i class="menu-item-icon fa fa-fw fa-address-card"></i> <br/>CV</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tiramisutes.github.io/2015/12/03/python-basic.html"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tiramisutes"/>
+      <meta itemprop="description" content="hope bioinformatics blog"/>
+      <meta itemprop="image" content="/images/author.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hope"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">python基础教程总结
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2015-12-03 19:05:19" itemprop="dateCreated datePublished" datetime="2015-12-03T19:05:19+08:00">2015-12-03</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2015/12/03/python-basic.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2015/12/03/python-basic.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2015/12/03/python-basic.html" class="leancloud_visitors" data-flag-title="python基础教程总结">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+                <span>℃</span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article: </span>
+                
+                <span title="Words count in article"></span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time"></span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <p></p><p><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/pythonlogo.jpg" width="570" height="300"></p><p></p>
+<h2 id="简介">简介</h2><p>Python 是一个高层次的结合了解释性、编译性、互动性和面向对象的脚本语言。<br>Python 的设计具有很强的可读性，相比其他语言经常使用英文关键字，其他语言的一些标点符号，它具有比其他语言更有特色语法结构。<br>Python 是一种解释型语言： 这意味着开发过程中没有了编译这个环节。类似于PHP和Perl语言。<br>Python 是交互式语言： 这意味着，您可以在一个Python提示符，直接互动执行写你的程序。<br>Python 是面向对象语言: 这意味着Python支持面向对象的风格或代码封装在对象的编程技术。<br>Python 是初学者的语言：Python 对初级程序员而言，是一种伟大的语言，它支持广泛的应用程序开发，从简单的文字处理到 WWW 浏览器再到游戏。</p>
+<h3 id="Python_特点">Python 特点</h3><p>1.易于学习：Python有相对较少的关键字，结构简单，和一个明确定义的语法，学习起来更加简单。<br>2.易于阅读：Python代码定义的更清晰。<br>3.易于维护：Python的成功在于它的源代码是相当容易维护的。<br>4.一个广泛的标准库：Python的最大的优势之一是丰富的库，跨平台的，在UNIX，Windows和Macintosh兼容很好。<br>5.互动模式：互动模式的支持，您可以从终端输入并获得结果的语言，互动的测试和调试代码片断。<br>6.便携式：Python可以运行在多种硬件平台和所有平台上都具有相同的接口。<br>7.可扩展：可以添加低层次的模块到Python解释器。这些模块使程序员可以添加或定制自己的工具，更有效。<br>8.数据库：Python提供所有主要的商业数据库的接口。<br>9.GUI编程：Python支持GUI可以创建和移植到许多系统调用。<br>10.可扩展性：相比 shell 脚本，Python 提供了一个更好的结构，且支持大型程序。</p>
+<h2 id="Python_环境搭建">Python 环境搭建</h2><p>可以通过终端窗口输入 “python” 命令来查看本地是否已经安装Python以及Python的安装版本。</p>
+<h3 id="Python下载">Python下载</h3><p>Python最新源码，二进制文档，新闻资讯等可以在Python的官网查看到：<br>Python官网：<span class="exturl" data-url="aHR0cDovL3d3dy5weXRob24ub3JnLw==" title="http://www.python.org/">http://www.python.org/<i class="fa fa-external-link"></i></span><br>可以在一下链接中下载Python的文档，你可以下载 HTML、PDF 和 PostScript 等格式的文档。<br>Python文档下载地址：www.python.org/doc/</p>
+<h3 id="Python安装">Python安装</h3><p>Unix &amp; Linux 平台安装 Python:</p>
+<p><li>下载及解压压缩包。</li></p>
+<p><li>如果你需要自定义一些选项修改<i>Modules/Setup</i> </li></p>
+<p><li><b>执行</b> ./configure 脚本</li></p>
+<p><li>make</li></p>
+<p><li>make install</li></p>
+<p></p><p>执行以上操作后，Python会安装在 /usr/local/bin 目录中，Python库安装在/usr/local/lib/pythonXX，XX为你使用的Python的版本号。</p><br>Window 平台安装 Python:<p></p>
+<p><li>下载后，双击下载包，进入Python安装向导，安装非常简单，你只需要使用默认的设置一直点击”下一步”直到安装完成即可。</li></p>
+<h3 id="环境变量配置">环境变量配置</h3><p>Unix/Linux 设置环境变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$PATH</span>:/usr/local/bin/python"</span> </span><br><span class="line"><span class="comment">##/usr/local/bin/python 是Python的安装目录</span></span><br></pre></td></tr></table></figure></p>
+<p>Windows 设置环境变量：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##命令提示框中(cmd) : 输入 </span></span><br><span class="line">path %path%;C:\Python </span><br><span class="line"><span class="comment">##C:\Python 是Python的安装目录</span></span><br></pre></td></tr></table></figure></p>
+<p>Python 重要环境变量：<br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/python—path.png" alt=""></p>
+<h2 id="Python_中文打印错误">Python 中文打印错误</h2><p>解决方法为只要在文件开头加入 # -<em>- coding: UTF-8 -</em>- 或者 #coding=utf-8 就行了。</p>
+<h2 id="Python_基础语法">Python 基础语法</h2><h3 id="行和缩进">行和缩进</h3><p>学习Python与其他语言最大的区别就是，Python的代码块不使用大括号（{}）来控制类，函数以及其他逻辑判断。python最具特色的就是用缩进来写模块。<br>缩进的空白数量是可变的，但是所有代码块语句必须包含相同的缩进空白数量，这个必须严格执行。<br><i class="fa fa-cogs"></i>IndentationError: unexpected indent 错误是python编译器是在告诉你”Hi，老兄，你的文件里格式不对了，可能是tab和空格没对齐的问题”，所有python对格式要求非常严格。<br><i class="fa fa-cogs"></i>如果是 IndentationError: unindent does not match any outer indentation level错误表明，你使用的缩进方式不一致，有的是 tab 键缩进，有的是空格缩进，改为一致即可。<br>因此，在Python的代码块中必须使用相同数目的行首缩进空格数。<br><i class="fa fa-graduation-cap"></i>建议你在每个缩进层次使用 单个制表符 或 两个空格 或 四个空格 , 切记不能混用。</p>
+<h3 id="多行语句">多行语句</h3><p>Python语句中一般以新行作为为语句的结束符，但是我们可以使用斜杠（ \）将一行的语句分为多行显示，语句中包含[], {} 或 () 括号就不需要使用多行连接符。</p>
+<h3 id="Python注释">Python注释</h3><p>python中单行注释采用 # 开头，多行注释使用三个单引号(‘’’)或三个单引号(“””)。</p>
+<h2 id="Python_变量">Python 变量</h2><p></p><p>Python有五个标准的数据类型：</p><p></p>
+<p><li>Numbers（数字）</li></p>
+<p><li>String（字符串）</li></p>
+<p><li>List（列表）</li></p>
+<p><li>Tuple（元组）</li></p>
+<p><li>Dictionary（字典）</li></p>
+<h2 id="Python数字(Number)">Python数字(Number)</h2><p></p><p>Python支持四种不同的数值类型：</p><p></p>
+<p><li>int（有符号整型）</li></p>
+<p><li>long（长整型[也可以代表八进制和十六进制]）</li>    </p>
+<p><li>float（浮点型）</li>    </p>
+<p><li>complex（复数）</li><br><i class="fa fa-area-chart"></i>Python数学函数：<br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/shuxue.png" alt=""></p>
+<h2 id="Python字符串(String)">Python字符串(String)</h2><p>字符串或串(String)是由数字、字母、下划线组成的一串字符。<br>字符串用’’标识</p>
+<p></p><p>python的字串列表有2种取值顺序:</p><p></p>
+<p><li>从左到右索引默认0开始的，最大范围是字符串长度少1</li></p>
+<p><li>从右到左索引默认-1开始的，最大范围是字符串开头</li><br><i class="fa fa-eye"></i>如果你的实要取得一段子串的话，可以用到变量[头下标:尾下标]，就可以截取相应的字符串，其中下标是从0开始算起，可以是正数或负数，下标可以为空表示取到头或尾。<br>加号（+）是字符串连接运算符，星号（*）是重复操作。<br><i class="fa fa-book"></i>Python字符串运算符：<br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/str.png" alt=""><br><i class="fa fa-book"></i>python的字符串内建函数：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">序号</th>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">string.capitalize()</td>
+<td style="text-align:center">把字符串的第一个字符大写</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">string.center(width))</td>
+<td style="text-align:center">返回一个原字符串居中,并使用空格填充至长度 width 的新字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">string.count(str, beg=0, end=len(string))</td>
+<td style="text-align:center">返回 str 在 string 里面出现的次数，如果 beg 或者 end 指定则返回指定范围内 str 出现的次数</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">string.decode(encoding=’UTF-8’, errors=’strict’)</td>
+<td style="text-align:center">以 encoding 指定的编码格式解码 string，如果出错默认报一个 ValueError 的 异 常 ， 除 非 errors 指 定 的 是 ‘ignore’ 或 者’replace’</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">string.encode(encoding=’UTF-8’, errors=’strict’)</td>
+<td style="text-align:center">以 encoding 指定的编码格式编码 string，如果出错默认报一个ValueError 的异常，除非 errors 指定的是’ignore’或者’replace’</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">string.endswith(obj, beg=0, end=len(string)))</td>
+<td style="text-align:center">检查字符串是否以 obj 结束，如果beg 或者 end 指定则检查指定的范围内是否以 obj 结束，如果是，返回 True,否则返回 False.</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">string.expandtabs(tabsize=8)</td>
+<td style="text-align:center">把字符串 string 中的 tab 符号转为空格，默认的空格数 tabsize 是 8.</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">string.join(seq)</td>
+<td style="text-align:center">Merges (concatenates)以 string 作为分隔符，将 seq 中所有的元素(的字符串表示)合并为一个新的字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">string.ljust(width)</td>
+<td style="text-align:center">返回一个原字符串左对齐,并使用空格填充至长度 width 的新字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center">string.lower()</td>
+<td style="text-align:center">转换 string 中所有大写字符为小写</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:center">string.lstrip()</td>
+<td style="text-align:center">截掉 string 左边的空格</td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:center">string.maketrans(intab, outtab])</td>
+<td style="text-align:center">maketrans() 方法用于创建字符映射的转换表，对于接受两个参数的最简单的调用方式，第一个参数是字符串，表示需要转换的字符，第二个参数也是字符串表示转换的目标。</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center">string.replace(str1, str2,  num=string.count(str1))</td>
+<td style="text-align:center">把 string 中的 str1 替换成 str2,如果 num 指定，则替换不超过 num 次</td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:center">string.rstrip()</td>
+<td style="text-align:center">删除 string 字符串末尾的空格</td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:center">string.split(str=””, num=string.count(str))</td>
+<td style="text-align:center">以 str 为分隔符切片 string，如果 num有指定值，则仅分隔 num 个子字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">16</td>
+<td style="text-align:center">string.strip([obj])</td>
+<td style="text-align:center">在 string 上执行 lstrip()和 rstrip()</td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
+<td style="text-align:center">string.title()</td>
+<td style="text-align:center">返回”标题化”的 string,就是说所有单词都是以大写开始，其余字母均为小写(见 istitle())</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Python列表(List)">Python列表(List)</h2><p>列表用[ ]标识。<br>列表中的值得分割也可以用到变量[头下标:尾下标]，就可以截取相应的列表，从左到右索引默认0开始的，从右到左索引默认-1开始，下标可以为空表示取到头或尾。<br>加号（+）是列表连接运算符，星号（*）是重复操作。</p>
+<h3 id="访问列表中的值">访问列表中的值</h3><p>使用下标索引来访问列表中的值，同样你也可以使用方括号的形式截取字符。</p>
+<h3 id="更新列表">更新列表</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; list = [<span class="string">'physics'</span>, <span class="string">'chemistry'</span>, 1997, 2000]</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">print</span> list[2];</span><br><span class="line">1997</span><br><span class="line">&gt;&gt;&gt; list[2] = 2001;</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">print</span> list[2];</span><br><span class="line">2001</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">print</span> list;</span><br><span class="line">[<span class="string">'physics'</span>, <span class="string">'chemistry'</span>, 2001, 2000]</span><br></pre></td></tr></table></figure>
+<h3 id="删除列表元素">删除列表元素</h3><p>可以使用 del 语句来删除列表的的元素<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; del list[2];</span><br><span class="line">&gt;&gt;&gt; <span class="built_in">print</span> list;</span><br><span class="line">[<span class="string">'physics'</span>, <span class="string">'chemistry'</span>, 2000]</span><br></pre></td></tr></table></figure></p>
+<h3 id="Python列表函数">Python列表函数</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">序号</th>
+<th style="text-align:center">函数</th>
+<th style="text-align:center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">cmp(list1, list2)</td>
+<td style="text-align:center">比较两个列表的元素</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">len(list)</td>
+<td style="text-align:center">列表元素个数</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">max(list)</td>
+<td style="text-align:center">返回列表元素最大值</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">min(list)</td>
+<td style="text-align:center">返回列表元素最小值</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">sum(list)</td>
+<td style="text-align:center">返回列表元素总和</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">list(seq)</td>
+<td style="text-align:center">将元组转换为列表</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Python列表方法">Python列表方法</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">序号</th>
+<th style="text-align:center">函数</th>
+<th style="text-align:center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">list.append(obj)</td>
+<td style="text-align:center">在列表末尾添加新的对象</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">list.count(obj)</td>
+<td style="text-align:center">统计某个元素在列表中出现的次数</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">list.extend(seq)</td>
+<td style="text-align:center">在列表末尾一次性追加另一个序列中的多个值（用新列表扩展原来的列表）</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">list.index(obj)</td>
+<td style="text-align:center">从列表中找出某个值第一个匹配项的索引位置</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">list.insert(index, obj)</td>
+<td style="text-align:center">将对象插入列表</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">list.pop(obj=list[-1])</td>
+<td style="text-align:center">移除列表中的一个元素（默认最后一个元素），并且返回该元素的值</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">list.remove(obj)</td>
+<td style="text-align:center">移除列表中某个值的第一个匹配项</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">list.reverse()</td>
+<td style="text-align:center">反向列表中元素</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">list.sort([func])</td>
+<td style="text-align:center">对原列表进行排序</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Python元组">Python元组</h2><p>元组是另一个数据类型，类似于List（列表）。<br>元组用”()”标识。<br>内部元素用逗号隔开。但是元素不能二次赋值，相当于只读列表。</p>
+<h3 id="元组内置函数">元组内置函数</h3><p>tuple(seq)：将列表转换为元组。</p>
+<h2 id="Python元字典">Python元字典</h2><p>字典(dictionary)是除列表以外python之中最灵活的内置数据结构类型。列表是有序的对象结合，字典是无序的对象集合。<br>两者之间的区别在于：字典当中的元素是通过键来存取的，而不是通过偏移存取。<br>字典用”{ }”标识。字典由索引(key)和它对应的值value组成。<br>adict[key] 形式返回键key对应的值value，如果key不在字典中会引发一个KeyError。</p>
+<h3 id="字典用法举例">字典用法举例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; code = &#123;<span class="string">"GLY"</span> : <span class="string">"G"</span>, <span class="string">"ALA"</span> : <span class="string">"A"</span>, <span class="string">"LEU"</span> : <span class="string">"L"</span>, <span class="string">"ILE"</span> : <span class="string">"I"</span>,</span><br><span class="line">... <span class="string">"ARG"</span> : <span class="string">"R"</span>, <span class="string">"LYS"</span> : <span class="string">"K"</span>, <span class="string">"MET"</span> : <span class="string">"M"</span>, <span class="string">"CYS"</span> : <span class="string">"C"</span>&#125;</span><br><span class="line">&gt;&gt;&gt; code[’VAL’]</span><br><span class="line">’V’</span><br><span class="line">&gt;&gt;&gt; code.keys()</span><br><span class="line">&gt;&gt;&gt; code.values()</span><br><span class="line">&gt;&gt;&gt; code.items()</span><br><span class="line">&gt;&gt;&gt; del code[’CYS’]</span><br><span class="line">&gt;&gt;&gt; code.update(&#123;’CYS’:’C’, ’MET’:’M’)</span><br><span class="line">&gt;&gt;&gt; one2three = &#123;&#125;</span><br><span class="line">&gt;&gt;&gt; <span class="keyword">for</span> key,val <span class="keyword">in</span> code.items():</span><br><span class="line">... one2three[val]= key</span><br></pre></td></tr></table></figure>
+<h3 id="字典内置函数&amp;方法">字典内置函数&amp;方法</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">序号</th>
+<th style="text-align:center">函数</th>
+<th style="text-align:center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">radiansdict.clear()</td>
+<td style="text-align:center">删除字典内所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">radiansdict.copy()</td>
+<td style="text-align:center">返回一个字典的浅复制</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">radiansdict.fromkeys()</td>
+<td style="text-align:center">创建一个新字典，以序列seq中元素做字典的键，val为字典所有键对应的初始值</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">radiansdict.get(key, default=None)</td>
+<td style="text-align:center">返回指定键的值，如果值不在字典中返回default值</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">radiansdict.items()</td>
+<td style="text-align:center">以列表返回可遍历的(键, 值) 元组数组</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">radiansdict.keys()</td>
+<td style="text-align:center">以列表返回一个字典所有的键</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">radiansdict.update(dict2)</td>
+<td style="text-align:center">把字典dict2的键/值对更新到dict里</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">radiansdict.values()</td>
+<td style="text-align:center">以列表返回字典中的所有值</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Python数据类型转换">Python数据类型转换</h3><p>有时候，我们需要对数据内置的类型进行转换，数据类型的转换，你只需要将数据类型作为函数名即可。<br>以下几个内置的函数可以执行数据类型之间的转换。这些函数返回一个新的对象，表示转换的值。<br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/zhuanfan.png" alt=""></p>
+<h2 id="Python_运算符">Python 运算符</h2><p></p><p>Python语言支持以下类型的运算符:</p><p></p>
+<p><li><a href="#ysf1">算术运算符：+，-，<em>，/,%,<em>*(幂 - 返回x的y次幂x</em></em>y),//(取整除 - 返回商的整数部分)</a></li></p>
+<p><li><a href="#ysf2">比较（关系）运算符:==,!=,&lt;&gt;(不等于),&gt;,&lt;,&gt;=,&lt;=</a></li></p>
+<p><li><a href="#ysf3">赋值运算符：=，-=(减法赋值运算符),+=(加法赋值运算符),<em>=,/=,%=,*</em>=,//=</a></li></p>
+<p><li><a href="#ysf4">逻辑运算符：and，or，not</a></li></p>
+<p><li><a href="#ysf5">位运算符</a></li></p>
+<p><li><a href="#ysf6">成员运算符：in，not in</a></li></p>
+<p><li><a href="#ysf7">身份运算符：is，not is</a></li></p>
+<p><li><a href="#ysf8">运算符优先级</a></li></p>
+<h2 id="Python_条件语句">Python 条件语句</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> 判断条件1:</span><br><span class="line">    执行语句1……</span><br><span class="line"><span class="keyword">elif</span> 判断条件2:</span><br><span class="line">    执行语句2……</span><br><span class="line"><span class="keyword">elif</span> 判断条件3:</span><br><span class="line">    执行语句3……</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    执行语句4……</span><br></pre></td></tr></table></figure>
+<p>其中”判断条件”成立时（非零），则执行后面的语句，而执行内容可以多行，以缩进来区分表示同一范围。</p>
+<h2 id="Python_循环语句">Python 循环语句</h2><p>Python提供了for循环和while循环<br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/5xunhuan.png" alt=""></p>
+<h2 id="Python_While循环语句">Python While循环语句</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"></span><br><span class="line">count = 0</span><br><span class="line"><span class="keyword">while</span> (count &lt; 9):</span><br><span class="line">   <span class="built_in">print</span> <span class="string">'The count is:'</span>, count</span><br><span class="line">   count = count + 1</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> <span class="string">"Good bye!"</span></span><br><span class="line">输出：</span><br><span class="line">The count is: 0</span><br><span class="line">The count is: 1</span><br><span class="line">The count is: 2</span><br><span class="line">The count is: 3</span><br><span class="line">The count is: 4</span><br><span class="line">The count is: 5</span><br><span class="line">The count is: 6</span><br><span class="line">The count is: 7</span><br><span class="line">The count is: 8</span><br><span class="line">Good <span class="built_in">bye</span>!</span><br></pre></td></tr></table></figure>
+<h2 id="Python_for_循环语句">Python for 循环语句</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> range(10,20):  <span class="comment"># 迭代 10 到 20 之间的数字</span></span><br><span class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> range(2,num): <span class="comment"># 根据因子迭代</span></span><br><span class="line">      <span class="keyword">if</span> num%i == 0:      <span class="comment"># 确定第一个因子</span></span><br><span class="line">         j=num/i          <span class="comment"># 计算第二个因子</span></span><br><span class="line">         <span class="built_in">print</span> <span class="string">'%d 等于 %d * %d'</span> % (num,i,j)</span><br><span class="line">         <span class="built_in">break</span>            <span class="comment"># 跳出当前循环</span></span><br><span class="line">   <span class="keyword">else</span>:                  <span class="comment"># 循环的 else 部分</span></span><br><span class="line">      <span class="built_in">print</span> num, <span class="string">'是一个质数'</span></span><br><span class="line">以上实例输出结果：</span><br><span class="line"></span><br><span class="line">10 等于 2 * 5</span><br><span class="line">11 是一个质数</span><br><span class="line">12 等于 2 * 6</span><br><span class="line">13 是一个质数</span><br><span class="line">14 等于 2 * 7</span><br><span class="line">15 等于 3 * 5</span><br><span class="line">16 等于 2 * 8</span><br><span class="line">17 是一个质数</span><br><span class="line">18 等于 2 * 9</span><br><span class="line">19 是一个质数</span><br></pre></td></tr></table></figure>
+<h2 id="Python函数">Python函数</h2><h3 id="自定义一个函数">自定义一个函数</h3><p></p><p>你可以定义一个由自己想要功能的函数，以下是简单的规则：</p><p></p>
+<p><li>函数代码块以def关键词开头，后接函数标识符名称和圆括号()。</li></p>
+<p><li>任何传入参数和自变量必须放在圆括号中间。圆括号之间可以用于定义参数。</li></p>
+<p><li>函数的第一行语句可以选择性地使用文档字符串—用于存放函数说明。</li></p>
+<p><li>函数内容以冒号起始，并且缩进。</li></p>
+<p><li>Return[expression]结束函数，选择性地返回一个值给调用方。不带表达式的return相当于返回 None。</li></p>
+<h3 id="语法">语法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def functionname( parameters ):</span><br><span class="line">   <span class="string">"函数_文档字符串"</span></span><br><span class="line">   function_suite</span><br><span class="line">   <span class="built_in">return</span> [expression]</span><br></pre></td></tr></table></figure>
+<h3 id="实例">实例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"></span><br><span class="line">total = 0; <span class="comment"># 这是一个全局变量</span></span><br><span class="line"><span class="comment"># 可写函数说明</span></span><br><span class="line">def sum( arg1, arg2 ):</span><br><span class="line">   <span class="comment">#返回2个参数的和."</span></span><br><span class="line">   total = arg1 + arg2; <span class="comment"># total在这里是局部变量.</span></span><br><span class="line">   <span class="built_in">print</span> <span class="string">"函数内是局部变量 : "</span>, total</span><br><span class="line">   <span class="built_in">return</span> total;  <span class="comment">#return语句[表达式]退出函数，选择性地向调用方返回一个表达式。不带参数值的return语句返回None</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#调用sum函数</span></span><br><span class="line">sum( 10, 20 );</span><br><span class="line"><span class="built_in">print</span> <span class="string">"函数外是全局变量 : "</span>, total </span><br><span class="line">以上实例输出结果：</span><br><span class="line"></span><br><span class="line">函数内是局部变量 :  30</span><br><span class="line">函数外是全局变量 :  0</span><br></pre></td></tr></table></figure>
+<h2 id="Python_模块">Python 模块</h2><p>简单地说，模块就是一个保存了Python代码的文件。模块能定义函数，类和变量。模块里也能包含可执行的代码。关于模块的安装见<a href="http://tiramisutes.github.io/2015/11/27/python-install/">《python模块安装—无root权限（easy_install和pip）》</a></p>
+<h3 id="import_语句">import 语句</h3><p>想使用Python源文件，只需在另一个源文件里执行import语句。</p>
+<h3 id="From…import_语句">From…import 语句</h3><p>Python的from语句让你从模块中导入一个指定的部分到当前命名空间中。</p>
+<h3 id="From…import*_语句">From…import* 语句</h3><p>把一个模块的所有内容全都导入到当前的命名空间也是可行的。</p>
+<h3 id="Python中的包">Python中的包</h3><p>包是一个分层次的文件目录结构，它定义了一个由模块及子包，和子包下的子包等组成的Python的应用环境。</p>
+<h2 id="Python_文件I/O">Python 文件I/O</h2><h3 id="读取键盘输入">读取键盘输入</h3><p>Python提供了两个内置函数从标准输入读入一行文本，默认的标准输入是键盘。如下：</p><p></p>
+<p><li>raw_input：raw_input([prompt]) 函数从标准输入读取一个行，并返回一个字符串（去掉结尾的换行符）</li></p>
+<p><li>input：input([prompt]) 函数和raw_input([prompt]) 函数基本可以互换，但是input会假设你的输入是一个有效的Python表达式，并返回运算结果。</li></p>
+<h3 id="open()函数">open()函数</h3><p>你必须先用Python内置的open()函数打开一个文件，创建一个file对象，相关的辅助方法才可以调用它进行读写。</p>
+<p></p><p><br>语法：<br></p><p></p>
+<p><pre><br>file object = open(file_name [, access_mode][, buffering])<br></pre></p>
+<p></p><p><br>各个参数的细节如下：<br></p><p></p>
+<p><li>file_name：file_name变量是一个包含了你要访问的文件名称的字符串值。</li></p>
+<p><li>access_mode：access_mode决定了打开文件的模式：只读，写入，追加等。所有可取值见如下的完全列表。这个参数是非强制的，默认文件访问模式为只读(r)。</li></p>
+<p><li>buffering:如果buffering的值被设为0，就不会有寄存。如果buffering的值取1，访问文件时会寄存行。如果将buffering的值设为大于1的整数，表明了这就是的寄存区的缓冲大小。如果取负值，寄存区的缓冲大小则为系统默认。</li><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/open.png" alt=""></p>
+<h3 id="Close()方法">Close()方法</h3><p></p><p><br>语法：<br></p><p></p>
+<p><pre><br>fileObject.close();<br></pre></p>
+<h3 id="Write()方法">Write()方法</h3><p>Write()方法在字符串的结尾不添加换行符(‘\n’)<br>注意：write(str())写入的数据必须是字符串。</p>
+<p></p><p><br>语法：<br></p><p></p>
+<p><pre><br>fileObject.write(string);<br></pre></p>
+<h3 id="read()方法">read()方法</h3><p>read（）方法从一个打开的文件中读取一个字符串。</p>
+<p><pre><br>fileObject.read([count]);<br></pre></p>
+<h2 id="Python正则表达式">Python正则表达式</h2><p>Python 自1.5版本起增加了re 模块，它提供 Perl 风格的正则表达式模式。<br>re 模块使 Python 语言拥有全部的正则表达式功能。<br>compile 函数根据一个模式字符串和可选的标志参数生成一个正则表达式对象。该对象拥有一系列方法用于正则表达式匹配和替换。<br><strong>re</strong> 模块也提供了与这些方法功能完全一致的函数，这些函数使用一个模式字符串做为它们的第一个参数。<br>详细内容分见<span class="exturl" data-url="aHR0cDovL20ucnVub29iLmNvbS9weXRob24vcHl0aG9uLXJlZy1leHByZXNzaW9ucy5odG1s" title="http://m.runoob.com/python/python-reg-expressions.html"><i class="fa fa-external-link"></i></span></p>
+<h2 id="自己使用总结">自己使用总结</h2><h3 id="python字符串替换的2种有效方法：">python字符串替换的2种有效方法：</h3><p><em>用字符串本身<br>a = ‘hello word’<br>a.replace(‘word’,’python’)
+</em>用正则表达式<br>import re<br>strinfo = re.compile(‘word’)<br>b = strinfo.sub(‘python’,a)<br>print b</p>
+<h3 id="异常报错">异常报错</h3><p>TypeError: ‘str’ object does not support item assignment<br>AttributeError: ‘str’ object has no attribute ‘append’<br>错误原因：对str进行list的操作<br>解决办法：转换数据类型<br>list和str转化str.split()<br>这个内置函数实现的是将str转化为list。其中str=””是分隔符。<br>join可以说是split的逆运算<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; name=[<span class="string">'Albert'</span>, <span class="string">'Ainstain'</span>]</span><br><span class="line">&gt;&gt;&gt; <span class="string">""</span>.join(name)</span><br><span class="line"><span class="string">'AlbertAinstain'</span></span><br></pre></td></tr></table></figure></p>
+<p>Contribution from ：<br><span class="exturl" data-url="aHR0cDovL20ucnVub29iLmNvbS9weXRob24v" title="http://m.runoob.com/python/">http://m.runoob.com/python/<i class="fa fa-external-link"></i></span><br><span class="exturl" data-url="aHR0cDovL3d3dy55bnB4cnouY29tL243ODE2NTljMjAyNS5hc3B4" title="http://www.ynpxrz.com/n781659c2025.aspx">http://www.ynpxrz.com/n781659c2025.aspx<i class="fa fa-external-link"></i></span></p>
+
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+      <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
+  <img id="wechat_subscriber_qcode" src="/images/Wechat.jpg" alt="tiramisutes wechat" style="width: 200px; max-width: 100%;"/>
+  <div>欢迎关注</div>
+</div>
+
+    
+
+    
+      
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>tiramisutes</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    
+    <a href="http://tiramisutes.github.io/2015/12/03/python-basic.html" title="python基础教程总结">http://tiramisutes.github.io/2015/12/03/python-basic.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python-basic/" rel="tag"><i class="fa fa-tag"></i> python basic</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+          
+            <span class="post-meta-divider">|</span>
+          
+          <div class="social_share">
+            
+            
+              <div id="needsharebutton-postbottom">
+                <span class="btn">
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/12/01/miRNA.html" rel="next" title="miRNA">
+                <i class="fa fa-chevron-left"></i> miRNA
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/12/04/markdown.html" rel="prev" title="hexo语法：markdown基础篇">
+                hexo语法：markdown基础篇 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <a href="/" class="site-author-image" rel="start" style="border:none">
+              <img class="site-author-image" itemprop="image"
+                src="/images/author.jpg"
+                alt="tiramisutes"/>
+              </a>
+            
+              <p class="site-author-name" itemprop="name">tiramisutes</p>
+              <div class="site-description motion-element" itemprop="description">hope bioinformatics blog</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">148</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">112</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RpcmFtaXN1dGVz" title="GitHub &rarr; https://github.com/tiramisutes"><i class="fa fa-fw fa-github"></i>GitHub</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="bWFpbHRvOnRpcmFtaXN1dGVze2F0fTEyNi5jb20=" title="E-Mail &rarr; mailto:tiramisutes{at}126.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cDovL3dlaWJvLmNvbS90aXJhbWlzdXRlc1Rlcw==" title="Weibo &rarr; http://weibo.com/tiramisutesTes"><i class="fa fa-fw fa-globe"></i>Weibo</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9ob3BldG9neQ==" title="Twitter &rarr; https://twitter.com/hopetogy"><i class="fa fa-fw fa-twitter"></i>Twitter</span>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"/></span>
+             </div>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9paG9wZS5zaGlueWFwcHMuaW8vcVJULVBDUi1QaXBlbGluZS8=" title="https://ihope.shinyapps.io/qRT-PCR-Pipeline/">qRT-PCR-Pipeline</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly90aXJhbWlzdXRlcy5naXRib29rcy5pby9hd2svY29udGVudC8=" title="https://tiramisutes.gitbooks.io/awk/content/">GitBook《awk学习总结》</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2NvdHRvbi5oemF1LmVkdS5jbi8=" title="http://cotton.hzau.edu.cn/">棉花遗传改良团队</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5iaW8taW5mby10cmFpbmVlLmNvbS8=" title="http://www.bio-info-trainee.com/">生信菜鸟团-深圳大学城</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5iaW90cmFpbmVlLmNvbS9mb3J1bS5waHA=" title="http://www.biotrainee.com/forum.php">生信技能树</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5pd2hnYW8uY29tLw==" title="http://www.iwhgao.com/">rabbit gao's blog</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9odWFucy5naXRodWIuaW8v" title="https://huans.github.io/">Huans(代谢+GWAS)</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5zZXF1ZW5jaW5nLnVpby5uby8=" title="http://www.sequencing.uio.no/">NSC-sequenceing</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2Jsb2cuam9iYm9sZS5jb20v" title="http://blog.jobbole.com/">伯乐在线</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9saW51eC5jbi8=" title="https://linux.cn/">Linux开源中文社区</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5yLWJsb2dnZXJzLmNvbS8=" title="http://www.r-bloggers.com/">R-bloggers</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvb3RoZXItZG9jcy5odG1s" title="https://cran.r-project.org/other-docs.html">R-resource</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3R1dG9yaWFscy5pcS5oYXJ2YXJkLmVkdS9SL1JncmFwaGljcy9SZ3JhcGhpY3MuaHRtbA==" title="http://tutorials.iq.harvard.edu/R/Rgraphics/Rgraphics.html">ggplot2</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2xpbGliZWkubmV0Lw==" title="http://lilibei.net/">pele' blog</span>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Python_特点"><span class="nav-text">Python 特点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python_环境搭建"><span class="nav-text">Python 环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Python下载"><span class="nav-text">Python下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python安装"><span class="nav-text">Python安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境变量配置"><span class="nav-text">环境变量配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python_中文打印错误"><span class="nav-text">Python 中文打印错误</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python_基础语法"><span class="nav-text">Python 基础语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#行和缩进"><span class="nav-text">行和缩进</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多行语句"><span class="nav-text">多行语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python注释"><span class="nav-text">Python注释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python_变量"><span class="nav-text">Python 变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python数字(Number)"><span class="nav-text">Python数字(Number)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python字符串(String)"><span class="nav-text">Python字符串(String)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python列表(List)"><span class="nav-text">Python列表(List)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#访问列表中的值"><span class="nav-text">访问列表中的值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新列表"><span class="nav-text">更新列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除列表元素"><span class="nav-text">删除列表元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python列表函数"><span class="nav-text">Python列表函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python列表方法"><span class="nav-text">Python列表方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python元组"><span class="nav-text">Python元组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#元组内置函数"><span class="nav-text">元组内置函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python元字典"><span class="nav-text">Python元字典</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字典用法举例"><span class="nav-text">字典用法举例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字典内置函数&方法"><span class="nav-text">字典内置函数&amp;方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python数据类型转换"><span class="nav-text">Python数据类型转换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python_运算符"><span class="nav-text">Python 运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python_条件语句"><span class="nav-text">Python 条件语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python_循环语句"><span class="nav-text">Python 循环语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python_While循环语句"><span class="nav-text">Python While循环语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python_for_循环语句"><span class="nav-text">Python for 循环语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python函数"><span class="nav-text">Python函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义一个函数"><span class="nav-text">自定义一个函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语法"><span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例"><span class="nav-text">实例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python_模块"><span class="nav-text">Python 模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#import_语句"><span class="nav-text">import 语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#From…import_语句"><span class="nav-text">From…import 语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#From…import*_语句"><span class="nav-text">From…import* 语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python中的包"><span class="nav-text">Python中的包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python_文件I/O"><span class="nav-text">Python 文件I/O</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#读取键盘输入"><span class="nav-text">读取键盘输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#open()函数"><span class="nav-text">open()函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Close()方法"><span class="nav-text">Close()方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Write()方法"><span class="nav-text">Write()方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#read()方法"><span class="nav-text">read()方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python正则表达式"><span class="nav-text">Python正则表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自己使用总结"><span class="nav-text">自己使用总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#python字符串替换的2种有效方法："><span class="nav-text">python字符串替换的2种有效方法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常报错"><span class="nav-text">异常报错</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 – <span itemprop="copyrightYear">2023</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <a class="theme-link" target="_blank" href="http://tiramisutes.github.io/about/"><span class="author" itemprop="copyrightHolder">tiramisutes</span></a>
+
+  
+    <span class="post-meta-item-icon">
+    </span>
+    <span title="Symbols count total"></span>
+  
+
+  
+    <span class="post-meta-item-icon">
+    </span>
+    <span title="Reading time total"></span>
+  
+</div>
+
+
+  <div class="powered-by">Powered: <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">▽ – <span class="exturl theme-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0">NexT.Muse</span></div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-line-chart"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+    <a style="line-height: 1.5;" href="https://tongji.baidu.com/web/welcome/login" target="_blank">The total visits
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>&nbsp;times</a>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+    
+    
+      
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='20' src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest-nomobile.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+  <script src="/js/src/exturl.js?v=7.0.1"></script>
+
+
+  
+  
+  
+    
+  
+
+  
+
+  
+  
+  
+
+
+  
+  
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'c7x0fPmO8Ci9avDBRuGWHqpG-gzGzoHsz',
+    appKey: 'iVJ6ST0e1O5xaiIhVwOyhbf3',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+<style>
+.pdfobject-container {
+  position: relative;
+  overflow: auto;
+  width: 100%;
+}
+</style>
+<script>
+if ($('body').find('div.pdf').length) {
+  $.ajax({
+    type: 'GET',
+    url: '//cdn.jsdelivr.net/npm/pdfobject@2.1.1/pdfobject.min.js',
+    dataType: 'script',
+    cache: true,
+    success: function() {
+      $('body').find('div.pdf').each(function(i, o) {
+        PDFObject.embed($(o).attr('target'), $(o), {
+          pdfOpenParams: {
+            navpanes: 0,
+            toolbar: 0,
+            statusbar: 0,
+            pagemode: 'thumbs',
+            view: 'FitH'
+          },
+          PDFJS_URL: '/lib/pdf/web/viewer.html',
+          height: $(o).attr('height') || '500px'
+        });
+      });
+    },
+  });
+}
+</script>
+
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+  
+  
+    
+  
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Evernote,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+
+  
+  <script>
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id: 15314,
+      el: 'wpac-rating',
+      color: 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

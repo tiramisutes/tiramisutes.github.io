@@ -1,0 +1,2086 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=66189719" charset="UTF-8"></script>
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"/>
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/han.min.css"/>
+
+
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+
+
+  <meta name="google-site-verification" content="b12Zu40L63PLgCtcn0IW8KCNRolmyQlaF22tf4rRLEg"/>
+
+
+
+  <meta name="msvalidate.01" content="74A687E04D4EF9914B7AA20824207409"/>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="https://fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"/>
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/small_favicon.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/favicon.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":true,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="直接概念可迭代对象(Iterable)： 可以直接作用于for循环的对象；迭代器(Iterator): 可以被next()函数调用并不断返回下一个值的对象。所有的Iterable均可通过内置函数iter()来转变为Iterator。">
+<meta name="keywords" content="Iterator">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深入浅出的迭代器Iterator">
+<meta property="og:url" content="http://tiramisutes.github.io/2017/04/03/Iterator.html">
+<meta property="og:site_name" content="hope">
+<meta property="og:description" content="直接概念可迭代对象(Iterable)： 可以直接作用于for循环的对象；迭代器(Iterator): 可以被next()函数调用并不断返回下一个值的对象。所有的Iterable均可通过内置函数iter()来转变为Iterator。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/iterable-vs-iterator.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/python-advanced-building-on-the-foundation-102-638.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/iter.png">
+<meta property="og:updated_time" content="2018-09-28T02:37:04.878Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="深入浅出的迭代器Iterator">
+<meta name="twitter:description" content="直接概念可迭代对象(Iterable)： 可以直接作用于for循环的对象；迭代器(Iterator): 可以被next()函数调用并不断返回下一个值的对象。所有的Iterable均可通过内置函数iter()来转变为Iterator。">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/iterable-vs-iterator.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="hope" type="application/atom+xml"/>
+
+
+
+
+  <link rel="canonical" href="http://tiramisutes.github.io/2017/04/03/Iterator.html"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>深入浅出的迭代器Iterator | hope</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?08b17c69c7ba460d9ab5f188a048ee6d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">hope</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">A new day is coming,whether we like it or not. The question is will you control it,or will it control you?</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-code">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/code/" rel="section"><i class="menu-item-icon fa fa-fw fa-code"></i> <br/>Code</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-footprint">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/footprint/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br/>Footprint</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-qrt-pcr">
+
+    
+    
+    
+      
+    
+
+    
+
+    <span class="exturl" data-url="aHR0cHM6Ly9paG9wZS5zaGlueWFwcHMuaW8vcVJULVBDUi1QaXBlbGluZS8="><i class="menu-item-icon fa fa-fw fa-cloud"></i> <br/>qRT-PCR</span>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-project">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/project/" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br/>Project</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-publish">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/publish/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br/>Publish</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sci-figure">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/SCIFigure/" rel="section"><i class="menu-item-icon fa fa-fw fa-angellist"></i> <br/>SCI Figure</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-cv">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/resume/" rel="section"><i class="menu-item-icon fa fa-fw fa-address-card"></i> <br/>CV</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tiramisutes.github.io/2017/04/03/Iterator.html"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tiramisutes"/>
+      <meta itemprop="description" content="hope bioinformatics blog"/>
+      <meta itemprop="image" content="/images/author.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hope"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">深入浅出的迭代器Iterator
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2017-04-03 12:56:16" itemprop="dateCreated datePublished" datetime="2017-04-03T12:56:16+08:00">2017-04-03</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2017/04/03/Iterator.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/04/03/Iterator.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2017/04/03/Iterator.html" class="leancloud_visitors" data-flag-title="深入浅出的迭代器Iterator">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+                <span>℃</span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article: </span>
+                
+                <span title="Words count in article"></span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time"></span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/iterable-vs-iterator.png" alt=""></p>
+<h2 id="直接概念">直接概念</h2><p><strong>可迭代对象(Iterable)</strong>： 可以直接作用于for循环的对象；<br><strong>迭代器(Iterator)</strong>: 可以被<code>next()</code>函数调用并不断返回下一个值的对象。<br><strong>所有的Iterable均可通过内置函数<code>iter()</code>来转变为Iterator</strong>。<br><a id="more"></a></p>
+<hr>
+<h2 id="迭代器">迭代器</h2><p>关于迭代器我们需要注意以下几点：<br>1. 迭代器不可重复利用，迭代完就变成空了，再次调用会引发StopIteration异常；<br>    可通过<code>copy</code>包中的<code>deepcopy</code>复制迭代器从而可循环使用。<br>2. 迭代器是访问集合内元素的一种方式。迭代器对象从集合的第一个元素开始访问，直到所有的元素都被访问一遍后结束；<br>3. 迭代器不能回退，只能往前进行迭代；<br>4. 对于原生支持随机访问的数据结构（如tuple、list），迭代器和经典for循环的索引访问相比并无优势，反而丢失了索引值（可以使用内建函数<code>enumerate()</code>找回这个索引值）。但对于无法随机访问的数据结构（比如set）而言，迭代器是唯一的访问元素的方式；<br><code>enumerate()</code>能在iter函数的结果前加上索引，以元组返回:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>lst = [<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>]</span><br><span class="line"><span class="meta">... </span><span class="keyword">for</span> idx, ele <span class="keyword">in</span> enumerate(lst):</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">print</span> idx, ele</span><br><span class="line"><span class="meta">... </span>    </span><br><span class="line"><span class="number">0</span> <span class="number">5</span></span><br><span class="line"><span class="number">1</span> <span class="number">6</span></span><br><span class="line"><span class="number">2</span> <span class="number">7</span></span><br></pre></td></tr></table></figure></p>
+<p>5. 迭代器的另一个优点就是它不要求你事先准备好整个迭代过程中所有的元素。迭代器仅仅在迭代至某个元素时才计算该元素，而在这之前或之后，元素可以不存在或者被销毁。这个特点使得它特别适合用于遍历一些巨大的或是无限的集合，比如几个G的文件，或是斐波那契数列等等。这个特点被称为延迟计算或惰性求值(Lazy evaluation)；<br>6. 迭代器更大的功劳是提供了一个统一的访问集合的接口。只要是实现了<strong>iter</strong>()方法的对象，就可以使用迭代器进行访问。<br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/python-advanced-building-on-the-foundation-102-638.jpg" alt=""></p>
+<h2 id="迭代器操作">迭代器操作</h2><p>使用内建函数<code>iter(iterable)</code>获取迭代器对象，<code>next(iterator)</code>访问下一个元素；<br>常用的几个内建数据结构tuple、list、set、dict都支持迭代器，字符串也可以使用迭代操作。</p>
+<h2 id="itertools模块"><code>itertools</code>模块</h2><p>Python的内建模块<code>itertools</code>提供了非常有用的用于操作迭代对象的函数。</p>
+<hr>
+<p><strong>“无限”迭代器</strong><br>无限序列只有在for迭代时才会无限地迭代下去，如果只是创建了一个迭代对象，它不会事先把无限个元素生成出来;</p>
+<h3 id="count">count</h3><p><code>count()</code>会创建一个无限的迭代器：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>i = <span class="number">0</span>  </span><br><span class="line"><span class="meta">... </span><span class="keyword">for</span> item <span class="keyword">in</span> itertools.count(<span class="number">100</span>):  </span><br><span class="line"><span class="meta">... </span>    <span class="keyword">if</span> i&gt;<span class="number">10</span>:  </span><br><span class="line"><span class="meta">... </span>        <span class="keyword">break</span>  </span><br><span class="line"><span class="meta">... </span>    <span class="keyword">print</span> item,</span><br><span class="line"><span class="meta">... </span>    i = i+<span class="number">1</span> </span><br><span class="line"><span class="meta">... </span>     </span><br><span class="line"><span class="number">100</span> <span class="number">101</span> <span class="number">102</span> <span class="number">103</span> <span class="number">104</span> <span class="number">105</span> <span class="number">106</span> <span class="number">107</span> <span class="number">108</span> <span class="number">109</span> <span class="number">110</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="cycle">cycle</h3><p><code>cycle()</code>会把传入的一个序列无限重复下去：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> itertools</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>cs = itertools.cycle(<span class="string">'ABC'</span>) <span class="comment"># 注意字符串也是序列的一种</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> c <span class="keyword">in</span> cs:</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">print</span> c</span><br><span class="line">...</span><br><span class="line"><span class="string">'A'</span></span><br><span class="line"><span class="string">'B'</span></span><br><span class="line"><span class="string">'C'</span></span><br><span class="line"><span class="string">'A'</span></span><br><span class="line"><span class="string">'B'</span></span><br><span class="line"><span class="string">'C'</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<h3 id="repeat">repeat</h3><p><code>repeat(elem [,n])</code>repeat负责把一个元素无限重复下去，不过如果提供第二个参数就可以限定重复次数：<br>附： <code>print</code>后面逗号<code>,</code>作用<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> itertools  </span><br><span class="line"><span class="meta">... </span>listone = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>]  </span><br><span class="line"><span class="meta">... </span><span class="keyword">for</span> item <span class="keyword">in</span> itertools.repeat(listone,<span class="number">3</span>):  </span><br><span class="line"><span class="meta">... </span>    <span class="keyword">print</span> item,  </span><br><span class="line"><span class="meta">... </span>    </span><br><span class="line">[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>] [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>] [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> itertools  </span><br><span class="line"><span class="meta">... </span>listone = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>]  </span><br><span class="line"><span class="meta">... </span><span class="keyword">for</span> item <span class="keyword">in</span> itertools.repeat(listone,<span class="number">3</span>):  </span><br><span class="line"><span class="meta">... </span>    <span class="keyword">print</span> item</span><br><span class="line"><span class="meta">... </span>    </span><br><span class="line">[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]</span><br><span class="line">[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]</span><br><span class="line">[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]</span><br></pre></td></tr></table></figure></p>
+<p>以上无限序列虽然可以无限迭代下去，但是通常我们会通过<code>takewhile()</code>等函数根据条件判断来截取出一个有限的序列：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>natuals = itertools.count(<span class="number">1</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>ns = itertools.takewhile(<span class="keyword">lambda</span> x: x &lt;= <span class="number">10</span>, natuals)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> n <span class="keyword">in</span> ns:</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">print</span> n</span><br><span class="line">...</span><br><span class="line">打印出<span class="number">1</span>到<span class="number">10</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>迭代器操作函数</strong></p>
+<h3 id="chain">chain</h3><p><code>chain()</code>可以把一组迭代对象串联起来，形成一个更大的迭代器：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> itertools  </span><br><span class="line"><span class="meta">... </span>listone = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>]  </span><br><span class="line"><span class="meta">... </span>listtwo = [<span class="string">'11'</span>,<span class="string">'22'</span>,<span class="string">'abc'</span>]  </span><br><span class="line"><span class="meta">... </span><span class="keyword">for</span> item <span class="keyword">in</span>  itertools.chain(listone,listtwo):  </span><br><span class="line"><span class="meta">... </span>    <span class="keyword">print</span> item</span><br><span class="line"><span class="meta">... </span>    </span><br><span class="line">a</span><br><span class="line">b</span><br><span class="line">c</span><br><span class="line"><span class="number">11</span></span><br><span class="line"><span class="number">22</span></span><br><span class="line">abc</span><br></pre></td></tr></table></figure></p>
+<h3 id="ifilter">ifilter</h3><p><code>ifilter(fun,iterator)</code>返回一个可以让fun返回True的迭代器:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> itertools  </span><br><span class="line"><span class="meta">... </span><span class="function"><span class="keyword">def</span> <span class="title">funLargeFive</span><span class="params">(x)</span>:</span>  </span><br><span class="line"><span class="meta">... </span>    <span class="keyword">if</span> x &gt; <span class="number">5</span>:  </span><br><span class="line"><span class="meta">... </span>        <span class="keyword">return</span> <span class="keyword">True</span>  </span><br><span class="line"><span class="meta">... </span>      </span><br><span class="line"><span class="meta">... </span><span class="keyword">for</span> item <span class="keyword">in</span> itertools.ifilter(funLargeFive,range(<span class="number">-10</span>,<span class="number">10</span>)):  </span><br><span class="line"><span class="meta">... </span>    <span class="keyword">print</span> item,  </span><br><span class="line"><span class="meta">... </span>    </span><br><span class="line"><span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="imap">imap</h3><p><code>imap(fun,iterator)</code>返回一个迭代器，对iterator中的每个项目调用fun:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> itertools  </span><br><span class="line"><span class="meta">... </span>listthree = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]  </span><br><span class="line"><span class="meta">... </span><span class="function"><span class="keyword">def</span> <span class="title">funAddFive</span><span class="params">(x)</span>:</span>  </span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> x + <span class="number">5</span>  </span><br><span class="line"><span class="meta">... </span><span class="keyword">for</span> item <span class="keyword">in</span> itertools.imap(funAddFive,listthree):  </span><br><span class="line"><span class="meta">... </span>    <span class="keyword">print</span> item,  </span><br><span class="line"><span class="meta">... </span>    <span class="keyword">print</span> type(item)</span><br><span class="line">...</span><br><span class="line"><span class="number">6</span> &lt;type <span class="string">'int'</span>&gt;</span><br><span class="line"><span class="number">7</span> &lt;type <span class="string">'int'</span>&gt;</span><br><span class="line"><span class="number">8</span> &lt;type <span class="string">'int'</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p><code>imap()</code>和<code>map()</code>的区别在于，<code>imap()</code>可以作用于无穷序列，并且，如果两个序列的长度不一致，以短的那个为准。<br>和直接map的区别如下：<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;</span>&gt; listthree = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]  </span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; <span class="function"><span class="keyword">def</span> <span class="title">funAddFive</span><span class="params">(x)</span></span>:     </span><br><span class="line">...    <span class="keyword">return</span> x + <span class="number">5</span>  </span><br><span class="line">... </span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; map(funAddFive,listthree)</span><br><span class="line">[<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; type(map(funAddFive,listthree))</span><br><span class="line">list</span><br></pre></td></tr></table></figure></p>
+<p><code>imap()</code>返回一个迭代对象，而<code>map()</code>返回list,并且当你调用<code>map()</code>时，结果已经计算完毕，而当你调用imap()时，并没有进行任何计算，必须用for循环对其进行迭代，才会在每次循环过程中计算出下一个元素，从而实现了“惰性计算”，也就是在需要获得结果的时候才计算。</p>
+<h3 id="islice">islice</h3><p><code>itertools.islice(iterable, stop)</code><br><code>itertools.islice(iterable, start, stop[, step])</code><br>返回迭代器，将seq，从start开始,到stop结束，以step步长切割:<br>If start is None, then iteration starts at zero. If step is None, then the step defaults to one.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> itertools  </span><br><span class="line"><span class="meta">... </span>listone = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>]  </span><br><span class="line"><span class="meta">... </span>listtwo = [<span class="string">'11'</span>,<span class="string">'22'</span>,<span class="string">'abc'</span>]  </span><br><span class="line"><span class="meta">... </span>listthree = listone + listtwo  </span><br><span class="line"><span class="meta">... </span><span class="keyword">for</span> item <span class="keyword">in</span> itertools.islice(listthree,<span class="number">3</span>,<span class="number">5</span>):  </span><br><span class="line"><span class="meta">... </span>    <span class="keyword">print</span> item,  </span><br><span class="line"><span class="meta">... </span>    </span><br><span class="line"><span class="number">11</span> <span class="number">22</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="izip">izip</h3><p><code>izip(*iterator)</code>返回迭代器，结果是元组，元组来自*iterator的组合<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> itertools  </span><br><span class="line"><span class="meta">... </span>listone = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>]  </span><br><span class="line"><span class="meta">... </span>listtwo = [<span class="string">'11'</span>,<span class="string">'22'</span>,<span class="string">'abc'</span>]  </span><br><span class="line"><span class="meta">... </span>listthree = listone + listtwo  </span><br><span class="line"><span class="meta">... </span><span class="keyword">for</span> item <span class="keyword">in</span> itertools.izip(listone,listtwo):  </span><br><span class="line"><span class="meta">... </span>    <span class="keyword">print</span> item, </span><br><span class="line"><span class="meta">... </span>    <span class="keyword">print</span> type(item)</span><br><span class="line"><span class="meta">... </span>    </span><br><span class="line">(<span class="string">'a'</span>, <span class="string">'11'</span>) &lt;type <span class="string">'tuple'</span>&gt;</span><br><span class="line">(<span class="string">'b'</span>, <span class="string">'22'</span>) &lt;type <span class="string">'tuple'</span>&gt;</span><br><span class="line">(<span class="string">'c'</span>, <span class="string">'abc'</span>) &lt;type <span class="string">'tuple'</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="groupby()">groupby()</h3><p><code>groupby()</code>把迭代器中相邻的重复元素挑出来放在一起：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> key, group <span class="keyword">in</span> itertools.groupby(<span class="string">'AAABBBCCAAA'</span>):</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">print</span> key, list(group) <span class="comment"># 为什么这里要用list()函数呢？</span></span><br><span class="line">...</span><br><span class="line">A [<span class="string">'A'</span>, <span class="string">'A'</span>, <span class="string">'A'</span>]</span><br><span class="line">B [<span class="string">'B'</span>, <span class="string">'B'</span>, <span class="string">'B'</span>]</span><br><span class="line">C [<span class="string">'C'</span>, <span class="string">'C'</span>]</span><br><span class="line">A [<span class="string">'A'</span>, <span class="string">'A'</span>, <span class="string">'A'</span>]</span><br></pre></td></tr></table></figure></p>
+<p>实际上挑选规则是通过函数完成的，只要作用于函数的两个元素返回的值相等，这两个元素就被认为是在一组的，而函数返回值作为组的key。如果我们要忽略大小写分组，就可以让元素’A’和’a’都返回相同的key：<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; for key, <span class="keyword">group</span> <span class="keyword">in</span> itertools.groupby(<span class="string">'AaaBBbcCAAa'</span>, lambda c: c.upper()):</span><br><span class="line"><span class="params">...</span>     print key, <span class="built_in">list</span>(<span class="keyword">group</span>)</span><br><span class="line"><span class="params">...</span></span><br><span class="line">A <span class="meta">[</span><span class="string">'A'</span>, <span class="string">'a'</span>, <span class="string">'a'</span><span class="meta">]</span></span><br><span class="line">B <span class="meta">[</span><span class="string">'B'</span>, <span class="string">'B'</span>, <span class="string">'b'</span><span class="meta">]</span></span><br><span class="line">C <span class="meta">[</span><span class="string">'c'</span>, <span class="string">'C'</span><span class="meta">]</span></span><br><span class="line">A <span class="meta">[</span><span class="string">'A'</span>, <span class="string">'A'</span>, <span class="string">'a'</span><span class="meta">]</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="生成器表达式(Generator_expression)和列表解析(List_Comprehension)">生成器表达式(Generator expression)和列表解析(List Comprehension)</h2><p>1. <code>(x+1 for x in lst)</code> #生成器表达式，返回迭代器。外部的括号可在用于参数时省略。<br>2. <code>[x+1 for x in lst]</code> #列表解析，返回list<br><strong>由于返回迭代器时，并不是在一开始就计算所有的元素，这样能得到更多的灵活性并且可以避开很多不必要的计算，所以除非你明确希望返回列表，否则应该始终使用生成器表达式。</strong><br>为列表解析提供if子句进行筛选：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(x+1 <span class="keyword">for</span> x <span class="keyword">in</span> lst <span class="keyword">if</span>  x!= 0)</span><br></pre></td></tr></table></figure></p>
+<p>或者提供多条for子句进行嵌套循环，嵌套次序就是for子句的顺序：<br><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">((<span class="name">x</span>,y) for x in range(<span class="name">3</span>) for y in range(<span class="name">x</span>))</span><br></pre></td></tr></table></figure></p>
+<h3 id="应用场景">应用场景</h3><p>1. <i class="fa fa-bullseye" aria-hidden="true"></i>当对元素应用的动作太复杂，不能用一个表达式写出来时？<br><i class="fa fa-thumbs-up" aria-hidden="true"></i>将动作<code>def</code>封装成函数，用于解析式；<br>2. <i class="fa fa-bullseye" aria-hidden="true"></i>因为if子句里的条件需要计算，同时结果也需要进行同样的计算，不希望计算两遍？<br><i class="fa fa-thumbs-up" aria-hidden="true"></i>组合一下列表解析式： <code>[x for x in (y+1 for y in lst) if x &gt;0]</code>，内部的列表解析变量其实也可以用x，但为清晰起见我们改成了y。</p>
+<h2 id="写在最后">写在最后</h2><p>推荐一个画分满满萌萌哒的关于Iterators , Iterables and Generators 的文章: <span class="exturl" data-url="aHR0cDovL2Zpb25hLW5hdWdodG9uLmdpdGh1Yi5pby9ibG9nLzIwMTYvMDYvMDgvSG93LXRvLXRyYWluLXlvdXItUHl0aG9u" title="http://fiona-naughton.github.io/blog/2016/06/08/How-to-train-your-Python">How to train your Python<i class="fa fa-external-link"></i></span><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/iter.png" alt=""></p>
+<p>参考来源：</p>
+<p><li><span class="exturl" data-url="aHR0cDovL3B5dGhvbi5qb2Jib2xlLmNvbS84MTkxNi8=" title="http://python.jobbole.com/81916/">http://python.jobbole.com/81916/<i class="fa fa-external-link"></i></span></li></p>
+<p><li><span class="exturl" data-url="aHR0cDovL3d3dy5jbmJsb2dzLmNvbS9odXhpL2FyY2hpdmUvMjAxMS8wNy8wMS8yMDk1OTMxLmh0bWw=" title="http://www.cnblogs.com/huxi/archive/2011/07/01/2095931.html">AstralWind: Python函数式编程指南（三）：迭代器<i class="fa fa-external-link"></i></span></li></p>
+<p><li><span class="exturl" data-url="aHR0cDovL3d3dy5jbmJsb2dzLmNvbS9odXhpL2FyY2hpdmUvMjAxMS8wNy8wMS8yMDk1OTMxLmh0bWw=" title="http://www.cnblogs.com/huxi/archive/2011/07/01/2095931.html">http://www.cnblogs.com/huxi/archive/2011/07/01/2095931.html<i class="fa fa-external-link"></i></span></li></p>
+<p><li><span class="exturl" data-url="aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlhb2NhaWp1L2FydGljbGUvZGV0YWlscy82OTY4MTIz" title="http://blog.csdn.net/xiaocaiju/article/details/6968123">http://blog.csdn.net/xiaocaiju/article/details/6968123<i class="fa fa-external-link"></i></span></li></p>
+<p><li><span class="exturl" data-url="aHR0cDovL3d3dy5saWFveHVlZmVuZy5jb20vd2lraS8wMDEzNzQ3MzgxMjUwOTVjOTU1YzFlNmQ4YmI0OTMxODIxMDNmYWM5MjcwNzYyYTAwMC8wMDE0MTU2MTYwMDE5OTZmNmIzMmQ4MGI2NDU0Y2FjYTNkMzNjOTY1YTA3NjExZjAwMA==" title="http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001415616001996f6b32d80b6454caca3d33c965a07611f000">廖雪峰的官方网站:itertools<i class="fa fa-external-link"></i></span></li></p>
+
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+      <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
+  <img id="wechat_subscriber_qcode" src="/images/Wechat.jpg" alt="tiramisutes wechat" style="width: 200px; max-width: 100%;"/>
+  <div>欢迎关注</div>
+</div>
+
+    
+
+    
+      
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>tiramisutes</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    
+    <a href="http://tiramisutes.github.io/2017/04/03/Iterator.html" title="深入浅出的迭代器Iterator">http://tiramisutes.github.io/2017/04/03/Iterator.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Iterator/" rel="tag"><i class="fa fa-tag"></i> Iterator</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+          
+            <span class="post-meta-divider">|</span>
+          
+          <div class="social_share">
+            
+            
+              <div id="needsharebutton-postbottom">
+                <span class="btn">
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/02/python-read-file.html" rel="next" title="python读取文件的正确方式">
+                <i class="fa fa-chevron-left"></i> python读取文件的正确方式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/28/LIANTI.html" rel="prev" title="单细胞扩增之：LIANTI">
+                单细胞扩增之：LIANTI <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <a href="/" class="site-author-image" rel="start" style="border:none">
+              <img class="site-author-image" itemprop="image"
+                src="/images/author.jpg"
+                alt="tiramisutes"/>
+              </a>
+            
+              <p class="site-author-name" itemprop="name">tiramisutes</p>
+              <div class="site-description motion-element" itemprop="description">hope bioinformatics blog</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">148</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">112</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RpcmFtaXN1dGVz" title="GitHub &rarr; https://github.com/tiramisutes"><i class="fa fa-fw fa-github"></i>GitHub</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="bWFpbHRvOnRpcmFtaXN1dGVze2F0fTEyNi5jb20=" title="E-Mail &rarr; mailto:tiramisutes{at}126.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cDovL3dlaWJvLmNvbS90aXJhbWlzdXRlc1Rlcw==" title="Weibo &rarr; http://weibo.com/tiramisutesTes"><i class="fa fa-fw fa-globe"></i>Weibo</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9ob3BldG9neQ==" title="Twitter &rarr; https://twitter.com/hopetogy"><i class="fa fa-fw fa-twitter"></i>Twitter</span>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"/></span>
+             </div>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9paG9wZS5zaGlueWFwcHMuaW8vcVJULVBDUi1QaXBlbGluZS8=" title="https://ihope.shinyapps.io/qRT-PCR-Pipeline/">qRT-PCR-Pipeline</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly90aXJhbWlzdXRlcy5naXRib29rcy5pby9hd2svY29udGVudC8=" title="https://tiramisutes.gitbooks.io/awk/content/">GitBook《awk学习总结》</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2NvdHRvbi5oemF1LmVkdS5jbi8=" title="http://cotton.hzau.edu.cn/">棉花遗传改良团队</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5iaW8taW5mby10cmFpbmVlLmNvbS8=" title="http://www.bio-info-trainee.com/">生信菜鸟团-深圳大学城</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5iaW90cmFpbmVlLmNvbS9mb3J1bS5waHA=" title="http://www.biotrainee.com/forum.php">生信技能树</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5pd2hnYW8uY29tLw==" title="http://www.iwhgao.com/">rabbit gao's blog</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9odWFucy5naXRodWIuaW8v" title="https://huans.github.io/">Huans(代谢+GWAS)</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5zZXF1ZW5jaW5nLnVpby5uby8=" title="http://www.sequencing.uio.no/">NSC-sequenceing</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2Jsb2cuam9iYm9sZS5jb20v" title="http://blog.jobbole.com/">伯乐在线</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9saW51eC5jbi8=" title="https://linux.cn/">Linux开源中文社区</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5yLWJsb2dnZXJzLmNvbS8=" title="http://www.r-bloggers.com/">R-bloggers</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvb3RoZXItZG9jcy5odG1s" title="https://cran.r-project.org/other-docs.html">R-resource</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3R1dG9yaWFscy5pcS5oYXJ2YXJkLmVkdS9SL1JncmFwaGljcy9SZ3JhcGhpY3MuaHRtbA==" title="http://tutorials.iq.harvard.edu/R/Rgraphics/Rgraphics.html">ggplot2</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2xpbGliZWkubmV0Lw==" title="http://lilibei.net/">pele' blog</span>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#直接概念"><span class="nav-text">直接概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迭代器"><span class="nav-text">迭代器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迭代器操作"><span class="nav-text">迭代器操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#itertools模块"><span class="nav-text">itertools模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#count"><span class="nav-text">count</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cycle"><span class="nav-text">cycle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#repeat"><span class="nav-text">repeat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chain"><span class="nav-text">chain</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ifilter"><span class="nav-text">ifilter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#imap"><span class="nav-text">imap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#islice"><span class="nav-text">islice</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#izip"><span class="nav-text">izip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#groupby()"><span class="nav-text">groupby()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成器表达式(Generator_expression)和列表解析(List_Comprehension)"><span class="nav-text">生成器表达式(Generator expression)和列表解析(List Comprehension)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#应用场景"><span class="nav-text">应用场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写在最后"><span class="nav-text">写在最后</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 – <span itemprop="copyrightYear">2023</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <a class="theme-link" target="_blank" href="http://tiramisutes.github.io/about/"><span class="author" itemprop="copyrightHolder">tiramisutes</span></a>
+
+  
+    <span class="post-meta-item-icon">
+    </span>
+    <span title="Symbols count total"></span>
+  
+
+  
+    <span class="post-meta-item-icon">
+    </span>
+    <span title="Reading time total"></span>
+  
+</div>
+
+
+  <div class="powered-by">Powered: <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">▽ – <span class="exturl theme-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0">NexT.Muse</span></div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-line-chart"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+    <a style="line-height: 1.5;" href="https://tongji.baidu.com/web/welcome/login" target="_blank">The total visits
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>&nbsp;times</a>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+    
+    
+      
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='20' src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest-nomobile.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+  <script src="/js/src/exturl.js?v=7.0.1"></script>
+
+
+  
+  
+  
+    
+  
+
+  
+
+  
+  
+  
+
+
+  
+  
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'c7x0fPmO8Ci9avDBRuGWHqpG-gzGzoHsz',
+    appKey: 'iVJ6ST0e1O5xaiIhVwOyhbf3',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+<style>
+.pdfobject-container {
+  position: relative;
+  overflow: auto;
+  width: 100%;
+}
+</style>
+<script>
+if ($('body').find('div.pdf').length) {
+  $.ajax({
+    type: 'GET',
+    url: '//cdn.jsdelivr.net/npm/pdfobject@2.1.1/pdfobject.min.js',
+    dataType: 'script',
+    cache: true,
+    success: function() {
+      $('body').find('div.pdf').each(function(i, o) {
+        PDFObject.embed($(o).attr('target'), $(o), {
+          pdfOpenParams: {
+            navpanes: 0,
+            toolbar: 0,
+            statusbar: 0,
+            pagemode: 'thumbs',
+            view: 'FitH'
+          },
+          PDFJS_URL: '/lib/pdf/web/viewer.html',
+          height: $(o).attr('height') || '500px'
+        });
+      });
+    },
+  });
+}
+</script>
+
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+  
+  
+    
+  
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Evernote,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+
+  
+  <script>
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id: 15314,
+      el: 'wpac-rating',
+      color: 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

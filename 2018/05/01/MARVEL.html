@@ -1,0 +1,2080 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=66189719" charset="UTF-8"></script>
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"/>
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/han.min.css"/>
+
+
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+
+
+  <meta name="google-site-verification" content="b12Zu40L63PLgCtcn0IW8KCNRolmyQlaF22tf4rRLEg"/>
+
+
+
+  <meta name="msvalidate.01" content="74A687E04D4EF9914B7AA20824207409"/>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="https://fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"/>
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/small_favicon.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/favicon.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":true,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="1. 软件介绍PacBio三代数据基因组组装，针对低测序深度的组装;">
+<meta name="keywords" content="MARVEL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PacBio基因组组装之MARVEL">
+<meta property="og:url" content="http://tiramisutes.github.io/2018/05/01/MARVEL.html">
+<meta property="og:site_name" content="hope">
+<meta property="og:description" content="1. 软件介绍PacBio三代数据基因组组装，针对低测序深度的组装;">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/MARVEL.png">
+<meta property="og:updated_time" content="2018-09-28T02:38:04.601Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PacBio基因组组装之MARVEL">
+<meta name="twitter:description" content="1. 软件介绍PacBio三代数据基因组组装，针对低测序深度的组装;">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/MARVEL.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="hope" type="application/atom+xml"/>
+
+
+
+
+  <link rel="canonical" href="http://tiramisutes.github.io/2018/05/01/MARVEL.html"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>PacBio基因组组装之MARVEL | hope</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?08b17c69c7ba460d9ab5f188a048ee6d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">hope</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">A new day is coming,whether we like it or not. The question is will you control it,or will it control you?</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-code">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/code/" rel="section"><i class="menu-item-icon fa fa-fw fa-code"></i> <br/>Code</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-footprint">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/footprint/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br/>Footprint</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-qrt-pcr">
+
+    
+    
+    
+      
+    
+
+    
+
+    <span class="exturl" data-url="aHR0cHM6Ly9paG9wZS5zaGlueWFwcHMuaW8vcVJULVBDUi1QaXBlbGluZS8="><i class="menu-item-icon fa fa-fw fa-cloud"></i> <br/>qRT-PCR</span>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-project">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/project/" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br/>Project</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-publish">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/publish/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br/>Publish</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sci-figure">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/SCIFigure/" rel="section"><i class="menu-item-icon fa fa-fw fa-angellist"></i> <br/>SCI Figure</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-cv">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/resume/" rel="section"><i class="menu-item-icon fa fa-fw fa-address-card"></i> <br/>CV</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tiramisutes.github.io/2018/05/01/MARVEL.html"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tiramisutes"/>
+      <meta itemprop="description" content="hope bioinformatics blog"/>
+      <meta itemprop="image" content="/images/author.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hope"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">PacBio基因组组装之MARVEL
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-05-01 21:13:19" itemprop="dateCreated datePublished" datetime="2018-05-01T21:13:19+08:00">2018-05-01</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Bioinformatics/" itemprop="url" rel="index"><span itemprop="name">Bioinformatics</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2018/05/01/MARVEL.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/01/MARVEL.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2018/05/01/MARVEL.html" class="leancloud_visitors" data-flag-title="PacBio基因组组装之MARVEL">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+                <span>℃</span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article: </span>
+                
+                <span title="Words count in article"></span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time"></span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-_软件介绍">1. 软件介绍</h2><p>PacBio三代数据基因组组装，针对低测序深度的组装;<br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/MARVEL.png" alt=""><br><a id="more"></a></p>
+<h2 id="2-_软件安装">2. 软件安装</h2><p>软件主页：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NjaGxvaS9NQVJWRUw=" title="https://github.com/schloi/MARVEL">The MARVEL Assembler<i class="fa fa-external-link"></i></span><br>clone 后发现目录下没有 <code>configure</code> 文件，而是<code>configure.ac</code>文件，怎么安装？？？</p>
+<h3 id="2-1-_加载所需环境">2.1. 加载所需环境</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">source /public/home/software/.bashrc</span><br><span class="line">module load Autoconf/2.69</span><br><span class="line"><span class="comment">## added python3.6</span></span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">PATH</span>=<span class="string">"/public/home/zpxu/miniconda3/bin:<span class="variable">$PATH</span>"</span></span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">LD_LIBRARY_PATH</span>=<span class="string">"<span class="variable">$PATH</span>:/public/home/zpxu/miniconda3/lib"</span></span><br></pre></td></tr></table></figure>
+<p>版本检测<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">autoreconf --<span class="keyword">version</span></span><br><span class="line"><span class="keyword">python</span> --<span class="keyword">version</span></span><br></pre></td></tr></table></figure></p>
+<p>然后运行 <code>autoreconf</code> 来生成 <code>configure</code> 文件。</p>
+<h3 id="2-2-_安装">2.2. 安装</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 注意此目录与git clone 的 MARVEL 目录不同</span></span><br><span class="line">.<span class="regexp">/configure --prefix=/</span>public<span class="regexp">/home/</span>cotton<span class="regexp">/software/</span>MARVEL-bin</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<p><code>make install</code> 后提示如下信息<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---------------------------------------------------------------</span><br><span class="line">Installation into /public/home/cotton/software/MARVEL-bin finished.</span><br><span class="line">Don't forget to include /public/home/cotton/software/MARVEL-bin/lib.python in your PYTHONPATH.</span><br><span class="line">---------------------------------------------------------------</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-3-_添加PYTHONPATH">2.3. 添加PYTHONPATH</h3><p>参见：<span class="exturl" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvMzQwMjE2OC9wZXJtYW5lbnRseS1hZGQtYS1kaXJlY3RvcnktdG8tcHl0aG9ucGF0aA==" title="https://stackoverflow.com/questions/3402168/permanently-add-a-directory-to-pythonpath">Permanently add a directory to PYTHONPATH
+<i class="fa fa-external-link"></i></span><br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">export</span> <span class="attribute">PYTHONPATH</span>=<span class="string">"<span class="variable">$PYTHONPATH</span>:/public/home/cotton/software/MARVEL-bin/lib.python"</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="3-_软件使用">3. 软件使用</h2><p>整体过程如下：</p>
+<ol>
+<li>overlap</li>
+<li>patch reads</li>
+<li>overlap (again)</li>
+<li>scrubbing</li>
+<li>assembly graph construction and touring</li>
+<li>optional read correction</li>
+<li>fasta file creation<br>实际运行主要经过两个过程，<strong>READ PATCHING PHASE</strong> 和 <strong>ASSEMBLY PHASE</strong>，即reads的处理阶段（<code>DBprepare.py</code>）和组装阶段（<code>do.py</code>）；</li>
+</ol>
+<h3 id="3-1-_初始化数据库:_DBprepare-py">3.1. 初始化数据库: DBprepare.py</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/public/</span>home<span class="regexp">/cotton/</span>software<span class="regexp">/MARVEL-bin/</span>scripts<span class="regexp">/DBprepare.py ECOL p6.25x.fasta</span></span><br></pre></td></tr></table></figure>
+<p><code>DBprepare.py</code> 实际上是一个集成的python脚本，里面包含大约4步MARVEL程序 (<code>FA2db</code>,<code>DBsplit</code>,<code>DBdust</code> 和 <code>HPCdaligner</code>)。</p>
+<p>运行完成将生成 <code>ECOL.db</code>，两个隐藏文件<code>.ECOL.idx</code> 和 <code>.ECOL.bps</code> ，两个plan后缀的文件；</p>
+<h3 id="3-2-_组装:_do-py">3.2. 组装: do.py</h3><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line">##!/usr/bin/env python</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> multiprocessing</span><br><span class="line"><span class="keyword">import</span> marvel</span><br><span class="line"><span class="keyword">import</span> marvel.config</span><br><span class="line"><span class="keyword">import</span> marvel.queue</span><br><span class="line"></span><br><span class="line">###### settings</span><br><span class="line"></span><br><span class="line">DB         = <span class="string">"ECOL"</span>                         ## database name,需修改，和DBprepare.py中命名一样</span><br><span class="line">COVERAGE   = <span class="number">25</span>                             ## coverage <span class="keyword">of</span> the dataset，需修改</span><br><span class="line">DB_FIX     = DB + <span class="string">"_FIX"</span>                    ## name <span class="keyword">of</span> the database containing the patched reads</span><br><span class="line">PARALLEL   = multiprocessing.cpu_count()    ## number <span class="keyword">of</span> available processors</span><br><span class="line"></span><br><span class="line">###### patch raw reads</span><br><span class="line"></span><br><span class="line">q = marvel.queue.queue(DB, COVERAGE, PARALLEL)</span><br><span class="line"></span><br><span class="line">###### run daligner to create initial overlaps</span><br><span class="line">q.plan(<span class="string">"&#123;db&#125;.dalign.plan"</span>)</span><br><span class="line"></span><br><span class="line">###### run LAmerge to merge overlap blocks</span><br><span class="line">q.plan(<span class="string">"&#123;db&#125;.merge.plan"</span>)</span><br><span class="line"></span><br><span class="line">## create quality and trim annotation (tracks) for each overlap block</span><br><span class="line">q.block(<span class="string">"&#123;path&#125;/LAq -b &#123;block&#125; &#123;db&#125; &#123;db&#125;.&#123;block&#125;.las"</span>)</span><br><span class="line">## merge quality and trim tracks</span><br><span class="line">q.single(<span class="string">"&#123;path&#125;/TKmerge -d &#123;db&#125; q"</span>)</span><br><span class="line">q.single(<span class="string">"&#123;path&#125;/TKmerge -d &#123;db&#125; trim"</span>)</span><br><span class="line"></span><br><span class="line">## run LAfix to patch reads based on overlaps</span><br><span class="line">q.block(<span class="string">"&#123;path&#125;/LAfix -g -1 &#123;db&#125; &#123;db&#125;.&#123;block&#125;.las &#123;db&#125;.&#123;block&#125;.fixed.fasta"</span>)</span><br><span class="line">## join all fixed fasta files</span><br><span class="line">q.single(<span class="string">"!cat &#123;db&#125;.*.fixed.fasta &gt; &#123;db&#125;.fixed.fasta"</span>)</span><br><span class="line"></span><br><span class="line">## create a new Database <span class="keyword">of</span> fixed reads (-j numOfThreads, -g genome size)</span><br><span class="line">q.single(<span class="string">"&#123;path_scripts&#125;/DBprepare.py -s 50 -r 2 -j 4 -g 4600000 &#123;db_fixed&#125; &#123;db&#125;.fixed.fasta"</span>, db_fixed = DB_FIX)</span><br><span class="line"></span><br><span class="line">## run the commands</span><br><span class="line">q.process()</span><br><span class="line"></span><br><span class="line">########## assemble patched reads</span><br><span class="line"></span><br><span class="line">q = marvel.queue.queue(DB_FIX, COVERAGE, PARALLEL)</span><br><span class="line"></span><br><span class="line">###### run daligner to create overlaps</span><br><span class="line">q.plan(<span class="string">"&#123;db&#125;.dalign.plan"</span>)</span><br><span class="line">###### run LAmerge to merge overlap blocks</span><br><span class="line">q.plan(<span class="string">"&#123;db&#125;.merge.plan"</span>)</span><br><span class="line"></span><br><span class="line">###### start scrubbing pipeline</span><br><span class="line"></span><br><span class="line">########## for larger genomes (&gt; <span class="number">100</span>MB) LAstitch can be run <span class="keyword">with</span> the -L option (preload reads)</span><br><span class="line">########## <span class="keyword">with</span> the -L option two passes over the overlap files are performed:</span><br><span class="line">########## first to buffer all reads and a second time to stitch them</span><br><span class="line">########## <span class="keyword">otherwise</span> the random file access can make LAstitch pretty slow.</span><br><span class="line">########## Another option would be, to keep the whole db <span class="keyword">in</span> cache (/dev/shm/)</span><br><span class="line">q.block(<span class="string">"&#123;path&#125;/LAstitch -f 50 &#123;db&#125; &#123;db&#125;.&#123;block&#125;.las &#123;db&#125;.&#123;block&#125;.stitch.las"</span>)</span><br><span class="line"></span><br><span class="line">########## create quality and trim annotation (tracks) for each overlap block and merge them</span><br><span class="line">q.block(<span class="string">"&#123;path&#125;/LAq -s 5 -T trim0 -b &#123;block&#125; &#123;db&#125; &#123;db&#125;.&#123;block&#125;.stitch.las"</span>)</span><br><span class="line">q.single(<span class="string">"&#123;path&#125;/TKmerge -d &#123;db&#125; q"</span>)</span><br><span class="line">q.single(<span class="string">"&#123;path&#125;/TKmerge -d &#123;db&#125; trim0"</span>)</span><br><span class="line"></span><br><span class="line">########## create a repeat annotation (tracks) for each overlap block and merge them</span><br><span class="line">q.block(<span class="string">"&#123;path&#125;/LArepeat -c &#123;coverage&#125; -b &#123;block&#125; &#123;db&#125; &#123;db&#125;.&#123;block&#125;.stitch.las"</span>)</span><br><span class="line">q.single(<span class="string">"&#123;path&#125;/TKmerge -d &#123;db&#125; repeats"</span>)</span><br><span class="line"></span><br><span class="line">########## detects <span class="string">"borders"</span> <span class="keyword">in</span> overlaps due to bad regions within reads that were not detected</span><br><span class="line">########## <span class="keyword">in</span> LAfix. Those regions can be quite big (several Kb). If gaps within a read are</span><br><span class="line">########## detected LAgap chooses the longer part oft the read <span class="keyword">as</span> valid range. The other part(s) are</span><br><span class="line">########## discarded</span><br><span class="line">########## option -L (see LAstitch) is also available</span><br><span class="line">q.block(<span class="string">"&#123;path&#125;/LAgap -t trim0 &#123;db&#125; &#123;db&#125;.&#123;block&#125;.stitch.las &#123;db&#125;.&#123;block&#125;.gap.las"</span>)</span><br><span class="line"></span><br><span class="line">########## create a new trim1 track, (trim0 is kept)</span><br><span class="line">q.block(<span class="string">"&#123;path&#125;/LAq -s 5 -u -t trim0 -T trim1 -b &#123;block&#125; &#123;db&#125; &#123;db&#125;.&#123;block&#125;.gap.las"</span>)</span><br><span class="line">q.single(<span class="string">"&#123;path&#125;/TKmerge -d &#123;db&#125; trim1"</span>)</span><br><span class="line"></span><br><span class="line">########## based on different filter critera filter out: local-alignments, repeat induced-alifnments</span><br><span class="line">########## previously discarded alignments, ....</span><br><span class="line">########## -r repeats, -t trim1 ... use repeats and trim1 track</span><br><span class="line">########## -n <span class="number">500</span>  ... overlaps must be anchored by at least <span class="number">500</span> bases (non-repeats)</span><br><span class="line">########## -u <span class="number">0</span>    ... overlaps <span class="keyword">with</span> unaligned bases according to the trim1 interval are discarded</span><br><span class="line">########## -o <span class="number">2000</span> ... overlaps shorter than <span class="number">2</span>k bases are discarded</span><br><span class="line">########## -p      ... purge overlaps, overlaps are not written into the output file</span><br><span class="line">########## option -L (see LAstitch) is also available</span><br><span class="line">q.block(<span class="string">"&#123;path&#125;/LAfilter -n 300 -r repeats -t trim1 -T -o 2000 -u 0 &#123;db&#125; &#123;db&#125;.&#123;block&#125;.gap.las &#123;db&#125;.&#123;block&#125;.filtered.las"</span>)</span><br><span class="line"></span><br><span class="line">########## merge all filtered overlap files into one overlap file</span><br><span class="line">q.single(<span class="string">"&#123;path&#125;/LAmerge -S filtered &#123;db&#125; &#123;db&#125;.filtered.las"</span>)</span><br><span class="line"></span><br><span class="line">########## create overlap graph</span><br><span class="line">q.single(<span class="string">"&#123;path&#125;/OGbuild -t trim1 &#123;db&#125; &#123;db&#125;.filtered.las &#123;db&#125;.graphml"</span>)</span><br><span class="line"></span><br><span class="line">########## tour the overlap graph and create contigs paths</span><br><span class="line">q.single(<span class="string">"&#123;path_scripts&#125;/OGtour.py -c &#123;db&#125; &#123;db&#125;.graphml"</span>)</span><br><span class="line"></span><br><span class="line">q.single(<span class="string">"&#123;path&#125;/LAcorrect -j 4 -r &#123;db&#125;.tour.rids &#123;db&#125; &#123;db&#125;.filtered.las &#123;db&#125;.corrected"</span>)</span><br><span class="line">q.single(<span class="string">"&#123;path&#125;/FA2db -c &#123;db&#125;_CORRECTED [expand:&#123;db&#125;.corrected.*.fasta]"</span>)</span><br><span class="line"></span><br><span class="line">########## create contig fasta files</span><br><span class="line">q.single(<span class="string">"&#123;path_scripts&#125;/tour2fasta.py -c &#123;db&#125;_CORRECTED -t trim1 &#123;db&#125; &#123;db&#125;.tour.graphml &#123;db&#125;.tour.paths"</span>)</span><br><span class="line"></span><br><span class="line">###### optional: create a layout <span class="keyword">of</span> the overlap graph which can viewed <span class="keyword">in</span> a Browser (svg) or Gephi (dot)</span><br><span class="line">## q.single(<span class="string">"&#123;path&#125;/OGlayout -R &#123;db&#125;.tour.graphml &#123;db&#125;.tour.layout.svg"</span>)</span><br><span class="line">q.single(<span class="string">"&#123;path&#125;/OGlayout -R &#123;db&#125;.tour.graphml &#123;db&#125;.tour.layout.dot"</span>)</span><br><span class="line"></span><br><span class="line">q.process()</span><br></pre></td></tr></table></figure>
+<h2 id="4-_软件运行实例">4. 软件运行实例</h2><h3 id="4-1-_分步运行">4.1. 分步运行</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cubmF0dXJlLmNvbS9hcnRpY2xlcy9uYXR1cmUyNTQ1OA==" title="https://www.nature.com/articles/nature25458">The axolotl genome and the evolution of key tissue formation regulators<i class="fa fa-external-link"></i></span> 基因组组装过程，来源于MARVEL的Github主页的 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NjaGxvaS9NQVJWRUwvYmxvYi9tYXN0ZXIvZXhhbXBsZXMvYXhvbG90bC9SRUFETUU=" title="https://github.com/schloi/MARVEL/blob/master/examples/axolotl/README">MARVEL/examples/axolotl/README<i class="fa fa-external-link"></i></span> <strong>（初始化数据库时经过Fix的修正过程）</strong><br><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line">This file contains the steps we took to assemble the axolotl genome.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">########## READ PATCHING PHASE</span><br><span class="line"></span><br><span class="line">## create initial database</span><br><span class="line">FA2db -v -x <span class="number">2000</span> -b AXOLOTL -f axoFiles.txt</span><br><span class="line"></span><br><span class="line">## split database into blocks</span><br><span class="line">DBsplit AXOLOTL</span><br><span class="line"></span><br><span class="line">## create dust track</span><br><span class="line">DBdust AXOLOTL</span><br><span class="line"></span><br><span class="line">## create daligner and merge plans, replace SERVER and PORT</span><br><span class="line">HPCdaligner -v -t <span class="number">100</span> -D SERVER:PORT -r1 -j16 --dal <span class="number">32</span> --mrg <span class="number">32</span> -o AXOLOTL AXOLOTL</span><br><span class="line">################################################################## DBprepare.py 脚本可运行上诉<span class="number">4</span>步 ######################################################################################################</span><br><span class="line">## start dynamic repeat masking server on SERVER:PORT, replace PORT （可跳过）</span><br><span class="line">DMserver -t <span class="number">16</span> -p PORT -C AXOLOTL <span class="number">40</span> AXOLOTL_CP</span><br><span class="line">################################################################################################################################################################################################################################</span><br><span class="line">## AXOLOTL.daligner.plan 和 AXOLOTL.merge.plan 是 DBprepare.py 生成的结果，内容是一些运行LAmerge和daligner程序的命令</span><br><span class="line">## run daligner to create initial overlaps</span><br><span class="line">AXOLOTL.daligner.plan</span><br><span class="line"></span><br><span class="line">## after all daligner jobs are finshied the dynamic repeat masker has to be shut down （可跳过）</span><br><span class="line">DMctl -h HOST -p PORT shutdown</span><br><span class="line"></span><br><span class="line">###### run LAmerge to merge overlap blocks</span><br><span class="line">AXOLOTL.merge.plan</span><br><span class="line">##############################################################################################################################################################################</span><br><span class="line">## create quality and trim annotation (tracks) for each overlap block for each database block</span><br><span class="line">LAq -b &lt;block&gt; AXOLOTL AXOLOTL.&lt;block&gt;.las</span><br><span class="line"></span><br><span class="line">TKmerge -d AXOLOTL q</span><br><span class="line">TKmerge -d AXOLOTL trim</span><br><span class="line"></span><br><span class="line">## run LAfix to patch reads based on overlaps for each database block</span><br><span class="line">LAfix -c -x <span class="number">2000</span> AXOLOTL AXOLOTL.&lt;block&gt;.las AXOLOTL.&lt;block&gt;.fixed.fasta</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">########## ASSEMBLY PHASE</span><br><span class="line"></span><br><span class="line">## create a new database <span class="keyword">with</span> the fixed reads</span><br><span class="line">FA2db -v -x <span class="number">2000</span> -c AXOLOTL_FIX AXOLOTL.*.fixed.fasta</span><br><span class="line"></span><br><span class="line">## split database into blocks</span><br><span class="line">DBsplit AXOLOTL_FIX</span><br><span class="line"></span><br><span class="line">## combine repeat tracks maskr and maskc that were created during read patching phase</span><br><span class="line">TKcombine AXOLOTL_FIX mask maskr maskc</span><br><span class="line"></span><br><span class="line">## create daligner and merge plans, replace SERVER and PORT</span><br><span class="line">HPCdaligner -v -t <span class="number">100</span> -D SERVER:PORT -m mask -r2 -j16 --dal <span class="number">32</span> --mrg <span class="number">32</span> -o AXOLOTL_FIX AXOLOTL_FIX</span><br><span class="line"></span><br><span class="line">## start dynamic repeat masking server on SERVER:PORT, replace PORT</span><br><span class="line">DMserver -t <span class="number">16</span> -p PORT -C AXOLOTL_FIX <span class="number">40</span> AXOLOTL_CP</span><br><span class="line"></span><br><span class="line">###### run daligner to create overlaps</span><br><span class="line">AXOLOTL_FIX.dalign.plan</span><br><span class="line"></span><br><span class="line">## after all daligner jobs are finshied the dynamic repeat masker has to be shut down</span><br><span class="line">DMctl -h HOST -p PORT shutdown</span><br><span class="line"></span><br><span class="line">###### run LAmerge to merge overlap blocks</span><br><span class="line">AXOLOTL_FIX.merge.plan</span><br><span class="line"></span><br><span class="line">###### SCRUBBING PHASE</span><br><span class="line"></span><br><span class="line">## repair alignments that prematurely stopped due to left-over errors <span class="keyword">in</span> the reads for each database block</span><br><span class="line">LAstitch -f <span class="number">50</span> AXOLOTL_FIX AXOLOTL_FIX.&lt;block&gt;.las AXOLOTL_FIX.&lt;block&gt;.stitch.las</span><br><span class="line"></span><br><span class="line">## create quality and trim annotation for each database block</span><br><span class="line">LAq -T trim0 -s <span class="number">5</span> -b &lt;block&gt; AXOLOTL_FIX AXOLOTL_FIX.&lt;block&gt;.stitch.las</span><br><span class="line"></span><br><span class="line">TKmerge -d AXOLOTL_FIX q</span><br><span class="line">TKmerge -d AXOLOTL_FIX trim0</span><br><span class="line"></span><br><span class="line">## create a repeat annotation for each database block</span><br><span class="line">LArepeat -c &lt;coverage&gt; -l <span class="number">1.5</span> -h <span class="number">2.0</span> -b &lt;block&gt; AXOLOTL_FIX AXOLOTL_FIX.&lt;block&gt;.stitch.las</span><br><span class="line"></span><br><span class="line">TKmerge -d AXOLOTL_FIX repeats</span><br><span class="line"></span><br><span class="line">## merge duplicate &amp; overlapping annotation repeat annotation and masking server output</span><br><span class="line">TKcombine &#123;db&#125; frepeats repeats maskc maskr</span><br><span class="line"></span><br><span class="line">## remove gaps (ie. due to chimeric reads, ...) for each database block</span><br><span class="line">LAgap -s <span class="number">100</span> -t trim0 AXOLOTL_FIX AXOLOTL_FIX.&lt;block&gt;.stitch.las AXOLOTL_FIX.&lt;block&gt;.gap.las</span><br><span class="line"></span><br><span class="line">## recalculate the trim track based on the cleaned up gaps for each database block</span><br><span class="line">LAq -u -t trim0 -T trim1 -b &lt;block&gt; AXOLOTL_FIX AXOLOTL_FIX.&lt;block&gt;.gap.las</span><br><span class="line"></span><br><span class="line">TKmerge -d AXOLOTL_FIX trim1</span><br><span class="line"></span><br><span class="line">## filter repeat induced alignments and try to resolve repeat modules for each database block</span><br><span class="line">LAfilter -p -s <span class="number">100</span> -n <span class="number">300</span> -r frepeats -t trim1 -o <span class="number">1000</span> -u <span class="number">0</span> AXOLOTL_FIX AXOLOTL_FIX.&lt;block&gt;.gap.las AXOLOTL_FIX.&lt;block&gt;.filtered.las</span><br><span class="line"></span><br><span class="line">## not much is left now, so we can merge everything into a single las file</span><br><span class="line">LAmerge -S filtered AXOLOTL_FIX AXOLOTL_FIX.filtered.las</span><br><span class="line"></span><br><span class="line">## create overlap graph</span><br><span class="line">mkdir -p components</span><br><span class="line">OGbuild -t trim1 -s -c <span class="number">1</span> AXOLOTL_FIX AXOLOTL_FIX.filtered.las components/AXOLOTL_FIX</span><br><span class="line"></span><br><span class="line">## tour the overlap graph and create contigs paths for each components<span class="comment">/*.graphml</span></span><br><span class="line"><span class="comment">OGtour.py -c AXOLOTL_FIX &lt;component.graphml&gt;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">## create contig fasta files for each components/*.paths</span></span><br><span class="line"><span class="comment">tour2fasta.py -t trim1 AXOLOTL_FIX &lt;component.graphml&gt; &lt;component.paths&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="4-2-_集合运行">4.2. 集合运行</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">source /public/home/software/.bashrc</span><br><span class="line">export PATH=<span class="string">"/public/home/cotton/software/MARVEL-bin/bin:$PATH"</span></span><br><span class="line">export PATH=<span class="string">"/public/home/zpxu/miniconda3/bin:$PATH"</span></span><br><span class="line">export LD_LIBRARY_PATH=<span class="string">"$PATH:/public/home/zpxu/miniconda3/lib"</span></span><br><span class="line"></span><br><span class="line">cd /public/home/zpxu/AS/results/MARVEL</span><br><span class="line">fa=<span class="string">"/public/home/zpxu/AS/PacBio/bmk_nh_filtered_subreads.fasta"</span></span><br><span class="line"></span><br><span class="line">echo <span class="string">"1. initially the database"</span></span><br><span class="line">DBprepare<span class="selector-class">.py</span> AS $&#123;fa&#125;</span><br><span class="line">cd /public/home/zpxu/AS/results/MARVEL</span><br><span class="line">#<span class="selector-id">#sed</span> -<span class="selector-tag">i</span> <span class="string">"s/^/\/public\/home\/cotton\/software\/MARVEL-bin\/bin\//g"</span> /public/home/zpxu/AS/results/MARVEL/AS<span class="selector-class">.dalign</span><span class="selector-class">.plan</span></span><br><span class="line">#<span class="selector-id">#sed</span> -<span class="selector-tag">i</span> <span class="string">"s/^/\/public\/home\/cotton\/software\/MARVEL-bin\/bin\//g"</span> /public/home/zpxu/AS/results/MARVEL/AS<span class="selector-class">.merge</span><span class="selector-class">.plan</span></span><br><span class="line">python /public/home/zpxu/AS/scripts/MARVEL_do.py</span><br></pre></td></tr></table></figure>
+<h2 id="5-_疑问参数">5. 疑问参数</h2><h3 id="5-1-_线程数目参数">5.1. 线程数目参数</h3><p><code>-j</code>参数表示线程数，需为2的幂次。</p>
+<h3 id="5-2-_HPCdaligner_的_-D_SERVER:PORT">5.2. HPCdaligner 的 -D SERVER:PORT</h3><p>解释见：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NjaGxvaS9NQVJWRUwvaXNzdWVzLzc=" title="https://github.com/schloi/MARVEL/issues/7">HPCdaligner parameter &lt;-D host:port&gt; ##7<i class="fa fa-external-link"></i></span>，即重复序列多的基因组组装需要设置此参数，如果不是则不需要设置此参数和运行随后的 <code>DMserver</code> 步骤。如下即可：<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HPCdaligner -v -t <span class="number">100</span> -r1 -j16 --dal <span class="number">32</span> --mrg <span class="number">32</span> -o AXOLOTL AXOLOTL</span><br></pre></td></tr></table></figure></p>
+<h3 id="5-3-_DMserver_的_-p_PORT_和_expected-coverage">5.3. DMserver 的 -p PORT 和 expected.coverage</h3><p>Dynamic repeat Masking server主要目的在于降低大基因组组装对于计算机CPU和内存的需求，</p>
+<blockquote>
+<p>While preliminary calculations for computational time and storage space estimated over multiple millions of CPU hours and &gt;2 PB of storage for one daligner run, the usage of a dynamic repeat masking server (below) reduced this dramatically to 150,000 CPU hours and 120 Tb of storage space for the complete pipeline.</p>
+</blockquote>
+
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+      <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
+  <img id="wechat_subscriber_qcode" src="/images/Wechat.jpg" alt="tiramisutes wechat" style="width: 200px; max-width: 100%;"/>
+  <div>欢迎关注</div>
+</div>
+
+    
+
+    
+      
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>tiramisutes</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    
+    <a href="http://tiramisutes.github.io/2018/05/01/MARVEL.html" title="PacBio基因组组装之MARVEL">http://tiramisutes.github.io/2018/05/01/MARVEL.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MARVEL/" rel="tag"><i class="fa fa-tag"></i> MARVEL</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+          
+            <span class="post-meta-divider">|</span>
+          
+          <div class="social_share">
+            
+            
+              <div id="needsharebutton-postbottom">
+                <span class="btn">
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/01/HiC.html" rel="next" title="HiC分析主要内容">
+                <i class="fa fa-chevron-left"></i> HiC分析主要内容
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/02/No-Rep-RNA-seq.html" rel="prev" title="搭PacBio全长转录组便车的无重复样本RNA-seq分析">
+                搭PacBio全长转录组便车的无重复样本RNA-seq分析 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <a href="/" class="site-author-image" rel="start" style="border:none">
+              <img class="site-author-image" itemprop="image"
+                src="/images/author.jpg"
+                alt="tiramisutes"/>
+              </a>
+            
+              <p class="site-author-name" itemprop="name">tiramisutes</p>
+              <div class="site-description motion-element" itemprop="description">hope bioinformatics blog</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">148</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">112</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RpcmFtaXN1dGVz" title="GitHub &rarr; https://github.com/tiramisutes"><i class="fa fa-fw fa-github"></i>GitHub</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="bWFpbHRvOnRpcmFtaXN1dGVze2F0fTEyNi5jb20=" title="E-Mail &rarr; mailto:tiramisutes{at}126.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cDovL3dlaWJvLmNvbS90aXJhbWlzdXRlc1Rlcw==" title="Weibo &rarr; http://weibo.com/tiramisutesTes"><i class="fa fa-fw fa-globe"></i>Weibo</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9ob3BldG9neQ==" title="Twitter &rarr; https://twitter.com/hopetogy"><i class="fa fa-fw fa-twitter"></i>Twitter</span>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"/></span>
+             </div>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9paG9wZS5zaGlueWFwcHMuaW8vcVJULVBDUi1QaXBlbGluZS8=" title="https://ihope.shinyapps.io/qRT-PCR-Pipeline/">qRT-PCR-Pipeline</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly90aXJhbWlzdXRlcy5naXRib29rcy5pby9hd2svY29udGVudC8=" title="https://tiramisutes.gitbooks.io/awk/content/">GitBook《awk学习总结》</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2NvdHRvbi5oemF1LmVkdS5jbi8=" title="http://cotton.hzau.edu.cn/">棉花遗传改良团队</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5iaW8taW5mby10cmFpbmVlLmNvbS8=" title="http://www.bio-info-trainee.com/">生信菜鸟团-深圳大学城</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5iaW90cmFpbmVlLmNvbS9mb3J1bS5waHA=" title="http://www.biotrainee.com/forum.php">生信技能树</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5pd2hnYW8uY29tLw==" title="http://www.iwhgao.com/">rabbit gao's blog</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9odWFucy5naXRodWIuaW8v" title="https://huans.github.io/">Huans(代谢+GWAS)</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5zZXF1ZW5jaW5nLnVpby5uby8=" title="http://www.sequencing.uio.no/">NSC-sequenceing</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2Jsb2cuam9iYm9sZS5jb20v" title="http://blog.jobbole.com/">伯乐在线</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9saW51eC5jbi8=" title="https://linux.cn/">Linux开源中文社区</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5yLWJsb2dnZXJzLmNvbS8=" title="http://www.r-bloggers.com/">R-bloggers</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvb3RoZXItZG9jcy5odG1s" title="https://cran.r-project.org/other-docs.html">R-resource</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3R1dG9yaWFscy5pcS5oYXJ2YXJkLmVkdS9SL1JncmFwaGljcy9SZ3JhcGhpY3MuaHRtbA==" title="http://tutorials.iq.harvard.edu/R/Rgraphics/Rgraphics.html">ggplot2</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2xpbGliZWkubmV0Lw==" title="http://lilibei.net/">pele' blog</span>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-_软件介绍"><span class="nav-text">1. 软件介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-_软件安装"><span class="nav-text">2. 软件安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-_加载所需环境"><span class="nav-text">2.1. 加载所需环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-_安装"><span class="nav-text">2.2. 安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-_添加PYTHONPATH"><span class="nav-text">2.3. 添加PYTHONPATH</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-_软件使用"><span class="nav-text">3. 软件使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-_初始化数据库:_DBprepare-py"><span class="nav-text">3.1. 初始化数据库: DBprepare.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-_组装:_do-py"><span class="nav-text">3.2. 组装: do.py</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-_软件运行实例"><span class="nav-text">4. 软件运行实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-_分步运行"><span class="nav-text">4.1. 分步运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-_集合运行"><span class="nav-text">4.2. 集合运行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-_疑问参数"><span class="nav-text">5. 疑问参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-_线程数目参数"><span class="nav-text">5.1. 线程数目参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-_HPCdaligner_的_-D_SERVER:PORT"><span class="nav-text">5.2. HPCdaligner 的 -D SERVER:PORT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-_DMserver_的_-p_PORT_和_expected-coverage"><span class="nav-text">5.3. DMserver 的 -p PORT 和 expected.coverage</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 – <span itemprop="copyrightYear">2023</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <a class="theme-link" target="_blank" href="http://tiramisutes.github.io/about/"><span class="author" itemprop="copyrightHolder">tiramisutes</span></a>
+
+  
+    <span class="post-meta-item-icon">
+    </span>
+    <span title="Symbols count total"></span>
+  
+
+  
+    <span class="post-meta-item-icon">
+    </span>
+    <span title="Reading time total"></span>
+  
+</div>
+
+
+  <div class="powered-by">Powered: <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">▽ – <span class="exturl theme-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0">NexT.Muse</span></div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-line-chart"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+    <a style="line-height: 1.5;" href="https://tongji.baidu.com/web/welcome/login" target="_blank">The total visits
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>&nbsp;times</a>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+    
+    
+      
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='20' src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest-nomobile.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+  <script src="/js/src/exturl.js?v=7.0.1"></script>
+
+
+  
+  
+  
+    
+  
+
+  
+
+  
+  
+  
+
+
+  
+  
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'c7x0fPmO8Ci9avDBRuGWHqpG-gzGzoHsz',
+    appKey: 'iVJ6ST0e1O5xaiIhVwOyhbf3',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+<style>
+.pdfobject-container {
+  position: relative;
+  overflow: auto;
+  width: 100%;
+}
+</style>
+<script>
+if ($('body').find('div.pdf').length) {
+  $.ajax({
+    type: 'GET',
+    url: '//cdn.jsdelivr.net/npm/pdfobject@2.1.1/pdfobject.min.js',
+    dataType: 'script',
+    cache: true,
+    success: function() {
+      $('body').find('div.pdf').each(function(i, o) {
+        PDFObject.embed($(o).attr('target'), $(o), {
+          pdfOpenParams: {
+            navpanes: 0,
+            toolbar: 0,
+            statusbar: 0,
+            pagemode: 'thumbs',
+            view: 'FitH'
+          },
+          PDFJS_URL: '/lib/pdf/web/viewer.html',
+          height: $(o).attr('height') || '500px'
+        });
+      });
+    },
+  });
+}
+</script>
+
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+  
+  
+    
+  
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Evernote,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+
+  
+  <script>
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id: 15314,
+      el: 'wpac-rating',
+      color: 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

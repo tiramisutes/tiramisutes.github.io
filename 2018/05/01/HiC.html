@@ -1,0 +1,2211 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=66189719" charset="UTF-8"></script>
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"/>
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/han.min.css"/>
+
+
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+
+
+  <meta name="google-site-verification" content="b12Zu40L63PLgCtcn0IW8KCNRolmyQlaF22tf4rRLEg"/>
+
+
+
+  <meta name="msvalidate.01" content="74A687E04D4EF9914B7AA20824207409"/>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="https://fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"/>
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/small_favicon.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/favicon.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":true,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="keywords" content="HiC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HiC分析主要内容">
+<meta property="og:url" content="http://tiramisutes.github.io/2018/05/01/HiC.html">
+<meta property="og:site_name" content="hope">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Chromosome_conformation_techniques.jpg/800px-Chromosome_conformation_techniques.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/HiCaly.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/loop.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/HIC2.png">
+<meta property="og:updated_time" content="2018-09-28T02:36:06.069Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HiC分析主要内容">
+<meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Chromosome_conformation_techniques.jpg/800px-Chromosome_conformation_techniques.jpg">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="hope" type="application/atom+xml"/>
+
+
+
+
+  <link rel="canonical" href="http://tiramisutes.github.io/2018/05/01/HiC.html"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>HiC分析主要内容 | hope</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?08b17c69c7ba460d9ab5f188a048ee6d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">hope</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">A new day is coming,whether we like it or not. The question is will you control it,or will it control you?</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-code">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/code/" rel="section"><i class="menu-item-icon fa fa-fw fa-code"></i> <br/>Code</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-footprint">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/footprint/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br/>Footprint</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-qrt-pcr">
+
+    
+    
+    
+      
+    
+
+    
+
+    <span class="exturl" data-url="aHR0cHM6Ly9paG9wZS5zaGlueWFwcHMuaW8vcVJULVBDUi1QaXBlbGluZS8="><i class="menu-item-icon fa fa-fw fa-cloud"></i> <br/>qRT-PCR</span>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-project">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/project/" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br/>Project</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-publish">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/publish/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br/>Publish</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sci-figure">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/SCIFigure/" rel="section"><i class="menu-item-icon fa fa-fw fa-angellist"></i> <br/>SCI Figure</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-cv">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/resume/" rel="section"><i class="menu-item-icon fa fa-fw fa-address-card"></i> <br/>CV</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tiramisutes.github.io/2018/05/01/HiC.html"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tiramisutes"/>
+      <meta itemprop="description" content="hope bioinformatics blog"/>
+      <meta itemprop="image" content="/images/author.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hope"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">HiC分析主要内容
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-05-01 19:23:42" itemprop="dateCreated datePublished" datetime="2018-05-01T19:23:42+08:00">2018-05-01</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Bioinformatics/" itemprop="url" rel="index"><span itemprop="name">Bioinformatics</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2018/05/01/HiC.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/01/HiC.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2018/05/01/HiC.html" class="leancloud_visitors" data-flag-title="HiC分析主要内容">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+                <span>℃</span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article: </span>
+                
+                <span title="Words count in article"></span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time"></span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Chromosome_conformation_techniques.jpg/800px-Chromosome_conformation_techniques.jpg" alt=""><br><a id="more"></a></p>
+<h2 id="零、常识介绍">零、常识介绍</h2><blockquote>
+<p>Mammalian genomes are spatially organized into compartments, topologically associating domains (TADs), and loops to facilitate gene regulation and other chromosomal functions.</p>
+<p>3D interactions mostly occur within chromosomes (cis) rather than between chromosomes (trans), all methods detected more cis than trans interactions.</p>
+</blockquote>
+<h2 id="一、鉴定染色体交互_(identify_chromatin_interactions)">一、鉴定染色体交互 (identify chromatin interactions)</h2><blockquote>
+<p>Chromatin interactions are contacts between regions far from each other on the linear DNA sequence but close in 3D space；</p>
+</blockquote>
+<hr>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Method</th>
+<th>vailability</th>
+<th>Programming language</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chromatin interactions</td>
+<td>Fit-Hi-C</td>
+<td><span class="exturl" data-url="aHR0cDovL25vYmxlLmdzLndhc2hpbmd0b24uZWR1L3Byb2ovZml0LWhpLWM=" title="http://noble.gs.washington.edu/proj/fit-hi-c">http://noble.gs.washington.edu/proj/fit-hi-c<i class="fa fa-external-link"></i></span></td>
+<td>Python</td>
+</tr>
+<tr>
+<td>Chromatin interactions</td>
+<td>GOTHiC</td>
+<td><span class="exturl" data-url="aHR0cDovL2Jpb2NvbmR1Y3Rvci5vcmcvcGFja2FnZXMvcmVsZWFzZS9iaW9jL2h0bWwvR09USGlDLmh0bWw=" title="http://bioconductor.org/packages/release/bioc/html/GOTHiC.html">http://bioconductor.org/packages/release/bioc/html/GOTHiC.html<i class="fa fa-external-link"></i></span></td>
+<td>R</td>
+</tr>
+<tr>
+<td>Chromatin interactions</td>
+<td>HOMER</td>
+<td><span class="exturl" data-url="aHR0cDovL2hvbWVyLnVjc2QuZWR1L2hvbWVyL2ludGVyYWN0aW9ucy9IaUNtYXRyaWNlcy5odG1s" title="http://homer.ucsd.edu/homer/interactions/HiCmatrices.html">http://homer.ucsd.edu/homer/interactions/HiCmatrices.html<i class="fa fa-external-link"></i></span></td>
+<td>Perl, R</td>
+</tr>
+<tr>
+<td>Chromatin interactions</td>
+<td>HIPPIE</td>
+<td><span class="exturl" data-url="aHR0cDovL3dhbmdsYWIucGNiaS51cGVubi5lZHUvaGlwcGllLw==" title="http://wanglab.pcbi.upenn.edu/hippie/">http://wanglab.pcbi.upenn.edu/hippie/<i class="fa fa-external-link"></i></span></td>
+<td>Python, Perl, R</td>
+</tr>
+<tr>
+<td>Chromatin interactions</td>
+<td>diffHic</td>
+<td><span class="exturl" data-url="aHR0cHM6Ly9iaW9jb25kdWN0b3Iub3JnL3BhY2thZ2VzL3JlbGVhc2UvYmlvYy9odG1sL2RpZmZIaWMuaHRtbA==" title="https://bioconductor.org/packages/release/bioc/html/diffHic.html">https://bioconductor.org/packages/release/bioc/html/diffHic.html<i class="fa fa-external-link"></i></span></td>
+<td>R, Python</td>
+</tr>
+<tr>
+<td>Chromatin interactions</td>
+<td>HiCCUPS</td>
+<td><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RoZWFpZGVubGFiL2p1aWNlci93aWtpL0Rvd25sb2Fk" title="https://github.com/theaidenlab/juicer/wiki/Download">https://github.com/theaidenlab/juicer/wiki/Download<i class="fa fa-external-link"></i></span></td>
+<td>Java</td>
+</tr>
+<tr>
+<td>TADs</td>
+<td>HiCseg</td>
+<td><span class="exturl" data-url="aHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvd2ViL3BhY2thZ2VzL0hpQ3NlZy9pbmRleC5odG1s" title="https://cran.r-project.org/web/packages/HiCseg/index.html">https://cran.r-project.org/web/packages/HiCseg/index.html<i class="fa fa-external-link"></i></span></td>
+<td>R</td>
+</tr>
+<tr>
+<td>TADs</td>
+<td>TADbit</td>
+<td><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tLzNER2Vub21lcy9UQURiaXQ=" title="https://github.com/3DGenomes/TADbit">https://github.com/3DGenomes/TADbit<i class="fa fa-external-link"></i></span></td>
+<td>Python</td>
+</tr>
+<tr>
+<td>TADs</td>
+<td>DomainCaller</td>
+<td><span class="exturl" data-url="aHR0cDovL2Nocm9tb3NvbWUuc2RzYy5lZHUvbW91c2UvaGktYy9kb3dubG9hZC5odG1s" title="http://chromosome.sdsc.edu/mouse/hi-c/download.html">http://chromosome.sdsc.edu/mouse/hi-c/download.html<i class="fa fa-external-link"></i></span></td>
+<td>Matlab, Perl</td>
+</tr>
+<tr>
+<td>TADs</td>
+<td>InsulationScore</td>
+<td><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2Rla2tlcmxhYi9jcmFuZS1uYXR1cmUtMjAxNQ==" title="https://github.com/dekkerlab/crane-nature-2015">https://github.com/dekkerlab/crane-nature-2015<i class="fa fa-external-link"></i></span></td>
+<td>Perl</td>
+</tr>
+<tr>
+<td>TADs</td>
+<td>Arrowhead</td>
+<td><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RoZWFpZGVubGFiL2p1aWNlci93aWtpL0Rvd25sb2Fk" title="https://github.com/theaidenlab/juicer/wiki/Download">https://github.com/theaidenlab/juicer/wiki/Download<i class="fa fa-external-link"></i></span></td>
+<td>Java</td>
+</tr>
+<tr>
+<td>TADs</td>
+<td>TADtree</td>
+<td><span class="exturl" data-url="aHR0cDovL2NvbXBiaW8uY3MuYnJvd24uZWR1L3Byb2plY3RzL3RhZHRyZWUv" title="http://compbio.cs.brown.edu/projects/tadtree/">http://compbio.cs.brown.edu/projects/tadtree/<i class="fa fa-external-link"></i></span></td>
+<td>Python</td>
+</tr>
+<tr>
+<td>TADs</td>
+<td>Armatus</td>
+<td><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2tpbmdzZm9yZGdyb3VwL2FybWF0dXM=" title="https://github.com/kingsfordgroup/armatus">https://github.com/kingsfordgroup/armatus<i class="fa fa-external-link"></i></span></td>
+<td>C++</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/HiCaly.png" alt="image"><br>【上述图表来源于：<span class="exturl" data-url="aHR0cHM6Ly93d3cubmF0dXJlLmNvbS9hcnRpY2xlcy9ubWV0aC40MzI1" title="https://www.nature.com/articles/nmeth.4325">Comparison of computational methods for Hi-C data analysis<i class="fa fa-external-link"></i></span>】</p>
+<blockquote>
+<p>The total number of interactions called by each method increased with the number of reads retained by the filtering step for all tools at any resolution, although the rate of increase varied from tool to tool.</p>
+</blockquote>
+<h2 id="二、Topologically_Associating_Domains_(TADs)">二、Topologically Associating Domains (TADs)</h2><blockquote>
+<p>TADs are structural domains consisting of chromatin regions that are highly self-interacting but have limited interaction with regions in other domains;</p>
+</blockquote>
+<hr>
+<p><span class="exturl" data-url="aHR0cDovL2NvbXBiaW8uY3MuYnJvd24uZWR1L3Byb2plY3RzL3RhZHRyZWUv" title="http://compbio.cs.brown.edu/projects/tadtree/">TADtree: an algorithm the identification of hierarchical topological domains in Hi-C data<i class="fa fa-external-link"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RoZWFpZGVubGFiL2p1aWNlci93aWtpL0Fycm93aGVhZA==" title="https://github.com/theaidenlab/juicer/wiki/Arrowhead">Arrowhead: for finding contact domains<i class="fa fa-external-link"></i></span></p>
+<blockquote>
+<p>Used bin size (resolution) of at least 40 kb for TAD calling;</p>
+</blockquote>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd <span class="regexp">/public/</span>home<span class="regexp">/cotton/</span>software<span class="regexp">/juicer/</span>data</span><br><span class="line">java -jar ..<span class="regexp">/CPU/</span>juicer_tools.jar arrowhead -r <span class="number">40000</span> -k NONE test.hic test_contact_domains_list</span><br></pre></td></tr></table></figure>
+<h2 id="三、Compartments">三、Compartments</h2><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9hY2FkZW1pYy5vdXAuY29tL2Jpb2luZm9ybWF0aWNzL2FkdmFuY2UtYXJ0aWNsZS9kb2kvMTAuMTA5My9iaW9pbmZvcm1hdGljcy9idHg4MDIvNDczNTE1Ng==" title="https://academic.oup.com/bioinformatics/advance-article/doi/10.1093/bioinformatics/btx802/4735156">CscoreTool: fast Hi-C compartment analysis at high resolution<i class="fa fa-external-link"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RoZWFpZGVubGFiL2p1aWNlci93aWtpL0VpZ2VudmVjdG9y" title="https://github.com/theaidenlab/juicer/wiki/Eigenvector">Eigenvector: used to delineate compartments in Hi-C data at coarse resolution<i class="fa fa-external-link"></i></span></li>
+</ul>
+<blockquote>
+<p>The genome-wide chromosome conformation capture (Hi-C) has revealed that the eukaryotic genome can be partitioned into A and B compartments that have distinctive chromatin and transcription features. </p>
+<p>The current method for calculating A/B compartments is based on the Principal Component Analysis (PCA) of the normalized Hi-C interaction matrix (Lieberman-Aiden et al., 2009). The first eigenvector (Principal Component 1, PC1) of the correlation matrix is then defined as the compartment score, and genomic windows with positive or negative compartment scores are defined as A or B compartment, respectively.</p>
+</blockquote>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /<span class="meta">public</span>/home/cotton/software/juicer/data</span><br><span class="line">java -jar ../<span class="meta">CPU</span>/juicer_tools.jar eigenvector KR <span class="keyword">test</span>.hic <span class="number">1</span> <span class="built_in">BP</span> <span class="number">1000000</span> &gt; <span class="keyword">test</span>.Compartments</span><br></pre></td></tr></table></figure>
+<p>hic 文件来源于 3D DNA 流程或 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RoZWFpZGVubGFiL2p1aWNlci93aWtpL1ByZQ==" title="https://github.com/theaidenlab/juicer/wiki/Pre">java -Xmx2g -jar juicebox_tools.jar pre<i class="fa fa-external-link"></i></span>;</p>
+<h2 id="四、Chromatin_loops">四、Chromatin loops</h2><p><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/loop.png" alt="image"></p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cubmNiaS5ubG0ubmloLmdvdi9wbWMvYXJ0aWNsZXMvUE1DMjYzODc2OS8=" title="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2638769/">Chromatin loops in gene regulation<i class="fa fa-external-link"></i></span></li>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy5jZWxsLmNvbS9jZWxsLXN5c3RlbXMvYWJzdHJhY3QvUzI0MDUtNDcxMigxNw==" title="http://www.cell.com/cell-systems/abstract/S2405-4712(17">CTCF-Mediated Chromatin Loops between Promoter and Gene Body Regulate Alternative Splicing across Individuals<i class="fa fa-external-link"></i></span>30488-X)</li>
+<li><span class="exturl" data-url="aHR0cDovL2VtYm9qLmVtYm9wcmVzcy5vcmcvY29udGVudC8zNi8yNC8zNTczLmxvbmc=" title="http://emboj.embopress.org/content/36/24/3573.long">Topologically associating domains and chromatin loops depend on cohesin and are regulated by CTCF, WAPL, and PDS5 proteins<i class="fa fa-external-link"></i></span></li>
+</ul>
+<blockquote>
+<p>HiCCUPS is an algorithm for finding chromatin loops.</p>
+</blockquote>
+<p>HiCCUPS 算法包含在 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RoZWFpZGVubGFiL2p1aWNlcg==" title="https://github.com/theaidenlab/juicer">juicer<i class="fa fa-external-link"></i></span> 软件中，可按照如下手动单独运行（有GPU节点使用）：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">java -Xmx2g -jar ./CPU/juicer_tools<span class="selector-class">.jar</span> hiccups -h</span><br><span class="line">java -Xmx2g -jar ./CPU/juicer_tools<span class="selector-class">.jar</span> hiccups /public/home/cotton/software/<span class="number">3</span>d-dna/xzp/Hs1<span class="selector-class">.split</span><span class="selector-class">.hic</span> all_hiccups_loops</span><br><span class="line"></span><br><span class="line">java -Xmx2g -jar ./CPU/juicer_tools<span class="selector-class">.jar</span> hiccups -r <span class="number">40000</span> -<span class="selector-tag">p</span> <span class="number">1</span> -<span class="selector-tag">i</span> <span class="number">3</span> -f <span class="number">0.1</span> -d <span class="number">80000</span> --ignore_sparsity /public/home/cotton/software/<span class="number">3</span>d-dna/xzp/Hs1<span class="selector-class">.split</span><span class="selector-class">.hic</span> hiccups_40kb</span><br></pre></td></tr></table></figure></p>
+<h2 id="五、软件性能比较">五、软件性能比较</h2><h3 id="过滤步骤">过滤步骤</h3><ol>
+<li>HiCCUPS retained the largest number of aligned reads, although it is worth noting that HiCCUPS filters only PCR duplicates without discarding other potential artifact reads.</li>
+<li>diffHic filtered the highest proportion of aligned reads in most data sets (from 27% to 94%, depending on the data set); but, given its higher alignment rate, still retained a large number of reads.</li>
+</ol>
+<h3 id="Identification_of_chromatin_interactions">Identification of chromatin interactions</h3><ol>
+<li>GOTHiC called the highest number of cis interactions;</li>
+<li>diffHic found the largest number of trans interactions;</li>
+<li>HiCCUPS, which aggregates nearby peaks into a single interaction, identified fewer interactions than all other tools.</li>
+<li>For interaction callers, HOMER and HiCCUPS yielded the highest proportion of interactions with a potential biological significance—although the potential of HiCCUPS could be fully exploited only in the analysis of very high-resolution data sets.</li>
+</ol>
+<h3 id="Distance_between_the_interacting_points_in_cis">Distance between the interacting points in cis</h3><ol>
+<li>GOTHiC found interactions at shorter mean distance at both 5- and 40-kb resolutions;</li>
+<li>At 5 kb, Fit-Hi-C called interactions at an average distance of more than 10 Mb; which was expected, as Fit-Hi-C is designed to call <strong>midrange interactions</strong>.</li>
+<li>At low resolution, GOTHiC had the highest concordance, most likely because it called a large number of short-range interactions in every sample replicate.</li>
+<li>At high resolution, the interactions found by HiCCUPS were the most conserved among replicates.</li>
+<li>At 5kb resolution, HiCCUPS and HOMER called the highest proportion of promoter–enhancer interactions, although not the highest absolute number.</li>
+</ol>
+<h3 id="cis_interaction_正确性和敏感性">cis interaction 正确性和敏感性</h3><ol>
+<li>GOTHiC recovered the largest number of true-positive interactions. HOMER and Fit-Hi-C performed comparably to GOTHiC, although they called a smaller number of total interactions.</li>
+<li>In high-resolution data sets, diffHic recalled the highest number of true positives, although HOMER identified more true positives than any other tool at comparable numbers of called interactions.</li>
+<li>The highest sensitivity was achieved by Fit-Hi-C.</li>
+</ol>
+<h3 id="Identification_of_topologically_associating_domains">Identification of topologically associating domains</h3><ol>
+<li>The number of TADs did not increase with the number of reads retained after filtering for all tools, with the exception of Arrowhead.</li>
+<li>At 40-kb resolution, TADtree called the largest (7,638) and Arrowhead the smallest (636) number of TADs. Conversely, at 1-Mb resolution, InsulationScore returned the largest number of TADs.</li>
+<li>Note that some methods (HiCseg, TADbit, InsulationScore) partition chromosomes in a continuous set of TADs, whereas the others allow gaps between TADs. Arrowhead and TADtree, which adopt multiscale approaches, returned nested TADs.</li>
+<li>TADs identified by HiCseg were also the most reproducible when using the overlap coefficient.</li>
+</ol>
+<h2 id="六、分析流程">六、分析流程</h2><p><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/HIC2.png" alt=""></p>
+
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+      <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
+  <img id="wechat_subscriber_qcode" src="/images/Wechat.jpg" alt="tiramisutes wechat" style="width: 200px; max-width: 100%;"/>
+  <div>欢迎关注</div>
+</div>
+
+    
+
+    
+      
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>tiramisutes</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    
+    <a href="http://tiramisutes.github.io/2018/05/01/HiC.html" title="HiC分析主要内容">http://tiramisutes.github.io/2018/05/01/HiC.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HiC/" rel="tag"><i class="fa fa-tag"></i> HiC</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+          
+            <span class="post-meta-divider">|</span>
+          
+          <div class="social_share">
+            
+            
+              <div id="needsharebutton-postbottom">
+                <span class="btn">
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/05/IGV.html" rel="next" title="学IGV必看的初级教程">
+                <i class="fa fa-chevron-left"></i> 学IGV必看的初级教程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/01/MARVEL.html" rel="prev" title="PacBio基因组组装之MARVEL">
+                PacBio基因组组装之MARVEL <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <a href="/" class="site-author-image" rel="start" style="border:none">
+              <img class="site-author-image" itemprop="image"
+                src="/images/author.jpg"
+                alt="tiramisutes"/>
+              </a>
+            
+              <p class="site-author-name" itemprop="name">tiramisutes</p>
+              <div class="site-description motion-element" itemprop="description">hope bioinformatics blog</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">148</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">112</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RpcmFtaXN1dGVz" title="GitHub &rarr; https://github.com/tiramisutes"><i class="fa fa-fw fa-github"></i>GitHub</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="bWFpbHRvOnRpcmFtaXN1dGVze2F0fTEyNi5jb20=" title="E-Mail &rarr; mailto:tiramisutes{at}126.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cDovL3dlaWJvLmNvbS90aXJhbWlzdXRlc1Rlcw==" title="Weibo &rarr; http://weibo.com/tiramisutesTes"><i class="fa fa-fw fa-globe"></i>Weibo</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9ob3BldG9neQ==" title="Twitter &rarr; https://twitter.com/hopetogy"><i class="fa fa-fw fa-twitter"></i>Twitter</span>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"/></span>
+             </div>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9paG9wZS5zaGlueWFwcHMuaW8vcVJULVBDUi1QaXBlbGluZS8=" title="https://ihope.shinyapps.io/qRT-PCR-Pipeline/">qRT-PCR-Pipeline</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly90aXJhbWlzdXRlcy5naXRib29rcy5pby9hd2svY29udGVudC8=" title="https://tiramisutes.gitbooks.io/awk/content/">GitBook《awk学习总结》</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2NvdHRvbi5oemF1LmVkdS5jbi8=" title="http://cotton.hzau.edu.cn/">棉花遗传改良团队</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5iaW8taW5mby10cmFpbmVlLmNvbS8=" title="http://www.bio-info-trainee.com/">生信菜鸟团-深圳大学城</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5iaW90cmFpbmVlLmNvbS9mb3J1bS5waHA=" title="http://www.biotrainee.com/forum.php">生信技能树</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5pd2hnYW8uY29tLw==" title="http://www.iwhgao.com/">rabbit gao's blog</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9odWFucy5naXRodWIuaW8v" title="https://huans.github.io/">Huans(代谢+GWAS)</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5zZXF1ZW5jaW5nLnVpby5uby8=" title="http://www.sequencing.uio.no/">NSC-sequenceing</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2Jsb2cuam9iYm9sZS5jb20v" title="http://blog.jobbole.com/">伯乐在线</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9saW51eC5jbi8=" title="https://linux.cn/">Linux开源中文社区</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5yLWJsb2dnZXJzLmNvbS8=" title="http://www.r-bloggers.com/">R-bloggers</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvb3RoZXItZG9jcy5odG1s" title="https://cran.r-project.org/other-docs.html">R-resource</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3R1dG9yaWFscy5pcS5oYXJ2YXJkLmVkdS9SL1JncmFwaGljcy9SZ3JhcGhpY3MuaHRtbA==" title="http://tutorials.iq.harvard.edu/R/Rgraphics/Rgraphics.html">ggplot2</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2xpbGliZWkubmV0Lw==" title="http://lilibei.net/">pele' blog</span>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#零、常识介绍"><span class="nav-text">零、常识介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、鉴定染色体交互_(identify_chromatin_interactions)"><span class="nav-text">一、鉴定染色体交互 (identify chromatin interactions)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、Topologically_Associating_Domains_(TADs)"><span class="nav-text">二、Topologically Associating Domains (TADs)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、Compartments"><span class="nav-text">三、Compartments</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、Chromatin_loops"><span class="nav-text">四、Chromatin loops</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、软件性能比较"><span class="nav-text">五、软件性能比较</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#过滤步骤"><span class="nav-text">过滤步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Identification_of_chromatin_interactions"><span class="nav-text">Identification of chromatin interactions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Distance_between_the_interacting_points_in_cis"><span class="nav-text">Distance between the interacting points in cis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cis_interaction_正确性和敏感性"><span class="nav-text">cis interaction 正确性和敏感性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Identification_of_topologically_associating_domains"><span class="nav-text">Identification of topologically associating domains</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、分析流程"><span class="nav-text">六、分析流程</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 – <span itemprop="copyrightYear">2023</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <a class="theme-link" target="_blank" href="http://tiramisutes.github.io/about/"><span class="author" itemprop="copyrightHolder">tiramisutes</span></a>
+
+  
+    <span class="post-meta-item-icon">
+    </span>
+    <span title="Symbols count total"></span>
+  
+
+  
+    <span class="post-meta-item-icon">
+    </span>
+    <span title="Reading time total"></span>
+  
+</div>
+
+
+  <div class="powered-by">Powered: <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">▽ – <span class="exturl theme-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0">NexT.Muse</span></div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-line-chart"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+    <a style="line-height: 1.5;" href="https://tongji.baidu.com/web/welcome/login" target="_blank">The total visits
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>&nbsp;times</a>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+    
+    
+      
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='20' src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest-nomobile.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+  <script src="/js/src/exturl.js?v=7.0.1"></script>
+
+
+  
+  
+  
+    
+  
+
+  
+
+  
+  
+  
+
+
+  
+  
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'c7x0fPmO8Ci9avDBRuGWHqpG-gzGzoHsz',
+    appKey: 'iVJ6ST0e1O5xaiIhVwOyhbf3',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+<style>
+.pdfobject-container {
+  position: relative;
+  overflow: auto;
+  width: 100%;
+}
+</style>
+<script>
+if ($('body').find('div.pdf').length) {
+  $.ajax({
+    type: 'GET',
+    url: '//cdn.jsdelivr.net/npm/pdfobject@2.1.1/pdfobject.min.js',
+    dataType: 'script',
+    cache: true,
+    success: function() {
+      $('body').find('div.pdf').each(function(i, o) {
+        PDFObject.embed($(o).attr('target'), $(o), {
+          pdfOpenParams: {
+            navpanes: 0,
+            toolbar: 0,
+            statusbar: 0,
+            pagemode: 'thumbs',
+            view: 'FitH'
+          },
+          PDFJS_URL: '/lib/pdf/web/viewer.html',
+          height: $(o).attr('height') || '500px'
+        });
+      });
+    },
+  });
+}
+</script>
+
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+  
+  
+    
+  
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Evernote,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+
+  
+  <script>
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id: 15314,
+      el: 'wpac-rating',
+      color: 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

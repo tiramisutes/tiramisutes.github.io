@@ -1,0 +1,3038 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/08/05/bio-online.html</loc>
+    <lastmod>2023-02-10T01:54:53.211Z</lastmod>
+    <data>
+        <display>
+        <title>常用生物信息在线工具</title>
+        <pubTime>2015-08-05T11:19:40.000Z</pubTime>
+        
+        <tag>bio-online</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2021/10/21/PsctH.html</loc>
+    <lastmod>2021-10-21T14:02:23.577Z</lastmod>
+    <data>
+        <display>
+        <title>植物单细胞转录组数据库PsctH</title>
+        <pubTime>2021-10-21T13:55:09.000Z</pubTime>
+        
+        <tag>PsctH</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2019/04/05/PBGNCBI.html</loc>
+    <lastmod>2021-10-21T12:48:34.982Z</lastmod>
+    <data>
+        <display>
+        <title>PacBio-BioNano-Genome数据上传NCBI经历</title>
+        <pubTime>2019-04-05T01:28:11.000Z</pubTime>
+        
+        <tag>NCBI_submission</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2020/10/07/CRISPRi.html</loc>
+    <lastmod>2020-10-07T06:32:05.430Z</lastmod>
+    <data>
+        <display>
+        <title>Nature Methods | 多伦多大学通过优化KRAB来提高CRISPRi对靶基因的沉默效果</title>
+        <pubTime>2020-10-07T06:16:32.000Z</pubTime>
+        
+        <tag>CRISPR/Cas9</tag>
+         
+         
+           
+             
+              <breadCrumb title="文献" url="http://tiramisutes.github.io/categories/%E6%96%87%E7%8C%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2020/08/29/Spider-Plant-Cell.html</loc>
+    <lastmod>2020-08-29T06:33:52.903Z</lastmod>
+    <data>
+        <display>
+        <title>爬取 Plant Cell 期刊</title>
+        <pubTime>2020-08-29T05:42:20.000Z</pubTime>
+        
+        <tag>Plant_Cell</tag>
+         
+         
+           
+             
+              <breadCrumb title="Spider" url="http://tiramisutes.github.io/categories/Spider/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2019/08/29/docker.html</loc>
+    <lastmod>2020-06-28T04:47:32.196Z</lastmod>
+    <data>
+        <display>
+        <title>Docker和Singularity双剑合璧构建生物信息分析流</title>
+        <pubTime>2019-08-29T08:03:25.000Z</pubTime>
+        
+        <tag>docker</tag>
+         
+         
+           
+             
+              <breadCrumb title="docker" url="http://tiramisutes.github.io/categories/docker/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2017/01/13/CRISPR-Designer.html</loc>
+    <lastmod>2020-06-28T03:29:59.657Z</lastmod>
+    <data>
+        <display>
+        <title>CRISPR-sgRNA-Designer：从来都不应该那么神秘</title>
+        <pubTime>2017-01-13T03:37:05.000Z</pubTime>
+        
+        <tag>CRISPR/Cas9</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/08/30/NCBI-submission.html</loc>
+    <lastmod>2019-12-08T13:50:13.193Z</lastmod>
+    <data>
+        <display>
+        <title>测序数据上传NCBI总结</title>
+        <pubTime>2016-08-30T05:50:01.000Z</pubTime>
+        
+        <tag>NCBI_submission</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/11/29/sort-k.html</loc>
+    <lastmod>2019-12-05T09:21:21.520Z</lastmod>
+    <data>
+        <display>
+        <title>Linux常用命令之sort强悍参数“k”</title>
+        <pubTime>2015-11-29T06:33:06.000Z</pubTime>
+        
+        <tag>sort</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://tiramisutes.github.io/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2019/10/13/hujiao.html</loc>
+    <lastmod>2019-10-23T08:20:03.355Z</lastmod>
+    <data>
+        <display>
+        <title>Nature Communications---“香料之王”染色体级参考基因组揭秘</title>
+        <pubTime>2019-10-13T01:36:59.000Z</pubTime>
+        
+        <tag>SCI</tag>
+         
+         
+           
+             
+              <breadCrumb title="Paper" url="http://tiramisutes.github.io/categories/Paper/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2019/09/18/apple-cp-genome.html</loc>
+    <lastmod>2019-09-18T15:29:28.408Z</lastmod>
+    <data>
+        <display>
+        <title>NC | 苹果蠹蛾基因组测序揭示其化学感觉和杀虫剂抗性机制</title>
+        <pubTime>2019-09-18T15:14:25.000Z</pubTime>
+        
+        <tag>基因组</tag>
+         
+         
+           
+             
+              <breadCrumb title="文献" url="http://tiramisutes.github.io/categories/%E6%96%87%E7%8C%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2019/08/24/AT-GeneFamily.html</loc>
+    <lastmod>2019-09-04T00:37:07.325Z</lastmod>
+    <data>
+        <display>
+        <title>高能预警：拟南芥&基因家族分析也能发Cell</title>
+        <pubTime>2019-08-24T15:10:02.000Z</pubTime>
+        
+        <tag>基因组</tag>
+         
+         
+           
+             
+              <breadCrumb title="文献" url="http://tiramisutes.github.io/categories/%E6%96%87%E7%8C%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2019/08/29/go.html</loc>
+    <lastmod>2019-08-30T05:41:05.064Z</lastmod>
+    <data>
+        <display>
+        <title>go语言简单介绍与module安装</title>
+        <pubTime>2019-08-29T03:17:40.000Z</pubTime>
+        
+        <tag>go_module</tag>
+         
+         
+           
+             
+              <breadCrumb title="go" url="http://tiramisutes.github.io/categories/go/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2019/08/29/nodejs.html</loc>
+    <lastmod>2019-08-29T14:14:46.597Z</lastmod>
+    <data>
+        <display>
+        <title>Linux下NoRoot安装nodejs和npm</title>
+        <pubTime>2019-08-29T11:54:34.000Z</pubTime>
+        
+        <tag>nodejs+npm</tag>
+         
+         
+           
+             
+              <breadCrumb title="nodejs" url="http://tiramisutes.github.io/categories/nodejs/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/07/29/grep.html</loc>
+    <lastmod>2019-07-10T12:34:27.512Z</lastmod>
+    <data>
+        <display>
+        <title>14 个 grep 命令的例子</title>
+        <pubTime>2015-07-29T14:49:56.000Z</pubTime>
+        
+        <tag>grep</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://tiramisutes.github.io/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2019/06/19/Rmap.html</loc>
+    <lastmod>2019-06-28T07:32:22.619Z</lastmod>
+    <data>
+        <display>
+        <title>R 标准地图记（区分四川和重庆且有台湾和南海诸岛）</title>
+        <pubTime>2019-06-19T06:33:27.000Z</pubTime>
+        
+        <tag>map</tag>
+         
+         
+           
+             
+              <breadCrumb title="R" url="http://tiramisutes.github.io/categories/R/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2018/12/04/ref-RNA-seq.html</loc>
+    <lastmod>2019-05-16T07:51:54.568Z</lastmod>
+    <data>
+        <display>
+        <title>有参考基因组的RNA-seq详细分析流程</title>
+        <pubTime>2018-12-04T06:27:58.000Z</pubTime>
+        
+        <tag>RNA-seq</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2019/04/18/Biotechnology-Vs-Bioinformatics.html</loc>
+    <lastmod>2019-04-19T15:50:42.566Z</lastmod>
+    <data>
+        <display>
+        <title>分子生物学 or 生物信息学, that's a question</title>
+        <pubTime>2019-04-18T05:40:50.000Z</pubTime>
+        
+        <tag>Biology</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2019/01/26/qPCR.html</loc>
+    <lastmod>2019-04-15T16:02:12.000Z</lastmod>
+    <data>
+        <display>
+        <title>流程化的qPCR数据分析</title>
+        <pubTime>2019-01-26T03:33:32.000Z</pubTime>
+        
+        <tag>qPCR</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2019/04/03/apple.html</loc>
+    <lastmod>2019-04-03T13:39:19.126Z</lastmod>
+    <data>
+        <display>
+        <title>Nature Communications | 苹果为什么那么红</title>
+        <pubTime>2019-04-03T05:14:26.000Z</pubTime>
+        
+        <tag>基因组</tag>
+         
+         
+           
+             
+              <breadCrumb title="文献" url="http://tiramisutes.github.io/categories/%E6%96%87%E7%8C%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/12/28/English-sentence.html</loc>
+    <lastmod>2019-03-19T09:58:51.198Z</lastmod>
+    <data>
+        <display>
+        <title>SCI经典英语写作语句汇总</title>
+        <pubTime>2015-12-28T14:39:04.000Z</pubTime>
+        
+        <tag>English-sentence</tag>
+         
+         
+           
+             
+              <breadCrumb title="Paper" url="http://tiramisutes.github.io/categories/Paper/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/12/01/chip-seq.html</loc>
+    <lastmod>2019-03-19T09:57:29.326Z</lastmod>
+    <data>
+        <display>
+        <title>ChIP-sequencing介绍</title>
+        <pubTime>2015-12-01T05:21:42.000Z</pubTime>
+        
+        <tag>Chip_seq</tag>
+         
+         
+           
+             
+              <breadCrumb title="molecular biology" url="http://tiramisutes.github.io/categories/molecular-biology/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2019/03/12/Began-Study.html</loc>
+    <lastmod>2019-03-16T13:54:09.747Z</lastmod>
+    <data>
+        <display>
+        <title>研究人员的工作环境</title>
+        <pubTime>2019-03-12T12:47:19.000Z</pubTime>
+        
+        <tag>技能</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/07/25/chrome.html</loc>
+    <lastmod>2019-03-16T13:14:23.422Z</lastmod>
+    <data>
+        <display>
+        <title>关于Chrome的那些小技巧</title>
+        <pubTime>2015-07-25T13:34:53.000Z</pubTime>
+        
+        <tag>Chrome Plug-in</tag>
+         
+         
+           
+             
+              <breadCrumb title="Google" url="http://tiramisutes.github.io/categories/Google/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/12/04/markdown.html</loc>
+    <lastmod>2019-03-15T07:51:55.047Z</lastmod>
+    <data>
+        <display>
+        <title>hexo语法：markdown基础篇</title>
+        <pubTime>2015-12-04T14:59:58.000Z</pubTime>
+        
+        <tag>markdown</tag>
+         
+         
+           
+             
+              <breadCrumb title="Hexo" url="http://tiramisutes.github.io/categories/Hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2019/03/12/Oxford-Nanopore.html</loc>
+    <lastmod>2019-03-12T15:21:03.081Z</lastmod>
+    <data>
+        <display>
+        <title>纳米孔测序系列之基础介绍</title>
+        <pubTime>2019-03-12T13:39:59.000Z</pubTime>
+        
+        <tag>ONS</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/10/26/script-error.html</loc>
+    <lastmod>2019-03-10T03:54:25.059Z</lastmod>
+    <data>
+        <display>
+        <title>程序运行报错总结</title>
+        <pubTime>2016-10-26T09:04:06.000Z</pubTime>
+        
+        <tag>error</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/10/28/evolution.html</loc>
+    <lastmod>2019-03-10T03:54:07.163Z</lastmod>
+    <data>
+        <display>
+        <title>Population Genetics</title>
+        <pubTime>2016-10-28T03:02:57.000Z</pubTime>
+        
+        <tag>Glossary</tag>
+         
+         
+           
+             
+              <breadCrumb title="genetics" url="http://tiramisutes.github.io/categories/genetics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/10/30/Quality-Assessment.html</loc>
+    <lastmod>2019-03-10T03:53:44.507Z</lastmod>
+    <data>
+        <display>
+        <title>De Nove转录组组装质量评估</title>
+        <pubTime>2016-10-30T15:00:17.000Z</pubTime>
+        
+        <tag>De Nove</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/11/04/Genomic-Feature.html</loc>
+    <lastmod>2019-03-10T03:53:28.203Z</lastmod>
+    <data>
+        <display>
+        <title>Genomic-Feature</title>
+        <pubTime>2016-11-04T09:54:27.000Z</pubTime>
+        
+        <tag>Genomic Feature</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2017/01/13/Direct.html</loc>
+    <lastmod>2019-03-10T03:53:07.308Z</lastmod>
+    <data>
+        <display>
+        <title>Direct：命令行访问NCBI</title>
+        <pubTime>2017-01-13T13:13:07.000Z</pubTime>
+        
+        <tag>Direct</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2017/05/28/LIANTI.html</loc>
+    <lastmod>2019-03-10T03:52:49.818Z</lastmod>
+    <data>
+        <display>
+        <title>单细胞扩增之：LIANTI</title>
+        <pubTime>2017-05-28T09:39:13.000Z</pubTime>
+        
+        <tag>WGA</tag>
+         
+         
+           
+             
+              <breadCrumb title="Single-cell" url="http://tiramisutes.github.io/categories/Single-cell/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2017/09/04/RNAi-Insect.html</loc>
+    <lastmod>2019-03-10T03:52:22.771Z</lastmod>
+    <data>
+        <display>
+        <title>RNAi介导的抗虫效应</title>
+        <pubTime>2017-09-04T09:56:53.000Z</pubTime>
+        
+        <tag>RNAi Insect</tag>
+         
+         
+           
+             
+              <breadCrumb title="molecular biology" url="http://tiramisutes.github.io/categories/molecular-biology/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2018/07/02/No-Rep-RNA-seq.html</loc>
+    <lastmod>2019-03-10T03:47:29.189Z</lastmod>
+    <data>
+        <display>
+        <title>搭PacBio全长转录组便车的无重复样本RNA-seq分析</title>
+        <pubTime>2018-07-02T04:36:32.000Z</pubTime>
+        
+        <tag>RNA-seq</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2019/01/21/Trinity.html</loc>
+    <lastmod>2019-01-21T03:48:57.722Z</lastmod>
+    <data>
+        <display>
+        <title>一图看懂 Trinity 转录组分析</title>
+        <pubTime>2019-01-21T03:22:14.000Z</pubTime>
+        
+        <tag>Trinity</tag>
+         
+         
+           
+             
+              <breadCrumb title="RNA-seq" url="http://tiramisutes.github.io/categories/RNA-seq/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2018/02/05/IGV.html</loc>
+    <lastmod>2018-11-19T09:07:23.198Z</lastmod>
+    <data>
+        <display>
+        <title>学IGV必看的初级教程</title>
+        <pubTime>2018-02-05T08:06:54.000Z</pubTime>
+        
+        <tag>IGV</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/09/14/WGCNA.html</loc>
+    <lastmod>2018-10-29T09:09:50.556Z</lastmod>
+    <data>
+        <display>
+        <title>学习WGCNA总结</title>
+        <pubTime>2016-09-14T08:59:41.000Z</pubTime>
+        
+        <tag>WGCNA</tag>
+         
+         
+           
+             
+              <breadCrumb title="R" url="http://tiramisutes.github.io/categories/R/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2017/05/29/Circos.html</loc>
+    <lastmod>2018-10-26T04:14:41.903Z</lastmod>
+    <data>
+        <display>
+        <title>Circos安装和使用</title>
+        <pubTime>2017-05-29T09:51:59.000Z</pubTime>
+        
+        <tag>Circos</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/10/03/coordinates.html</loc>
+    <lastmod>2018-09-28T04:12:12.082Z</lastmod>
+    <data>
+        <display>
+        <title>Modify the coordinates</title>
+        <pubTime>2015-10-03T07:30:33.000Z</pubTime>
+        
+        <tag>coordinates</tag>
+         
+         
+           
+             
+              <breadCrumb title="R" url="http://tiramisutes.github.io/categories/R/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+    
+    
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/12/01/wegt-http.html</loc>
+    <lastmod>2018-09-28T02:45:22.677Z</lastmod>
+    <data>
+        <display>
+        <title>Linux 下批量下载 http 中链接内容</title>
+        <pubTime>2015-12-01T00:31:16.000Z</pubTime>
+        
+        <tag>batch-download</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://tiramisutes.github.io/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/07/29/sitemap.html</loc>
+    <lastmod>2018-09-28T02:44:30.451Z</lastmod>
+    <data>
+        <display>
+        <title>如何向google提交sitemap</title>
+        <pubTime>2015-07-29T14:23:44.000Z</pubTime>
+        
+        <tag>sitemap</tag>
+         
+         
+           
+             
+              <breadCrumb title="Hexo" url="http://tiramisutes.github.io/categories/Hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/10/13/single-cell.html</loc>
+    <lastmod>2018-09-28T02:44:16.408Z</lastmod>
+    <data>
+        <display>
+        <title>Single Cell全基因组扩增</title>
+        <pubTime>2016-10-13T12:44:53.000Z</pubTime>
+        
+        <tag>WGA</tag>
+         
+         
+           
+             
+              <breadCrumb title="Single-cell" url="http://tiramisutes.github.io/categories/Single-cell/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/11/29/sed.html</loc>
+    <lastmod>2018-09-28T02:44:00.678Z</lastmod>
+    <data>
+        <display>
+        <title>sed：流编辑器(stream editor)简单总结</title>
+        <pubTime>2015-11-29T05:29:36.000Z</pubTime>
+        
+        <tag>sed</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://tiramisutes.github.io/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/03/20/Samtools.html</loc>
+    <lastmod>2018-09-28T02:43:51.275Z</lastmod>
+    <data>
+        <display>
+        <title>被忽视的Samtools参数</title>
+        <pubTime>2016-03-20T14:54:42.000Z</pubTime>
+        
+        <tag>Samtools</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/07/29/RStudio.html</loc>
+    <lastmod>2018-09-28T02:43:45.390Z</lastmod>
+    <data>
+        <display>
+        <title>RStudio</title>
+        <pubTime>2015-07-29T05:19:30.000Z</pubTime>
+        
+        <tag>RStudio_RPubs</tag>
+         
+         
+           
+             
+              <breadCrumb title="R" url="http://tiramisutes.github.io/categories/R/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/08/01/rss.html</loc>
+    <lastmod>2018-09-28T02:43:39.561Z</lastmod>
+    <data>
+        <display>
+        <title>rss制作</title>
+        <pubTime>2015-08-01T02:34:40.000Z</pubTime>
+        
+        <tag>rss</tag>
+         
+         
+           
+             
+              <breadCrumb title="Hexo" url="http://tiramisutes.github.io/categories/Hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/01/03/retroelements.html</loc>
+    <lastmod>2018-09-28T02:43:23.086Z</lastmod>
+    <data>
+        <display>
+        <title>Retroelements</title>
+        <pubTime>2016-01-03T12:18:31.000Z</pubTime>
+        
+        <tag>retroelements</tag>
+         
+         
+           
+             
+              <breadCrumb title="molecular biology" url="http://tiramisutes.github.io/categories/molecular-biology/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/11/29/reshape2.html</loc>
+    <lastmod>2018-09-28T02:43:16.200Z</lastmod>
+    <data>
+        <display>
+        <title>R数据整形术之reshape2</title>
+        <pubTime>2015-11-29T07:23:03.000Z</pubTime>
+        
+        <tag>reshape2</tag>
+         
+         
+           
+             
+              <breadCrumb title="R" url="http://tiramisutes.github.io/categories/R/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/11/14/read-resequence.html</loc>
+    <lastmod>2018-09-28T02:43:05.384Z</lastmod>
+    <data>
+        <display>
+        <title>重测序文献精读</title>
+        <pubTime>2015-11-14T12:57:42.000Z</pubTime>
+        
+        <tag>resequence</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/09/29/R-Data-Science.html</loc>
+    <lastmod>2018-09-28T02:42:59.130Z</lastmod>
+    <data>
+        <display>
+        <title>R-Data-Science</title>
+        <pubTime>2016-09-29T05:39:15.000Z</pubTime>
+        
+        <tag>function</tag>
+         
+         
+           
+             
+              <breadCrumb title="R" url="http://tiramisutes.github.io/categories/R/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2017/12/15/R-class.html</loc>
+    <lastmod>2018-09-28T02:42:53.239Z</lastmod>
+    <data>
+        <display>
+        <title>A Beginner’s Guide to Learn R Programming</title>
+        <pubTime>2017-12-15T01:57:52.000Z</pubTime>
+        
+        <tag>Basics_R</tag>
+         
+         
+           
+             
+              <breadCrumb title="R" url="http://tiramisutes.github.io/categories/R/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2017/03/25/python-tip.html</loc>
+    <lastmod>2018-09-28T02:42:40.820Z</lastmod>
+    <data>
+        <display>
+        <title>python技巧总结（持续更新）</title>
+        <pubTime>2017-03-25T08:17:03.000Z</pubTime>
+        
+        <tag>python-tip</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://tiramisutes.github.io/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2017/04/02/python-read-file.html</loc>
+    <lastmod>2018-09-28T02:42:23.767Z</lastmod>
+    <data>
+        <display>
+        <title>python读取文件的正确方式</title>
+        <pubTime>2017-04-02T12:39:50.000Z</pubTime>
+        
+        <tag>python-read-file</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://tiramisutes.github.io/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/12/03/python-basic.html</loc>
+    <lastmod>2018-09-28T02:42:11.057Z</lastmod>
+    <data>
+        <display>
+        <title>python基础教程总结</title>
+        <pubTime>2015-12-03T11:05:19.000Z</pubTime>
+        
+        <tag>python basic</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://tiramisutes.github.io/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/11/29/plyr.html</loc>
+    <lastmod>2018-09-28T02:42:04.167Z</lastmod>
+    <data>
+        <display>
+        <title>R数据整形术之plyr</title>
+        <pubTime>2015-11-29T08:24:33.000Z</pubTime>
+        
+        <tag>plyr</tag>
+         
+         
+           
+             
+              <breadCrumb title="R" url="http://tiramisutes.github.io/categories/R/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/10/05/plot-text.html</loc>
+    <lastmod>2018-09-28T02:41:59.448Z</lastmod>
+    <data>
+        <display>
+        <title>为图形添加文本</title>
+        <pubTime>2015-10-05T11:52:16.000Z</pubTime>
+        
+        <tag>plot-text</tag>
+         
+         
+           
+             
+              <breadCrumb title="R" url="http://tiramisutes.github.io/categories/R/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/10/05/plotrix.html</loc>
+    <lastmod>2018-09-28T02:41:52.559Z</lastmod>
+    <data>
+        <display>
+        <title>R作图--坐标中断(axis breaks)-- plotrix</title>
+        <pubTime>2015-10-05T05:12:51.000Z</pubTime>
+        
+        <tag>coordinates</tag>
+         
+         
+           
+             
+              <breadCrumb title="R" url="http://tiramisutes.github.io/categories/R/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/06/08/piRNA.html</loc>
+    <lastmod>2018-09-28T02:40:49.934Z</lastmod>
+    <data>
+        <display>
+        <title>Piwi-interacting RNA (piRNA)</title>
+        <pubTime>2016-06-08T13:58:48.000Z</pubTime>
+        
+        <tag>piRNA</tag>
+         
+         
+           
+             
+              <breadCrumb title="molecular biology" url="http://tiramisutes.github.io/categories/molecular-biology/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/10/11/phytobiology.html</loc>
+    <lastmod>2018-09-28T02:40:41.823Z</lastmod>
+    <data>
+        <display>
+        <title>为期3天2016全国植物生物学大会报告有感</title>
+        <pubTime>2016-10-11T13:06:56.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/08/27/Phosphorylation.html</loc>
+    <lastmod>2018-09-28T02:40:33.193Z</lastmod>
+    <data>
+        <display>
+        <title>Post-Translational Modifications (PTMs)：Phosphorylation</title>
+        <pubTime>2016-08-27T15:14:32.000Z</pubTime>
+        
+        <tag>Phosphorylation</tag>
+         
+         
+           
+             
+              <breadCrumb title="molecular biology" url="http://tiramisutes.github.io/categories/molecular-biology/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/11/14/P-FDR.html</loc>
+    <lastmod>2018-09-28T02:40:27.337Z</lastmod>
+    <data>
+        <display>
+        <title>What's the probability that a significant p-value indicates a true effect?</title>
+        <pubTime>2015-11-14T11:32:12.000Z</pubTime>
+        
+        <tag>P_FDR</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/07/29/PCA.html</loc>
+    <lastmod>2018-09-28T02:39:54.295Z</lastmod>
+    <data>
+        <display>
+        <title>PCA分析</title>
+        <pubTime>2015-07-29T13:54:45.000Z</pubTime>
+        
+        <tag>R_PCA</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/08/27/PBcR.html</loc>
+    <lastmod>2018-09-28T02:39:48.680Z</lastmod>
+    <data>
+        <display>
+        <title>PacBio sequence error correction amd assemble via pacBioToCA</title>
+        <pubTime>2016-08-27T11:57:48.000Z</pubTime>
+        
+        <tag>PacBio</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/09/13/paper.html</loc>
+    <lastmod>2018-09-28T02:39:41.299Z</lastmod>
+    <data>
+        <display>
+        <title>Congratulations For My First Paper</title>
+        <pubTime>2016-09-13T11:57:28.000Z</pubTime>
+        
+        <tag>SCI</tag>
+         
+         
+           
+             
+              <breadCrumb title="Paper" url="http://tiramisutes.github.io/categories/Paper/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/08/26/pacbio-spec.html</loc>
+    <lastmod>2018-09-28T02:39:34.670Z</lastmod>
+    <data>
+        <display>
+        <title>PBcR：SpecFiles Options</title>
+        <pubTime>2016-08-26T06:33:11.000Z</pubTime>
+        
+        <tag>PacBio</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2017/10/21/Oxford-Nanopore-sequencing.html</loc>
+    <lastmod>2018-09-28T02:39:29.704Z</lastmod>
+    <data>
+        <display>
+        <title>Oxford Nanopore Sequencing</title>
+        <pubTime>2017-10-21T03:47:31.000Z</pubTime>
+        
+        <tag>ONS</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/07/31/mytheme.html</loc>
+    <lastmod>2018-09-28T02:38:53.071Z</lastmod>
+    <data>
+        <display>
+        <title>ggplot2 fine drawing using mytheme</title>
+        <pubTime>2015-07-31T14:45:06.000Z</pubTime>
+        
+        <tag>mytheme</tag>
+         
+         
+           
+             
+              <breadCrumb title="R" url="http://tiramisutes.github.io/categories/R/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/10/03/multiple-ggplot2.html</loc>
+    <lastmod>2018-09-28T02:38:36.897Z</lastmod>
+    <data>
+        <display>
+        <title>Multiple graphs on one page using ggplot2</title>
+        <pubTime>2015-10-03T02:41:58.000Z</pubTime>
+        
+        <tag>multiple</tag>
+         
+         
+           
+             
+              <breadCrumb title="R" url="http://tiramisutes.github.io/categories/R/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/12/01/miRNA.html</loc>
+    <lastmod>2018-09-28T02:38:29.543Z</lastmod>
+    <data>
+        <display>
+        <title>miRNA</title>
+        <pubTime>2015-12-01T06:06:06.000Z</pubTime>
+        
+        <tag>miRNA</tag>
+         
+         
+           
+             
+              <breadCrumb title="molecular biology" url="http://tiramisutes.github.io/categories/molecular-biology/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/08/28/Metagenome.html</loc>
+    <lastmod>2018-09-28T02:38:19.575Z</lastmod>
+    <data>
+        <display>
+        <title>Metagenome：宏基因组介绍</title>
+        <pubTime>2016-08-28T05:32:00.000Z</pubTime>
+        
+        <tag>Metagenome</tag>
+         
+         
+           
+             
+              <breadCrumb title="molecular biology" url="http://tiramisutes.github.io/categories/molecular-biology/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/11/25/mate-pair-reads-Aligner.html</loc>
+    <lastmod>2018-09-28T02:38:10.791Z</lastmod>
+    <data>
+        <display>
+        <title>Mate-pair Reads Alignment</title>
+        <pubTime>2016-11-25T01:56:33.000Z</pubTime>
+        
+        <tag>Mate-pair Reads Alignment</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2018/05/01/MARVEL.html</loc>
+    <lastmod>2018-09-28T02:38:04.601Z</lastmod>
+    <data>
+        <display>
+        <title>PacBio基因组组装之MARVEL</title>
+        <pubTime>2018-05-01T13:13:19.000Z</pubTime>
+        
+        <tag>MARVEL</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/08/01/linux-command.html</loc>
+    <lastmod>2018-09-28T02:37:38.708Z</lastmod>
+    <data>
+        <display>
+        <title>linux命令行精选</title>
+        <pubTime>2015-08-01T13:27:15.000Z</pubTime>
+        
+        <tag>linux_command</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://tiramisutes.github.io/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2017/04/03/Iterator.html</loc>
+    <lastmod>2018-09-28T02:37:04.878Z</lastmod>
+    <data>
+        <display>
+        <title>深入浅出的迭代器Iterator</title>
+        <pubTime>2017-04-03T04:56:16.000Z</pubTime>
+        
+        <tag>Iterator</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://tiramisutes.github.io/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/12/15/interproscan.html</loc>
+    <lastmod>2018-09-28T02:36:54.087Z</lastmod>
+    <data>
+        <display>
+        <title>非root用户interproscan的安装和使用</title>
+        <pubTime>2016-12-15T03:10:40.000Z</pubTime>
+        
+        <tag>InterProScan</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/09/19/Insert-Size.html</loc>
+    <lastmod>2018-09-28T02:36:47.397Z</lastmod>
+    <data>
+        <display>
+        <title>评估文库 Average Insert Size</title>
+        <pubTime>2016-09-19T14:07:39.000Z</pubTime>
+        
+        <tag>Average Insert Size</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2017/09/04/Illumina-QC.html</loc>
+    <lastmod>2018-09-28T02:36:37.768Z</lastmod>
+    <data>
+        <display>
+        <title>你真的懂Illumina数据质量控制吗？</title>
+        <pubTime>2017-09-04T07:03:02.000Z</pubTime>
+        
+        <tag>IlluminaQC</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/10/07/icon.html</loc>
+    <lastmod>2018-09-28T02:36:13.967Z</lastmod>
+    <data>
+        <display>
+        <title>Icons</title>
+        <pubTime>2015-10-07T05:56:31.000Z</pubTime>
+        
+        <tag>icon</tag>
+         
+         
+           
+             
+              <breadCrumb title="Hexo" url="http://tiramisutes.github.io/categories/Hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2018/05/01/HiC.html</loc>
+    <lastmod>2018-09-28T02:36:06.069Z</lastmod>
+    <data>
+        <display>
+        <title>HiC分析主要内容</title>
+        <pubTime>2018-05-01T11:23:42.000Z</pubTime>
+        
+        <tag>HiC</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/07/28/google.html</loc>
+    <lastmod>2018-09-28T02:35:46.758Z</lastmod>
+    <data>
+        <display>
+        <title>Google Web</title>
+        <pubTime>2015-07-28T14:51:06.000Z</pubTime>
+        
+        <tag>Google</tag>
+         
+         
+           
+             
+              <breadCrumb title="Google" url="http://tiramisutes.github.io/categories/Google/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2017/01/06/GLIBC.html</loc>
+    <lastmod>2018-09-28T02:35:37.144Z</lastmod>
+    <data>
+        <display>
+        <title>AUGUSTUS安装和非Root用户GLIBC“排雷”过程</title>
+        <pubTime>2017-01-06T07:40:43.000Z</pubTime>
+        
+        <tag>linux-glibc</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://tiramisutes.github.io/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/03/09/ggplot2-learning.html</loc>
+    <lastmod>2018-09-28T02:35:28.904Z</lastmod>
+    <data>
+        <display>
+        <title>myself ggplot2 learning tip (再学ggplot2： 遗漏细节)</title>
+        <pubTime>2016-03-09T05:44:37.000Z</pubTime>
+        
+        <tag>ggplot2</tag>
+         
+         
+           
+             
+              <breadCrumb title="R" url="http://tiramisutes.github.io/categories/R/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/11/29/FISH.html</loc>
+    <lastmod>2018-09-28T02:34:48.391Z</lastmod>
+    <data>
+        <display>
+        <title>Fluorescence in situ Hybridization(荧光原位杂交)</title>
+        <pubTime>2015-11-29T14:51:46.000Z</pubTime>
+        
+        <tag>FISH</tag>
+         
+         
+           
+             
+              <breadCrumb title="molecular biology" url="http://tiramisutes.github.io/categories/molecular-biology/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/08/02/firewall.html</loc>
+    <lastmod>2018-09-28T02:34:38.521Z</lastmod>
+    <data>
+        <display>
+        <title>firewall</title>
+        <pubTime>2015-08-02T06:18:15.000Z</pubTime>
+        
+        <tag>firewall</tag>
+         
+         
+           
+             
+              <breadCrumb title="Google" url="http://tiramisutes.github.io/categories/Google/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/07/24/FASTX-Toolkit.html</loc>
+    <lastmod>2018-09-28T02:34:10.324Z</lastmod>
+    <data>
+        <display>
+        <title>FASTX-Toolkit</title>
+        <pubTime>2015-07-24T14:51:33.000Z</pubTime>
+        
+        <tag>FASTX</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/12/05/expression.html</loc>
+    <lastmod>2018-09-28T02:33:53.431Z</lastmod>
+    <data>
+        <display>
+        <title>How to use subscripts in ggplot2 legends -[expression()]</title>
+        <pubTime>2015-12-05T03:16:17.000Z</pubTime>
+        
+        <tag>expression</tag>
+         
+         
+           
+             
+              <breadCrumb title="R" url="http://tiramisutes.github.io/categories/R/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/08/22/error-bars.html</loc>
+    <lastmod>2018-09-28T02:33:32.465Z</lastmod>
+    <data>
+        <display>
+        <title>Error bars (basic)</title>
+        <pubTime>2015-08-22T10:00:06.000Z</pubTime>
+        
+        <tag>error_bars</tag>
+         
+         
+           
+             
+              <breadCrumb title="R" url="http://tiramisutes.github.io/categories/R/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/03/09/Economist-Graph.html</loc>
+    <lastmod>2018-09-28T02:33:17.382Z</lastmod>
+    <data>
+        <display>
+        <title>Economist_Graph：复杂图形修改</title>
+        <pubTime>2016-03-09T09:23:10.000Z</pubTime>
+        
+        <tag>ggplot2</tag>
+         
+         
+           
+             
+              <breadCrumb title="R" url="http://tiramisutes.github.io/categories/R/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/11/30/DNA-methylation.html</loc>
+    <lastmod>2018-09-28T02:33:01.196Z</lastmod>
+    <data>
+        <display>
+        <title>DNA methylation</title>
+        <pubTime>2015-11-30T15:49:08.000Z</pubTime>
+        
+        <tag>methylation</tag>
+         
+         
+           
+             
+              <breadCrumb title="molecular biology" url="http://tiramisutes.github.io/categories/molecular-biology/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/11/30/degradome.html</loc>
+    <lastmod>2018-09-28T02:32:45.309Z</lastmod>
+    <data>
+        <display>
+        <title>Degradome-降解组</title>
+        <pubTime>2015-11-30T15:36:38.000Z</pubTime>
+        
+        <tag>degradome</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/07/25/CummeRbund.html</loc>
+    <lastmod>2018-09-28T02:32:27.123Z</lastmod>
+    <data>
+        <display>
+        <title>CummeRbund</title>
+        <pubTime>2015-07-25T09:31:20.000Z</pubTime>
+        
+        <tag>CummeRbund</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/09/13/CRISPR-Cas9.html</loc>
+    <lastmod>2018-09-28T02:32:02.855Z</lastmod>
+    <data>
+        <display>
+        <title>CRISPR/Cas9</title>
+        <pubTime>2015-09-13T01:26:55.000Z</pubTime>
+        
+        <tag>CRISPR/Cas9</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/07/31/color.html</loc>
+    <lastmod>2018-09-28T02:31:48.842Z</lastmod>
+    <data>
+        <display>
+        <title>杂志图表的经典用色</title>
+        <pubTime>2015-07-31T15:07:34.000Z</pubTime>
+        
+        <tag>经典配色</tag>
+         
+         
+           
+             
+              <breadCrumb title="R" url="http://tiramisutes.github.io/categories/R/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/11/11/cluster.html</loc>
+    <lastmod>2018-09-28T02:31:41.446Z</lastmod>
+    <data>
+        <display>
+        <title>R中cluster包进行聚类分析</title>
+        <pubTime>2015-11-11T13:05:33.000Z</pubTime>
+        
+        <tag>cluster</tag>
+         
+         
+           
+             
+              <breadCrumb title="R" url="http://tiramisutes.github.io/categories/R/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/04/12/Circular-RNAs.html</loc>
+    <lastmod>2018-09-28T02:31:32.335Z</lastmod>
+    <data>
+        <display>
+        <title>Circular RNAs</title>
+        <pubTime>2016-04-12T06:50:29.000Z</pubTime>
+        
+        <tag>circRNA</tag>
+         
+         
+           
+             
+              <breadCrumb title="molecular biology" url="http://tiramisutes.github.io/categories/molecular-biology/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/03/18/bedtools.html</loc>
+    <lastmod>2018-09-28T02:30:34.862Z</lastmod>
+    <data>
+        <display>
+        <title>bedtools 使用小结</title>
+        <pubTime>2016-03-18T08:29:32.000Z</pubTime>
+        
+        <tag>BEDTools</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/10/08/bar.html</loc>
+    <lastmod>2018-09-28T02:30:23.149Z</lastmod>
+    <data>
+        <display>
+        <title>bar</title>
+        <pubTime>2015-10-08T14:18:26.000Z</pubTime>
+        
+        <tag>bar</tag>
+         
+         
+           
+             
+              <breadCrumb title="R" url="http://tiramisutes.github.io/categories/R/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/12/26/Awk-System-Variables.html</loc>
+    <lastmod>2018-09-28T02:30:11.130Z</lastmod>
+    <data>
+        <display>
+        <title>Awk系统变量和内置函数</title>
+        <pubTime>2015-12-26T07:41:14.000Z</pubTime>
+        
+        <tag>awk</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://tiramisutes.github.io/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/08/22/awk2.html</loc>
+    <lastmod>2018-09-28T02:29:35.533Z</lastmod>
+    <data>
+        <display>
+        <title>AWK程序设计语言</title>
+        <pubTime>2015-08-22T05:48:08.000Z</pubTime>
+        
+        <tag>awk</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://tiramisutes.github.io/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2017/03/25/argparse.html</loc>
+    <lastmod>2018-09-28T02:29:12.571Z</lastmod>
+    <data>
+        <display>
+        <title>Python 命令行解析argparse 模块</title>
+        <pubTime>2017-03-25T04:55:35.000Z</pubTime>
+        
+        <tag>argparse</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://tiramisutes.github.io/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/10/08/ANOVA.html</loc>
+    <lastmod>2018-09-28T02:28:58.078Z</lastmod>
+    <data>
+        <display>
+        <title>ANOVA单因素方差分析与R实现</title>
+        <pubTime>2015-10-08T15:37:43.000Z</pubTime>
+        
+        <tag>ANOVA</tag>
+         
+         
+           
+             
+              <breadCrumb title="R" url="http://tiramisutes.github.io/categories/R/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/12/25/advanced-sed.html</loc>
+    <lastmod>2018-09-28T02:28:42.678Z</lastmod>
+    <data>
+        <display>
+        <title>Advanced-sed：n，N，d，D，p，P，b, T,t,h，H，g，G，x,y</title>
+        <pubTime>2015-12-25T13:24:52.000Z</pubTime>
+        
+        <tag>sed</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://tiramisutes.github.io/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/07/25/Cufflinks.html</loc>
+    <lastmod>2017-11-05T03:11:25.560Z</lastmod>
+    <data>
+        <display>
+        <title>转录组分析之--Cufflinks（很简单）</title>
+        <pubTime>2015-07-25T09:31:08.000Z</pubTime>
+        
+        <tag>Cufflinks</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/03/15/dplyr.html</loc>
+    <lastmod>2017-07-14T02:04:34.004Z</lastmod>
+    <data>
+        <display>
+        <title>R数据整形术之 dplyr</title>
+        <pubTime>2016-03-15T13:10:33.000Z</pubTime>
+        
+        <tag>dplyr</tag>
+         
+         
+           
+             
+              <breadCrumb title="R" url="http://tiramisutes.github.io/categories/R/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/10/01/table-join.html</loc>
+    <lastmod>2017-05-21T08:43:16.383Z</lastmod>
+    <data>
+        <display>
+        <title>table按条件合并</title>
+        <pubTime>2016-10-01T07:10:29.000Z</pubTime>
+        
+        <tag>shell</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://tiramisutes.github.io/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/11/29/cut.html</loc>
+    <lastmod>2017-04-18T02:55:06.540Z</lastmod>
+    <data>
+        <display>
+        <title>Linux常用命令之cut</title>
+        <pubTime>2015-11-29T06:55:55.000Z</pubTime>
+        
+        <tag>cut</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://tiramisutes.github.io/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/07/28/Linux-backup.html</loc>
+    <lastmod>2017-04-03T09:26:22.833Z</lastmod>
+    <data>
+        <display>
+        <title>Linux和windows定时备份数据到百度云盘</title>
+        <pubTime>2015-07-28T14:22:09.000Z</pubTime>
+        
+        <tag>Linux_backup</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://tiramisutes.github.io/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/11/08/fa-length.html</loc>
+    <lastmod>2016-12-07T11:37:01.000Z</lastmod>
+    <data>
+        <display>
+        <title>批量求fasta格式序列长度</title>
+        <pubTime>2015-11-08T14:14:22.000Z</pubTime>
+        
+        <tag>fa_length</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://tiramisutes.github.io/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/11/08/R-fun.html</loc>
+    <lastmod>2016-11-04T11:57:37.000Z</lastmod>
+    <data>
+        <display>
+        <title>R中的基础函数</title>
+        <pubTime>2015-11-08T08:53:00.000Z</pubTime>
+        
+        <tag>function</tag>
+         
+         
+           
+             
+              <breadCrumb title="R" url="http://tiramisutes.github.io/categories/R/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/04/01/Summary-Statistics.html</loc>
+    <lastmod>2016-10-26T09:49:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>Analyzing Data</title>
+        <pubTime>2016-04-01T06:17:34.000Z</pubTime>
+        
+        <tag>Statistics</tag>
+         
+         
+           
+             
+              <breadCrumb title="R" url="http://tiramisutes.github.io/categories/R/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/10/01/table-stats.html</loc>
+    <lastmod>2016-10-13T15:27:01.000Z</lastmod>
+    <data>
+        <display>
+        <title>awk对table的统计计算</title>
+        <pubTime>2016-10-01T09:28:19.000Z</pubTime>
+        
+        <tag>shell</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://tiramisutes.github.io/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/10/06/new-ggplot2-2-2-0.html</loc>
+    <lastmod>2016-10-06T07:02:46.000Z</lastmod>
+    <data>
+        <display>
+        <title>ggplot2 2.2.0更新简要</title>
+        <pubTime>2016-10-06T05:04:09.000Z</pubTime>
+        
+        <tag>ggplot2</tag>
+         
+         
+           
+             
+              <breadCrumb title="R" url="http://tiramisutes.github.io/categories/R/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/10/01/seq-num.html</loc>
+    <lastmod>2016-10-01T09:25:35.000Z</lastmod>
+    <data>
+        <display>
+        <title>命令行生成数列：{}和seq</title>
+        <pubTime>2016-10-01T08:59:45.000Z</pubTime>
+        
+        <tag>shell</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://tiramisutes.github.io/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/10/01/table-trans.html</loc>
+    <lastmod>2016-10-01T08:51:21.000Z</lastmod>
+    <data>
+        <display>
+        <title>文本的转置</title>
+        <pubTime>2016-10-01T08:23:39.000Z</pubTime>
+        
+        <tag>shell</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://tiramisutes.github.io/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/08/18/perl-one-lines-III.html</loc>
+    <lastmod>2016-10-01T08:24:26.000Z</lastmod>
+    <data>
+        <display>
+        <title>Perl,awk,sed One-Liners Explained, Part III： Selective Printing and Deleting of Certain Lines</title>
+        <pubTime>2016-08-18T08:08:20.000Z</pubTime>
+        
+        <tag>One-Liners</tag>
+         
+         
+           
+             
+              <breadCrumb title="Perl" url="http://tiramisutes.github.io/categories/Perl/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/10/01/table-add.html</loc>
+    <lastmod>2016-10-01T07:54:27.000Z</lastmod>
+    <data>
+        <display>
+        <title>添加系列表头的多种方法</title>
+        <pubTime>2016-10-01T02:05:31.000Z</pubTime>
+        
+        <tag>shell</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://tiramisutes.github.io/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/09/21/vim.html</loc>
+    <lastmod>2016-09-21T14:34:04.000Z</lastmod>
+    <data>
+        <display>
+        <title>vim编辑器个性化配置总结</title>
+        <pubTime>2016-09-21T08:16:31.000Z</pubTime>
+        
+        <tag>vim</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://tiramisutes.github.io/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/08/31/Awk-Regular-Expressions.html</loc>
+    <lastmod>2016-09-02T13:59:50.000Z</lastmod>
+    <data>
+        <display>
+        <title>Awk Regular Expressions</title>
+        <pubTime>2016-08-31T15:25:51.000Z</pubTime>
+        
+        <tag>awk</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://tiramisutes.github.io/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/08/11/awk-forward.html</loc>
+    <lastmod>2016-09-01T03:15:19.000Z</lastmod>
+    <data>
+        <display>
+        <title>awk 匹配与取反，命令行传递参数</title>
+        <pubTime>2016-08-11T10:40:40.000Z</pubTime>
+        
+        <tag>awk</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://tiramisutes.github.io/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/08/13/perl-one-lines-I.html</loc>
+    <lastmod>2016-08-24T06:49:20.000Z</lastmod>
+    <data>
+        <display>
+        <title>Perl, awk, sed One-Liners Explained, Part I： File Spacing, Numbering and Calculations</title>
+        <pubTime>2016-08-13T11:06:55.000Z</pubTime>
+        
+        <tag>One-Liners</tag>
+         
+         
+           
+             
+              <breadCrumb title="Perl" url="http://tiramisutes.github.io/categories/Perl/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/08/18/perl-one-lines-II.html</loc>
+    <lastmod>2016-08-18T08:09:52.000Z</lastmod>
+    <data>
+        <display>
+        <title>Perl,awk,sed One-Liners Explained, Part II： Text Conversion and Substitution</title>
+        <pubTime>2016-08-18T03:02:20.000Z</pubTime>
+        
+        <tag>One-Liners</tag>
+         
+         
+           
+             
+              <breadCrumb title="Perl" url="http://tiramisutes.github.io/categories/Perl/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/08/11/XML-Simple.html</loc>
+    <lastmod>2016-08-11T10:27:21.000Z</lastmod>
+    <data>
+        <display>
+        <title>Linux下XML::Simple无root权限安装</title>
+        <pubTime>2016-08-11T06:32:51.000Z</pubTime>
+        
+        <tag>XML::Simple</tag>
+         
+         
+           
+             
+              <breadCrumb title="Perl" url="http://tiramisutes.github.io/categories/Perl/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/01/29/ncRNA.html</loc>
+    <lastmod>2016-06-12T02:42:16.000Z</lastmod>
+    <data>
+        <display>
+        <title>Noncoding RNAs (ncRNAs)</title>
+        <pubTime>2016-01-29T02:29:16.000Z</pubTime>
+        
+        <tag>ncRNA</tag>
+         
+         
+           
+             
+              <breadCrumb title="molecular biology" url="http://tiramisutes.github.io/categories/molecular-biology/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/06/04/GCC.html</loc>
+    <lastmod>2016-06-04T07:22:18.000Z</lastmod>
+    <data>
+        <display>
+        <title>非Root用户编译安装GCC</title>
+        <pubTime>2016-06-04T01:08:22.000Z</pubTime>
+        
+        <tag>linux-gcc</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://tiramisutes.github.io/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/05/31/linux-java-error.html</loc>
+    <lastmod>2016-05-31T11:28:16.000Z</lastmod>
+    <data>
+        <display>
+        <title>linux下java安装和运行报错</title>
+        <pubTime>2016-05-31T11:08:12.000Z</pubTime>
+        
+        <tag>linux-java</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/03/22/SQLite.html</loc>
+    <lastmod>2016-03-23T06:00:50.000Z</lastmod>
+    <data>
+        <display>
+        <title>SQLite数据库简单操作</title>
+        <pubTime>2016-03-22T05:43:04.000Z</pubTime>
+        
+        <tag>SQLite</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/03/21/find-rm.html</loc>
+    <lastmod>2016-03-21T05:05:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>Linux中如何正确删除：find-rm</title>
+        <pubTime>2016-03-21T04:18:46.000Z</pubTime>
+        
+        <tag>find-rm</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://tiramisutes.github.io/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/11/29/find.html</loc>
+    <lastmod>2016-03-21T04:17:01.000Z</lastmod>
+    <data>
+        <display>
+        <title>Linux常用命令之find</title>
+        <pubTime>2015-11-29T07:14:58.000Z</pubTime>
+        
+        <tag>find</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://tiramisutes.github.io/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2016/03/09/tidyr.html</loc>
+    <lastmod>2016-03-09T13:26:56.000Z</lastmod>
+    <data>
+        <display>
+        <title>R数据整形术之 tidyr</title>
+        <pubTime>2016-03-09T13:07:46.000Z</pubTime>
+        
+        <tag>tidyr</tag>
+         
+         
+           
+             
+              <breadCrumb title="R" url="http://tiramisutes.github.io/categories/R/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/07/29/resequencing.html</loc>
+    <lastmod>2016-01-07T02:45:21.000Z</lastmod>
+    <data>
+        <display>
+        <title>全基因组重测序数据分析(Whole genomr Resequencing Analysis)</title>
+        <pubTime>2015-07-29T04:56:57.000Z</pubTime>
+        
+        <tag>resequencing</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/12/27/awk-shili.html</loc>
+    <lastmod>2015-12-27T08:10:48.000Z</lastmod>
+    <data>
+        <display>
+        <title>Awk经典实例总结</title>
+        <pubTime>2015-12-27T05:09:47.000Z</pubTime>
+        
+        <tag>awk</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://tiramisutes.github.io/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/07/28/awk.html</loc>
+    <lastmod>2015-12-27T07:15:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>awk 不排序删除重复行</title>
+        <pubTime>2015-07-28T14:42:17.000Z</pubTime>
+        
+        <tag>awk</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://tiramisutes.github.io/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/12/26/sed-s.html</loc>
+    <lastmod>2015-12-26T15:01:44.000Z</lastmod>
+    <data>
+        <display>
+        <title>sed中那些特殊的替换</title>
+        <pubTime>2015-12-26T14:39:28.000Z</pubTime>
+        
+        <tag>sed</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://tiramisutes.github.io/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/12/08/perl-oneline.html</loc>
+    <lastmod>2015-12-25T13:27:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>perl-oneline</title>
+        <pubTime>2015-12-08T06:40:52.000Z</pubTime>
+        
+        <tag>perl</tag>
+         
+         
+           
+             
+              <breadCrumb title="Perl" url="http://tiramisutes.github.io/categories/Perl/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/11/25/gene-isoforms.html</loc>
+    <lastmod>2015-12-01T05:20:50.000Z</lastmod>
+    <data>
+        <display>
+        <title>Genes and Isoforms</title>
+        <pubTime>2015-11-25T11:44:00.000Z</pubTime>
+        
+        <tag>Glossary</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/11/27/python-install.html</loc>
+    <lastmod>2015-11-28T02:38:30.000Z</lastmod>
+    <data>
+        <display>
+        <title>python模块安装--无root权限（easy_install和pip）</title>
+        <pubTime>2015-11-27T05:17:35.000Z</pubTime>
+        
+        <tag>module install</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://tiramisutes.github.io/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/11/11/pca-f-c.html</loc>
+    <lastmod>2015-11-11T15:18:32.000Z</lastmod>
+    <data>
+        <display>
+        <title>主成份分析、因子分析和聚类分析的异同点</title>
+        <pubTime>2015-11-11T13:33:50.000Z</pubTime>
+        
+        <tag>statistics</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/09/21/ggplot2-error-bars.html</loc>
+    <lastmod>2015-10-09T02:33:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>ggplot2 error bars (finished)-Quick start guide - R software and data visualization</title>
+        <pubTime>2015-09-21T05:13:36.000Z</pubTime>
+        
+        <tag>error_bars</tag>
+         
+         
+           
+             
+              <breadCrumb title="R" url="http://tiramisutes.github.io/categories/R/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/10/05/statistics.html</loc>
+    <lastmod>2015-10-05T11:50:53.000Z</lastmod>
+    <data>
+        <display>
+        <title>R中分组统计函数</title>
+        <pubTime>2015-10-05T11:37:27.000Z</pubTime>
+        
+        <tag>statistics</tag>
+         
+         
+           
+             
+              <breadCrumb title="R" url="http://tiramisutes.github.io/categories/R/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/10/03/multiple-R.html</loc>
+    <lastmod>2015-10-03T06:31:47.000Z</lastmod>
+    <data>
+        <display>
+        <title>Mix multiple graphs on the same page</title>
+        <pubTime>2015-10-03T03:23:52.000Z</pubTime>
+        
+        <tag>multiple</tag>
+         
+         
+           
+             
+              <breadCrumb title="R" url="http://tiramisutes.github.io/categories/R/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/09/21/line-ggplots.html</loc>
+    <lastmod>2015-09-26T01:22:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>quick start guide of ggplot2 line plot  - R software and data visualization</title>
+        <pubTime>2015-09-21T06:29:22.000Z</pubTime>
+        
+        <tag>error_bars</tag>
+         
+         
+           
+             
+              <breadCrumb title="R" url="http://tiramisutes.github.io/categories/R/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/08/22/etc.html</loc>
+    <lastmod>2015-08-22T09:16:50.000Z</lastmod>
+    <data>
+        <display>
+        <title>Linux环境变量</title>
+        <pubTime>2015-08-22T08:23:25.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://tiramisutes.github.io/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/07/29/perl-diff.html</loc>
+    <lastmod>2015-07-29T14:41:30.000Z</lastmod>
+    <data>
+        <display>
+        <title>用于比较两个文件不同的行差集</title>
+        <pubTime>2015-07-29T14:39:49.000Z</pubTime>
+        
+        <tag>perl_diff</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/07/24/hello-world.html</loc>
+    <lastmod>2015-07-29T14:25:48.000Z</lastmod>
+    <data>
+        <display>
+        <title>Hello World</title>
+        <pubTime>2015-07-24T14:03:30.000Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="Hexo" url="http://tiramisutes.github.io/categories/Hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/07/29/perl.html</loc>
+    <lastmod>2015-07-29T05:57:02.000Z</lastmod>
+    <data>
+        <display>
+        <title>根据一个ID列表文件从一个fasta文件里面挑取符合要求的序列</title>
+        <pubTime>2015-07-29T05:53:40.000Z</pubTime>
+        
+        <tag>perl</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/07/25/Linux-sort.html</loc>
+    <lastmod>2015-07-28T14:39:54.000Z</lastmod>
+    <data>
+        <display>
+        <title>Linux-sort</title>
+        <pubTime>2015-07-25T06:21:10.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://tiramisutes.github.io/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/07/25/TopHat.html</loc>
+    <lastmod>2015-07-25T11:45:27.000Z</lastmod>
+    <data>
+        <display>
+        <title>TopHat</title>
+        <pubTime>2015-07-25T09:30:52.000Z</pubTime>
+        
+        <tag>tophat</tag>
+         
+         
+           
+             
+              <breadCrumb title="Bioinformatics" url="http://tiramisutes.github.io/categories/Bioinformatics/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://tiramisutes.github.io/2015/07/24/20-Unix-Command.html</loc>
+    <lastmod>2015-07-25T06:16:23.000Z</lastmod>
+    <data>
+        <display>
+        <title>20 Unix Command Line Tricks</title>
+        <pubTime>2015-07-24T14:03:30.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://tiramisutes.github.io/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</urlset>

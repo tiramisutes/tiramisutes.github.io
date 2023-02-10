@@ -1,0 +1,2121 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=66189719" charset="UTF-8"></script>
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"/>
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/han.min.css"/>
+
+
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+
+
+  <meta name="google-site-verification" content="b12Zu40L63PLgCtcn0IW8KCNRolmyQlaF22tf4rRLEg"/>
+
+
+
+  <meta name="msvalidate.01" content="74A687E04D4EF9914B7AA20824207409"/>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="https://fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"/>
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/small_favicon.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/favicon.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":true,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="RNA-seq 分析是我当年入门生信的敲门砖，有参/无参的分析，当然还有现在升级的基于PacBio全长转录组的Illumina RNA-seq分析；测序样本的重复性很重要，但总是能接到一些无重复的样本，对于他们的分析就没有像三次重复那么的顺手和多选择；">
+<meta name="keywords" content="RNA-seq">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搭PacBio全长转录组便车的无重复样本RNA-seq分析">
+<meta property="og:url" content="http://tiramisutes.github.io/2018/07/02/No-Rep-RNA-seq.html">
+<meta property="og:site_name" content="hope">
+<meta property="og:description" content="RNA-seq 分析是我当年入门生信的敲门砖，有参/无参的分析，当然还有现在升级的基于PacBio全长转录组的Illumina RNA-seq分析；测序样本的重复性很重要，但总是能接到一些无重复的样本，对于他们的分析就没有像三次重复那么的顺手和多选择；">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/rnaseq-experiment-design.jpg">
+<meta property="og:updated_time" content="2019-03-10T03:47:29.189Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="搭PacBio全长转录组便车的无重复样本RNA-seq分析">
+<meta name="twitter:description" content="RNA-seq 分析是我当年入门生信的敲门砖，有参/无参的分析，当然还有现在升级的基于PacBio全长转录组的Illumina RNA-seq分析；测序样本的重复性很重要，但总是能接到一些无重复的样本，对于他们的分析就没有像三次重复那么的顺手和多选择；">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/rnaseq-experiment-design.jpg">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="hope" type="application/atom+xml"/>
+
+
+
+
+  <link rel="canonical" href="http://tiramisutes.github.io/2018/07/02/No-Rep-RNA-seq.html"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>搭PacBio全长转录组便车的无重复样本RNA-seq分析 | hope</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?08b17c69c7ba460d9ab5f188a048ee6d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">hope</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">A new day is coming,whether we like it or not. The question is will you control it,or will it control you?</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-code">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/code/" rel="section"><i class="menu-item-icon fa fa-fw fa-code"></i> <br/>Code</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-footprint">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/footprint/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br/>Footprint</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-qrt-pcr">
+
+    
+    
+    
+      
+    
+
+    
+
+    <span class="exturl" data-url="aHR0cHM6Ly9paG9wZS5zaGlueWFwcHMuaW8vcVJULVBDUi1QaXBlbGluZS8="><i class="menu-item-icon fa fa-fw fa-cloud"></i> <br/>qRT-PCR</span>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-project">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/project/" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br/>Project</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-publish">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/publish/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br/>Publish</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sci-figure">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/SCIFigure/" rel="section"><i class="menu-item-icon fa fa-fw fa-angellist"></i> <br/>SCI Figure</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-cv">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/resume/" rel="section"><i class="menu-item-icon fa fa-fw fa-address-card"></i> <br/>CV</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tiramisutes.github.io/2018/07/02/No-Rep-RNA-seq.html"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tiramisutes"/>
+      <meta itemprop="description" content="hope bioinformatics blog"/>
+      <meta itemprop="image" content="/images/author.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hope"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">搭PacBio全长转录组便车的无重复样本RNA-seq分析
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-07-02 12:36:32" itemprop="dateCreated datePublished" datetime="2018-07-02T12:36:32+08:00">2018-07-02</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Bioinformatics/" itemprop="url" rel="index"><span itemprop="name">Bioinformatics</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2018/07/02/No-Rep-RNA-seq.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/07/02/No-Rep-RNA-seq.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2018/07/02/No-Rep-RNA-seq.html" class="leancloud_visitors" data-flag-title="搭PacBio全长转录组便车的无重复样本RNA-seq分析">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+                <span>℃</span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article: </span>
+                
+                <span title="Words count in article"></span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time"></span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/rnaseq-experiment-design.jpg" alt=""><br>RNA-seq 分析是我当年入门生信的敲门砖，有参/无参的分析，当然还有现在升级的基于PacBio全长转录组的Illumina RNA-seq分析；<br>测序样本的重复性很重要，但总是能接到一些无重复的样本，对于他们的分析就没有像三次重复那么的顺手和多选择；<br><a id="more"></a></p>
+<h2 id="零、输入数据">零、输入数据</h2><p>输入数据通常为count结果，很多工具可以用于生成此counts table 文件，</p>
+<ul>
+<li>[x] 如基于基因组比对的htseq-count;</li>
+<li>[x] 基于全基因组的转录组结果的<ul>
+<li><span class="exturl" data-url="aHR0cDovL2NvbWJpbmUtbGFiLmdpdGh1Yi5pby9zYWxtb24v" title="http://combine-lab.github.io/salmon/">Salmon<i class="fa fa-external-link"></i></span> <span class="citation">(Patro et al. 2017)</span></li>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy5jcy5jbXUuZWR1L35ja2luZ3NmL3NvZnR3YXJlL3NhaWxmaXNoLw==" title="http://www.cs.cmu.edu/~ckingsf/software/sailfish/">Sailfish<i class="fa fa-external-link"></i></span> <span class="citation">(Patro, Mount, and Kingsford 2014)</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9wYWNodGVybGFiLmdpdGh1Yi5pby9rYWxsaXN0by9hYm91dC5odG1s" title="https://pachterlab.github.io/kallisto/about.html">kallisto<i class="fa fa-external-link"></i></span> <span class="citation">(Bray et al. 2016)</span></li>
+<li><span class="exturl" data-url="aHR0cDovL2Rld2V5bGFiLmdpdGh1Yi5pby9SU0VNLw==" title="http://deweylab.github.io/RSEM/">RSEM<i class="fa fa-external-link"></i></span> <span class="citation">(Li and Dewey 2011)</span></li>
+</ul>
+</li>
+</ul>
+<p>上述软件通常第一步即对全转录组建立索引文件👇</p>
+<h3 id="获取转录组">获取转录组</h3><p>For this example, we’ll be analyzing some Arabidopsis thaliana data, so we’ll download and index the A. thaliana transcriptome.<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl ftp:<span class="regexp">//</span>ftp.ensemblgenomes.org<span class="regexp">/pub/</span>plants<span class="regexp">/release-28/</span>fasta<span class="regexp">/arabidopsis_thaliana/</span>cdna<span class="regexp">/Arabidopsis_thaliana.TAIR10.28.cdna.all.fa.gz -o athal.fa.gz</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="建立索引">建立索引</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">salmon index -t athal<span class="selector-class">.fa</span><span class="selector-class">.gz</span> -<span class="selector-tag">i</span> athal_index</span><br></pre></td></tr></table></figure>
+<h3 id="定量基因表达情况">定量基因表达情况</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">for</span> fn <span class="keyword">in</span> data/DRR0161&#123;25..40&#125;;</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">samp=`basename <span class="variable">$&#123;fn&#125;</span>`</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Processing sample <span class="variable">$&#123;samp&#125;</span>"</span></span><br><span class="line">salmon quant -i athal_index -l A \</span><br><span class="line">         -1 <span class="variable">$&#123;fn&#125;</span>/<span class="variable">$&#123;samp&#125;</span>_1.fastq.gz \</span><br><span class="line">         -2 <span class="variable">$&#123;fn&#125;</span>/<span class="variable">$&#123;samp&#125;</span>_2.fastq.gz \</span><br><span class="line">         -p 8 -o quants/<span class="variable">$&#123;samp&#125;</span>_quant</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<h3 id="后续差异基因分析">后续差异基因分析</h3><p>Once you have your quantification results you can use them for downstream analysis with differential expression tools like DESeq2, edgeR, limma, or sleuth. Using the tximport package, you can import salmon’s transcript-level quantifications and optionally aggregate them to the gene level for gene-level differential expression analysis. You can read more about how to import salmon’s results into DESeq2 by reading the tximport section of the excellent DESeq2 vignette. For instructions on importing for use with edgeR or limma, see the tximport vignette. For preparing salmon output for use with sleuth, see the wasabi package.</p>
+<p>==<strong>首选 DESeq 的方法；</strong>==</p>
+<h2 id="一、Analysing_no_replicate_RNA-seq_data_with_LPEseq_package">一、<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0p1bmdzb29HSU0vTFBFc2Vx" title="https://github.com/JungsooGIM/LPEseq">Analysing no replicate RNA-seq data with LPEseq package<i class="fa fa-external-link"></i></span></h2><blockquote>
+<p>LPEseq was designed for the RNA-Seq data with a small number of replicates, especially with non-replicate in each class. Also LPEseq can be equally applied both count-base and FPKM-based (non-count values) input data. </p>
+</blockquote>
+<h2 id="二、IsoEM2">二、<span class="exturl" data-url="aHR0cHM6Ly9kbmEuZW5nci51Y29ubi5lZHUvP3BhZ2VfaWQ9MTA1" title="https://dna.engr.uconn.edu/?page_id=105">IsoEM2<i class="fa fa-external-link"></i></span></h2><h2 id="三、edgeR">三、<span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlvY29uZHVjdG9yLm9yZy9wYWNrYWdlcy9yZWxlYXNlL2Jpb2MvdmlnbmV0dGVzL2VkZ2VSL2luc3QvZG9jL2VkZ2VSVXNlcnNHdWlkZS5wZGY=" title="https://www.bioconductor.org/packages/release/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf">edgeR<i class="fa fa-external-link"></i></span></h2><blockquote>
+<p> The quasi-likelihood method is highly recommended for differential expression analyses of bulk RNA-seq data as it gives stricter error rate control by accounting for the uncertainty in dispersion estimation. The likelihood ratio test can be useful in some special cases such as single cell RNA-seq and datasets with no replicates.</p>
+</blockquote>
+<h2 id="四、NOISeq:_Differential_Expression_in_RNA-seq">四、<span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlvY29uZHVjdG9yLm9yZy9wYWNrYWdlcy9yZWxlYXNlL2Jpb2MvdmlnbmV0dGVzL05PSVNlcS9pbnN0L2RvYy9OT0lTZXEucGRm" title="https://www.bioconductor.org/packages/release/bioc/vignettes/NOISeq/inst/doc/NOISeq.pdf">NOISeq: Differential Expression in RNA-seq<i class="fa fa-external-link"></i></span></h2><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">library(NOISeq)</span><br><span class="line">dat &lt;- read.csv(<span class="string">"/public/home/zpxu/hulisong/results/kallisto/All.tpm.csv"</span>,row.<span class="attr">names=1)</span></span><br><span class="line">mycounts &lt;- read.csv(<span class="string">"/public/home/zpxu/hulisong/results/kallisto/All.counts.csv"</span>,row.<span class="attr">names=1)</span></span><br><span class="line">myfactors &lt;- read.table(<span class="string">"/public/home/zpxu/hulisong/scripts/3sleuth_info.txt"</span>,<span class="attr">header=T)</span></span><br><span class="line">mydata &lt;- readData(<span class="attr">data</span> = mycounts, <span class="attr">factors</span> = myfactors)</span><br><span class="line">str(mydata)</span><br><span class="line">head(assayData(mydata)$exprs)</span><br><span class="line">head(pData(mydata))</span><br><span class="line">head(featureData(mydata)@data)</span><br><span class="line"></span><br><span class="line"><span class="attr">mycountsbio</span> = dat(mydata, <span class="attr">factor</span> = NULL, <span class="attr">type</span> = <span class="string">"countsbio"</span>)</span><br><span class="line">explo.plot(mycountsbio, <span class="attr">toplot</span> = <span class="number">1</span>, <span class="attr">samples</span> = <span class="number">1</span>, <span class="attr">plottype</span> = <span class="string">"boxplot"</span>)</span><br><span class="line"><span class="attr">mysaturation</span> = dat(mydata, <span class="attr">k</span> = <span class="number">0</span>, <span class="attr">ndepth</span> = <span class="number">7</span>, <span class="attr">type</span> = <span class="string">"saturation"</span>)</span><br><span class="line">explo.plot(mysaturation, <span class="attr">toplot</span> = <span class="number">1</span>, <span class="attr">samples</span> = <span class="number">1</span>:<span class="number">2</span>, <span class="attr">yleftlim</span> = NULL, <span class="attr">yrightlim</span> = NULL)</span><br><span class="line">explo.plot(mycountsbio, <span class="attr">toplot</span> = <span class="number">1</span>, <span class="attr">samples</span> = NULL, <span class="attr">plottype</span> = <span class="string">"barplot"</span>)</span><br><span class="line"><span class="attr">mycd</span> = dat(mydata, <span class="attr">type</span> = <span class="string">"cd"</span>, <span class="attr">norm</span> = FALSE, <span class="attr">refColumn</span> = <span class="number">1</span>)</span><br><span class="line"><span class="comment">## Normalization</span></span><br><span class="line"><span class="comment">## Differential expression: no replicates available</span></span><br><span class="line">myresults &lt;- noiseq(mydata, <span class="attr">factor</span> = <span class="string">"condition"</span>,<span class="attr">conditions</span> = c(<span class="string">"H0"</span>, <span class="string">"H1"</span>), <span class="attr">k</span> = NULL, <span class="attr">norm</span> = <span class="string">"n"</span>, <span class="attr">pnr</span> = <span class="number">0.2</span>,<span class="attr">nss</span> = <span class="number">5</span>, <span class="attr">v</span> = <span class="number">0.02</span>, <span class="attr">lc</span> = <span class="number">1</span>, <span class="attr">replicates</span> = <span class="string">"no"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">head(myresults@results[[<span class="number">1</span>]])</span><br><span class="line">mynoiseq.<span class="attr">deg</span> = degenes(myresults, <span class="attr">q</span> = <span class="number">0.95</span>, <span class="attr">M</span> = NULL)</span><br><span class="line">mynoiseq.<span class="attr">deg1</span> = degenes(myresults, <span class="attr">q</span> = <span class="number">0.95</span>, <span class="attr">M</span> = <span class="string">"up"</span>)</span><br><span class="line">mynoiseq.<span class="attr">deg2</span> = degenes(myresults, <span class="attr">q</span> = <span class="number">0.95</span>, <span class="attr">M</span> = <span class="string">"down"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">DE.plot(myresults, <span class="attr">q</span> = <span class="number">0.95</span>, <span class="attr">graphic</span> = <span class="string">"expr"</span>, log.<span class="attr">scale</span> = TRUE)</span><br><span class="line">DE.plot(myresults, <span class="attr">q</span> = <span class="number">0.95</span>, <span class="attr">graphic</span> = <span class="string">"MD"</span>)</span><br><span class="line">DE.plot(myresults, <span class="attr">chromosomes</span> = c(<span class="number">1</span>, <span class="number">2</span>), log.<span class="attr">scale</span> = TRUE, <span class="attr">join</span> = FALSE,<span class="attr">q</span> = <span class="number">0.95</span>, <span class="attr">graphic</span> = <span class="string">"chrom"</span>)</span><br></pre></td></tr></table></figure>
+<p>If NOISeq-sim has been used because no replicates are available, then it is preferable to use a higher threshold such as q = 0.9</p>
+<h2 id="五、DESeq2">五、<span class="exturl" data-url="aHR0cHM6Ly9iaW9jb25kdWN0b3Iub3JnL3BhY2thZ2VzL3JlbGVhc2UvYmlvYy92aWduZXR0ZXMvREVTZXEyL2luc3QvZG9jL0RFU2VxMi5odG1sI2lucHV0LWRhdGE=" title="https://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#input-data">DESeq2<i class="fa fa-external-link"></i></span></h2><p><span class="exturl" data-url="aHR0cHM6Ly9iaW9jb25kdWN0b3Iub3JnL3BhY2thZ2VzL3JlbGVhc2UvYmlvYy92aWduZXR0ZXMvREVTZXEyL2luc3QvZG9jL0RFU2VxMi5odG1sI2Nhbi1pLXVzZS1kZXNlcTItdG8tYW5hbHl6ZS1hLWRhdGFzZXQtd2l0aG91dC1yZXBsaWNhdGVz" title="https://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#can-i-use-deseq2-to-analyze-a-dataset-without-replicates">Can I use DESeq2 to analyze a dataset without replicates?<i class="fa fa-external-link"></i></span> 和 <span class="exturl" data-url="aHR0cHM6Ly9zdXBwb3J0LmJpb2NvbmR1Y3Rvci5vcmcvcC83NzYyMy8=" title="https://support.bioconductor.org/p/77623/">Question: Deseq2 for RNAseq experiments without replicates<i class="fa fa-external-link"></i></span></p>
+<blockquote>
+<p>For an experiment without replicates, you should just run DESeq() as normal.</p>
+</blockquote>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">library(DESeq2)</span><br><span class="line">raw_count &lt;- read.csv(<span class="string">"/public/home/zpxu/hulisong/results/kallisto/All.counts.csv"</span>, header=TRUE, row.names=<span class="number">1</span>)</span><br><span class="line">## <span class="number">4</span>舍<span class="number">5</span>入</span><br><span class="line">countdata1 &lt;- round(raw_count) </span><br><span class="line">head(countdata1)</span><br><span class="line">## 去掉整行是<span class="number">0</span>的行</span><br><span class="line">all &lt;- apply(countdata1, <span class="number">1</span>, function(x) all(x==<span class="number">0</span>) )</span><br><span class="line">newdata &lt;- countdata1[!all,]</span><br><span class="line">head (newdata)</span><br><span class="line">## 筛选行总和大于<span class="number">200</span>的行</span><br><span class="line">dat &lt;- newdata[rowSums(newdata &gt; <span class="number">200</span>) &gt;= <span class="number">1</span>,]</span><br><span class="line">countdata &lt;- <span class="keyword">as</span>.matrix(dat)</span><br><span class="line">head(countdata)</span><br><span class="line">## </span><br><span class="line">countData&lt;-countdata[,c(<span class="string">"controlH_1"</span>,<span class="string">"treatH1_1"</span>)]</span><br><span class="line">myfactors &lt;- read.table(<span class="string">"/public/home/zpxu/hulisong/scripts/count_sleuth_info.txt"</span>,header=T)</span><br><span class="line">myfactors</span><br><span class="line">## 根据需要比较的样本筛选出相应的行</span><br><span class="line">colData &lt;- myfactors[c(<span class="number">1</span>,<span class="number">3</span>),]</span><br><span class="line">#colData &lt;- myfactors[which((myfactors$condition==<span class="string">"H0"</span>)|(myfactors$sample==<span class="string">"H1"</span>)),]</span><br><span class="line">dds &lt;- DESeqDataSetFromMatrix(</span><br><span class="line">       countData = countData,</span><br><span class="line">       colData = colData,</span><br><span class="line">       design = ~ condition)</span><br><span class="line">colData(dds)$condition &lt;- factor(colData(dds)$condition,levels=c(<span class="string">"H0"</span>,<span class="string">"H1"</span>))</span><br><span class="line">dds</span><br><span class="line">dds &lt;- DESeq(dds)</span><br><span class="line">res &lt;- results(dds)</span><br><span class="line">res &lt;- res[order(res$padj),]</span><br><span class="line">head(res)</span><br><span class="line">sum(res$padj &lt; <span class="number">0.1</span>, na.rm=TRUE)</span><br><span class="line">res05 &lt;- results(dds, alpha=<span class="number">0.05</span>)</span><br><span class="line">summary(res05)</span><br><span class="line">sum(res05$padj &lt; <span class="number">0.05</span>, na.rm=TRUE)</span><br></pre></td></tr></table></figure>
+<p>或者利用 <span class="exturl" data-url="aHR0cDovL2Jpb2NvbmR1Y3Rvci5vcmcvcGFja2FnZXMvcmVsZWFzZS9iaW9jL3ZpZ25ldHRlcy90eGltcG9ydC9pbnN0L2RvYy90eGltcG9ydC5odG1sI2thbGxpc3RvLXdpdGgtdHN2LWZpbGVz" title="http://bioconductor.org/packages/release/bioc/vignettes/tximport/inst/doc/tximport.html#kallisto-with-tsv-files">tximport<i class="fa fa-external-link"></i></span>直接将多个kallisto结果文件abundance.tsv导入R中；</p>
+<p><strong>tximport 导入数据</strong><br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">library(<span class="string">"tximport"</span>)</span><br><span class="line">samples &lt;- read.table(<span class="string">"/public/home/zpxu/hulisong/scripts/count_sleuth_info.txt"</span>, header = <span class="literal">TRUE</span>)</span><br><span class="line">dir &lt;- <span class="string">"/public/home/zpxu/hulisong/results/kallisto"</span></span><br><span class="line">files &lt;- file.path(dir, samples<span class="variable">$sample</span>, <span class="string">"abundance.tsv"</span>)</span><br><span class="line">names(files) &lt;- samples<span class="variable">$sample</span></span><br><span class="line">txi.kallisto.tsv &lt;- tximport(files,<span class="built_in"> type </span>= <span class="string">"kallisto"</span>, <span class="attribute">txOut</span>=<span class="literal">TRUE</span>)</span><br><span class="line">head(txi.kallisto.tsv<span class="variable">$counts</span>)</span><br></pre></td></tr></table></figure></p>
+<p><strong>DESeq2 进行差异表达计算</strong><br><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">library(<span class="string">"DESeq2"</span>)</span><br><span class="line">head(txi.kallisto.tsv$counts)</span><br><span class="line">raw_count &lt;- txi.kallisto.tsv$counts</span><br><span class="line">countdata1 &lt;- round(raw_count) </span><br><span class="line">head(countdata1)</span><br><span class="line">## 去掉整行是<span class="number">0</span>的行</span><br><span class="line">all &lt;- apply(countdata1, <span class="number">1</span>, function(x) all(x==<span class="number">0</span>) )</span><br><span class="line">newdata &lt;- countdata1[!all,]</span><br><span class="line">head (newdata)</span><br><span class="line">## 筛选行总和大于<span class="number">200</span>的行</span><br><span class="line">dat &lt;- newdata[rowSums(newdata &gt; <span class="number">200</span>) &gt;= <span class="number">1</span>,]</span><br><span class="line">countdata &lt;- <span class="keyword">as</span>.matrix(dat)</span><br><span class="line">head(countdata)</span><br><span class="line">countData &lt;- countdata[,c(<span class="string">"controlH_1"</span>, <span class="string">"treatH1_1"</span>)]</span><br><span class="line">myfactors &lt;- read.table(<span class="string">"/public/home/zpxu/hulisong/scripts/count_sleuth_info.txt"</span>,header=T)</span><br><span class="line">myfactors</span><br><span class="line">## 根据需要比较的样本筛选出相应的行</span><br><span class="line">colData &lt;- myfactors[c(<span class="number">1</span>,<span class="number">3</span>),]</span><br><span class="line">dds &lt;- DESeqDataSetFromMatrix(</span><br><span class="line">       countData = countData,</span><br><span class="line">       colData = colData,</span><br><span class="line">       design = ~ condition)</span><br><span class="line">colData(dds)$condition &lt;- factor(colData(dds)$condition,levels=c(<span class="string">"H0"</span>,<span class="string">"H1"</span>))</span><br><span class="line">dds</span><br><span class="line">dds &lt;- DESeq(dds)</span><br><span class="line">res &lt;- results(dds)</span><br><span class="line">res &lt;- res[order(res$padj),]</span><br><span class="line">head(res)</span><br></pre></td></tr></table></figure></p>
+<h2 id="六、DESeq">六、<span class="exturl" data-url="aHR0cHM6Ly9iaW9jb25kdWN0b3Iub3JnL3BhY2thZ2VzL3JlbGVhc2UvYmlvYy92aWduZXR0ZXMvREVTZXEvaW5zdC9kb2MvREVTZXEucGRm" title="https://bioconductor.org/packages/release/bioc/vignettes/DESeq/inst/doc/DESeq.pdf">DESeq<i class="fa fa-external-link"></i></span></h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">library( <span class="string">"DESeq"</span> )</span><br><span class="line">raw_count &lt;- read.csv(<span class="string">"/public/home/zpxu/hulisong/results/kallisto/All.counts.csv"</span>, <span class="attribute">header</span>=<span class="literal">TRUE</span>, row.<span class="attribute">names</span>=1)</span><br><span class="line">head(raw_count)</span><br><span class="line">myfactors &lt;- read.table(<span class="string">"/public/home/zpxu/hulisong/scripts/count_sleuth_info.txt"</span>,<span class="attribute">header</span>=T)</span><br><span class="line">countdata1 &lt;- round(raw_count)</span><br><span class="line">head(countdata1)</span><br><span class="line">all &lt;- apply(countdata1, 1, function(x) all(<span class="attribute">x</span>==0) )</span><br><span class="line">newdata &lt;- countdata1[!all,]</span><br><span class="line">head (newdata)</span><br><span class="line">countdata &lt;- as.matrix(newdata)</span><br><span class="line">head(countdata)</span><br><span class="line">condition = myfactors<span class="variable">$sample</span></span><br><span class="line">cds = newCountDataSet( countdata, condition )</span><br><span class="line"><span class="comment">## Normalisation</span></span><br><span class="line">cds = estimateSizeFactors(cds)</span><br><span class="line">sizeFactors( cds )</span><br><span class="line">head( counts( cds, <span class="attribute">normalized</span>=<span class="literal">TRUE</span> ) )</span><br><span class="line"><span class="comment">## Calling differential expression</span></span><br><span class="line">cds2 = cds[ ,c( <span class="string">"controlH_1"</span>, <span class="string">"treatH1_1"</span> ) ]</span><br><span class="line"><span class="comment">## 无生物学重复选 method="blind"和sharingMode="fit-only"</span></span><br><span class="line">cds2 = estimateDispersions( cds2, <span class="attribute">method</span>=<span class="string">"blind"</span>, <span class="attribute">sharingMode</span>=<span class="string">"fit-only"</span> )</span><br><span class="line"><span class="comment">## 察看cds2中包含的 conditions，因为nbinomTest函数的第二和第三个参数输入的是cds2中所包含的conditions</span></span><br><span class="line">dispTable(cds2) </span><br><span class="line">res = nbinomTest( cds2, <span class="string">"controlH_1"</span>, <span class="string">"treatH1_1"</span> )</span><br><span class="line">plotMA(res)</span><br><span class="line">hist(res<span class="variable">$pval</span>, <span class="attribute">breaks</span>=100, <span class="attribute">col</span>=<span class="string">"skyblue"</span>, <span class="attribute">border</span>=<span class="string">"slateblue"</span>, <span class="attribute">main</span>=<span class="string">""</span>)</span><br><span class="line"><span class="comment">## 根据FDR筛选显著差异的基因</span></span><br><span class="line">resSig = res[ res<span class="variable">$padj</span> &lt; 0.05, ]</span><br><span class="line"><span class="comment">## 按照 P 值排序</span></span><br><span class="line">head( resSig[ order(resSig<span class="variable">$pval</span>), ] )</span><br><span class="line">SDE &lt;- resSig[ order(resSig<span class="variable">$pval</span>), ]</span><br><span class="line"><span class="comment">## The most strongly down-regulated of the significant genes</span></span><br><span class="line">head( resSig[ order( resSig<span class="variable">$foldChange</span>, -resSig<span class="variable">$baseMean</span> ), ] )</span><br><span class="line">SDE_down &lt;- resSig[ order( resSig<span class="variable">$foldChange</span>, -resSig<span class="variable">$baseMean</span> ), ]</span><br><span class="line"><span class="comment">## The most strongly up-regulated ones</span></span><br><span class="line">head( resSig[ order( -resSig<span class="variable">$foldChange</span>, -resSig<span class="variable">$baseMean</span> ), ] )</span><br><span class="line">SDE_up &lt;- resSig[ order( -resSig<span class="variable">$foldChange</span>, -resSig<span class="variable">$baseMean</span> ), ]</span><br><span class="line">write.csv( res, <span class="attribute">file</span>=<span class="string">"My Pasilla Analysis Result Table.csv"</span>)</span><br><span class="line">addmargins( table(res2_sig = res<span class="variable">$padj</span> &lt; 0.05 ) )</span><br></pre></td></tr></table></figure>
+<p>输出结果中 <strong>foldChange</strong> 和 <strong>log2FoldChange</strong> 列包含有 <code>Inf</code> 和 <code>-Inf</code>，根据 <span class="exturl" data-url="aHR0cDovL3NlcWFuc3dlcnMuY29tL2ZvcnVtcy9zaG93dGhyZWFkLnBocD90PTEzMDM3" title="http://seqanswers.com/forums/showthread.php?t=13037">Re-extracting refgene names after DESeq Analysis
+<i class="fa fa-external-link"></i></span> 解释，是因为同一个基因在样本A中count极端大，而在样本 B 中为零造成的；那么如何避免这种问题出现呢？根据 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlvc3RhcnMub3JnL3AvMTUzNjEzLw==" title="https://www.biostars.org/p/153613/">Question: Statistical question (Deseq, Cuffdis) when one condition is zero?<i class="fa fa-external-link"></i></span> 解释，通常做法是全部数据都加一个较小的数值，但这也一个较小的数值也会在 <strong>log2FoldChange</strong> 时被放大；</p>
+<blockquote>
+<p>A popular strategy to cope with zeros is to add a small number to all counts so that you avoid division by zero and at the same time you don’t bias the results (e.g. 1000:0 is reasonably equivalent to 1001:1). Having said that, this is an issue that bugs me sometime when interpreting fold change ratios since small numbers can have a large effect which is not consistent with the biological interpretation. For example, if you add 1 to all your counts you could get log2(1001/1)= 9.97; if instead you add 0.1(biologically the same, I would argue) you get log2(1000.1/0.1)= 13.29, which is a big difference.</p>
+</blockquote>
+<p>结果中存在 <code>NA</code> 的解释见 <span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlvc3RhcnMub3JnL3AvNjg4Njcv" title="https://www.biostars.org/p/68867/">Question: Deseq Infinite In Logfc And Na For P Value<i class="fa fa-external-link"></i></span> 和 <span class="exturl" data-url="aHR0cDovL3NlcWFuc3dlcnMuY29tL2ZvcnVtcy9zaG93dGhyZWFkLnBocD90PTE1MjA1" title="http://seqanswers.com/forums/showthread.php?t=15205">DESeq: “NA” generated in the resulted differentially expressed genes<i class="fa fa-external-link"></i></span>,不影响结果，直接去掉即可👇<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">mydf</span><span class="selector-attr">[complete.cases(mydf), ]</span></span><br><span class="line"><span class="selector-tag">resSig</span>&lt;<span class="selector-tag">-na</span><span class="selector-class">.omit</span>(<span class="selector-tag">resSig</span>)</span><br></pre></td></tr></table></figure></p>
+<p>其他参考教程：<span class="exturl" data-url="aHR0cDovL3BlZGFnb2dpeC10YWdjLnVuaXYtbXJzLmZyL2NvdXJzZXMvQVNHMS9wcmFjdGljYWxzL3JuYXNlcV9kaWZmL3JuYXNlcV9kaWZmLmh0bWw=" title="http://pedagogix-tagc.univ-mrs.fr/courses/ASG1/practicals/rnaseq_diff/rnaseq_diff.html">RNA-Seq: differential expression using DESeq<i class="fa fa-external-link"></i></span></p>
+<h3 id="多个组合比较差异基因分析">多个组合比较差异基因分析</h3><p>如下 <code>Cross_DF.R</code> 脚本可对不同组合进行差异基因的分析；</p>
+<p>使用方式为：<code>Rscript Cross_DF.R controlH_1 treatH1_1 /public/home/zpxu/hulisong/results/123/ 0.05</code></p>
+<p>其中，</p>
+<ul>
+<li>第一个参数(controlH_1)为比较的对照；</li>
+<li>第二个参数(treatH1_1)为另外一组样本，即进行 <code>controlH_1</code> 和 <code>treatH1_1</code> 之间的比较来找出差异基因；</li>
+<li>第三个参数(/public/home/zpxu/hulisong/results/123/) 为结果输出路径，包括保存的csv和pdf图片；</li>
+<li>第四个参数(0.05) 为最后差异基因筛选时<code>padj</code>的阈值和画MA图片时的<code>padj</code>值；<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">arg &lt;- commandArgs(T)</span><br><span class="line">###### Input kallisto results ##########</span><br><span class="line">print(<span class="string">"Input kallisto results"</span>)</span><br><span class="line">library(<span class="string">"tximport"</span>)</span><br><span class="line">myfactors &lt;- read.table(<span class="string">"/public/home/zpxu/hulisong/scripts/count_sleuth_info.txt"</span>, header = TRUE)</span><br><span class="line">dir &lt;- <span class="string">"/public/home/zpxu/hulisong/results/cds_kallisto"</span></span><br><span class="line">files &lt;- file.path(dir, myfactors$sample, <span class="string">"abundance.tsv"</span>)</span><br><span class="line">names(files) &lt;- myfactors$sample</span><br><span class="line">txi.kallisto.tsv &lt;- tximport(files, type = <span class="string">"kallisto"</span>, txOut=TRUE)</span><br><span class="line">head(txi.kallisto.tsv$counts)</span><br><span class="line">############## For DEGs ################</span><br><span class="line">library( <span class="string">"DESeq"</span> )</span><br><span class="line">raw_count &lt;- txi.kallisto.tsv$counts</span><br><span class="line">#raw_count &lt;- read.csv(<span class="string">"/public/home/zpxu/hulisong/results/kallisto/All.counts.csv"</span>, header=TRUE, row.names=<span class="number">1</span>)</span><br><span class="line">head(raw_count)</span><br><span class="line">#myfactors &lt;- read.table(<span class="string">"/public/home/zpxu/hulisong/scripts/count_sleuth_info.txt"</span>,header=T)</span><br><span class="line">countdata1 &lt;- round(raw_count)</span><br><span class="line">head(countdata1)</span><br><span class="line">all &lt;- apply(countdata1, <span class="number">1</span>, function(x) all(x==<span class="number">0</span>) )</span><br><span class="line">newdata &lt;- countdata1[!all,]</span><br><span class="line">head (newdata)</span><br><span class="line">countdata &lt;- <span class="keyword">as</span>.matrix(newdata)</span><br><span class="line">head(countdata)</span><br><span class="line">condition = myfactors$sample</span><br><span class="line">cds = newCountDataSet( countdata, condition )</span><br><span class="line"># Normalisation</span><br><span class="line">print(<span class="string">"Normalisation All Data"</span>)</span><br><span class="line">cds = estimateSizeFactors(cds)</span><br><span class="line">sizeFactors( cds )</span><br><span class="line">head( counts( cds, normalized=TRUE ) )</span><br><span class="line"># Select sample and do Variance estimation</span><br><span class="line">print(<span class="string">"Select sample and do Variance estimation"</span>)</span><br><span class="line">cds2 = cds[ ,c(arg[<span class="number">1</span>], arg[<span class="number">2</span>]) ]</span><br><span class="line">cds2 = estimateDispersions( cds2, method=<span class="string">"blind"</span>, sharingMode=<span class="string">"fit-only"</span>,fitType = <span class="string">"local"</span> )</span><br><span class="line">outdir &lt;- arg[<span class="number">3</span>]</span><br><span class="line">pdf(file=paste0(outdir,arg[<span class="number">1</span>],<span class="string">"_Vs_"</span>,arg[<span class="number">2</span>],<span class="string">".pdf"</span>))</span><br><span class="line">print(<span class="string">"Plot the per-gene estimates against the mean normalized counts per gene and overlay the fitted curve"</span>)</span><br><span class="line">plotDispEsts(cds2)</span><br><span class="line">#### Calling differential expression ###########</span><br><span class="line">print(<span class="string">"Calling differential expression"</span>)</span><br><span class="line">res = nbinomTest( cds2, arg[<span class="number">1</span>], arg[<span class="number">2</span>] )</span><br><span class="line">plotMA(res,col = ifelse(res$padj&gt;=arg[<span class="number">4</span>], <span class="string">"gray32"</span>, <span class="string">"red3"</span>), main=paste0(arg[<span class="number">1</span>],<span class="string">"_Vs_"</span>,arg[<span class="number">2</span>]))</span><br><span class="line">hist(res$pval, breaks=<span class="number">100</span>, col=<span class="string">"skyblue"</span>, border=<span class="string">"slateblue"</span>, main=paste0(arg[<span class="number">1</span>],<span class="string">"_Vs_"</span>,arg[<span class="number">2</span>]))</span><br><span class="line">resSig = res[ res$padj &lt; arg[<span class="number">4</span>], ]</span><br><span class="line">N_resSig &lt;- resSig[complete.cases(resSig), ]</span><br><span class="line">write.csv( N_resSig, paste0(outdir,arg[<span class="number">1</span>],<span class="string">"_Vs_"</span>,arg[<span class="number">2</span>],<span class="string">".csv"</span>),row.names = FALSE)</span><br><span class="line">############### The follows is option and can not do it If your want #####</span><br><span class="line">############### Variance stabilizing transformation ##########</span><br><span class="line">print(<span class="string">"Variance stabilizing transformation"</span>)</span><br><span class="line">vsd = varianceStabilizingTransformation( cds2 )</span><br><span class="line">library(<span class="string">"vsn"</span>)</span><br><span class="line">notAllZero = (rowSums(counts(cds))&gt;<span class="number">0</span>)</span><br><span class="line">meanSdPlot(log2(counts(cds)[notAllZero, ] + <span class="number">1</span>))</span><br><span class="line">meanSdPlot(vsd[notAllZero, ])</span><br><span class="line">########### Data quality assessment by sample clustering and visualisation ####</span><br><span class="line">print(<span class="string">"Data quality assessment by sample clustering and visualisation"</span>)</span><br><span class="line">print(<span class="string">"Heatmap of the count table"</span>)</span><br><span class="line">vsdFull = varianceStabilizingTransformation( cds2 )</span><br><span class="line">library(<span class="string">"RColorBrewer"</span>)</span><br><span class="line">library(<span class="string">"gplots"</span>)</span><br><span class="line">select = order(rowMeans(counts(cds2)), decreasing=TRUE)[<span class="number">1</span>:<span class="number">30</span>]</span><br><span class="line">hmcol = colorRampPalette(brewer.pal(<span class="number">9</span>, <span class="string">"GnBu"</span>))(<span class="number">100</span>)</span><br><span class="line">heatmap<span class="number">.2</span>(exprs(vsdFull)[select,], col = hmcol, trace=<span class="string">"none"</span>, margin=c(<span class="number">10</span>, <span class="number">6</span>))</span><br><span class="line">print(<span class="string">"Heatmap of the sample-to-sample distances"</span>)</span><br><span class="line">dists = dist( t( exprs(vsdFull) ) )</span><br><span class="line">mat = <span class="keyword">as</span>.matrix( dists )</span><br><span class="line">rownames(mat) = colnames(mat) = <span class="keyword">with</span>(pData(cds2), paste(condition, condition, sep=<span class="string">" : "</span>))</span><br><span class="line">heatmap<span class="number">.2</span>(mat, trace=<span class="string">"none"</span>, col = rev(hmcol), margin=c(<span class="number">13</span>, <span class="number">13</span>))</span><br><span class="line">print(<span class="string">"Principal component plot of the samples"</span>)</span><br><span class="line">print(plotPCA(vsdFull, intgroup=c(<span class="string">"condition"</span>, <span class="string">"condition"</span>)))</span><br><span class="line">dev.off()</span><br><span class="line">print(paste0(<span class="string">"Run Complete. Please Check The Results in Directory: "</span>,outdir))</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>批量不同组合运行方式👇<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="selector-tag">i</span> <span class="keyword">in</span> treatR1_1 treatR2_1 treatR3_1 treatR4_1 treatR5_1</span><br><span class="line">do</span><br><span class="line">Rscript Cross_DF<span class="selector-class">.R</span> controlR_1 $&#123;i&#125; /public/home/zpxu/hulisong/results/<span class="number">123</span>/ <span class="number">0.05</span></span><br><span class="line">done</span><br></pre></td></tr></table></figure></p>
+<h2 id="七、LPEseq">七、<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0p1bmdzb29HSU0vTFBFc2VxL3dpa2k=" title="https://github.com/JungsooGIM/LPEseq/wiki">LPEseq<i class="fa fa-external-link"></i></span></h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">install.packages(<span class="string">"devtools"</span>)</span><br><span class="line"><span class="function"><span class="title">library</span><span class="params">(devtools)</span></span></span><br><span class="line"><span class="function"><span class="title">install_github</span><span class="params">(<span class="string">"iedenkim/LPEseq"</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">library</span><span class="params">(LPEseq)</span></span></span><br><span class="line">TPM &lt;- read.csv(<span class="string">"/public/home/zpxu/hulisong/results/kallisto/All.tpm.csv"</span>,<span class="selector-tag">header</span> = T,row.names=<span class="number">1</span>)</span><br><span class="line">NewTPM &lt;- TPM[rowSums(TPM==<span class="number">0</span>)==<span class="number">0</span>,]</span><br><span class="line"><span class="function"><span class="title">head</span><span class="params">(NewTPM)</span></span></span><br><span class="line"><span class="function"><span class="title">dim</span><span class="params">(NewTPM)</span></span></span><br><span class="line">TPM<span class="selector-class">.norm</span> &lt;- log(NewTPM, base = <span class="number">2</span>)</span><br><span class="line"><span class="function"><span class="title">head</span><span class="params">(TPM.norm)</span></span></span><br><span class="line">TPM<span class="selector-class">.result</span><span class="selector-class">.norep</span> &lt;- LPEseq.test(TPM<span class="selector-class">.norm</span>[,<span class="number">1</span>], TPM<span class="selector-class">.norm</span>[,<span class="number">4</span>])</span><br><span class="line"><span class="function"><span class="title">head</span><span class="params">(TPM.result.norep)</span></span></span><br><span class="line">TPM<span class="selector-class">.result</span><span class="selector-class">.norep</span><span class="selector-class">.Sig</span> = TPM<span class="selector-class">.result</span><span class="selector-class">.norep</span>[TPM<span class="selector-class">.result</span><span class="selector-class">.norep</span><span class="variable">$q</span><span class="selector-class">.value</span> &lt; <span class="number">0.05</span>, ]</span><br><span class="line"><span class="function"><span class="title">head</span><span class="params">(TPM.result.norep.Sig)</span></span></span><br><span class="line">write.table(TPM<span class="selector-class">.result</span><span class="selector-class">.norep</span><span class="selector-class">.Sig</span>, file=<span class="string">"result_file.txt"</span>, quote=F, sep=<span class="string">"\t"</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="八、GFOLD">八、<span class="exturl" data-url="aHR0cHM6Ly9iaXRidWNrZXQub3JnL2ZlZWxkZWFkL2dmb2xkL3dpa2kvTWFudWFs" title="https://bitbucket.org/feeldead/gfold/wiki/Manual">GFOLD<i class="fa fa-external-link"></i></span></h2><p>基于基因组比对的bam文件计算差异表达基因；</p>
+<h3 id="Example_1:_Count_reads_and_rank_genes">Example 1: Count reads and rank genes</h3><p>In the following example, hg19Ref.gtf is the ucsc knownGene table in GTF format for hg19; sample1.sam and sample2.sam are the mapped reads in SAM format.<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gfold count -ann hg19Ref<span class="selector-class">.gtf</span> -tag sample1<span class="selector-class">.sam</span> -o sample1.read_cnt</span><br><span class="line">gfold count -ann hg19Ref<span class="selector-class">.gtf</span> -tag sample2<span class="selector-class">.sam</span> -o sample2.read_cnt</span><br><span class="line">gfold diff -s1 sample1 -s2 sample2 -suf <span class="selector-class">.read_cnt</span> -o sample1VSsample2.diff</span><br></pre></td></tr></table></figure></p>
+<h3 id="Example_2:_Count_reads">Example 2: Count reads</h3><p>This example utilizes samtools to produce mapped reads in SAM format from BAM format.<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">samtools view sample1.bam | gfold count -ann hg19Ref.gtf -<span class="keyword">tag</span> <span class="title">stdin</span> -o sample1.read_cnt</span><br></pre></td></tr></table></figure></p>
+<h3 id="Example_3:_Identify_differentially_expressed_genes_without_replicates">Example 3: Identify differentially expressed genes without replicates</h3><p>Suppose there are two samples: sample1 and sample2 with corresponding read count file being sample1.read_cnt sample2.read_cnt. This example finds differentially expressed genes using default parameters on two samples<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gfold <span class="keyword">diff </span>-<span class="built_in">s1</span> sample1 -<span class="built_in">s2</span> sample2 -suf .read_cnt -o sample1VSsample2.<span class="keyword">diff</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="Example_4:_Identify_differentially_expressed_genes_with_replicates">Example 4: Identify differentially expressed genes with replicates</h3><p>This example finds differentially expressed genes using default parameters on two group of samples.<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gfold <span class="keyword">diff </span>-<span class="built_in">s1</span> sample1,sample2,sample3 -<span class="built_in">s2</span> sample4,sample5,sample6 -suf .read_cnt -o <span class="number">123</span>VS456.<span class="keyword">diff</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="Example_5:_Identify_differentially_expressed_genes_with_replicates_only_in_one_condition">Example 5: Identify differentially expressed genes with replicates only in one condition</h3><p>This example finds differentially expressed genes using default parameters on two group of samples. Only the first group contains replicates. In this case, the variance estimated based on the first group will be used as the variance of the second group.<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gfold <span class="keyword">diff </span>-<span class="built_in">s1</span> sample1,sample2 -<span class="built_in">s2</span> sample3 -suf .read_cnt -o <span class="number">12</span>VS3.<span class="keyword">diff</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    
+      
+
+  <div class="popular-posts-header">Related Posts</div>
+  <ul class="popular-posts">
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="\2018\12\04\ref-RNA-seq.html" rel="bookmark">有参考基因组的RNA-seq详细分析流程</a></div>
+      
+    </li>
+  
+  </ul>
+
+
+    
+
+    
+    
+    
+
+    
+      <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
+  <img id="wechat_subscriber_qcode" src="/images/Wechat.jpg" alt="tiramisutes wechat" style="width: 200px; max-width: 100%;"/>
+  <div>欢迎关注</div>
+</div>
+
+    
+
+    
+      
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>tiramisutes</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    
+    <a href="http://tiramisutes.github.io/2018/07/02/No-Rep-RNA-seq.html" title="搭PacBio全长转录组便车的无重复样本RNA-seq分析">http://tiramisutes.github.io/2018/07/02/No-Rep-RNA-seq.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/RNA-seq/" rel="tag"><i class="fa fa-tag"></i> RNA-seq</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+          
+            <span class="post-meta-divider">|</span>
+          
+          <div class="social_share">
+            
+            
+              <div id="needsharebutton-postbottom">
+                <span class="btn">
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/01/MARVEL.html" rel="next" title="PacBio基因组组装之MARVEL">
+                <i class="fa fa-chevron-left"></i> PacBio基因组组装之MARVEL
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/04/ref-RNA-seq.html" rel="prev" title="有参考基因组的RNA-seq详细分析流程">
+                有参考基因组的RNA-seq详细分析流程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <a href="/" class="site-author-image" rel="start" style="border:none">
+              <img class="site-author-image" itemprop="image"
+                src="/images/author.jpg"
+                alt="tiramisutes"/>
+              </a>
+            
+              <p class="site-author-name" itemprop="name">tiramisutes</p>
+              <div class="site-description motion-element" itemprop="description">hope bioinformatics blog</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">148</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">112</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RpcmFtaXN1dGVz" title="GitHub &rarr; https://github.com/tiramisutes"><i class="fa fa-fw fa-github"></i>GitHub</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="bWFpbHRvOnRpcmFtaXN1dGVze2F0fTEyNi5jb20=" title="E-Mail &rarr; mailto:tiramisutes{at}126.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cDovL3dlaWJvLmNvbS90aXJhbWlzdXRlc1Rlcw==" title="Weibo &rarr; http://weibo.com/tiramisutesTes"><i class="fa fa-fw fa-globe"></i>Weibo</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9ob3BldG9neQ==" title="Twitter &rarr; https://twitter.com/hopetogy"><i class="fa fa-fw fa-twitter"></i>Twitter</span>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"/></span>
+             </div>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9paG9wZS5zaGlueWFwcHMuaW8vcVJULVBDUi1QaXBlbGluZS8=" title="https://ihope.shinyapps.io/qRT-PCR-Pipeline/">qRT-PCR-Pipeline</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly90aXJhbWlzdXRlcy5naXRib29rcy5pby9hd2svY29udGVudC8=" title="https://tiramisutes.gitbooks.io/awk/content/">GitBook《awk学习总结》</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2NvdHRvbi5oemF1LmVkdS5jbi8=" title="http://cotton.hzau.edu.cn/">棉花遗传改良团队</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5iaW8taW5mby10cmFpbmVlLmNvbS8=" title="http://www.bio-info-trainee.com/">生信菜鸟团-深圳大学城</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5iaW90cmFpbmVlLmNvbS9mb3J1bS5waHA=" title="http://www.biotrainee.com/forum.php">生信技能树</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5pd2hnYW8uY29tLw==" title="http://www.iwhgao.com/">rabbit gao's blog</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9odWFucy5naXRodWIuaW8v" title="https://huans.github.io/">Huans(代谢+GWAS)</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5zZXF1ZW5jaW5nLnVpby5uby8=" title="http://www.sequencing.uio.no/">NSC-sequenceing</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2Jsb2cuam9iYm9sZS5jb20v" title="http://blog.jobbole.com/">伯乐在线</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9saW51eC5jbi8=" title="https://linux.cn/">Linux开源中文社区</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5yLWJsb2dnZXJzLmNvbS8=" title="http://www.r-bloggers.com/">R-bloggers</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvb3RoZXItZG9jcy5odG1s" title="https://cran.r-project.org/other-docs.html">R-resource</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3R1dG9yaWFscy5pcS5oYXJ2YXJkLmVkdS9SL1JncmFwaGljcy9SZ3JhcGhpY3MuaHRtbA==" title="http://tutorials.iq.harvard.edu/R/Rgraphics/Rgraphics.html">ggplot2</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2xpbGliZWkubmV0Lw==" title="http://lilibei.net/">pele' blog</span>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#零、输入数据"><span class="nav-text">零、输入数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取转录组"><span class="nav-text">获取转录组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建立索引"><span class="nav-text">建立索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定量基因表达情况"><span class="nav-text">定量基因表达情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后续差异基因分析"><span class="nav-text">后续差异基因分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、Analysing_no_replicate_RNA-seq_data_with_LPEseq_package"><span class="nav-text">一、Analysing no replicate RNA-seq data with LPEseq package</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、IsoEM2"><span class="nav-text">二、IsoEM2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、edgeR"><span class="nav-text">三、edgeR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、NOISeq:_Differential_Expression_in_RNA-seq"><span class="nav-text">四、NOISeq: Differential Expression in RNA-seq</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、DESeq2"><span class="nav-text">五、DESeq2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、DESeq"><span class="nav-text">六、DESeq</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#多个组合比较差异基因分析"><span class="nav-text">多个组合比较差异基因分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、LPEseq"><span class="nav-text">七、LPEseq</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、GFOLD"><span class="nav-text">八、GFOLD</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Example_1:_Count_reads_and_rank_genes"><span class="nav-text">Example 1: Count reads and rank genes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example_2:_Count_reads"><span class="nav-text">Example 2: Count reads</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example_3:_Identify_differentially_expressed_genes_without_replicates"><span class="nav-text">Example 3: Identify differentially expressed genes without replicates</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example_4:_Identify_differentially_expressed_genes_with_replicates"><span class="nav-text">Example 4: Identify differentially expressed genes with replicates</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example_5:_Identify_differentially_expressed_genes_with_replicates_only_in_one_condition"><span class="nav-text">Example 5: Identify differentially expressed genes with replicates only in one condition</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 – <span itemprop="copyrightYear">2023</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <a class="theme-link" target="_blank" href="http://tiramisutes.github.io/about/"><span class="author" itemprop="copyrightHolder">tiramisutes</span></a>
+
+  
+    <span class="post-meta-item-icon">
+    </span>
+    <span title="Symbols count total"></span>
+  
+
+  
+    <span class="post-meta-item-icon">
+    </span>
+    <span title="Reading time total"></span>
+  
+</div>
+
+
+  <div class="powered-by">Powered: <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">▽ – <span class="exturl theme-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0">NexT.Muse</span></div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-line-chart"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+    <a style="line-height: 1.5;" href="https://tongji.baidu.com/web/welcome/login" target="_blank">The total visits
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>&nbsp;times</a>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+    
+    
+      
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='20' src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest-nomobile.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+  <script src="/js/src/exturl.js?v=7.0.1"></script>
+
+
+  
+  
+  
+    
+  
+
+  
+
+  
+  
+  
+
+
+  
+  
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'c7x0fPmO8Ci9avDBRuGWHqpG-gzGzoHsz',
+    appKey: 'iVJ6ST0e1O5xaiIhVwOyhbf3',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+<style>
+.pdfobject-container {
+  position: relative;
+  overflow: auto;
+  width: 100%;
+}
+</style>
+<script>
+if ($('body').find('div.pdf').length) {
+  $.ajax({
+    type: 'GET',
+    url: '//cdn.jsdelivr.net/npm/pdfobject@2.1.1/pdfobject.min.js',
+    dataType: 'script',
+    cache: true,
+    success: function() {
+      $('body').find('div.pdf').each(function(i, o) {
+        PDFObject.embed($(o).attr('target'), $(o), {
+          pdfOpenParams: {
+            navpanes: 0,
+            toolbar: 0,
+            statusbar: 0,
+            pagemode: 'thumbs',
+            view: 'FitH'
+          },
+          PDFJS_URL: '/lib/pdf/web/viewer.html',
+          height: $(o).attr('height') || '500px'
+        });
+      });
+    },
+  });
+}
+</script>
+
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+  
+  
+    
+  
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Evernote,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+
+  
+  <script>
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id: 15314,
+      el: 'wpac-rating',
+      color: 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

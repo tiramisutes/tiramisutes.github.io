@@ -1,0 +1,2129 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=66189719" charset="UTF-8"></script>
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"/>
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/han.min.css"/>
+
+
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+
+
+  <meta name="google-site-verification" content="b12Zu40L63PLgCtcn0IW8KCNRolmyQlaF22tf4rRLEg"/>
+
+
+
+  <meta name="msvalidate.01" content="74A687E04D4EF9914B7AA20824207409"/>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="https://fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"/>
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/small_favicon.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/favicon.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":true,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Easy way to mix multiple graphs on the same page - R software and data visualization Install and load required packages1234install.packages(&quot;gridExtra&quot;)library(&quot;gridExtra&quot;)install.packages(&quot;cowplot&quot;)l">
+<meta name="keywords" content="multiple">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mix multiple graphs on the same page">
+<meta property="og:url" content="http://tiramisutes.github.io/2015/10/03/multiple-R.html">
+<meta property="og:site_name" content="hope">
+<meta property="og:description" content="Easy way to mix multiple graphs on the same page - R software and data visualization Install and load required packages1234install.packages(&quot;gridExtra&quot;)library(&quot;gridExtra&quot;)install.packages(&quot;cowplot&quot;)l">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://www.sthda.com/sthda/RDoc/figure/ggplot2/ggplot2-mixing-multiple-plots-cowplot-ggplot2-1.png">
+<meta property="og:image" content="http://www.sthda.com/sthda/RDoc/figure/ggplot2/ggplot2-mixing-multiple-plots-cowplot-ggplot2-2.png">
+<meta property="og:image" content="http://www.sthda.com/sthda/RDoc/figure/ggplot2/ggplot2-mixing-multiple-plots-cowplot-ggplot2-arranging-multiple-plot-1.png">
+<meta property="og:image" content="http://www.sthda.com/sthda/RDoc/figure/ggplot2/ggplot2-mixing-multiple-plots-cowplot-ggplot2-arranging-multiple-plot-2.png">
+<meta property="og:image" content="http://www.sthda.com/sthda/RDoc/figure/ggplot2/ggplot2-mixing-multiple-plots-cowplot-ggplot2-arranging-multiple-plot-2-1.png">
+<meta property="og:image" content="http://www.sthda.com/sthda/RDoc/figure/ggplot2/ggplot2-mixing-multiple-plots-cowplot-ggplot2-arranging-multiple-plot-3-1.png">
+<meta property="og:image" content="http://www.sthda.com/sthda/RDoc/figure/ggplot2/ggplot2-mixing-multiple-plots-grid-arrange-data-visualization-1.png">
+<meta property="og:image" content="http://www.sthda.com/sthda/RDoc/figure/ggplot2/ggplot2-mixing-multiple-plots-common-legend-data-visualization-1.png">
+<meta property="og:image" content="http://www.sthda.com/sthda/RDoc/figure/ggplot2/ggplot2-mixing-multiple-plots-put-multiple-plot-together-data-visualization-1.png">
+<meta property="og:image" content="http://www.sthda.com/sthda/RDoc/figure/ggplot2/ggplot2-mixing-multiple-plots-complex-layout-data-visualization-1.png">
+<meta property="og:image" content="http://www.sthda.com/sthda/RDoc/figure/ggplot2/ggplot2-mixing-multiple-plots-insert-plot-inside-ggplot-data-visualization-1.png">
+<meta property="og:image" content="http://www.sthda.com/sthda/RDoc/figure/ggplot2/ggplot2-mixing-multiple-plots-insert-plot-inside-ggplot-data-visualization-2.png">
+<meta property="og:image" content="http://www.sthda.com/sthda/RDoc/figure/ggplot2/ggplot2-mixing-multiple-plots-add-table-add-text-data-visualization-1.png">
+<meta property="og:updated_time" content="2015-10-03T06:31:47.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mix multiple graphs on the same page">
+<meta name="twitter:description" content="Easy way to mix multiple graphs on the same page - R software and data visualization Install and load required packages1234install.packages(&quot;gridExtra&quot;)library(&quot;gridExtra&quot;)install.packages(&quot;cowplot&quot;)l">
+<meta name="twitter:image" content="http://www.sthda.com/sthda/RDoc/figure/ggplot2/ggplot2-mixing-multiple-plots-cowplot-ggplot2-1.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="hope" type="application/atom+xml"/>
+
+
+
+
+  <link rel="canonical" href="http://tiramisutes.github.io/2015/10/03/multiple-R.html"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Mix multiple graphs on the same page | hope</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?08b17c69c7ba460d9ab5f188a048ee6d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">hope</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">A new day is coming,whether we like it or not. The question is will you control it,or will it control you?</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-code">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/code/" rel="section"><i class="menu-item-icon fa fa-fw fa-code"></i> <br/>Code</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-footprint">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/footprint/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br/>Footprint</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-qrt-pcr">
+
+    
+    
+    
+      
+    
+
+    
+
+    <span class="exturl" data-url="aHR0cHM6Ly9paG9wZS5zaGlueWFwcHMuaW8vcVJULVBDUi1QaXBlbGluZS8="><i class="menu-item-icon fa fa-fw fa-cloud"></i> <br/>qRT-PCR</span>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-project">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/project/" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br/>Project</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-publish">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/publish/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br/>Publish</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sci-figure">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/SCIFigure/" rel="section"><i class="menu-item-icon fa fa-fw fa-angellist"></i> <br/>SCI Figure</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-cv">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/resume/" rel="section"><i class="menu-item-icon fa fa-fw fa-address-card"></i> <br/>CV</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tiramisutes.github.io/2015/10/03/multiple-R.html"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tiramisutes"/>
+      <meta itemprop="description" content="hope bioinformatics blog"/>
+      <meta itemprop="image" content="/images/author.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hope"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Mix multiple graphs on the same page
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2015-10-03 11:23:52" itemprop="dateCreated datePublished" datetime="2015-10-03T11:23:52+08:00">2015-10-03</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/" itemprop="url" rel="index"><span itemprop="name">R</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2015/10/03/multiple-R.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2015/10/03/multiple-R.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2015/10/03/multiple-R.html" class="leancloud_visitors" data-flag-title="Mix multiple graphs on the same page">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+                <span>℃</span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article: </span>
+                
+                <span title="Words count in article"></span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time"></span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Easy way to mix multiple graphs on the same page - R software and data visualization</p>
+<h2 id="Install_and_load_required_packages">Install and load required packages</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">install.packages(<span class="string">"gridExtra"</span>)</span><br><span class="line">library(<span class="string">"gridExtra"</span>)</span><br><span class="line">install.packages(<span class="string">"cowplot"</span>)</span><br><span class="line">library(<span class="string">"cowplot"</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="Prepare_some_data">Prepare some data</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">df &lt;- ToothGrowth</span><br><span class="line"><span class="comment"># Convert the variable dose from a numeric to a factor variable</span></span><br><span class="line">df<span class="variable">$dose</span> &lt;- as.factor(df<span class="variable">$dose</span>)</span><br><span class="line">head(df)</span><br><span class="line"><span class="comment">##    len supp dose</span></span><br><span class="line"><span class="comment">## 1  4.2   VC  0.5</span></span><br><span class="line"><span class="comment">## 2 11.5   VC  0.5</span></span><br><span class="line"><span class="comment">## 3  7.3   VC  0.5</span></span><br><span class="line"><span class="comment">## 4  5.8   VC  0.5</span></span><br><span class="line"><span class="comment">## 5  6.4   VC  0.5</span></span><br><span class="line"><span class="comment">## 6 10.0   VC  0.5</span></span><br></pre></td></tr></table></figure>
+<h2 id="Cowplot:_Publication-ready_plots">Cowplot: Publication-ready plots</h2><p>The cowplot package is an extension to ggplot2 and it can be used to provide a publication-ready plots.</p>
+<h2 id="Basic_plots">Basic plots</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">library(cowplot)</span><br><span class="line"><span class="comment"># Default plot</span></span><br><span class="line">bp &lt;- ggplot(df, aes(x=dose, y=len, color=dose)) +</span><br><span class="line">  geom_boxplot() + </span><br><span class="line">  theme(legend.position = <span class="string">"none"</span>)</span><br><span class="line">bp</span><br><span class="line"></span><br><span class="line"><span class="comment"># Add gridlines</span></span><br><span class="line">bp + background_grid(major = <span class="string">"xy"</span>, minor = <span class="string">"none"</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="http://www.sthda.com/sthda/RDoc/figure/ggplot2/ggplot2-mixing-multiple-plots-cowplot-ggplot2-1.png" width="192"><img src="http://www.sthda.com/sthda/RDoc/figure/ggplot2/ggplot2-mixing-multiple-plots-cowplot-ggplot2-2.png" width="192"><br>Recall that, the function <strong>ggsave()</strong>[in <strong>ggplot2</strong> package] can be used to save ggplots. However, when working with <strong>cowplot</strong>, the function <strong>save_plot()</strong> [in <strong>cowplot</strong> package] is preferred. It’s an alternative to <strong>ggsave</strong> with a better support for multi-figur plots.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">save_plot(<span class="string">"mpg.pdf"</span>, plot.mpg,</span><br><span class="line">          base_aspect_ratio = 1.3 <span class="comment"># make room for figure legend</span></span><br><span class="line">          )</span><br></pre></td></tr></table></figure></p>
+<h2 id="Arranging_multiple_graphs_using_cowplot">Arranging multiple graphs using cowplot</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Scatter plot</span></span><br><span class="line">sp &lt;- ggplot(mpg, aes(x = cty, y = hwy, colour = factor(cyl)))+ </span><br><span class="line">  geom_point(size=2.5)</span><br><span class="line">sp</span><br><span class="line"></span><br><span class="line"><span class="comment"># Bar plot</span></span><br><span class="line">bp &lt;- ggplot(diamonds, aes(clarity, fill = cut)) +</span><br><span class="line">  geom_bar() +</span><br><span class="line">  theme(axis.text.x = element_text(angle=70, vjust=0.5))</span><br><span class="line">bp</span><br></pre></td></tr></table></figure>
+<p><img src="http://www.sthda.com/sthda/RDoc/figure/ggplot2/ggplot2-mixing-multiple-plots-cowplot-ggplot2-arranging-multiple-plot-1.png" width="259.2"><img src="http://www.sthda.com/sthda/RDoc/figure/ggplot2/ggplot2-mixing-multiple-plots-cowplot-ggplot2-arranging-multiple-plot-2.png" width="259.2"><br>Combine the two plots (the scatter plot and the bar plot):<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plot_grid(sp, bp, labels=c(<span class="string">"A"</span>,<span class="string">"B"</span>), ncol = 2, nrow = 1)</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://www.sthda.com/sthda/RDoc/figure/ggplot2/ggplot2-mixing-multiple-plots-cowplot-ggplot2-arranging-multiple-plot-2-1.png" width="528"><br>The function <strong>draw_plot()</strong> can be used to place graphs at particular locations with a particular sizes. The format of the function is:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">draw_plot(plot, x = 0, y = 0, width = 1, height = 1)</span><br></pre></td></tr></table></figure></p>
+<p><ul></ul></p>
+<p><li><strong>plot</strong>: the plot to place (ggplot2 or a gtable)</li></p>
+<p><li><strong>x</strong>: The x location of the lower left corner of the plot.</li></p>
+<p><li><strong>y</strong>: The y location of the lower left corner of the plot.</li></p>
+<p><li><strong>width, height</strong>: the width and the height of the plot</li><br><br>The function <strong>ggdraw()</strong> is used to initialize an empty drawing canvas.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">plot.iris &lt;- ggplot(iris, aes(Sepal.Length, Sepal.Width)) + </span><br><span class="line">  geom_point() + facet_grid(. ~ Species) + stat_smooth(method = <span class="string">"lm"</span>) +</span><br><span class="line">  background_grid(major = &amp;<span class="comment">#39;y&amp;#39;, minor = "none") + # add thin horizontal lines </span></span><br><span class="line">  panel_border() <span class="comment"># and a border around each panel</span></span><br><span class="line"><span class="comment"># plot.mpt and plot.diamonds were defined earlier</span></span><br><span class="line">ggdraw() +</span><br><span class="line">  draw_plot(plot.iris, 0, .5, 1, .5) +</span><br><span class="line">  draw_plot(sp, 0, 0, .5, .5) +</span><br><span class="line">  draw_plot(bp, .5, 0, .5, .5) +</span><br><span class="line">  draw_plot_label(c(<span class="string">"A"</span>, <span class="string">"B"</span>, <span class="string">"C"</span>), c(0, 0, 0.5), c(1, 0.5, 0.5), size = 15)</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://www.sthda.com/sthda/RDoc/figure/ggplot2/ggplot2-mixing-multiple-plots-cowplot-ggplot2-arranging-multiple-plot-3-1.png" width="537.6"></p>
+<h2 id="grid-arrange:_Create_and_arrange_multiple_plots">grid.arrange: Create and arrange multiple plots</h2><p>The R code below creates a box plot, a dot plot, a violin plot and a stripchart (jitter plot) :<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">library(ggplot2)</span><br><span class="line"><span class="comment"># Create a box plot</span></span><br><span class="line">bp &lt;- ggplot(df, aes(x=dose, y=len, color=dose)) +</span><br><span class="line">  geom_boxplot() + </span><br><span class="line">  theme(legend.position = <span class="string">"none"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create a dot plot</span></span><br><span class="line"><span class="comment"># Add the mean point and the standard deviation</span></span><br><span class="line">dp &lt;- ggplot(df, aes(x=dose, y=len, fill=dose)) +</span><br><span class="line">  geom_dotplot(binaxis=&amp;<span class="comment">#39;y&amp;#39;, stackdir=&amp;#39;center&amp;#39;)+</span></span><br><span class="line">  stat_summary(fun.data=mean_sdl, mult=1, </span><br><span class="line">                 geom=<span class="string">"pointrange"</span>, color=<span class="string">"red"</span>)+</span><br><span class="line">   theme(legend.position = <span class="string">"none"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create a violin plot</span></span><br><span class="line">vp &lt;- ggplot(df, aes(x=dose, y=len)) +</span><br><span class="line">  geom_violin()+</span><br><span class="line">  geom_boxplot(width=0.1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create a stripchart</span></span><br><span class="line">sc &lt;- ggplot(df, aes(x=dose, y=len, color=dose, shape=dose)) +</span><br><span class="line">  geom_jitter(position=position_jitter(0.2))+</span><br><span class="line">  theme(legend.position = <span class="string">"none"</span>) +</span><br><span class="line">  theme_gray()</span><br></pre></td></tr></table></figure></p>
+<p>Combine the plots using the function <strong>grid.arrange()</strong> [in <strong>gridExtra</strong>] :<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">library(gridExtra)</span><br><span class="line">grid.arrange(bp, dp, vp, sc, ncol=2, </span><br><span class="line">             main=<span class="string">"Multiple plots on the same page"</span>)</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://www.sthda.com/sthda/RDoc/figure/ggplot2/ggplot2-mixing-multiple-plots-grid-arrange-data-visualization-1.png" width="518.4"></p>
+<h2 id="Add_a_common_legend_for_multiple_ggplot2_graphs">Add a common legend for multiple ggplot2 graphs</h2><p>This can be done in four simple steps :</p>
+<p><ol style="list-style-type: decimal"></ol></p>
+<p><li>Create the plots : p1, p2, ….</li></p>
+<p><li>Save the legend of the plot p1 as an external graphical element (called a “grob” in Grid terminology)</li></p>
+<p><li>Remove the legends from all plots</li></p>
+<p><li>Draw all the plots with only one legend in the right panel</li><br><br>To <strong>save the legend</strong> of a ggplot, the helper function below can be used :<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">library(gridExtra)</span><br><span class="line">get_legend&lt;-<span class="keyword">function</span>(myggplot)&#123;</span><br><span class="line">  tmp &lt;- ggplot_gtable(ggplot_build(myggplot))</span><br><span class="line">  leg &lt;- <span class="built_in">which</span>(sapply(tmp<span class="variable">$grobs</span>, <span class="keyword">function</span>(x) x<span class="variable">$name</span>) == <span class="string">"guide-box"</span>)</span><br><span class="line">  legend &lt;- tmp<span class="variable">$grobs</span>[[leg]]</span><br><span class="line">  <span class="built_in">return</span>(legend)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>(The function above is derived from this <span class="exturl" data-url="aHR0cDovL3N0YWNrb3ZlcmZsb3cuY29tL3F1ZXN0aW9ucy8xMjUzOTM0OC9nZ3Bsb3Qtc2VwYXJhdGUtbGVnZW5kLWFuZC1wbG90" title="http://stackoverflow.com/questions/12539348/ggplot-separate-legend-and-plot">forum<i class="fa fa-external-link"></i></span>. )<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. Create the plots</span></span><br><span class="line"><span class="comment">#++++++++++++++++++++++++++++++++++</span></span><br><span class="line"><span class="comment"># Create a box plot</span></span><br><span class="line">bp &lt;- ggplot(df, aes(x=dose, y=len, color=dose)) +</span><br><span class="line">  geom_boxplot()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create a violin plot</span></span><br><span class="line">vp &lt;- ggplot(df, aes(x=dose, y=len, color=dose)) +</span><br><span class="line">  geom_violin()+</span><br><span class="line">  geom_boxplot(width=0.1)+</span><br><span class="line">  theme(legend.position=<span class="string">"none"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. Save the legend</span></span><br><span class="line"><span class="comment">#+++++++++++++++++++++++</span></span><br><span class="line">legend &lt;- get_legend(bp)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. Remove the legend from the box plot</span></span><br><span class="line"><span class="comment">#+++++++++++++++++++++++</span></span><br><span class="line">bp &lt;- bp + theme(legend.position=<span class="string">"none"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. Arrange ggplot2 graphs with a specific width</span></span><br><span class="line">grid.arrange(bp, vp, legend, ncol=3, widths=c(2.3, 2.3, 0.8))</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://www.sthda.com/sthda/RDoc/figure/ggplot2/ggplot2-mixing-multiple-plots-common-legend-data-visualization-1.png" width="518.4"></p>
+<h2 id="Scatter_plot_with_marginal_density_plots">Scatter plot with marginal density plots</h2><p><strong>Step 1/3. Create some data :</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">x &lt;- c(rnorm(500, mean = -1), rnorm(500, mean = 1.5))</span><br><span class="line">y &lt;- c(rnorm(500, mean = 1), rnorm(500, mean = 1.7))</span><br><span class="line">group &lt;- as.factor(rep(c(1,2), each=500))</span><br><span class="line">df2 &lt;- data.frame(x, y, group)</span><br><span class="line">head(df2)</span><br><span class="line">##             x          y group</span><br><span class="line">## 1 -2.20706575 -0.2053334     1</span><br><span class="line">## 2 -0.72257076  1.3014667     1</span><br><span class="line">## 3  0.08444118 -0.5391452     1</span><br><span class="line">## 4 -3.34569770  1.6353707     1</span><br><span class="line">## 5 -0.57087531  1.7029518     1</span><br><span class="line">## 6 -0.49394411 -0.9058829     1</span><br></pre></td></tr></table></figure></p>
+<p><strong>Step 2/3. Create the plots :</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Scatter plot of x and y variables and color by groups</span></span><br><span class="line">scatterPlot &lt;- ggplot(df2,aes(x, y, color=group)) + </span><br><span class="line">  geom_point() + </span><br><span class="line">  scale_color_manual(values = c(&amp;<span class="comment">#39;#999999&amp;#39;,&amp;#39;#E69F00&amp;#39;)) + </span></span><br><span class="line">  theme(legend.position=c(0,1), legend.justification=c(0,1))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Marginal density plot of x (top panel)</span></span><br><span class="line">xdensity &lt;- ggplot(df2, aes(x, fill=group)) + </span><br><span class="line">  geom_density(alpha=.5) + </span><br><span class="line">  scale_fill_manual(values = c(&amp;<span class="comment">#39;#999999&amp;#39;,&amp;#39;#E69F00&amp;#39;)) + </span></span><br><span class="line">  theme(legend.position = <span class="string">"none"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Marginal density plot of y (right panel)</span></span><br><span class="line">ydensity &lt;- ggplot(df2, aes(y, fill=group)) + </span><br><span class="line">  geom_density(alpha=.5) + </span><br><span class="line">  scale_fill_manual(values = c(&amp;<span class="comment">#39;#999999&amp;#39;,&amp;#39;#E69F00&amp;#39;)) + </span></span><br><span class="line">  theme(legend.position = <span class="string">"none"</span>)</span><br></pre></td></tr></table></figure></p>
+<p>Create a blank placeholder plot :<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">lankPlot &lt;- ggplot()+geom_blank(aes(1,1))+</span><br><span class="line">  theme(</span><br><span class="line">    plot.background = element_blank(), </span><br><span class="line">   panel.grid.major = element_blank(),</span><br><span class="line">   panel.grid.minor = element_blank(), </span><br><span class="line">   panel.border = element_blank(),</span><br><span class="line">   panel.background = element_blank(),</span><br><span class="line">   axis.title.x = element_blank(),</span><br><span class="line">   axis.title.y = element_blank(),</span><br><span class="line">   axis.text.x = element_blank(), </span><br><span class="line">   axis.text.y = element_blank(),</span><br><span class="line">   axis.ticks = element_blank(),</span><br><span class="line">   axis.line = element_blank()</span><br><span class="line">     )</span><br></pre></td></tr></table></figure></p>
+<p><strong>Step 3/3. Put the plots together:</strong><br>Arrange ggplot2 with adapted height and width for each row and column :<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">library(<span class="string">"gridExtra"</span>)</span><br><span class="line">grid.arrange(xdensity, blankPlot, scatterPlot, ydensity, </span><br><span class="line">        ncol=2, nrow=2, widths=c(4, 1.4), heights=c(1.4, 4))</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://www.sthda.com/sthda/RDoc/figure/ggplot2/ggplot2-mixing-multiple-plots-put-multiple-plot-together-data-visualization-1.png" width="480"></p>
+<h2 id="Create_a_complex_layout_using_the_function_viewport()">Create a complex layout using the function viewport()</h2><p>The different steps are :</p>
+<p><ol style="list-style-type: decimal"></ol></p>
+<p><li>Create plots : p1, p2, p3, ….</li></p>
+<p><li>Move to a new page on a grid device using the function <strong>grid.newpage()</strong></li></p>
+<p><li>Create a layout 2X2 - number of columns = 2; number of rows = 2</li></p>
+<p><li>Define a grid viewport : a rectangular region on a graphics device</li></p>
+<p><li>Print a plot into the viewport</li><br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Move to a new page</span></span><br><span class="line">grid.newpage()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create layout : nrow = 2, ncol = 2</span></span><br><span class="line">pushViewport(viewport(layout = grid.layout(2, 2)))</span><br><span class="line"></span><br><span class="line"><span class="comment"># A helper function to define a region on the layout</span></span><br><span class="line">define_region &lt;- <span class="keyword">function</span>(row, col)&#123;</span><br><span class="line">  viewport(layout.pos.row = row, layout.pos.col = col)</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment"># Arrange the plots</span></span><br><span class="line"><span class="built_in">print</span>(scatterPlot, vp=define_region(1, 1:2))</span><br><span class="line"><span class="built_in">print</span>(xdensity, vp = define_region(2, 1))</span><br><span class="line"><span class="built_in">print</span>(ydensity, vp = define_region(2, 2))</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://www.sthda.com/sthda/RDoc/figure/ggplot2/ggplot2-mixing-multiple-plots-complex-layout-data-visualization-1.png" width="480"></p>
+<h2 id="Insert_an_external_graphical_element_inside_a_ggplot">Insert an external graphical element inside a ggplot</h2><p>The function <strong>annotation_custom()</strong> [in <strong>ggplot2</strong>] can be used for adding tables, plots or other grid-based elements. The simplified format is :<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">annotation_custom(grob, xmin, xmax, ymin, ymax)</span><br></pre></td></tr></table></figure></p>
+<p><ul></ul></p>
+<p><li><strong>grob</strong>: the external graphical element to display</li></p>
+<p><li><strong>xmin, xmax</strong> : x location in data coordinates (horizontal location)</li></p>
+<p><li><strong>ymin, ymax</strong> : y location in data coordinates (vertical location)</li><br><br>The different steps are :</p>
+<p><ol style="list-style-type: decimal"></ol></p>
+<p><li>Create a scatter plot of y = f(x)</li></p>
+<p><li>Add, for example, the box plot of the variables x and y inside the scatter plot using the function <strong>annotation_custom()</strong></li><br><br><span class="warning">As the inset box plot overlaps with some points, a <strong>transparent background</strong> is used for the box plots.</span><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Create a transparent theme object</span></span><br><span class="line">transparent_theme &lt;- theme(</span><br><span class="line"> axis.title.x = element_blank(),</span><br><span class="line"> axis.title.y = element_blank(),</span><br><span class="line"> axis.text.x = element_blank(), </span><br><span class="line"> axis.text.y = element_blank(),</span><br><span class="line"> axis.ticks = element_blank(),</span><br><span class="line"> panel.grid = element_blank(),</span><br><span class="line"> axis.line = element_blank(),</span><br><span class="line"> panel.background = element_rect(fill = <span class="string">"transparent"</span>,colour = NA),</span><br><span class="line"> plot.background = element_rect(fill = <span class="string">"transparent"</span>,colour = NA))</span><br></pre></td></tr></table></figure></p>
+<p>Create the graphs :<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">p1 &lt;- scatterPlot <span class="comment"># see previous sections for the scatterPlot</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Box plot of the x variable</span></span><br><span class="line">p2 &lt;- ggplot(df2, aes(factor(1), x))+</span><br><span class="line">  geom_boxplot(width=0.3)+coord_flip()+</span><br><span class="line">  transparent_theme</span><br><span class="line"></span><br><span class="line"><span class="comment"># Box plot of the y variable</span></span><br><span class="line">p3 &lt;- ggplot(df2, aes(factor(1), y))+</span><br><span class="line">  geom_boxplot(width=0.3)+</span><br><span class="line">  transparent_theme</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create the external graphical elements</span></span><br><span class="line"><span class="comment"># called a "grop" in Grid terminology</span></span><br><span class="line">p2_grob = ggplotGrob(p2)</span><br><span class="line">p3_grob = ggplotGrob(p3)</span><br><span class="line">   </span><br><span class="line"></span><br><span class="line"><span class="comment"># Insert p2_grob inside the scatter plot</span></span><br><span class="line">xmin &lt;- min(x); xmax &lt;- max(x)</span><br><span class="line">ymin &lt;- min(y); ymax &lt;- max(y)</span><br><span class="line">p1 + annotation_custom(grob = p2_grob, xmin = xmin, xmax = xmax, </span><br><span class="line">                       ymin = ymin-1.5, ymax = ymin+1.5)</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://www.sthda.com/sthda/RDoc/figure/ggplot2/ggplot2-mixing-multiple-plots-insert-plot-inside-ggplot-data-visualization-1.png" width="384"><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Insert p3_grob inside the scatter plot</span></span><br><span class="line">p1 + annotation_custom(grob = p3_grob,</span><br><span class="line">                       xmin = xmin-1.5, xmax = xmin+1.5, </span><br><span class="line">                       ymin = ymin, ymax = ymax)</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://www.sthda.com/sthda/RDoc/figure/ggplot2/ggplot2-mixing-multiple-plots-insert-plot-inside-ggplot-data-visualization-2.png" width="384"><br><span class="error">If you have a solution to insert, at the same time, both p2_grob and p3_grob inside the scatter plot, please let me a comment. I got some errors trying to do this…</span></p>
+<h2 id="Mix_table,_text_and_ggplot2_graphs">Mix table, text and ggplot2 graphs</h2><p>The functions below are required :</p>
+<p><ul></ul></p>
+<p><li><strong>tableGrob()</strong> [in the package <em>gridExtra</em>] : for adding a data table to a graphic device</li></p>
+<p><li><strong>splitTextGrob()</strong> [in the package <em>RGraphics</em>] : for adding a text to a graph</li><br><br><span class="warning">Make sure that the package <strong>RGraphics</strong> is installed.</span><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">library(RGraphics)</span><br><span class="line">library(gridExtra)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Table</span></span><br><span class="line">p1 &lt;- tableGrob(head(ToothGrowth))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Text</span></span><br><span class="line">text &lt;- <span class="string">"ToothGrowth data describes the effect of Vitamin C on tooth growth in Guinea pigs.  Three dose levels of Vitamin C (0.5, 1, and 2 mg) with each of two delivery methods [orange juice (OJ) or ascorbic acid (VC)] are used."</span></span><br><span class="line">p2 &lt;- splitTextGrob(text)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Box plot</span></span><br><span class="line">p3 &lt;- ggplot(df, aes(x=dose, y=len)) + geom_boxplot()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Arrange the plots on the same page</span></span><br><span class="line">grid.arrange(p1, p2, p3, ncol=1)</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://www.sthda.com/sthda/RDoc/figure/ggplot2/ggplot2-mixing-multiple-plots-add-table-add-text-data-visualization-1.png" width="480"></p>
+<h2 id="Infos">Infos</h2><p><span class="warning"> This analysis has been performed using <strong>R software</strong> (ver. 3.1.2) and <strong>ggplot2</strong> (ver. 1.0.0) </span><br>Contribution from ：<span class="exturl" data-url="aHR0cDovL3d3dy5zdGhkYS5jb20vZW5nbGlzaC93aWtpL2dncGxvdDItZWFzeS13YXktdG8tbWl4LW11bHRpcGxlLWdyYXBocy1vbi10aGUtc2FtZS1wYWdlLXItc29mdHdhcmUtYW5kLWRhdGEtdmlzdWFsaXphdGlvbg==" title="http://www.sthda.com/english/wiki/ggplot2-easy-way-to-mix-multiple-graphs-on-the-same-page-r-software-and-data-visualization">http://www.sthda.com/english/wiki/ggplot2-easy-way-to-mix-multiple-graphs-on-the-same-page-r-software-and-data-visualization<i class="fa fa-external-link"></i></span></p>
+
+      
+    </div>
+
+    
+      
+
+  <div class="popular-posts-header">Related Posts</div>
+  <ul class="popular-posts">
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="\2015\10\03\multiple-ggplot2.html" rel="bookmark">Multiple graphs on one page using ggplot2</a></div>
+      
+    </li>
+  
+  </ul>
+
+
+    
+
+    
+    
+    
+
+    
+      <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
+  <img id="wechat_subscriber_qcode" src="/images/Wechat.jpg" alt="tiramisutes wechat" style="width: 200px; max-width: 100%;"/>
+  <div>欢迎关注</div>
+</div>
+
+    
+
+    
+      
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>tiramisutes</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    
+    <a href="http://tiramisutes.github.io/2015/10/03/multiple-R.html" title="Mix multiple graphs on the same page">http://tiramisutes.github.io/2015/10/03/multiple-R.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/multiple/" rel="tag"><i class="fa fa-tag"></i> multiple</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+          
+            <span class="post-meta-divider">|</span>
+          
+          <div class="social_share">
+            
+            
+              <div id="needsharebutton-postbottom">
+                <span class="btn">
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/03/multiple-ggplot2.html" rel="next" title="Multiple graphs on one page using ggplot2">
+                <i class="fa fa-chevron-left"></i> Multiple graphs on one page using ggplot2
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/10/03/coordinates.html" rel="prev" title="Modify the coordinates">
+                Modify the coordinates <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <a href="/" class="site-author-image" rel="start" style="border:none">
+              <img class="site-author-image" itemprop="image"
+                src="/images/author.jpg"
+                alt="tiramisutes"/>
+              </a>
+            
+              <p class="site-author-name" itemprop="name">tiramisutes</p>
+              <div class="site-description motion-element" itemprop="description">hope bioinformatics blog</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">148</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">112</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RpcmFtaXN1dGVz" title="GitHub &rarr; https://github.com/tiramisutes"><i class="fa fa-fw fa-github"></i>GitHub</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="bWFpbHRvOnRpcmFtaXN1dGVze2F0fTEyNi5jb20=" title="E-Mail &rarr; mailto:tiramisutes{at}126.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cDovL3dlaWJvLmNvbS90aXJhbWlzdXRlc1Rlcw==" title="Weibo &rarr; http://weibo.com/tiramisutesTes"><i class="fa fa-fw fa-globe"></i>Weibo</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9ob3BldG9neQ==" title="Twitter &rarr; https://twitter.com/hopetogy"><i class="fa fa-fw fa-twitter"></i>Twitter</span>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"/></span>
+             </div>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9paG9wZS5zaGlueWFwcHMuaW8vcVJULVBDUi1QaXBlbGluZS8=" title="https://ihope.shinyapps.io/qRT-PCR-Pipeline/">qRT-PCR-Pipeline</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly90aXJhbWlzdXRlcy5naXRib29rcy5pby9hd2svY29udGVudC8=" title="https://tiramisutes.gitbooks.io/awk/content/">GitBook《awk学习总结》</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2NvdHRvbi5oemF1LmVkdS5jbi8=" title="http://cotton.hzau.edu.cn/">棉花遗传改良团队</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5iaW8taW5mby10cmFpbmVlLmNvbS8=" title="http://www.bio-info-trainee.com/">生信菜鸟团-深圳大学城</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5iaW90cmFpbmVlLmNvbS9mb3J1bS5waHA=" title="http://www.biotrainee.com/forum.php">生信技能树</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5pd2hnYW8uY29tLw==" title="http://www.iwhgao.com/">rabbit gao's blog</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9odWFucy5naXRodWIuaW8v" title="https://huans.github.io/">Huans(代谢+GWAS)</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5zZXF1ZW5jaW5nLnVpby5uby8=" title="http://www.sequencing.uio.no/">NSC-sequenceing</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2Jsb2cuam9iYm9sZS5jb20v" title="http://blog.jobbole.com/">伯乐在线</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9saW51eC5jbi8=" title="https://linux.cn/">Linux开源中文社区</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5yLWJsb2dnZXJzLmNvbS8=" title="http://www.r-bloggers.com/">R-bloggers</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvb3RoZXItZG9jcy5odG1s" title="https://cran.r-project.org/other-docs.html">R-resource</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3R1dG9yaWFscy5pcS5oYXJ2YXJkLmVkdS9SL1JncmFwaGljcy9SZ3JhcGhpY3MuaHRtbA==" title="http://tutorials.iq.harvard.edu/R/Rgraphics/Rgraphics.html">ggplot2</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2xpbGliZWkubmV0Lw==" title="http://lilibei.net/">pele' blog</span>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Install_and_load_required_packages"><span class="nav-text">Install and load required packages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Prepare_some_data"><span class="nav-text">Prepare some data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cowplot:_Publication-ready_plots"><span class="nav-text">Cowplot: Publication-ready plots</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic_plots"><span class="nav-text">Basic plots</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Arranging_multiple_graphs_using_cowplot"><span class="nav-text">Arranging multiple graphs using cowplot</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#grid-arrange:_Create_and_arrange_multiple_plots"><span class="nav-text">grid.arrange: Create and arrange multiple plots</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Add_a_common_legend_for_multiple_ggplot2_graphs"><span class="nav-text">Add a common legend for multiple ggplot2 graphs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scatter_plot_with_marginal_density_plots"><span class="nav-text">Scatter plot with marginal density plots</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Create_a_complex_layout_using_the_function_viewport()"><span class="nav-text">Create a complex layout using the function viewport()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Insert_an_external_graphical_element_inside_a_ggplot"><span class="nav-text">Insert an external graphical element inside a ggplot</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mix_table,_text_and_ggplot2_graphs"><span class="nav-text">Mix table, text and ggplot2 graphs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Infos"><span class="nav-text">Infos</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 – <span itemprop="copyrightYear">2023</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <a class="theme-link" target="_blank" href="http://tiramisutes.github.io/about/"><span class="author" itemprop="copyrightHolder">tiramisutes</span></a>
+
+  
+    <span class="post-meta-item-icon">
+    </span>
+    <span title="Symbols count total"></span>
+  
+
+  
+    <span class="post-meta-item-icon">
+    </span>
+    <span title="Reading time total"></span>
+  
+</div>
+
+
+  <div class="powered-by">Powered: <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">▽ – <span class="exturl theme-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0">NexT.Muse</span></div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-line-chart"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+    <a style="line-height: 1.5;" href="https://tongji.baidu.com/web/welcome/login" target="_blank">The total visits
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>&nbsp;times</a>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+    
+    
+      
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='20' src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest-nomobile.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+  <script src="/js/src/exturl.js?v=7.0.1"></script>
+
+
+  
+  
+  
+    
+  
+
+  
+
+  
+  
+  
+
+
+  
+  
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'c7x0fPmO8Ci9avDBRuGWHqpG-gzGzoHsz',
+    appKey: 'iVJ6ST0e1O5xaiIhVwOyhbf3',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+<style>
+.pdfobject-container {
+  position: relative;
+  overflow: auto;
+  width: 100%;
+}
+</style>
+<script>
+if ($('body').find('div.pdf').length) {
+  $.ajax({
+    type: 'GET',
+    url: '//cdn.jsdelivr.net/npm/pdfobject@2.1.1/pdfobject.min.js',
+    dataType: 'script',
+    cache: true,
+    success: function() {
+      $('body').find('div.pdf').each(function(i, o) {
+        PDFObject.embed($(o).attr('target'), $(o), {
+          pdfOpenParams: {
+            navpanes: 0,
+            toolbar: 0,
+            statusbar: 0,
+            pagemode: 'thumbs',
+            view: 'FitH'
+          },
+          PDFJS_URL: '/lib/pdf/web/viewer.html',
+          height: $(o).attr('height') || '500px'
+        });
+      });
+    },
+  });
+}
+</script>
+
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+  
+  
+    
+  
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Evernote,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+
+  
+  <script>
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id: 15314,
+      el: 'wpac-rating',
+      color: 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

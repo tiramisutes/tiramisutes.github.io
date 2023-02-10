@@ -1,0 +1,2140 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=66189719" charset="UTF-8"></script>
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"/>
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/han.min.css"/>
+
+
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+
+
+  <meta name="google-site-verification" content="b12Zu40L63PLgCtcn0IW8KCNRolmyQlaF22tf4rRLEg"/>
+
+
+
+  <meta name="msvalidate.01" content="74A687E04D4EF9914B7AA20824207409"/>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="https://fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"/>
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/small_favicon.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/favicon.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":true,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="声明：本文所列工具均为较为初级的生物信息分析，只用于简单的分析过程，更加优秀的工具和准确的分析结果我也在不懈寻找中，同样也欢迎大家留言提供，一个分析结果最好是能够综合不同方式所得结果。">
+<meta name="keywords" content="bio-online">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用生物信息在线工具">
+<meta property="og:url" content="http://tiramisutes.github.io/2015/08/05/bio-online.html">
+<meta property="og:site_name" content="hope">
+<meta property="og:description" content="声明：本文所列工具均为较为初级的生物信息分析，只用于简单的分析过程，更加优秀的工具和准确的分析结果我也在不懈寻找中，同样也欢迎大家留言提供，一个分析结果最好是能够综合不同方式所得结果。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/bioinfo3.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/ven.png">
+<meta property="og:image" content="https://i.imgur.com/8ZGkYUr.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/fgenesh.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/itol.png">
+<meta property="og:image" content="http://tiramisutes.github.io/images/evo.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/IQ-TREE.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/promot.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/predictprotein.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/protparam.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/NetPhos.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/signalip.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/tmhmm.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/%E4%BA%9A%E7%BB%86%E8%83%9E.png">
+<meta property="og:image" content="http://tiramisutes.github.io/images/deeploc.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/sopma.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/SWISS-MODEL.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/cap3.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/3wei.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/4wei.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/aln1.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/gtree.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/wego.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/Pfam.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/GenomeScope.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/circos-table-01%20%281%29.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/welogo.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/GSDS.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/callbacks.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/M.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/PlantTF.jpg">
+<meta property="og:image" content="http://cool.syncti.org/images/Aminoacids_table.svg">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/mimazi.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/seqret.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/fungal.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/blast.png">
+<meta property="og:image" content="http://bat.infspire.org/tools/circoletto/circoletto.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/geneFam.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/seqcov.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/Myp.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/motif.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/plantpan.png">
+<meta property="og:image" content="http://tiramisutes.github.io/images/iDEP.png">
+<meta property="og:image" content="http://tiramisutes.github.io/images/Genefisher2.png">
+<meta property="og:image" content="http://tiramisutes.github.io/images/word-cloud.png">
+<meta property="og:image" content="http://tiramisutes.github.io/images/generatewordcloud.png">
+<meta property="og:updated_time" content="2023-02-10T01:54:53.211Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常用生物信息在线工具">
+<meta name="twitter:description" content="声明：本文所列工具均为较为初级的生物信息分析，只用于简单的分析过程，更加优秀的工具和准确的分析结果我也在不懈寻找中，同样也欢迎大家留言提供，一个分析结果最好是能够综合不同方式所得结果。">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/bioinfo3.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="hope" type="application/atom+xml"/>
+
+
+
+
+  <link rel="canonical" href="http://tiramisutes.github.io/2015/08/05/bio-online.html"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>常用生物信息在线工具 | hope</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?08b17c69c7ba460d9ab5f188a048ee6d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">hope</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">A new day is coming,whether we like it or not. The question is will you control it,or will it control you?</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-code">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/code/" rel="section"><i class="menu-item-icon fa fa-fw fa-code"></i> <br/>Code</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-footprint">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/footprint/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br/>Footprint</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-qrt-pcr">
+
+    
+    
+    
+      
+    
+
+    
+
+    <span class="exturl" data-url="aHR0cHM6Ly9paG9wZS5zaGlueWFwcHMuaW8vcVJULVBDUi1QaXBlbGluZS8="><i class="menu-item-icon fa fa-fw fa-cloud"></i> <br/>qRT-PCR</span>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-project">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/project/" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br/>Project</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-publish">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/publish/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br/>Publish</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sci-figure">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/SCIFigure/" rel="section"><i class="menu-item-icon fa fa-fw fa-angellist"></i> <br/>SCI Figure</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-cv">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/resume/" rel="section"><i class="menu-item-icon fa fa-fw fa-address-card"></i> <br/>CV</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tiramisutes.github.io/2015/08/05/bio-online.html"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tiramisutes"/>
+      <meta itemprop="description" content="hope bioinformatics blog"/>
+      <meta itemprop="image" content="/images/author.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hope"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">常用生物信息在线工具
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2015-08-05 19:19:40" itemprop="dateCreated datePublished" datetime="2015-08-05T19:19:40+08:00">2015-08-05</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Bioinformatics/" itemprop="url" rel="index"><span itemprop="name">Bioinformatics</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2015/08/05/bio-online.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2015/08/05/bio-online.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2015/08/05/bio-online.html" class="leancloud_visitors" data-flag-title="常用生物信息在线工具">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+                <span>℃</span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article: </span>
+                
+                <span title="Words count in article"></span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time"></span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><i class="fa fa-volume-control-phone" aria-hidden="true"></i><strong>声明：本文所列工具均为较为初级的生物信息分析，只用于简单的分析过程，更加优秀的工具和准确的分析结果我也在不懈寻找中，同样也欢迎大家留言提供，一个分析结果最好是能够综合不同方式所得结果。</strong><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/bioinfo3.png" alt=""><br><a id="more"></a></p>
+<h3 id="韦恩图">韦恩图</h3><p><span class="exturl" data-url="aHR0cDovL2Jpb2luZm9ncC5jbmIuY3NpYy5lcy90b29scy92ZW5ueS9pbmRleC5odG1s" title="http://bioinfogp.cnb.csic.es/tools/venny/index.html">Venny2.0<i class="fa fa-external-link"></i></span><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/ven.png" alt=""></p>
+<h3 id="升级版韦恩图">升级版韦恩图</h3><p><span class="exturl" data-url="aHR0cDovL2p2ZW5uLnRvdWxvdXNlLmlucmEuZnIvYXBwL2V4YW1wbGUuaHRtbA==" title="http://jvenn.toulouse.inra.fr/app/example.html">jvenn: 可做到6个<i class="fa fa-external-link"></i></span><br><img src="https://i.imgur.com/8ZGkYUr.png" alt=""></p>
+<h3 id="基因预测">基因预测</h3><p><span class="exturl" data-url="aHR0cDovL2xpbnV4MS5zb2Z0YmVycnkuY29tL2JlcnJ5LnBodG1sP3RvcGljPWZnZW5lc2gmZ3JvdXA9cHJvZ3JhbXMmc3ViZ3JvdXA9Z2ZpbmQ=" title="http://linux1.softberry.com/berry.phtml?topic=fgenesh&group=programs&subgroup=gfind">FGENESH<i class="fa fa-external-link"></i></span><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/fgenesh.png" alt=""></p>
+<h3 id="phylogenetic">phylogenetic</h3><p><span class="exturl" data-url="aHR0cDovL2l0b2wuZW1ibC5kZS9pbmRleC5zaHRtbA==" title="http://itol.embl.de/index.shtml"> iTOL<i class="fa fa-external-link"></i></span><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/itol.png" alt=""><br><span class="exturl" data-url="aHR0cHM6Ly93d3cuZXZvbGdlbml1cy5pbmZvL2V2b2x2aWV3Lw==" title="https://www.evolgenius.info/evolview/">Evolview v3<i class="fa fa-external-link"></i></span><br><img src="/images/evo.png" alt=""></p>
+<h3 id="在线构建进化树">在线构建进化树</h3><p><span class="exturl" data-url="aHR0cDovL2lxdHJlZS5jaWJpdi51bml2aWUuYWMuYXQv" title="http://iqtree.cibiv.univie.ac.at/">IQTREE Web Server: Fast and accurate phylogenetic trees under maximum likelihood<i class="fa fa-external-link"></i></span><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/IQ-TREE.png" alt=""></p>
+<h3 id="启动子区预测">启动子区预测</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3ctYmltYXMuY2l0Lm5paC5nb3YvbW9sYmlvL3Byb3NjYW4v" title="https://www-bimas.cit.nih.gov/molbio/proscan/">Promoter Scan<i class="fa fa-external-link"></i></span><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/promot.png" alt=""></p>
+<h3 id="蛋白质一级结构分析">蛋白质一级结构分析</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cucHJlZGljdHByb3RlaW4ub3JnL2hvbWU=" title="https://www.predictprotein.org/home">PredictProte<i class="fa fa-external-link"></i></span><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/predictprotein.png" alt=""><br><span class="exturl" data-url="aHR0cDovL3dlYi5leHBhc3kub3JnL3Byb3RwYXJhbS8=" title="http://web.expasy.org/protparam/">ExPASy-ProtParam tool<i class="fa fa-external-link"></i></span><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/protparam.png" alt=""></p>
+<h3 id="蛋白质磷酸化位点">蛋白质磷酸化位点</h3><p><span class="exturl" data-url="aHR0cDovL3d3dy5jYnMuZHR1LmRrL3NlcnZpY2VzL05ldFBob3Mv" title="http://www.cbs.dtu.dk/services/NetPhos/">NetPhos 2.0<i class="fa fa-external-link"></i></span><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/NetPhos.png" alt=""></p>
+<h3 id="信号肽">信号肽</h3><p><span class="exturl" data-url="aHR0cDovL3d3dy5jYnMuZHR1LmRrL3NlcnZpY2VzL1NpZ25hbFAv" title="http://www.cbs.dtu.dk/services/SignalP/">SignalP<i class="fa fa-external-link"></i></span><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/signalip.png" alt=""></p>
+<h3 id="跨膜结构域">跨膜结构域</h3><p><span class="exturl" data-url="aHR0cDovL3d3dy5jYnMuZHR1LmRrL3NlcnZpY2VzL1RNSE1NLw==" title="http://www.cbs.dtu.dk/services/TMHMM/">TMHMM Server v. 2.0<i class="fa fa-external-link"></i></span><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/tmhmm.png" alt=""></p>
+<h3 id="蛋白质亚细胞定位">蛋白质亚细胞定位</h3><p><span class="exturl" data-url="aHR0cHM6Ly9zZXJ2aWNlcy5oZWFsdGh0ZWNoLmR0dS5kay9zZXJ2aWNlLnBocD9UYXJnZXRQLTIuMA==" title="https://services.healthtech.dtu.dk/service.php?TargetP-2.0">TargetP (Subcellular location of proteins: mitochondrial, chloroplastic, secretory pathway, or other)<i class="fa fa-external-link"></i></span><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/%E4%BA%9A%E7%BB%86%E8%83%9E.png" alt=""><br><span class="exturl" data-url="aHR0cHM6Ly9zZXJ2aWNlcy5oZWFsdGh0ZWNoLmR0dS5kay9zZXJ2aWNlcy9EZWVwTG9jLTIuMC8=" title="https://services.healthtech.dtu.dk/services/DeepLoc-2.0/">DeepLoc (Prediction of eukaryotic protein subcellular localization using deep learning)<i class="fa fa-external-link"></i></span><br><img src="/images/deeploc.png" alt=""></p>
+<h3 id="蛋白质二级结构分析">蛋白质二级结构分析</h3><p><span class="exturl" data-url="aHR0cHM6Ly9ucHNhLXByYWJpLmliY3AuZnIvY2dpLWJpbi9ucHNhX2F1dG9tYXQucGw/cGFnZT1ucHNhX3NvcG1hLmh0bWw=" title="https://npsa-prabi.ibcp.fr/cgi-bin/npsa_automat.pl?page=npsa_sopma.html">SOPMA<i class="fa fa-external-link"></i></span><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/sopma.png" alt=""></p>
+<h3 id="蛋白质三级结构预测">蛋白质三级结构预测</h3><p><span class="exturl" data-url="aHR0cDovL3N3aXNzbW9kZWwuZXhwYXN5Lm9yZy9pbnRlcmFjdGl2ZQ==" title="http://swissmodel.expasy.org/interactive">SWISS-MODEL<i class="fa fa-external-link"></i></span><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/SWISS-MODEL.png" alt=""></p>
+<h3 id="短序列拼接">短序列拼接</h3><p><span class="exturl" data-url="aHR0cDovL2RvdWEucHJhYmkuZnIvc29mdHdhcmUvY2FwMw==" title="http://doua.prabi.fr/software/cap3">Cap3<i class="fa fa-external-link"></i></span><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/cap3.png" alt=""></p>
+<h3 id="多序列比对相似性展示">多序列比对相似性展示</h3><p><span class="exturl" data-url="aHR0cDovL2NvdHRvbi5oemF1LmVkdS5jbi9FTi90b29scy9CaW9FUkNQL3NpbWl0cml4LnBocA==" title="http://cotton.hzau.edu.cn/EN/tools/BioERCP/simitrix.php">SimiTriX-SimiTetra<i class="fa fa-external-link"></i></span> 和<br><span class="exturl" data-url="aHR0cHM6Ly93d3cudGVybmFyeXBsb3QuY29tLw==" title="https://www.ternaryplot.com/">Ternary plot<i class="fa fa-external-link"></i></span><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/3wei.png" alt=""><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/4wei.png" alt=""></p>
+<h3 id="多序列比对可视化">多序列比对可视化</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuZWJpLmFjLnVrL1Rvb2xzL21zYS9tdmlldy8=" title="https://www.ebi.ac.uk/Tools/msa/mview/">MView: A multiple alignment viewer<i class="fa fa-external-link"></i></span><br>or<br><span class="exturl" data-url="aHR0cDovL3d3dy5hbGlnbm1lbnR2aWV3ZXIub3JnLw==" title="http://www.alignmentviewer.org/">AlignmentViewer<i class="fa fa-external-link"></i></span><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/aln1.jpg" alt=""></p>
+<h3 id="过滤多序列比对结果">过滤多序列比对结果</h3><p><span class="exturl" data-url="aHR0cDovL2d1aWRhbmNlLnRhdS5hYy5pbC92ZXIyLw==" title="http://guidance.tau.ac.il/ver2/">GUIDANCE2 Server: Server for alignment confidence score<i class="fa fa-external-link"></i></span><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/gtree.png" alt=""></p>
+<h3 id="绘制GO注释结果">绘制GO注释结果</h3><p><span class="exturl" data-url="aHR0cDovL3dlZ28uZ2Vub21pY3Mub3JnLmNuLw==" title="http://wego.genomics.org.cn/">WEGO：Web Gene Ontology Annotation Plotting<i class="fa fa-external-link"></i></span><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/wego.png" alt=""></p>
+<h3 id="蛋白质">蛋白质</h3><p><span class="exturl" data-url="aHR0cDovL3BmYW0ueGZhbS5vcmcvc2VhcmNoI3RhYnZpZXc9dGFiMQ==" title="http://pfam.xfam.org/search#tabview=tab1">Pfam database<i class="fa fa-external-link"></i></span><br><span class="exturl" data-url="aHR0cDovL21lbWUtc3VpdGUub3JnL3Rvb2xzL21lbWU=" title="http://meme-suite.org/tools/meme">meme:Multiple Em for Motif Elicitation<i class="fa fa-external-link"></i></span><br><span class="exturl" data-url="aHR0cDovL3NtYXJ0LmVtYmwtaGVpZGVsYmVyZy5kZS9zbWFydC9qb2Jfc3RhdHVzLnBsP2pvYmlkPTIyMDI0OTk5MTMyMTk3NzE0ODE2OTk4MjBUdUpDTEFuaHlm" title="http://smart.embl-heidelberg.de/smart/job_status.pl?jobid=2202499913219771481699820TuJCLAnhyf">SMART<i class="fa fa-external-link"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly93d3cubmNiaS5ubG0ubmloLmdvdi9TdHJ1Y3R1cmUvY2RkL3dycHNiLmNnaQ==" title="https://www.ncbi.nlm.nih.gov/Structure/cdd/wrpsb.cgi">Conserved Domains within a protein or coding nucleotide sequence<i class="fa fa-external-link"></i></span></p>
+<blockquote>
+<p><strong>模体(motif)</strong><br>属于蛋白质的超二级结构，由2个或2个以上具有二级结构的的肽段，在空间上相互接近，形成一个特殊的空间构象，并发挥专一的功能。一种类型的模体总有其特征性的氨基酸序列。<br>模体是二级结构有规律的组合。例如螺旋-环-螺旋，贝塔折叠的组合、阿而法螺旋组合等。再比如亮氨酸拉链、锌指结构都是典型的模体，它们执行一定的功能，即模体即是结构的单位，又是功能单位，他们可直接作为结构域和三级结构的建筑块。某些蛋白质因子与DNA大沟结合的部位靠的就是某些特异的模体。<br><strong>结构域（domain）</strong><br>是指在较大的分子（主要指蛋白质也包括核酸分子）中形成的某些在空间上可以辨别的结构，往往是球状压缩区或纤维状压缩区。它们也既是结构单位，又是功能单位。例如免疫球蛋白的功能区就是结构域。</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/Pfam.png" alt=""></p>
+<h3 id="基因组杂合性评估">基因组杂合性评估</h3><p><span class="exturl" data-url="aHR0cDovL3FiLmNzaGwuZWR1L2dlbm9tZXNjb3BlL2FuYWx5c2lzLnBocD9jb2RlPWV4YW1wbGUy" title="http://qb.cshl.edu/genomescope/analysis.php?code=example2">GenomeScope：Estimate genome heterozygosity, repeat content, and size from sequencing reads using a kmer-based statistical approach<i class="fa fa-external-link"></i></span><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/GenomeScope.png" alt=""></p>
+<h3 id="circos图">circos图</h3><p><strong><span class="exturl" data-url="aHR0cDovL21rd2ViLmJjZ3NjLmNhL3RhYmxldmlld2VyL3Zpc3VhbGl6ZS8=" title="http://mkweb.bcgsc.ca/tableviewer/visualize/">CIRCOS<i class="fa fa-external-link"></i></span></strong>可以用来画基因组数据的环状图，也可以用来绘制其它数据的相关环状图。<br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/circos-table-01%20%281%29.png" alt=""><br><strong>1. 需要注意的是上传数据格式为空格或tab分隔的txt格式纯文本列表文件，值均为非负整数，若存在缺失值，用“-”线代替，若有小数，每一个单元格乘以某一值(如1000)，化为整数，且每个单元格中只能有数字，其他任何符号都不行，除了缺失的“-”，(1555，而不是1,555)；</strong><br><strong>2. 在线版只能绘制75阶方阵数据，若需要绘制较复杂的请下载<span class="exturl" data-url="aHR0cDovL3d3dy5jaXJjb3MuY2Evc29mdHdhcmUvZG93bmxvYWQvY2lyY29z" title="http://www.circos.ca/software/download/circos">Circos<i class="fa fa-external-link"></i></span> and use the <span class="exturl" data-url="aHR0cDovL3d3dy5jaXJjb3MuY2EvZG9jdW1lbnRhdGlvbi90dXRvcmlhbHMvdXRpbGl0aWVzL3Zpc3VhbGl6aW5nX3RhYmxlcy8=" title="http://www.circos.ca/documentation/tutorials/utilities/visualizing_tables/">tableviewer tool。<i class="fa fa-external-link"></i></span></strong><br><strong>3. 每一个标签所对应半圈的总长度为这一标签所对应的所有值的和，不同半圈间连线表示这两标签所表示的值。</strong></p>
+<h3 id="元数据可视化">元数据可视化</h3><p><span class="exturl" data-url="aHR0cDovLzEyMS4yNDEuMTg0LjIzMy93ZWJpZ2xvby9pbmRleC5waHA=" title="http://121.241.184.233/webigloo/index.php">Web-Igloo：Interactively visualizing multivariate data without feature decomposition<i class="fa fa-external-link"></i></span><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/welogo.png" alt=""><br><strong>需要数据和元数据两个文件</strong>,实例数据结构如下：<br>数据(Select data file (Tab delimited))</p>
+<p><blockquote>Samples    Palmitic    Palmitoleic    Stearic    Oleic    Linoleic    Linolenic    Arachidic    Eicosenoic<br>S1    1075    75    226    7823    672    36    60    29<br>S2    1088    73    224    7709    781    31    61    29<br>S3    911    54    246    8113    549    31    63    29<br>S4    966    57    240    7952    619    50    78    35<br>S5    1051    67    259    7771    672    50    80    46<br>S6    911    49    268    7924    678    51    70    44<br>S7    922    66    264    7990    618    49    56    29<br>S8    1100    61    235    7728    734    39    64    35<br>S9    1082    60    239    7745    709    46    83    33<br>S10    1037    55    213    7944    633    26    52    30<br>S11    1051    35    219    7978    605    21    65    24<br>S12    1036    59    235    7868    661    30    62    44<br></blockquote><br>元数据（Select metadata (Tab delimited)）</p>
+<p><blockquote>Samples    Geography<br>S1    N<br>S2    N<br>S3    N<br>S4    NA<br>S5    NA<br>S6    NA<br>S7    NAp<br>S8    NAp<br>S9    NAp<br>S10    NApulia<br>S11    NApulia<br>S12    NApulia<br></blockquote></p>
+<h3 id="基因结构展示">基因结构展示</h3><p><span class="exturl" data-url="aHR0cDovL2dzZHMuY2JpLnBrdS5lZHUuY24vaW5kZXgucGhw" title="http://gsds.cbi.pku.edu.cn/index.php">GSDS2.0: Gene Structure Display Server<i class="fa fa-external-link"></i></span></p>
+<p><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/GSDS.png" alt=""><br><span class="exturl" data-url="aHR0cDovL2dlbm9tZXRvb2xzLm9yZy9jZ2ktYmluL2Fubm90YXRpb25za2V0Y2hfZGVtby5jZ2k=" title="http://genometools.org/cgi-bin/annotationsketch_demo.cgi">AnnotationSketch<i class="fa fa-external-link"></i></span><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/callbacks.png" alt=""></p>
+<h3 id="外显子-内含子结构">外显子-内含子结构</h3><p><span class="exturl" data-url="aHR0cDovL3dvcm13ZWIub3JnL2V4b25pbnRyb24=" title="http://wormweb.org/exonintron">Exon-Intron Graphic Maker<i class="fa fa-external-link"></i></span><br><span class="exturl" data-url="aHR0cDovL3Byb3NpdGUuZXhwYXN5Lm9yZy9jZ2ktYmluL3Byb3NpdGUvbXlkb21haW5zLw==" title="http://prosite.expasy.org/cgi-bin/prosite/mydomains/">MyDomains<i class="fa fa-external-link"></i></span><br><span class="exturl" data-url="aHR0cDovL2RvbWFpbmRyYXcuaW1iLnVxLmVkdS5hdS4v" title="http://domaindraw.imb.uq.edu.au./">DomainDraw draws <i class="fa fa-external-link"></i></span></p>
+<h3 id="蛋白突变位点注释">蛋白突变位点注释</h3><p><span class="exturl" data-url="aHR0cDovL3d3dy5jYmlvcG9ydGFsLm9yZy9tdXRhdGlvbl9tYXBwZXIuanNw" title="http://www.cbioportal.org/mutation_mapper.jsp">MutationMapper: interprets mutations with protein annotations<i class="fa fa-external-link"></i></span><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/M.png" alt=""></p>
+<h3 id="regulatory_genes_分析">regulatory genes 分析</h3><p><strong>Transcription factors, transcription regulators, and chromatin regulators, collectively referred to as regulatory genes.</strong><br><span class="exturl" data-url="aHR0cDovL3BsYW50Z3JuLm5vYmxlLm9yZy9QbGFudFRGY2F0Lw==" title="http://plantgrn.noble.org/PlantTFcat/">PlantTFcat: An Online Plant Transcription Factor and Transcriptional Regulator Categorization and Analysis Tool<i class="fa fa-external-link"></i></span><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/PlantTF.jpg" alt=""></p>
+<h3 id="密码子偏好性_(Codon_Optimization)">密码子偏好性 (Codon Optimization)</h3><p><span class="exturl" data-url="aHR0cDovL2Nvb2wuc3luY3RpLm9yZy9zZXR1cF9pbnB1dF9zZXF1ZW5jZV9jcmVhdGVfd2YxLnBocD8=" title="Codon Optimization On-Line (COOL)">Codon Optimization On-Line (COOL)<i class="fa fa-external-link"></i></span><br><img src="http://cool.syncti.org/images/Aminoacids_table.svg" alt=""><br><span class="exturl" data-url="aHR0cHM6Ly93d3cuaWR0ZG5hLmNvbS9Db2Rvbk9wdA==" title="https://www.idtdna.com/CodonOpt">Codon Optimization Tool：Integrated DNA Technologies<i class="fa fa-external-link"></i></span><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/mimazi.jpg" alt=""></p>
+<h3 id="序列格式转换(Sequence_Format_Conversion)">序列格式转换(Sequence Format Conversion)</h3><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuZWJpLmFjLnVrL1Rvb2xzL3NmYy9lbWJvc3Nfc2VxcmV0Lw==" title="https://www.ebi.ac.uk/Tools/sfc/emboss_seqret/">EMBOSS Seqret<i class="fa fa-external-link"></i></span><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/seqret.png" alt=""></p>
+<h3 id="真菌效应蛋白预测">真菌效应蛋白预测</h3><p><span class="exturl" data-url="aHR0cDovL2VmZmVjdG9ycC5jc2lyby5hdS8=" title="http://effectorp.csiro.au/">EffectorP: predicting fungal effector proteins from secretomes using machine learning<i class="fa fa-external-link"></i></span><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/fungal.png" alt=""></p>
+<h3 id="BLAST结果可视化">BLAST结果可视化</h3><p><span class="exturl" data-url="aHR0cDovL2thYmxhbW1vLndhc211dGhsYWIub3JnLw==" title="http://kablammo.wasmuthlab.org/">kablammo: Visualize your BLAST results<i class="fa fa-external-link"></i></span><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/blast.png" alt=""><br>or<br><span class="exturl" data-url="aHR0cDovL3Rvb2xzLmJhdC5pbmZzcGlyZS5vcmcvY2lyY29sZXR0by8=" title="http://tools.bat.infspire.org/circoletto/">Circoletto<i class="fa fa-external-link"></i></span><br><img src="http://bat.infspire.org/tools/circoletto/circoletto.png" alt=""></p>
+<h3 id="植物基因家族分类和富集分析">植物基因家族分类和富集分析</h3><p><span class="exturl" data-url="aHR0cDovL21hbmRhZGlsYWIud2ViZmFjdGlvbmFsLmNvbS9ob21lLw==" title="http://mandadilab.webfactional.com/home/">GenFam: Gene Family based classification and enrichment analysis<i class="fa fa-external-link"></i></span><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/geneFam.png" alt=""></p>
+<h3 id="生物类文件格式转换">生物类文件格式转换</h3><p><span class="exturl" data-url="aHR0cDovL3NlcXVlbmNlY29udmVyc2lvbi5idWdhY28uY29tL2NvbnZlcnRlci9iaW9sb2d5L3NlcXVlbmNlcy9nZW5iYW5rX3RvX2Zhc3RhLnBocA==" title="http://sequenceconversion.bugaco.com/converter/biology/sequences/genbank_to_fasta.php">Sequence conversion<i class="fa fa-external-link"></i></span><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/seqcov.png" alt=""></p>
+<h3 id="Plant-Specific_Myristoylation_Predictor">Plant-Specific Myristoylation Predictor</h3><p><span class="exturl" data-url="aHR0cDovL3BsYW50c3AuZ2Vub21pY3MucHVyZHVlLmVkdS9teXJpc3QuaHRtbA==" title="http://plantsp.genomics.purdue.edu/myrist.html">Plant-Specific Myristoylation Predictor<i class="fa fa-external-link"></i></span><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/Myp.png" alt=""></p>
+<h3 id="启动子元件预测">启动子元件预测</h3><p><span class="exturl" data-url="aHR0cDovL2Jpb2luZm9ybWF0aWNzLnBzYi51Z2VudC5iZS93ZWJ0b29scy9wbGFudGNhcmUvaHRtbC8=" title="http://bioinformatics.psb.ugent.be/webtools/plantcare/html/">Plant CARE: Search for CARE<i class="fa fa-external-link"></i></span><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/motif.png" alt=""></p>
+<h3 id="植物启动子/转录因子分析">植物启动子/转录因子分析</h3><p><span class="exturl" data-url="aHR0cDovL3BsYW50cGFuLml0cHMubmNrdS5lZHUudHcv" title="http://plantpan.itps.ncku.edu.tw/">PlantPAN 3.0<i class="fa fa-external-link"></i></span><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/plantpan.png" alt=""></p>
+<h3 id="转录组分析">转录组分析</h3><p><span class="exturl" data-url="aHR0cDovL2Jpb2luZm9ybWF0aWNzLnNkc3RhdGUuZWR1L2lkZXAv" title="http://bioinformatics.sdstate.edu/idep/">iDEP<i class="fa fa-external-link"></i></span><br><img src="/images/iDEP.png" alt=""></p>
+<h3 id="简并引物设计">简并引物设计</h3><p><span class="exturl" data-url="aHR0cHM6Ly9iaWJpc2Vydi5jZWJpdGVjLnVuaS1iaWVsZWZlbGQuZGUvZ2VuZWZpc2hlcjI=" title="https://bibiserv.cebitec.uni-bielefeld.de/genefisher2">Genefisher 2<i class="fa fa-external-link"></i></span><br><img src="/images/Genefisher2.png" alt=""></p>
+<h3 id="词云_wordcloud">词云 wordcloud</h3><p><span class="exturl" data-url="aHR0cHM6Ly9tb25rZXlsZWFybi5jb20vd29yZC1jbG91ZA==" title="https://monkeylearn.com/word-cloud">WordCloud Generator<i class="fa fa-external-link"></i></span><br><img src="/images/word-cloud.png" alt=""><br><span class="exturl" data-url="aHR0cHM6Ly93d3cuZnJlZXdvcmRjbG91ZGdlbmVyYXRvci5jb20vZ2VuZXJhdGV3b3JkY2xvdWQ=" title="https://www.freewordcloudgenerator.com/generatewordcloud">Free Word Cloud Generator<i class="fa fa-external-link"></i></span><br><img src="/images/generatewordcloud.png" alt=""></p>
+
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+      <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
+  <img id="wechat_subscriber_qcode" src="/images/Wechat.jpg" alt="tiramisutes wechat" style="width: 200px; max-width: 100%;"/>
+  <div>欢迎关注</div>
+</div>
+
+    
+
+    
+      
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>tiramisutes</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    
+    <a href="http://tiramisutes.github.io/2015/08/05/bio-online.html" title="常用生物信息在线工具">http://tiramisutes.github.io/2015/08/05/bio-online.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/bio-online/" rel="tag"><i class="fa fa-tag"></i> bio-online</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+          
+            <span class="post-meta-divider">|</span>
+          
+          <div class="social_share">
+            
+            
+              <div id="needsharebutton-postbottom">
+                <span class="btn">
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/08/02/firewall.html" rel="next" title="firewall">
+                <i class="fa fa-chevron-left"></i> firewall
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/08/22/awk2.html" rel="prev" title="AWK程序设计语言">
+                AWK程序设计语言 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <a href="/" class="site-author-image" rel="start" style="border:none">
+              <img class="site-author-image" itemprop="image"
+                src="/images/author.jpg"
+                alt="tiramisutes"/>
+              </a>
+            
+              <p class="site-author-name" itemprop="name">tiramisutes</p>
+              <div class="site-description motion-element" itemprop="description">hope bioinformatics blog</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">148</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">112</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RpcmFtaXN1dGVz" title="GitHub &rarr; https://github.com/tiramisutes"><i class="fa fa-fw fa-github"></i>GitHub</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="bWFpbHRvOnRpcmFtaXN1dGVze2F0fTEyNi5jb20=" title="E-Mail &rarr; mailto:tiramisutes{at}126.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cDovL3dlaWJvLmNvbS90aXJhbWlzdXRlc1Rlcw==" title="Weibo &rarr; http://weibo.com/tiramisutesTes"><i class="fa fa-fw fa-globe"></i>Weibo</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9ob3BldG9neQ==" title="Twitter &rarr; https://twitter.com/hopetogy"><i class="fa fa-fw fa-twitter"></i>Twitter</span>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"/></span>
+             </div>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9paG9wZS5zaGlueWFwcHMuaW8vcVJULVBDUi1QaXBlbGluZS8=" title="https://ihope.shinyapps.io/qRT-PCR-Pipeline/">qRT-PCR-Pipeline</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly90aXJhbWlzdXRlcy5naXRib29rcy5pby9hd2svY29udGVudC8=" title="https://tiramisutes.gitbooks.io/awk/content/">GitBook《awk学习总结》</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2NvdHRvbi5oemF1LmVkdS5jbi8=" title="http://cotton.hzau.edu.cn/">棉花遗传改良团队</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5iaW8taW5mby10cmFpbmVlLmNvbS8=" title="http://www.bio-info-trainee.com/">生信菜鸟团-深圳大学城</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5iaW90cmFpbmVlLmNvbS9mb3J1bS5waHA=" title="http://www.biotrainee.com/forum.php">生信技能树</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5pd2hnYW8uY29tLw==" title="http://www.iwhgao.com/">rabbit gao's blog</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9odWFucy5naXRodWIuaW8v" title="https://huans.github.io/">Huans(代谢+GWAS)</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5zZXF1ZW5jaW5nLnVpby5uby8=" title="http://www.sequencing.uio.no/">NSC-sequenceing</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2Jsb2cuam9iYm9sZS5jb20v" title="http://blog.jobbole.com/">伯乐在线</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9saW51eC5jbi8=" title="https://linux.cn/">Linux开源中文社区</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5yLWJsb2dnZXJzLmNvbS8=" title="http://www.r-bloggers.com/">R-bloggers</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvb3RoZXItZG9jcy5odG1s" title="https://cran.r-project.org/other-docs.html">R-resource</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3R1dG9yaWFscy5pcS5oYXJ2YXJkLmVkdS9SL1JncmFwaGljcy9SZ3JhcGhpY3MuaHRtbA==" title="http://tutorials.iq.harvard.edu/R/Rgraphics/Rgraphics.html">ggplot2</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2xpbGliZWkubmV0Lw==" title="http://lilibei.net/">pele' blog</span>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#韦恩图"><span class="nav-text">韦恩图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#升级版韦恩图"><span class="nav-text">升级版韦恩图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基因预测"><span class="nav-text">基因预测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#phylogenetic"><span class="nav-text">phylogenetic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在线构建进化树"><span class="nav-text">在线构建进化树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动子区预测"><span class="nav-text">启动子区预测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#蛋白质一级结构分析"><span class="nav-text">蛋白质一级结构分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#蛋白质磷酸化位点"><span class="nav-text">蛋白质磷酸化位点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信号肽"><span class="nav-text">信号肽</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跨膜结构域"><span class="nav-text">跨膜结构域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#蛋白质亚细胞定位"><span class="nav-text">蛋白质亚细胞定位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#蛋白质二级结构分析"><span class="nav-text">蛋白质二级结构分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#蛋白质三级结构预测"><span class="nav-text">蛋白质三级结构预测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#短序列拼接"><span class="nav-text">短序列拼接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多序列比对相似性展示"><span class="nav-text">多序列比对相似性展示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多序列比对可视化"><span class="nav-text">多序列比对可视化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#过滤多序列比对结果"><span class="nav-text">过滤多序列比对结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绘制GO注释结果"><span class="nav-text">绘制GO注释结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#蛋白质"><span class="nav-text">蛋白质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基因组杂合性评估"><span class="nav-text">基因组杂合性评估</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#circos图"><span class="nav-text">circos图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元数据可视化"><span class="nav-text">元数据可视化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基因结构展示"><span class="nav-text">基因结构展示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#外显子-内含子结构"><span class="nav-text">外显子-内含子结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#蛋白突变位点注释"><span class="nav-text">蛋白突变位点注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#regulatory_genes_分析"><span class="nav-text">regulatory genes 分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#密码子偏好性_(Codon_Optimization)"><span class="nav-text">密码子偏好性 (Codon Optimization)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#序列格式转换(Sequence_Format_Conversion)"><span class="nav-text">序列格式转换(Sequence Format Conversion)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#真菌效应蛋白预测"><span class="nav-text">真菌效应蛋白预测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BLAST结果可视化"><span class="nav-text">BLAST结果可视化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#植物基因家族分类和富集分析"><span class="nav-text">植物基因家族分类和富集分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生物类文件格式转换"><span class="nav-text">生物类文件格式转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Plant-Specific_Myristoylation_Predictor"><span class="nav-text">Plant-Specific Myristoylation Predictor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动子元件预测"><span class="nav-text">启动子元件预测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#植物启动子/转录因子分析"><span class="nav-text">植物启动子/转录因子分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转录组分析"><span class="nav-text">转录组分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简并引物设计"><span class="nav-text">简并引物设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#词云_wordcloud"><span class="nav-text">词云 wordcloud</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 – <span itemprop="copyrightYear">2023</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <a class="theme-link" target="_blank" href="http://tiramisutes.github.io/about/"><span class="author" itemprop="copyrightHolder">tiramisutes</span></a>
+
+  
+    <span class="post-meta-item-icon">
+    </span>
+    <span title="Symbols count total"></span>
+  
+
+  
+    <span class="post-meta-item-icon">
+    </span>
+    <span title="Reading time total"></span>
+  
+</div>
+
+
+  <div class="powered-by">Powered: <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">▽ – <span class="exturl theme-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0">NexT.Muse</span></div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-line-chart"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+    <a style="line-height: 1.5;" href="https://tongji.baidu.com/web/welcome/login" target="_blank">The total visits
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>&nbsp;times</a>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+    
+    
+      
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='20' src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest-nomobile.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+  <script src="/js/src/exturl.js?v=7.0.1"></script>
+
+
+  
+  
+  
+    
+  
+
+  
+
+  
+  
+  
+
+
+  
+  
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'c7x0fPmO8Ci9avDBRuGWHqpG-gzGzoHsz',
+    appKey: 'iVJ6ST0e1O5xaiIhVwOyhbf3',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+<style>
+.pdfobject-container {
+  position: relative;
+  overflow: auto;
+  width: 100%;
+}
+</style>
+<script>
+if ($('body').find('div.pdf').length) {
+  $.ajax({
+    type: 'GET',
+    url: '//cdn.jsdelivr.net/npm/pdfobject@2.1.1/pdfobject.min.js',
+    dataType: 'script',
+    cache: true,
+    success: function() {
+      $('body').find('div.pdf').each(function(i, o) {
+        PDFObject.embed($(o).attr('target'), $(o), {
+          pdfOpenParams: {
+            navpanes: 0,
+            toolbar: 0,
+            statusbar: 0,
+            pagemode: 'thumbs',
+            view: 'FitH'
+          },
+          PDFJS_URL: '/lib/pdf/web/viewer.html',
+          height: $(o).attr('height') || '500px'
+        });
+      });
+    },
+  });
+}
+</script>
+
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+  
+  
+    
+  
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Evernote,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+
+  
+  <script>
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id: 15314,
+      el: 'wpac-rating',
+      color: 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

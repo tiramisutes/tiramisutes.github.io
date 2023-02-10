@@ -1,0 +1,2140 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=66189719" charset="UTF-8"></script>
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"/>
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/han.min.css"/>
+
+
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+
+
+  <meta name="google-site-verification" content="b12Zu40L63PLgCtcn0IW8KCNRolmyQlaF22tf4rRLEg"/>
+
+
+
+  <meta name="msvalidate.01" content="74A687E04D4EF9914B7AA20824207409"/>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="https://fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"/>
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/small_favicon.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/favicon.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":true,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="The spec file is an optional input to the runCA executive that launches the Celera Assembler pipeline. The spec files provides a convenient way to generate assemblies while documenting their parameter">
+<meta name="keywords" content="PacBio">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PBcR：SpecFiles Options">
+<meta property="og:url" content="http://tiramisutes.github.io/2016/08/26/pacbio-spec.html">
+<meta property="og:site_name" content="hope">
+<meta property="og:description" content="The spec file is an optional input to the runCA executive that launches the Celera Assembler pipeline. The spec files provides a convenient way to generate assemblies while documenting their parameter">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/hash.png">
+<meta property="og:updated_time" content="2018-09-28T02:39:34.670Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PBcR：SpecFiles Options">
+<meta name="twitter:description" content="The spec file is an optional input to the runCA executive that launches the Celera Assembler pipeline. The spec files provides a convenient way to generate assemblies while documenting their parameter">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/hash.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="hope" type="application/atom+xml"/>
+
+
+
+
+  <link rel="canonical" href="http://tiramisutes.github.io/2016/08/26/pacbio-spec.html"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>PBcR：SpecFiles Options | hope</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?08b17c69c7ba460d9ab5f188a048ee6d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">hope</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">A new day is coming,whether we like it or not. The question is will you control it,or will it control you?</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-code">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/code/" rel="section"><i class="menu-item-icon fa fa-fw fa-code"></i> <br/>Code</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-footprint">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/footprint/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br/>Footprint</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-qrt-pcr">
+
+    
+    
+    
+      
+    
+
+    
+
+    <span class="exturl" data-url="aHR0cHM6Ly9paG9wZS5zaGlueWFwcHMuaW8vcVJULVBDUi1QaXBlbGluZS8="><i class="menu-item-icon fa fa-fw fa-cloud"></i> <br/>qRT-PCR</span>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-project">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/project/" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br/>Project</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-publish">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/publish/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br/>Publish</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sci-figure">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/SCIFigure/" rel="section"><i class="menu-item-icon fa fa-fw fa-angellist"></i> <br/>SCI Figure</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-cv">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/resume/" rel="section"><i class="menu-item-icon fa fa-fw fa-address-card"></i> <br/>CV</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tiramisutes.github.io/2016/08/26/pacbio-spec.html"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tiramisutes"/>
+      <meta itemprop="description" content="hope bioinformatics blog"/>
+      <meta itemprop="image" content="/images/author.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hope"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">PBcR：SpecFiles Options
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2016-08-26 14:33:11" itemprop="dateCreated datePublished" datetime="2016-08-26T14:33:11+08:00">2016-08-26</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Bioinformatics/" itemprop="url" rel="index"><span itemprop="name">Bioinformatics</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2016/08/26/pacbio-spec.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2016/08/26/pacbio-spec.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2016/08/26/pacbio-spec.html" class="leancloud_visitors" data-flag-title="PBcR：SpecFiles Options">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+                <span>℃</span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article: </span>
+                
+                <span title="Words count in article"></span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time"></span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>The spec file is an optional input to the runCA executive that launches the Celera Assembler pipeline. The spec files provides a convenient way to generate assemblies while documenting their parameters faithfully. The use of spec files is STRONGLY recommended.</p>
+<h2 id="Spec_files参数解释">Spec files参数解释</h2><p>PBcR混合组装需要指定两个Spec配置文件： pacbio.spec(纠错)和asm.spec(组装)。这两个文件都包含特定的算法参数和计算机硬件参数，通常情况下算法参数可以忽略（此时将用软件默认值），但是计算机硬件参数需要根据实际情况调整。<br>所有参数均为<code>option = value</code>形式，其中的value为布尔型(boolean),即true=1，false=0。<br><a id="more"></a><br><a href="#" class="myButton">全局参数</a></p>
+<p><li><strong>showNext=boolean (default=0)</strong>： 如果设定，下一步主要命令将输出到屏幕而不执行；</li></p>
+<p><li><strong>pathMap=filename (default=empty-string)</strong>： filename包含主机到软件工作目录的映射，这个参数通常不需要指定；</li></p>
+<p><li><strong>shell=string (default=/bin/sh)</strong>： 指定运行脚本的命令解释器；</li></p>
+<h4 id="错误率(Error_Rates)">错误率(Error Rates)</h4><p>共有5个可配制的错误率，’error rate’在overlap中是小数，取值范围为0.0到0.4，而’error limit’是绝对值，取值范围没有限制。overlap取值只要低于’error rate’ 或 ‘error limit’阈值中的任意一个就将被取用。<strong>例如，100个碱基中overlap错误率为2%，假如 utgErrorRate=0.015并且utgErrorLimit=2.5，那么2%的overlap值将用于unitigging中。</strong><br><code>错误率必须是utg ≤ ovl ≤ cns ≤ cgw. 通常情况下, ovl = cns</code></p>
+<p><li><strong>ovlErrorRate=float (default=0.06)</strong>： overlap的误差界限，运用在trim和assembly过程中，超过这一界限值的overlap将不会被检测到。</li></p>
+<p><li><strong>cnsErrorRate=float (default=0.06)</strong>： 一致性的错误率；</li></p>
+<p><li><strong>cgwErrorRate=float (default=0.10)</strong>： scaffolder的错误率，低于此值的scaffolder将融合成unitigs和contigs；</li></p>
+<p><li><strong>obtErrorLimit=float (default=see below)</strong>： 控制overlap碱基整理过程中的overlap质量，仅影响trim过程；</li><br>Unitigger的错误率较为复杂，Overlaps中的错误率不能用在unitig构建中，每一个unitig比对使用一个不同的错误率设定值；<br>1&gt;utg uses utgErrorRate.<br>2&gt;bog uses utgErrorRate and utgErrorLimit.<br>3&gt;bogart uses utgGraphErrorRate, utgGraphErrorLimit, utgMergeErrorRate and utgMergeErrorLimit.</p>
+<p><li><strong>utgErrorRate=float (default=0.015 for utg and 0.030 for bog)</strong>： 低于设定值的overlap将用于utg 和 bog的unitiggers中；</li></p>
+<p><li><strong>utgErrorLimit=float (default=2.5)</strong>： 低于设定值的overlap将用于utg 和 bog的unitiggers中；</li></p>
+<p><li><strong>utgGraphErrorRate=float (default=0.030)</strong>： 低于设定值的overlap将用于 bogart unitigger中最好的重叠图谱构建； bogart unitigger被开发用来处理高覆盖度数据；</li></p>
+<p><li><strong>utgGraphErrorLimit=float (default=3.25)</strong>： 同上；</li></p>
+<p><li><strong>utgMergeErrorRate=float (default=0.045)</strong>： 低于设定值的overlap将用于bogart unitigger中bubble popping和重复区检测；</li></p>
+<p><li><strong>utgMergeErrorLimit=float (default=5.25)</strong>： 同上；</li></p>
+<h4 id="最小片段长度和最小overlap长度(Minimum_Fragment_Length_and_Minimum_Overlap_Length)">最小片段长度和最小overlap长度(Minimum Fragment Length and Minimum Overlap Length)</h4><p>低于最小长度发片段在gatekeeper中将丢弃，低于最小长度的overlap将不被计算。</p>
+<p><li><strong>frgMinLen=integer (default=64)</strong>： 低于设定值的片段将不被用在组装过程中；</li></p>
+<p><li><strong>ovlMinLen=integer (default=40)</strong>： 低于最小长度的overlap将不被计算；</li></p>
+<h4 id="提前停止renCA运行(Stopping_runCA_Early)">提前停止renCA运行(Stopping runCA Early)</h4><p>runCA可在某一阶段运行完后停止。</p>
+<p><li><strong>stopBefore=string (default=empty-string)</strong></li><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>meryl</b>： Stop before computing mer histograms.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>initialTrim</b>： Stop before the OBT initial quality trim.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>deDuplication</b>： Stop before the OBT de-duplication.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>finalTrimming</b>： Stop before the OBT trim point merge.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>chimeraDetection</b>： Stop before the OBT chimera detection.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>classifyMates</b>： Stop before de-novo classification.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>unitigger</b>： Stop before unitigger.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>scaffolder</b>： Stop before the scaffolding stage starts.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>CGW</b>： Stop before the CGW program starts.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>eCR</b>： Stop before the extend clear ranges program starts.  <b>extendClearRanges</b> is an alias for this.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>eCRPartition</b>： Stop before partitioning for extend clear ranges.  <b>extendClearRangesPartition</b> is an alias &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for this.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>terminator</b>： Stop before terminator.</p>
+<p><li><strong>stopAfter=string (default=empty-string)</strong></li><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>initialStoreBuilding</b>： Stop after the fragment and gatekeeper stores are created.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>meryl</b>： Stop after mer counts are generates.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>overlapBasedTrimming</b>： Stop after the Overlap Based Trimming algorithm has updated the clear ranges.  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>OBT</b> is an alias for this.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>overlapper</b>： Stop after the overlapper finishes, and the overlap store is created.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>classifyMates</b>： Stop after de-novo classification.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>unitigger</b>： Stop after unitigs are constructed, but before consensus starts.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>utgcns</b>： Stop after unitig consensus finishes; <b>consensusAfterUnitigger</b> is an alias for this.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>scaffolder</b>： Stop after all stages of scaffolding are finished.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>ctgcns</b>： Stop after contig consensus finishes; <b>consensusAfterScaffolder</b> is an alias for this.</p>
+<h4 id="网格计算(Grid_Engine_Options)">网格计算(Grid Engine Options)</h4><p>grid计算，useGrid = 1，需要集群的特殊支持，如果运行报错”qsub: script file ‘smp’ cannot be loaded - No such file or directory”，则说明你的当前集群环境不支持gird；详细见：<span class="exturl" data-url="aHR0cDovL3d3dy5jbmJsb2dzLmNvbS9NdXlvdVNvbWUvYXJjaGl2ZS8yMDEzLzA1LzMxLzMxMDk0ODcuaHRtbA==" title="http://www.cnblogs.com/MuyouSome/archive/2013/05/31/3109487.html">并行计算、分布式计算、集群计算和云计算<i class="fa fa-external-link"></i></span>。</p>
+<p><li><strong>gridEngine=string (default=SGE)</strong>： 选择SGE或LSF做为gird引擎；</li></p>
+<p><li><strong>useGrid=integer (default=0)</strong>： 0表示不使用grid；</li></p>
+<p><li><strong>scriptOnGrid=integer (default=0)</strong>: 0表示只在grid上进行并行计算；</li></p>
+<p><li><strong>mbtOnGrid=integer (default=1)</strong>： 0表示不在grid上进行mer-based trim；useGrid=0时此参数失效；</li></p>
+<p><li><strong>ovlOnGrid=integer (default=1)</strong>： 0表示不用grid进行overlap；</li></p>
+<p><li><strong>frgCorrOnGrid=integer (default=0)</strong>： frg文件纠错；</li></p>
+<p><li><strong>ovlCorrOnGrid=integer (default=0)</strong>： overlap纠错；</li></p>
+<p><li><strong>cnsOnGrid=integer (default=1)</strong>： 一致性；</li></p>
+<p><li><strong>-pe thread N -l memory=Mg -p  400</strong>： 指定单个host下用N个cpu进行计算，并且每个cpu使用内存为Mg；所以每一个任务需要的总内存数等于NMg；例如，sgeConsensus= -pe thread 3 -l memory=2g -p -600表示仅是进行一致性计算需要3个cpu，每个cpu 2g内存，共需3X2=6g内存；</li><br><a href="#" class="myButton">局部参数</a></p>
+<h4 id="Gatekeeper">Gatekeeper</h4><p><li><strong>gkpFixInsertSizes=integer (default=1)</strong>： 1表示gatekeeper将修正预估的插入大小当标准差太大或太小时，可接受的插入大小估计是<code>0.1 <em> mean &lt; std.dev. &lt; 1/3 </em> mean</code>,如果标准差超出这一范围，则重设为0.1 * mean；</li></p>
+<p><li><strong>gkpAllowInefficientStorage=integer (default=1)</strong>： 1表示允许将long-reads存储在计算机内存中，对内存损耗就大，一般设置为0；</li></p>
+<h4 id="Fragment_Trimming">Fragment Trimming</h4><p><li><strong>doOverlapBasedTrimming=integer (default=1) (aliasdoOBT)</strong>： 1表示做trim；</li></p>
+<p><li><strong>doDeDuplication=integer (default=1)</strong>： 1表示搜寻重复reads或454数据中的mate-pairs reads；当doOBT=0时失效；</li></p>
+<p><li><strong>doChimeraDetection=off or normal or aggressive (default=normal)</strong>： 通过与其他reads的比较检测嵌合体，当doOBT=0时失效；</li></p>
+<p><li><strong>mbtBatchSize=integer (default=1000000)</strong>： 每次trim批处理的片段数；</li></p>
+<p><li><strong>mbtThreads=integer (default=4)</strong>： 每次trim的线程数；</li></p>
+<p><li><strong>mbtConcurrency=integer (default=1)</strong>： 同时运行多少个trim；</li></p>
+<p><li><strong>mbtIlluminaAdapter=integer (default=1)</strong>： 在merTrim过程中移除Illumina接头序列； </li></p>
+<p><li><strong>mbt454Adapter=integer (default=1)</strong>： 在merTrim过程中移除454接头序列；</li></p>
+<h4 id="Overlapper">Overlapper</h4><p>每一对fragments互相比对确定是否重叠；<br>对于较小的组装，可通过期望并行计算的数量来划分fragments数，例对于16个jobs，可划分fragments为4；<br>对于较大的组装，建议用较大的ovlRefBlockSize和ovlHashBlockLength控制jobs数量；</p>
+<p><li><strong>overlapper=ovl or mer (default=ovl)</strong>： 选择overlap阶段；</li></p>
+<p><li><strong>obtOverlapper=ovl or mer (default=ovl)</strong>： 选择OBT (overlap-based trimming)的overlap阶段；</li></p>
+<p><li><strong>ovlOverlapper=ovl or mer (default=ovl)</strong>： unitig构建过程中的overlap阶段；</li></p>
+<p><li><strong>ovlStoreMemory=integer (default=1024M)</strong>： 构建overlap存储的内存量；</li></p>
+<p><li><strong>saveOverlaps=integer (default = 0)</strong>： 0表示overlap store生成后清除中间文件；中间文件较大，一般选择清除；</li></p>
+<p><li><strong>merSize=integer (default=22)</strong>： K-mer长度，设置这一参数相当于同时设置了obtMerSize和 ovlMerSize；</li></p>
+<p><li><strong>obtMerSize=integer (default=22)</strong>： 仅的OBT过程的k-mer长度；</li></p>
+<p><li><strong>ovlMerSize=integer (default=22)</strong>： unitig和组装过程的k-mer长度；</li></p>
+<p><li><strong>obtMerThreshold=integer (default=auto)</strong>： 检查k-mer直方图挑选合适的k值；</li></p>
+<p><li><strong>ovlMerThreshold=integer (default=auto)</strong>： 检查k-mer直方图挑选合适的k值；</li></p>
+<p><li><strong>merThreshold=integer (default=auto)</strong>： 分配线程数给 obtMerThreshold 和 ovlMerThreshold；</li></p>
+<h4 id="OVL_Overlapper">OVL Overlapper</h4><p><li><strong>ovlThreads=integer (default=2)</strong>： overlap计算线程数；</li></p>
+<p><li><strong>ovlConcurrency=integer (default=1)</strong>： 不使用SGE时，同时进行一致性overlap的数目；</li></p>
+<p><li><strong>ovlHashLoad=float (default 0.75)</strong>: 最多载入Table Size的75%；例如，22对应的Table Size为88,080,384，实际载入大小为88,080,384X75%=66060288；</li></p>
+<p><li><strong>ovlHashBits=integer (default 22)</strong>： hash表大小，固定尺寸，不随 ovlHashBlockLength 或 ovlRefBlockSize变化；</li><br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/hash.png" alt=""></p>
+<p><li><strong>ovlHashBlockLength=integer (default=100000000)</strong>： 载入hash表的序列碱基数，每一个碱基占10 bytes内存。</li></p>
+<p><li><strong>ovlRefBlockSize=integer (default=2000000)</strong>: 控制overlap的jobs数目和每一个的运行时间，较小的值将需要较多的jobs，但每一个jobs完成所需时间少；</li><br><strong>ovlHashBits</strong>和<strong>ovlHashBlockLength</strong>如何综合选择呢？根据我们实际使用的计算机硬件情况决定，假如我们的计算机有8G内存，<br>1&gt;设置<code><strong>ovlHashBits=25</strong></code> 根据上面表格得知载入这个hash表将需要消耗接近7G的内存，如果是1/2 GB操作系统，那么我们500 MB内存载入序列数据，也就是ovlHashBlockLength最多为50,000,000，而25对应的hash表可以载入704,643,072 k-mers，但是我们仅能载入50,000,000 k-mer（one k-mer per base of sequence），这样是设定造成内存的浪费；<br>2&gt;设置<code><strong>ovlHashBits=24</strong></code>消耗305G内存，剩余3G载入序列，ovlHashBlockLength多达300,000,000，352,24对应的hash表能够载入321,536 k-mers，此时的配置较为合理。<br>overlap job log file (0-overlaptrim-overlap/#######.out and 1-overlapper/######.out)有助于我们筛选合适的配置值，其包含如下内容；<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HASH LOADING STOPPED: strings         38020 out of        38020 max.</span><br><span class="line">HASH LOADING STOPPED: length       15487424 out of     15487424 max.</span><br><span class="line">HASH LOADING STOPPED: entries       4435417 out of     66060288 max (load 5.04).</span><br></pre></td></tr></table></figure></p>
+<p>在这里，载入15,487,424碱基序列，仅用了hash表可载入66,060,288大小的4,435,417，意味着可以增加ovlHashBlockLength (to load more sequence)或降低ovlHashBits (to use less memory)。</p>
+<h4 id="MER_Overlapper">MER Overlapper</h4><p>mer overlapper 也使用 Classic Overlapper参数 obtMerSize and ovlMerSize.</p>
+<p><li><strong>merCompression=integer (default=1)</strong>： ACTTTAAC with merCompression=1 would be ACTAC</li></p>
+<h4 id="Meryl">Meryl</h4><p><li><strong>merylMemory=integer (default=800M)</strong></li></p>
+<p><li><strong>merylThreads=integer (default=1)</strong></li><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">merylMemory   = -segments 4 -threads 4</span><br><span class="line">merylThreads  = 4</span><br></pre></td></tr></table></figure></p>
+<h4 id="Fragment_Error_Correction">Fragment Error Correction</h4><p><li><strong>frgCorrBatchSize=integer (default=200000)</strong>： 一次性载入的reads数；</li></p>
+<p><li><strong>doFragmentCorrection=integer (default=1)</strong></li></p>
+<p><li><strong>frgCorrThreads=integer (default=2)</strong></li></p>
+<p><li><strong>frgCorrConcurrency=integer (default=1)</strong></li></p>
+<h4 id="Unitigger">Unitigger</h4><p><li><strong>unitigger=utg or bog or bogart (default=utg)</strong>： utg（Sanger数据），bog（只有454数据或结合Sanger数据），bogart（仅有 Illumina数据或结合其他数据）;</li></p>
+<p><li><strong>utgGenomeSize=integer (default=not-set)</strong>:确定其是否输入或计算 grep -i genome /4-unitigger/unitigger.err</li></p>
+<h4 id="Scaffolder">Scaffolder</h4><p>Scaffold module is called CGW (chunk graph walker),It builds contigs and scaffolds from unitigs and mate pairs.</p>
+<h4 id="Consensus">Consensus</h4><p>unitigger和scaffolder后的一致性</p>
+<h4 id="Terminator">Terminator</h4><p><li><strong>cleanup=none or light or heavy or aggressive (default=none)</strong>： 最后组装完清除临时文件和中间文件，有效值是’none’ (no cleanup), ‘light’ (temporary files), ‘heavy’ (currently, same as light), ‘aggressive’ (everything except the output is removed)；</li></p>
+<h4 id="Unitig_Repeat/Unique_Toggling">Unitig Repeat/Unique Toggling</h4><p>Celera Assembler利用泊松分布将unitigs分类为unique和重复的，由于覆盖偏向性和截断的影响，这种分类偶尔也将unique unitigs划分为重复；为避免错误组装，重复的unitigs在组装过程中是不可信的，Unitig Repeat/Unique Toggling允许Celera Assembler纠错这些”重复“unitigs，然后重新组装；这一过程将生成一个10-toggledAsm目录，最后的组装结果在10-toggledAsm/9-terminator目录下。</p>
+<p><li><strong>doToggle=integer (default=0)</strong>： 1表示运行 Toggling过程；</li></p>
+<h2 id="Spec_files实例">Spec files实例</h2><h3 id="pacbio-spec">pacbio.spec</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">merSize=16</span><br><span class="line">mhap=-k 16 --num-hashes 512 --num-min-matches 3 --threshold 0.04 --weighted</span><br><span class="line"></span><br><span class="line">useGrid=0</span><br><span class="line">scriptOnGrid=0</span><br><span class="line"></span><br><span class="line">ovlMemory=32</span><br><span class="line">ovlStoreMemory=32000</span><br><span class="line">threads=32</span><br><span class="line">ovlConcurrency=1</span><br><span class="line">cnsConcurrency=8</span><br><span class="line">merylThreads=32</span><br><span class="line">merylMemory=32000</span><br><span class="line">ovlRefBlockSize=20000</span><br><span class="line">frgCorrThreads = 16</span><br><span class="line">frgCorrBatchSize = 100000</span><br><span class="line">ovlCorrBatchSize = 100000</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sgeScript = -pe threads 1</span><br><span class="line">sgeConsensus = -pe threads 8</span><br><span class="line">sgeOverlap = -pe threads 15 –l mem=2GB</span><br><span class="line">sgeCorrection = -pe threads 15 –l mem=2GB</span><br><span class="line">sgeFragmentCorrection = -pe threads 16 –l mem=2GB</span><br><span class="line">sgeOverlapCorrection = -pe threads 1 –l mem=16GB</span><br></pre></td></tr></table></figure>
+<h3 id="asm-spec">asm.spec</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">ovlStoreMemory 		=	60000</span><br><span class="line">ovlThreads 		= 	16</span><br><span class="line">ovlConcurrency 		= 	1</span><br><span class="line">cnsConcurrency 		= 	16</span><br><span class="line">merylMemory           	=	-segments 16 -threads 16</span><br><span class="line">merylThreads          	= 	16</span><br><span class="line"></span><br><span class="line">frgCorrThreads 		= 	16</span><br><span class="line">ovlCorrConcurrency	=	16</span><br><span class="line">frgCorrBatchSize 	= 	100000</span><br><span class="line">ovlCorrBatchSize 	= 	100000</span><br><span class="line"></span><br><span class="line">ovlHashBlockLength		=	300000000</span><br><span class="line">ovlRefBlockLength		=	0</span><br><span class="line">ovlRefBlockSize			=	2000000</span><br><span class="line"></span><br><span class="line"><span class="comment"># assembly settings, designed for eukaryotic genomes (1GB+)</span></span><br><span class="line">ovlErrorRate			=	0.1</span><br><span class="line">utgErrorRate			=	0.06</span><br><span class="line">cnsErrorRate			=	0.1</span><br><span class="line">cgwErrorRate			=	0.1</span><br><span class="line">cnsErrorRate			=	0.1</span><br><span class="line">doOBT				=	1</span><br><span class="line">obtErrorRate			=	0.08</span><br><span class="line">obtErrorLimit			=	4.5</span><br><span class="line"></span><br><span class="line">batOptions			=	-RS -NS -CS</span><br><span class="line">utgGraphErrorRate		=	0.05</span><br><span class="line">utgMergeErrorRate		=	0.05</span><br><span class="line">unitigger			=	bogart</span><br><span class="line">consensus			=	pbutgcns</span><br><span class="line"></span><br><span class="line">frgMinLen			=	3000</span><br><span class="line">ovlMinLen			=	100</span><br><span class="line"></span><br><span class="line">ovlHashBits			=	24</span><br><span class="line">ovlHashLoad			=	0.80</span><br></pre></td></tr></table></figure>
+<p></p><h5>参考资料</h5><br><span class="exturl" data-url="aHR0cDovL3dncy1hc3NlbWJsZXIuc291cmNlZm9yZ2UubmV0L3dpa2kvaW5kZXgucGhwL1NwZWNGaWxlcw==" title="http://wgs-assembler.sourceforge.net/wiki/index.php/SpecFiles">SpecFiles<i class="fa fa-external-link"></i></span><br><span class="exturl" data-url="aHR0cDovL3dncy1hc3NlbWJsZXIuc291cmNlZm9yZ2UubmV0L3dpa2kvaW5kZXgucGhwL1J1bkNBI0dsb2JhbF9PcHRpb25z" title="http://wgs-assembler.sourceforge.net/wiki/index.php/RunCA#Global_Options">RunCA#Global_Options<i class="fa fa-external-link"></i></span><p></p>
+
+      
+    </div>
+
+    
+      
+
+  <div class="popular-posts-header">Related Posts</div>
+  <ul class="popular-posts">
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="\2016\08\27\PBcR.html" rel="bookmark">PacBio sequence error correction amd assemble via pacBioToCA</a></div>
+      
+    </li>
+  
+  </ul>
+
+
+    
+
+    
+    
+    
+
+    
+      <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
+  <img id="wechat_subscriber_qcode" src="/images/Wechat.jpg" alt="tiramisutes wechat" style="width: 200px; max-width: 100%;"/>
+  <div>欢迎关注</div>
+</div>
+
+    
+
+    
+      
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>tiramisutes</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    
+    <a href="http://tiramisutes.github.io/2016/08/26/pacbio-spec.html" title="PBcR：SpecFiles Options">http://tiramisutes.github.io/2016/08/26/pacbio-spec.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/PacBio/" rel="tag"><i class="fa fa-tag"></i> PacBio</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+          
+            <span class="post-meta-divider">|</span>
+          
+          <div class="social_share">
+            
+            
+              <div id="needsharebutton-postbottom">
+                <span class="btn">
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/18/perl-one-lines-III.html" rel="next" title="Perl,awk,sed One-Liners Explained, Part III： Selective Printing and Deleting of Certain Lines">
+                <i class="fa fa-chevron-left"></i> Perl,awk,sed One-Liners Explained, Part III： Selective Printing and Deleting of Certain Lines
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/27/PBcR.html" rel="prev" title="PacBio sequence error correction amd assemble via pacBioToCA">
+                PacBio sequence error correction amd assemble via pacBioToCA <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <a href="/" class="site-author-image" rel="start" style="border:none">
+              <img class="site-author-image" itemprop="image"
+                src="/images/author.jpg"
+                alt="tiramisutes"/>
+              </a>
+            
+              <p class="site-author-name" itemprop="name">tiramisutes</p>
+              <div class="site-description motion-element" itemprop="description">hope bioinformatics blog</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">148</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">112</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RpcmFtaXN1dGVz" title="GitHub &rarr; https://github.com/tiramisutes"><i class="fa fa-fw fa-github"></i>GitHub</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="bWFpbHRvOnRpcmFtaXN1dGVze2F0fTEyNi5jb20=" title="E-Mail &rarr; mailto:tiramisutes{at}126.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cDovL3dlaWJvLmNvbS90aXJhbWlzdXRlc1Rlcw==" title="Weibo &rarr; http://weibo.com/tiramisutesTes"><i class="fa fa-fw fa-globe"></i>Weibo</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9ob3BldG9neQ==" title="Twitter &rarr; https://twitter.com/hopetogy"><i class="fa fa-fw fa-twitter"></i>Twitter</span>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"/></span>
+             </div>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9paG9wZS5zaGlueWFwcHMuaW8vcVJULVBDUi1QaXBlbGluZS8=" title="https://ihope.shinyapps.io/qRT-PCR-Pipeline/">qRT-PCR-Pipeline</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly90aXJhbWlzdXRlcy5naXRib29rcy5pby9hd2svY29udGVudC8=" title="https://tiramisutes.gitbooks.io/awk/content/">GitBook《awk学习总结》</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2NvdHRvbi5oemF1LmVkdS5jbi8=" title="http://cotton.hzau.edu.cn/">棉花遗传改良团队</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5iaW8taW5mby10cmFpbmVlLmNvbS8=" title="http://www.bio-info-trainee.com/">生信菜鸟团-深圳大学城</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5iaW90cmFpbmVlLmNvbS9mb3J1bS5waHA=" title="http://www.biotrainee.com/forum.php">生信技能树</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5pd2hnYW8uY29tLw==" title="http://www.iwhgao.com/">rabbit gao's blog</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9odWFucy5naXRodWIuaW8v" title="https://huans.github.io/">Huans(代谢+GWAS)</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5zZXF1ZW5jaW5nLnVpby5uby8=" title="http://www.sequencing.uio.no/">NSC-sequenceing</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2Jsb2cuam9iYm9sZS5jb20v" title="http://blog.jobbole.com/">伯乐在线</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9saW51eC5jbi8=" title="https://linux.cn/">Linux开源中文社区</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5yLWJsb2dnZXJzLmNvbS8=" title="http://www.r-bloggers.com/">R-bloggers</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvb3RoZXItZG9jcy5odG1s" title="https://cran.r-project.org/other-docs.html">R-resource</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3R1dG9yaWFscy5pcS5oYXJ2YXJkLmVkdS9SL1JncmFwaGljcy9SZ3JhcGhpY3MuaHRtbA==" title="http://tutorials.iq.harvard.edu/R/Rgraphics/Rgraphics.html">ggplot2</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2xpbGliZWkubmV0Lw==" title="http://lilibei.net/">pele' blog</span>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spec_files参数解释"><span class="nav-text">Spec files参数解释</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#错误率(Error_Rates)"><span class="nav-text">错误率(Error Rates)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最小片段长度和最小overlap长度(Minimum_Fragment_Length_and_Minimum_Overlap_Length)"><span class="nav-text">最小片段长度和最小overlap长度(Minimum Fragment Length and Minimum Overlap Length)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#提前停止renCA运行(Stopping_runCA_Early)"><span class="nav-text">提前停止renCA运行(Stopping runCA Early)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网格计算(Grid_Engine_Options)"><span class="nav-text">网格计算(Grid Engine Options)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gatekeeper"><span class="nav-text">Gatekeeper</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Fragment_Trimming"><span class="nav-text">Fragment Trimming</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Overlapper"><span class="nav-text">Overlapper</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OVL_Overlapper"><span class="nav-text">OVL Overlapper</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MER_Overlapper"><span class="nav-text">MER Overlapper</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Meryl"><span class="nav-text">Meryl</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Fragment_Error_Correction"><span class="nav-text">Fragment Error Correction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Unitigger"><span class="nav-text">Unitigger</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Scaffolder"><span class="nav-text">Scaffolder</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Consensus"><span class="nav-text">Consensus</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Terminator"><span class="nav-text">Terminator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Unitig_Repeat/Unique_Toggling"><span class="nav-text">Unitig Repeat/Unique Toggling</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spec_files实例"><span class="nav-text">Spec files实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pacbio-spec"><span class="nav-text">pacbio.spec</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#asm-spec"><span class="nav-text">asm.spec</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-text">参考资料</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 – <span itemprop="copyrightYear">2023</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <a class="theme-link" target="_blank" href="http://tiramisutes.github.io/about/"><span class="author" itemprop="copyrightHolder">tiramisutes</span></a>
+
+  
+    <span class="post-meta-item-icon">
+    </span>
+    <span title="Symbols count total"></span>
+  
+
+  
+    <span class="post-meta-item-icon">
+    </span>
+    <span title="Reading time total"></span>
+  
+</div>
+
+
+  <div class="powered-by">Powered: <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">▽ – <span class="exturl theme-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0">NexT.Muse</span></div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-line-chart"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+    <a style="line-height: 1.5;" href="https://tongji.baidu.com/web/welcome/login" target="_blank">The total visits
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>&nbsp;times</a>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+    
+    
+      
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='20' src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest-nomobile.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+  <script src="/js/src/exturl.js?v=7.0.1"></script>
+
+
+  
+  
+  
+    
+  
+
+  
+
+  
+  
+  
+
+
+  
+  
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'c7x0fPmO8Ci9avDBRuGWHqpG-gzGzoHsz',
+    appKey: 'iVJ6ST0e1O5xaiIhVwOyhbf3',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+<style>
+.pdfobject-container {
+  position: relative;
+  overflow: auto;
+  width: 100%;
+}
+</style>
+<script>
+if ($('body').find('div.pdf').length) {
+  $.ajax({
+    type: 'GET',
+    url: '//cdn.jsdelivr.net/npm/pdfobject@2.1.1/pdfobject.min.js',
+    dataType: 'script',
+    cache: true,
+    success: function() {
+      $('body').find('div.pdf').each(function(i, o) {
+        PDFObject.embed($(o).attr('target'), $(o), {
+          pdfOpenParams: {
+            navpanes: 0,
+            toolbar: 0,
+            statusbar: 0,
+            pagemode: 'thumbs',
+            view: 'FitH'
+          },
+          PDFJS_URL: '/lib/pdf/web/viewer.html',
+          height: $(o).attr('height') || '500px'
+        });
+      });
+    },
+  });
+}
+</script>
+
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+  
+  
+    
+  
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Evernote,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+
+  
+  <script>
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id: 15314,
+      el: 'wpac-rating',
+      color: 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

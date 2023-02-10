@@ -1,0 +1,2113 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=66189719" charset="UTF-8"></script>
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"/>
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/han.min.css"/>
+
+
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+
+
+  <meta name="google-site-verification" content="b12Zu40L63PLgCtcn0IW8KCNRolmyQlaF22tf4rRLEg"/>
+
+
+
+  <meta name="msvalidate.01" content="74A687E04D4EF9914B7AA20824207409"/>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="https://fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"/>
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/small_favicon.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/favicon.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":true,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="苹果蠹蛾(Cydia pomonella)，俗称食心虫，属鳞翅目卷蛾科。在我国仅分布于新疆、甘肃等北部地区，在国内其他地区是检疫对象。苹果蠹蛾可为害苹果、梨、杏、桃、樱桃及梅等果树。苹果蠢蛾幼虫蛀食果实，不仅降低果品质量，而且引起大量落果。成虫产卵于果实或者叶片上，卵散产，前期果实较硬时，初孵幼虫多从萼洼或梗洼蛀入，后期果实肉质松软时，从果面蛀入，幼虫蛀果后有偏食种子的习性，并向外排出虫粪。几头幼">
+<meta name="keywords" content="基因组">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NC | 苹果蠹蛾基因组测序揭示其化学感觉和杀虫剂抗性机制">
+<meta property="og:url" content="http://tiramisutes.github.io/2019/09/18/apple-cp-genome.html">
+<meta property="og:site_name" content="hope">
+<meta property="og:description" content="苹果蠹蛾(Cydia pomonella)，俗称食心虫，属鳞翅目卷蛾科。在我国仅分布于新疆、甘肃等北部地区，在国内其他地区是检疫对象。苹果蠹蛾可为害苹果、梨、杏、桃、樱桃及梅等果树。苹果蠢蛾幼虫蛀食果实，不仅降低果品质量，而且引起大量落果。成虫产卵于果实或者叶片上，卵散产，前期果实较硬时，初孵幼虫多从萼洼或梗洼蛀入，后期果实肉质松软时，从果面蛀入，幼虫蛀果后有偏食种子的习性，并向外排出虫粪。几头幼">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://tiramisutes.github.io/images/cp1.png">
+<meta property="og:image" content="http://tiramisutes.github.io/images/cp2.png">
+<meta property="og:image" content="http://tiramisutes.github.io/images/cp3.png">
+<meta property="og:image" content="http://tiramisutes.github.io/images/cp4.png">
+<meta property="og:image" content="http://tiramisutes.github.io/images/cp5.png">
+<meta property="og:image" content="http://tiramisutes.github.io/images/cp6.png">
+<meta property="og:image" content="http://tiramisutes.github.io/images/cp7.png">
+<meta property="og:image" content="http://tiramisutes.github.io/images/cp8.png">
+<meta property="og:image" content="http://tiramisutes.github.io/images/cp9.png">
+<meta property="og:updated_time" content="2019-09-18T15:29:28.408Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NC | 苹果蠹蛾基因组测序揭示其化学感觉和杀虫剂抗性机制">
+<meta name="twitter:description" content="苹果蠹蛾(Cydia pomonella)，俗称食心虫，属鳞翅目卷蛾科。在我国仅分布于新疆、甘肃等北部地区，在国内其他地区是检疫对象。苹果蠹蛾可为害苹果、梨、杏、桃、樱桃及梅等果树。苹果蠢蛾幼虫蛀食果实，不仅降低果品质量，而且引起大量落果。成虫产卵于果实或者叶片上，卵散产，前期果实较硬时，初孵幼虫多从萼洼或梗洼蛀入，后期果实肉质松软时，从果面蛀入，幼虫蛀果后有偏食种子的习性，并向外排出虫粪。几头幼">
+<meta name="twitter:image" content="http://tiramisutes.github.io/images/cp1.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="hope" type="application/atom+xml"/>
+
+
+
+
+  <link rel="canonical" href="http://tiramisutes.github.io/2019/09/18/apple-cp-genome.html"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>NC | 苹果蠹蛾基因组测序揭示其化学感觉和杀虫剂抗性机制 | hope</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?08b17c69c7ba460d9ab5f188a048ee6d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">hope</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">A new day is coming,whether we like it or not. The question is will you control it,or will it control you?</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-code">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/code/" rel="section"><i class="menu-item-icon fa fa-fw fa-code"></i> <br/>Code</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-footprint">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/footprint/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br/>Footprint</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-qrt-pcr">
+
+    
+    
+    
+      
+    
+
+    
+
+    <span class="exturl" data-url="aHR0cHM6Ly9paG9wZS5zaGlueWFwcHMuaW8vcVJULVBDUi1QaXBlbGluZS8="><i class="menu-item-icon fa fa-fw fa-cloud"></i> <br/>qRT-PCR</span>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-project">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/project/" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br/>Project</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-publish">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/publish/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br/>Publish</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sci-figure">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/SCIFigure/" rel="section"><i class="menu-item-icon fa fa-fw fa-angellist"></i> <br/>SCI Figure</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-cv">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/resume/" rel="section"><i class="menu-item-icon fa fa-fw fa-address-card"></i> <br/>CV</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tiramisutes.github.io/2019/09/18/apple-cp-genome.html"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tiramisutes"/>
+      <meta itemprop="description" content="hope bioinformatics blog"/>
+      <meta itemprop="image" content="/images/author.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hope"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">NC | 苹果蠹蛾基因组测序揭示其化学感觉和杀虫剂抗性机制
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-09-18 23:14:25" itemprop="dateCreated datePublished" datetime="2019-09-18T23:14:25+08:00">2019-09-18</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/文献/" itemprop="url" rel="index"><span itemprop="name">文献</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2019/09/18/apple-cp-genome.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/09/18/apple-cp-genome.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/09/18/apple-cp-genome.html" class="leancloud_visitors" data-flag-title="NC | 苹果蠹蛾基因组测序揭示其化学感觉和杀虫剂抗性机制">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+                <span>℃</span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article: </span>
+                
+                <span title="Words count in article"></span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time"></span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>苹果蠹蛾(Cydia pomonella)，俗称食心虫，属鳞翅目卷蛾科。在我国仅分布于新疆、甘肃等北部地区，在国内其他地区是检疫对象。苹果蠹蛾可为害苹果、梨、杏、桃、樱桃及梅等果树。苹果蠢蛾幼虫蛀食果实，不仅降低果品质量，而且引起大量落果。成虫产卵于果实或者叶片上，卵散产，前期果实较硬时，初孵幼虫多从萼洼或梗洼蛀入，后期果实肉质松软时，从果面蛀入，幼虫蛀果后有偏食种子的习性，并向外排出虫粪。几头幼虫能同时蛀食1个果实，1头幼虫也可转移2个以上果实为害。老熟幼虫脱果后由枝干爬向树皮下作茧化蛹。苹果蠹蛾会蛀入果心，啃食种子。对苹果等经济果树造成较大的经济损失。<br><img src="/images/cp1.png" alt=""><br><a id="more"></a><br>近日，来自中国农业科学院、中科院、浙江大学和美国堪萨斯大学等国内和国际共20多家科研机构联合在Nature Communications杂志在线发表了“A chromosome-level genome assembly of Cydia pomonella provides insights into chemical ecology and insecticide resistance” 的研究论文，联合Illumina、PacBio、BioNano和Hi-C测序技术对苹果主要害虫苹果蠹蛾进行了基因组测序。<br><img src="/images/cp2.png" alt=""></p>
+<h2 id="基因组组装结果描述">基因组组装结果描述</h2><p>研究人员对来自甘肃省酒泉地区野外捕获的苹果蠹蛾进行人工饲养，后选取42头雌性进行基因组DNA的提取和测序。k-mer和流式细胞分析其基因组大小约为630 Mb。对此，构建了4个小片段（180, 300, 500和800 bp）和3个大片段（3，8和10 Kb）的Illumina文库（大约390X的基因组覆盖度），86X的PacBio测序，初步组装出682.49 Mb基因组大小，包含2221条contigs，且contig N50 为862 Kb。BioNano辅助组装后共获得1717条scaffolds，组装基因组大小为772.89 Mb，scaffold N50 为8.9 Mb。结合Hi-C辅助组装，1108条scaffolds能锚定到29条染色体（27条常染色体，Z和W两天性染色体）上，97%的基因组序列能定位到染色体。同时作者也注意到因为苹果蠹蛾高杂合的基因组特征，Hi-C组装时引入了大量的gap。为验证组装的准确性，作者获得了两个不同版本的组装结果1）联合PacBio和Hi-C组装结果；2）联合PacBio、BioNano和Hi-C组装的超级scaffolds。随后将这两个组装结果进行全基因组比对，结果二者有超高的共线性，随后作者选用联合PacBio、BioNano和Hi-C组装的超级scaffolds用于后续分析。<br>BUSCO比对到节肢动物门(Arthropoda)数据库，结果显示有98.5%的直系同源基因能在苹果蠹蛾组装基因组中鉴定到。为进一步验证组装质量，测定71 Gb的苹果蠹蛾基因组Nanopore数据，结果有99%的reads能够比对到组装结果。PacBio RNA测序获得的15,000 条consensus转录本有93%的能比对到组装结果。同时鉴于鳞翅目昆虫基因组具有典型的超高水平的共线性特征，将苹果蠹蛾和斜纹夜蛾的基因组进行比较，结果显示二者染色体的连接和基因排序是高度保守的。综上所有分析说明了苹果蠹蛾基因组组装的准确性和完整性。</p>
+<h2 id="基因组注释">基因组注释</h2><p>共鉴定到占基因组大小42.87%的重复序列。用OMIGA结合28个RNA-seq测序数据共初步鉴定到16,997个蛋白编码基因。并对昆虫中广泛研究的对其适应性起重要作用的85个嗅觉受体基因，65个味觉受体基因，39个亲离子受体基因，50个气味结合蛋白基因，28个化学感应蛋白质基因，136个P450基因，47个ABC转运蛋白基因，73个羧酸酯酶基因，30个谷胱甘肽s-转移酶，9个烟碱乙酰胆碱受体，2个乙酰胆碱酯酶和1个电压门控钠离子通道基因进行手动注释。经过去冗余后最终共获得17,184个蛋白编码基因。<br>非编码RNA的鉴定中，共获得82个snRNA，137,752个piRNA，2435个tRNA，334个rRNA和217个miRNA。<br><img src="/images/cp3.png" alt=""></p>
+<h2 id="比较基因组分析">比较基因组分析</h2><p>苹果蠹蛾与覆盖7个昆虫目（鳞翅目，双翅目，鞘翅目，膜翅目，半翅目，等翅目和直翅目）的19个其他昆虫的比较基因组分析，共鉴定到2124个单拷贝直系同源基因，选取500个直系同源基因构建物种进化树，结果显示苹果蠹蛾与obtectomeran鳞翅目大约在141 百万年前发生分歧。<br><img src="/images/cp4.png" alt=""></p>
+<h2 id="共线性，核型进化和性染色体">共线性，核型进化和性染色体</h2><p>苹果蠹蛾与鳞翅目的斜纹夜蛾具有高水平的共线性。而斜纹夜蛾呈现出31条染色体的祖先核型，前期的细胞遗传学分析显示苹果蠹蛾包含27条常染色体，雌性为W染色体，新的Z性染色体来源于与家蚕15号染色体同源的Z常染色体的融合，与斜纹夜蛾基因组的比较证实了这一染色体融合事件，从而形成了苹果蠹蛾基因组中最大的染色体。此外，也观察到发生在苹果蠹蛾的2（来源于斜纹夜蛾的5和22号染色体）和3（来源于斜纹夜蛾的7和8号染色体）号染色体的融合事件。<br><img src="/images/cp5.png" alt=""><br>对三个雌性和三个雄性重测序数据的分析，证实了Z染色体（chr1）和部分W染色体（chr29）存在于组装基因组中。细胞遗传学分析显示Z和W性染色体间几乎没有共享序列，表明新型的W染色体的片段发生了丢失或几乎完全的退化。<br>进一步chr29染色体与基因组其他序列的比较发现chr29有较高的GC含量。作为典型的非重组染色体半合子，鳞翅目W染色体高度退化，呈现出较少的基因数量和重复序列的富集，除TEs外，在chr29染色体上没有坚定到任何蛋白编码基因。而重复序列分析结果显示相较于其他染色体，chr29并没有表现出明显高的含量。但W染色体相较于其他染色体有较高比例的的长末端重复转座子和DNA转座子。</p>
+<h2 id="嗅觉受体基因OR3的复制增强其寻找食物和配偶的能力">嗅觉受体基因OR3的复制增强其寻找食物和配偶的能力</h2><p>在昆虫中，化学感应系统调节许多行为，如寻找食物，避难所，配偶和产卵地。因此在物种入侵能力测定中扮演着重要作用，特别是对于如苹果蠹蛾类的寡食性昆虫。苹果蠹蛾体内化学感受器的研究已经证实，两性都能被植物挥发性梨酯强烈吸引，而梨酯能大幅度的增加雄性对可得蒙（雌性产生的主要性信息素物质）的响应。然而梨酯与可得蒙在雄性之间的协同相应机制仍不清楚。<br>本次组装高质量的基因组为了解苹果蠹蛾体内的化学感应相关基因提供基础。作者共苹果蠹蛾基因组中鉴定到85个嗅觉受体基因，这些基因的进化分析发现信息素受体簇在苹果蠹蛾中发生扩张。此外，基因簇的染色体位置分析发现CpomOR3a和CpomOR3b有相同的基因长度和相同的外显子-内含子结构，在17号染色体上呈现出串联重复，二者间隔9812 nt。为证实OR3基因的复制是固定的而不是分离的(有些有一个拷贝，有些有两个)，我们在所有重测序的苹果蠹蛾数据中确认了OR3基因复制的存在。<br><img src="/images/cp6.png" alt=""><br>确定了OR3基因复制的事实，但其是否有助于增强苹果蠹蛾对梨酯的感应能力？首先作者通过PCR确定了CpomOR3a和CpomOR3b的扩张。其次，24个不同组织的RNA-seq的FPKM值计算表明CpomOR3b只在成虫触角中表达（雄性FPKM = 1050.17和雌性FPKM = 4014.13），而CpomOR3a除在成虫雌性（FPKM = 88916.8）和雄性（FPKM = 41170.2）的触角中均表达外，还在成虫头部（FPKM = 14771.4–68715.2）和幼虫头部（FPKM = 7627.82）表达。相较于其他CpomORs基因，OR3复制基因（CpomOR3a和CpomOR3b）在成虫触角中有最高的表达量。苹果蠹蛾成虫触角的荧光原位杂交显示，尽管CpomOR3a和CpomOR3b都有一些专属表达的非共聚焦神经元，但二者主要表达于同一感受器内邻近但不同的神经元细胞中。此外，CpomOR3a和CpomOR3b与ORs基因的特异性共受体CpomORco在苹果蠹蛾成虫触角中一致性表达。这些结果表明，这两个拷贝有不同的表达模式，推断他们可能经历了新功能化，并且获得了不同的基因功能。<br>CpomOR3a已经有报道是假定的梨酯受体，与其有89%的序列相似性的CpomOR3b是否也能够检测到这种化合物，并有助于苹果蠹蛾对这种化学因子的高度灵敏性？作者将CpomOR3a或CpomOR3b分别与CpomORco在爪蟾卵母细胞中共表达，用双电极电压钳记录每个蛋白质对梨酯和其他化学物质的相应。结果发现这两个基因拷贝具有相似的反应谱。CpomOR3a和CpomOR3b对梨酯有较强的调控作用，但二者对性信息素可得蒙也均有一定的响应。随后通过对晚期的蛹注射siRNAs来将CpomOR3a和CpomOR3b进行各自单独或同时的敲除，qPCR结果显示其中一个的敲除并不会影响另一个旁系同源基因的表达。注射72小时后利用触角电位检测整个触角的电活性，结果表明不同处理下雄虫对梨酯和可得蒙的响应均受损。相反，仅有当CpomOR3a和CpomOR3b全部敲除时，雌虫对梨酯的响应才会受损。此外，单独沉默CpomOR3b显著降低了雄虫苹果蠹蛾对可得蒙的追踪能力。<br><img src="/images/cp7.png" alt=""></p>
+<h2 id="GWAS鉴定到杀虫剂抗性相关SNPs">GWAS鉴定到杀虫剂抗性相关SNPs</h2><p>目前，主要通过化学杀虫剂对苹果蠹蛾进行管控，但已出现明显抗性。了解其抗药性机制对于进一步的害虫防御起到重要的作用。苹果蠹蛾主要的抗药性机制依赖于解毒酶活性的提高和降低靶蛋白对杀虫剂的敏感性。作者在苹果蠹蛾中共鉴定到667个潜在杀虫剂抗性相关基因，包括434个解毒基因，45个杀虫剂目标基因，124个角质层基因，47个ABC转运蛋白和12个水通道蛋白。之前的研究表明P450基因赋予苹果蠹蛾对杀虫剂的光谱抗性。因此，作者对苹果蠹蛾基因组中的P450基因进行深入研究。<br>146个P450基因在基因组的染色体分布显示有16个基因簇包含3个或更多的P450基因。其中位于chr20染色体的基因簇包含11个基因，包括3个CYP6AE基因。<br><img src="/images/cp8.png" alt=""><br>为确定P450基因数目的增加赋予苹果蠹蛾对杀虫剂的抗虫，作者对来自三个种群的（S, Raz和Rv）苹果蠹蛾各随机挑选6个个体进行40X的重测序，S种群对杀虫剂敏感，自1995年起没有暴露在任何杀虫剂中；Raz种群对杀虫剂有抗性，自1997年起幼虫暴露在甲基谷硫磷中，相较于S种群表现出对甲基谷硫磷7倍的抗性，对西维因130倍的抗性；RV种群自1995年起幼虫暴露于溴氰菊酯，相较于S种群，表现出对溴氰菊酯140倍的抗性。<br>GWAS分析在S 和 Raz种群中共鉴定到109个具显著不同的等位基因频率的SNPs位于上述667个耐药相关基因的外显子区。S 和 Rv种群的比较共鉴定到242个具显著差异的SNPs位于耐药相关基因的外显子区，其中18个SNPs是Raz 和Rv种群共有的。对于其中的11个SNPs对，选取每个种群的数十个个体通过Sanger测序进行进一步的分析，确认了其中7个SNPs在S与Raz或Rv种群间存在固定的差异。验证的SNPs在毒蕈碱受体（mAChR），章鱼胺β受体和P450基因CYP6B2中的突变因相关基因从未报道参与到鳞翅目昆虫的杀虫剂抗性中而引起作者的注意。<br>随后作者对苹果蠹蛾的P450基因通过RACE进行5’UTR的注释，结果136个P450基因有69个完成5’UTR的注释 ，并将这69个P450基因比对到基因组scaffolds进行转录起始位点和启动子的注释。136个P450基因中，GWAS分析分别鉴定到128和203个SNPs在S种群和Raz或Rv种群间存在差异。在69个基因的启动子区中，分别鉴定到9和10个SNPs在S种群和Raz或Rv种群间存在差异。特别的，有3个SNPs均存在于Raz和Rv种群的CYP6B2基因启动子区：A52T: A (−52)T，T(−57)T，和T(−110)G (gene ID: CPOM05212)。qPCR对三个种群中的CYP6B2基因的表达进行测定，结果表明该基因相较于S种群，在两个抗性种群中（241.4-fold in Raz and 77.3-fold in Rv）组成性高表达，表明这3个SNPs在CYP6B2基因的表达调控中起到重要作用。<br>进一步为确认CYP6B2基因的表达与杀虫剂抗性相关，作者对来自酒泉的四龄测序苹果蠹蛾通过siRNA注射敲除CYP6B2基因，结果48小时后CYP6B2基因的表达下降55%，并用LC50浓度的甲基谷硫磷，溴氰菊酯和吡虫啉饲喂RNAi个体。结果饲喂甲基谷硫磷和溴氰菊酯的幼虫成活率分别为31.1%和45.6%，显著低于GFP注射的对照组或不做任何处理的分组，表明敲除CYP6B2基因显著增加对甲基谷硫磷和溴氰菊酯的敏感性，而幼虫对吡虫啉的敏感性并未受影响。综合表明CYP6B2基因赋予苹果蠹蛾对两个广泛使用的杀虫剂的抗性中起到关键作用。<br><img src="/images/cp9.png" alt=""></p>
+<p>原文链接：<span class="exturl" data-url="aHR0cHM6Ly93d3cubmF0dXJlLmNvbS9hcnRpY2xlcy9zNDE0NjctMDE5LTEyMTc1LTkjU2VjOQ==" title="https://www.nature.com/articles/s41467-019-12175-9#Sec9">https://www.nature.com/articles/s41467-019-12175-9#Sec9<i class="fa fa-external-link"></i></span></p>
+
+      
+    </div>
+
+    
+      
+
+  <div class="popular-posts-header">Related Posts</div>
+  <ul class="popular-posts">
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="\2019\08\24\AT-GeneFamily.html" rel="bookmark">高能预警：拟南芥&基因家族分析也能发Cell</a></div>
+      
+    </li>
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="\2019\04\03\apple.html" rel="bookmark">Nature Communications | 苹果为什么那么红</a></div>
+      
+    </li>
+  
+  </ul>
+
+
+    
+
+    
+    
+    
+
+    
+      <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
+  <img id="wechat_subscriber_qcode" src="/images/Wechat.jpg" alt="tiramisutes wechat" style="width: 200px; max-width: 100%;"/>
+  <div>欢迎关注</div>
+</div>
+
+    
+
+    
+      
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2019/09/18/apple-cp-genome.html">NC | 苹果蠹蛾基因组测序揭示其化学感觉和杀虫剂抗性机制</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 tiramisutes 的个人博客">tiramisutes</a></p>
+  <p><span>发布时间:</span>2019年09月18日 - 23:14</p>
+  <p><span>最后更新:</span>2019年09月18日 - 23:29</p>
+  <p><span>原始链接:</span><a href="/2019/09/18/apple-cp-genome.html" title="NC | 苹果蠹蛾基因组测序揭示其化学感觉和杀虫剂抗性机制">http://tiramisutes.github.io/2019/09/18/apple-cp-genome.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://tiramisutes.github.io/2019/09/18/apple-cp-genome.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+	});
+    });  
+</script>
+
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>tiramisutes</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    
+    <a href="http://tiramisutes.github.io/2019/09/18/apple-cp-genome.html" title="NC | 苹果蠹蛾基因组测序揭示其化学感觉和杀虫剂抗性机制">http://tiramisutes.github.io/2019/09/18/apple-cp-genome.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/基因组/" rel="tag"><i class="fa fa-tag"></i> 基因组</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+          
+            <span class="post-meta-divider">|</span>
+          
+          <div class="social_share">
+            
+            
+              <div id="needsharebutton-postbottom">
+                <span class="btn">
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/29/nodejs.html" rel="next" title="Linux下NoRoot安装nodejs和npm">
+                <i class="fa fa-chevron-left"></i> Linux下NoRoot安装nodejs和npm
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/13/hujiao.html" rel="prev" title="Nature Communications---“香料之王”染色体级参考基因组揭秘">
+                Nature Communications---“香料之王”染色体级参考基因组揭秘 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <a href="/" class="site-author-image" rel="start" style="border:none">
+              <img class="site-author-image" itemprop="image"
+                src="/images/author.jpg"
+                alt="tiramisutes"/>
+              </a>
+            
+              <p class="site-author-name" itemprop="name">tiramisutes</p>
+              <div class="site-description motion-element" itemprop="description">hope bioinformatics blog</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">148</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">112</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RpcmFtaXN1dGVz" title="GitHub &rarr; https://github.com/tiramisutes"><i class="fa fa-fw fa-github"></i>GitHub</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="bWFpbHRvOnRpcmFtaXN1dGVze2F0fTEyNi5jb20=" title="E-Mail &rarr; mailto:tiramisutes{at}126.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cDovL3dlaWJvLmNvbS90aXJhbWlzdXRlc1Rlcw==" title="Weibo &rarr; http://weibo.com/tiramisutesTes"><i class="fa fa-fw fa-globe"></i>Weibo</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9ob3BldG9neQ==" title="Twitter &rarr; https://twitter.com/hopetogy"><i class="fa fa-fw fa-twitter"></i>Twitter</span>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"/></span>
+             </div>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9paG9wZS5zaGlueWFwcHMuaW8vcVJULVBDUi1QaXBlbGluZS8=" title="https://ihope.shinyapps.io/qRT-PCR-Pipeline/">qRT-PCR-Pipeline</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly90aXJhbWlzdXRlcy5naXRib29rcy5pby9hd2svY29udGVudC8=" title="https://tiramisutes.gitbooks.io/awk/content/">GitBook《awk学习总结》</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2NvdHRvbi5oemF1LmVkdS5jbi8=" title="http://cotton.hzau.edu.cn/">棉花遗传改良团队</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5iaW8taW5mby10cmFpbmVlLmNvbS8=" title="http://www.bio-info-trainee.com/">生信菜鸟团-深圳大学城</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5iaW90cmFpbmVlLmNvbS9mb3J1bS5waHA=" title="http://www.biotrainee.com/forum.php">生信技能树</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5pd2hnYW8uY29tLw==" title="http://www.iwhgao.com/">rabbit gao's blog</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9odWFucy5naXRodWIuaW8v" title="https://huans.github.io/">Huans(代谢+GWAS)</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5zZXF1ZW5jaW5nLnVpby5uby8=" title="http://www.sequencing.uio.no/">NSC-sequenceing</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2Jsb2cuam9iYm9sZS5jb20v" title="http://blog.jobbole.com/">伯乐在线</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9saW51eC5jbi8=" title="https://linux.cn/">Linux开源中文社区</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5yLWJsb2dnZXJzLmNvbS8=" title="http://www.r-bloggers.com/">R-bloggers</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvb3RoZXItZG9jcy5odG1s" title="https://cran.r-project.org/other-docs.html">R-resource</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3R1dG9yaWFscy5pcS5oYXJ2YXJkLmVkdS9SL1JncmFwaGljcy9SZ3JhcGhpY3MuaHRtbA==" title="http://tutorials.iq.harvard.edu/R/Rgraphics/Rgraphics.html">ggplot2</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2xpbGliZWkubmV0Lw==" title="http://lilibei.net/">pele' blog</span>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基因组组装结果描述"><span class="nav-text">基因组组装结果描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基因组注释"><span class="nav-text">基因组注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比较基因组分析"><span class="nav-text">比较基因组分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#共线性，核型进化和性染色体"><span class="nav-text">共线性，核型进化和性染色体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#嗅觉受体基因OR3的复制增强其寻找食物和配偶的能力"><span class="nav-text">嗅觉受体基因OR3的复制增强其寻找食物和配偶的能力</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GWAS鉴定到杀虫剂抗性相关SNPs"><span class="nav-text">GWAS鉴定到杀虫剂抗性相关SNPs</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 – <span itemprop="copyrightYear">2023</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <a class="theme-link" target="_blank" href="http://tiramisutes.github.io/about/"><span class="author" itemprop="copyrightHolder">tiramisutes</span></a>
+
+  
+    <span class="post-meta-item-icon">
+    </span>
+    <span title="Symbols count total"></span>
+  
+
+  
+    <span class="post-meta-item-icon">
+    </span>
+    <span title="Reading time total"></span>
+  
+</div>
+
+
+  <div class="powered-by">Powered: <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">▽ – <span class="exturl theme-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0">NexT.Muse</span></div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-line-chart"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+    <a style="line-height: 1.5;" href="https://tongji.baidu.com/web/welcome/login" target="_blank">The total visits
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>&nbsp;times</a>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+    
+    
+      
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='20' src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest-nomobile.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+  <script src="/js/src/exturl.js?v=7.0.1"></script>
+
+
+  
+  
+  
+    
+  
+
+  
+
+  
+  
+  
+
+
+  
+  
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'c7x0fPmO8Ci9avDBRuGWHqpG-gzGzoHsz',
+    appKey: 'iVJ6ST0e1O5xaiIhVwOyhbf3',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+<style>
+.pdfobject-container {
+  position: relative;
+  overflow: auto;
+  width: 100%;
+}
+</style>
+<script>
+if ($('body').find('div.pdf').length) {
+  $.ajax({
+    type: 'GET',
+    url: '//cdn.jsdelivr.net/npm/pdfobject@2.1.1/pdfobject.min.js',
+    dataType: 'script',
+    cache: true,
+    success: function() {
+      $('body').find('div.pdf').each(function(i, o) {
+        PDFObject.embed($(o).attr('target'), $(o), {
+          pdfOpenParams: {
+            navpanes: 0,
+            toolbar: 0,
+            statusbar: 0,
+            pagemode: 'thumbs',
+            view: 'FitH'
+          },
+          PDFJS_URL: '/lib/pdf/web/viewer.html',
+          height: $(o).attr('height') || '500px'
+        });
+      });
+    },
+  });
+}
+</script>
+
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+  
+  
+    
+  
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Evernote,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+
+  
+  <script>
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id: 15314,
+      el: 'wpac-rating',
+      color: 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

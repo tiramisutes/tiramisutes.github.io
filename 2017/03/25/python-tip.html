@@ -1,0 +1,2099 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=66189719" charset="UTF-8"></script>
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"/>
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/han.min.css"/>
+
+
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+
+
+  <meta name="google-site-verification" content="b12Zu40L63PLgCtcn0IW8KCNRolmyQlaF22tf4rRLEg"/>
+
+
+
+  <meta name="msvalidate.01" content="74A687E04D4EF9914B7AA20824207409"/>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="https://fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"/>
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/small_favicon.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/favicon.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":true,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="以下总结是基于python2.7，在其他版本中是否可行没有验证。">
+<meta name="keywords" content="python-tip">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python技巧总结（持续更新）">
+<meta property="og:url" content="http://tiramisutes.github.io/2017/03/25/python-tip.html">
+<meta property="og:site_name" content="hope">
+<meta property="og:description" content="以下总结是基于python2.7，在其他版本中是否可行没有验证。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/Preferred-for-Web-development.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/String%20slices.png">
+<meta property="og:updated_time" content="2018-09-28T02:42:40.820Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python技巧总结（持续更新）">
+<meta name="twitter:description" content="以下总结是基于python2.7，在其他版本中是否可行没有验证。">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/Preferred-for-Web-development.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="hope" type="application/atom+xml"/>
+
+
+
+
+  <link rel="canonical" href="http://tiramisutes.github.io/2017/03/25/python-tip.html"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>python技巧总结（持续更新） | hope</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?08b17c69c7ba460d9ab5f188a048ee6d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">hope</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">A new day is coming,whether we like it or not. The question is will you control it,or will it control you?</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-code">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/code/" rel="section"><i class="menu-item-icon fa fa-fw fa-code"></i> <br/>Code</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-footprint">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/footprint/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br/>Footprint</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-qrt-pcr">
+
+    
+    
+    
+      
+    
+
+    
+
+    <span class="exturl" data-url="aHR0cHM6Ly9paG9wZS5zaGlueWFwcHMuaW8vcVJULVBDUi1QaXBlbGluZS8="><i class="menu-item-icon fa fa-fw fa-cloud"></i> <br/>qRT-PCR</span>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-project">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/project/" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br/>Project</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-publish">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/publish/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br/>Publish</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sci-figure">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/SCIFigure/" rel="section"><i class="menu-item-icon fa fa-fw fa-angellist"></i> <br/>SCI Figure</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-cv">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/resume/" rel="section"><i class="menu-item-icon fa fa-fw fa-address-card"></i> <br/>CV</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tiramisutes.github.io/2017/03/25/python-tip.html"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tiramisutes"/>
+      <meta itemprop="description" content="hope bioinformatics blog"/>
+      <meta itemprop="image" content="/images/author.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hope"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">python技巧总结（持续更新）
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2017-03-25 16:17:03" itemprop="dateCreated datePublished" datetime="2017-03-25T16:17:03+08:00">2017-03-25</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2017/03/25/python-tip.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/03/25/python-tip.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2017/03/25/python-tip.html" class="leancloud_visitors" data-flag-title="python技巧总结（持续更新）">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+                <span>℃</span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article: </span>
+                
+                <span title="Words count in article"></span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time"></span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/Preferred-for-Web-development.png" alt=""><br><strong>以下总结是基于python2.7，在其他版本中是否可行没有验证。</strong><br><a id="more"></a></p>
+<h2 id="多行字符串转换为单行">多行字符串转换为单行</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string = <span class="string">'this is \n a \t          example'</span></span><br><span class="line">string = <span class="string">' '</span>.join(string.split())</span><br></pre></td></tr></table></figure>
+<p><strong>这里split不传入参数，那么这个函数会将以空白分开，空白包括：\n, \t , ‘ ‘,等，最终再用空格来连接起来，也可以指定分隔符，如string.split(‘;’)</strong><br>可以自己写个函数来处理，利用lambda表达式：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">processFunc = lambda s: <span class="string">" "</span>.join(s.split())</span><br><span class="line">string = processFunc(string)</span><br></pre></td></tr></table></figure></p>
+<h2 id="替换">替换</h2><p>replace(“\n”, “”),后边的串替换掉前边的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;a=<span class="string">"hope"</span></span><br><span class="line">&gt;&gt;&gt; a.replace(<span class="string">"h"</span>, <span class="string">"bioh"</span>)</span><br></pre></td></tr></table></figure></p>
+<h2 id="字符串转数组">字符串转数组</h2><p>str = ‘1,2,3’<br>arr = str.split(‘,’)</p>
+<h2 id="数组转字符串">数组转字符串</h2><p>arr = [‘a’,’b’]<br>str = ‘,’.join(arr)</p>
+<h3 id="global_vs-_local">global vs. local</h3><p>Python’s LEGB scope :<strong>Local -&gt; Enclosed -&gt; Global -&gt; Built-in</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">0</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">in_func</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> x   <span class="comment">#将local变量用于global</span></span><br><span class="line">    x = <span class="number">1</span></span><br><span class="line">    print(<span class="string">'in_func:'</span>, x)</span><br><span class="line">    </span><br><span class="line">in_func()</span><br><span class="line">print(<span class="string">'global:'</span>, x)</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">in_func: <span class="number">1</span></span><br><span class="line"><span class="keyword">global</span>: <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h3 id="local_vs-_enclosed">local vs. enclosed</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">outer</span><span class="params">()</span>:</span></span><br><span class="line">       x = <span class="number">1</span></span><br><span class="line">       print(<span class="string">'outer before:'</span>, x)</span><br><span class="line">       <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">()</span>:</span></span><br><span class="line">           <span class="keyword">nonlocal</span> x  <span class="comment">#modify the x variable in the enclosed scope</span></span><br><span class="line">           x = <span class="number">2</span></span><br><span class="line">           print(<span class="string">"inner:"</span>, x)</span><br><span class="line">       inner()</span><br><span class="line">       print(<span class="string">"outer after:"</span>, x)</span><br><span class="line">outer()</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">outer before: <span class="number">1</span></span><br><span class="line">inner: <span class="number">2</span></span><br><span class="line">outer after: <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h2 id="List_comprehensions_vs_generators">List comprehensions vs generators</h2><p>List comprehensions are fast, but generators are faster!?<br>1. use lists if you want to use the plethora of list methods<br>2. use generators when you are dealing with huge collections to avoid memory issues<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">plainlist</span><span class="params">(n=<span class="number">100000</span>)</span></span><span class="symbol">:</span></span><br><span class="line">    my_list = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n)<span class="symbol">:</span></span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">5</span> == <span class="number">0</span><span class="symbol">:</span></span><br><span class="line">            my_list.append(i)</span><br><span class="line">    <span class="keyword">return</span> my_list</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">listcompr</span><span class="params">(n=<span class="number">100000</span>)</span></span><span class="symbol">:</span></span><br><span class="line">    my_list = [i <span class="keyword">for</span> i <span class="keyword">in</span> range(n) <span class="keyword">if</span> i % <span class="number">5</span> == <span class="number">0</span>]</span><br><span class="line">    <span class="keyword">return</span> my_list</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">generator</span><span class="params">(n=<span class="number">100000</span>)</span></span><span class="symbol">:</span></span><br><span class="line">    my_gen = (i <span class="keyword">for</span> i <span class="keyword">in</span> range(n) <span class="keyword">if</span> i % <span class="number">5</span> == <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">return</span> my_gen</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">generator_yield</span><span class="params">(n=<span class="number">100000</span>)</span></span><span class="symbol">:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n)<span class="symbol">:</span></span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">5</span> == <span class="number">0</span><span class="symbol">:</span></span><br><span class="line">            <span class="keyword">yield</span> i</span><br></pre></td></tr></table></figure></p>
+<h2 id="assert">assert</h2><p>在没完善一个程序之前，我们不知道程序在哪里会出错，与其让它在运行最崩溃，不如在出现错误条件时就崩溃，这时候就需要assert断言的帮助。<br>assert断言是声明其布尔值必须为真的判定，如果发生异常就说明表达示为假。可以理解assert断言语句为raise-if-not，用来测试表示式，其返回值为假，就会触发异常。<br>See: <i class="fa fa-link" aria-hidden="true"></i><span class="exturl" data-url="aHR0cDovL3d3dy5jbmJsb2dzLmNvbS9saXVjaHVueGlhbzgzL3AvNTI5ODAxNi5odG1s" title="http://www.cnblogs.com/liuchunxiao83/p/5298016.html">python assert的作用<i class="fa fa-external-link"></i></span><br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;</span>&gt; assert <span class="number">2</span>==<span class="number">1</span>,<span class="string">'2不等于1'</span></span><br><span class="line"><span class="symbol">AssertionError:</span> <span class="number">2</span>不等于<span class="number">1</span></span><br><span class="line">AssertionErrorTraceback (most recent call last)</span><br><span class="line">&lt;ipython-input-<span class="number">30</span>-<span class="number">015</span>aa214a555&gt; <span class="keyword">in</span> &lt;<span class="class"><span class="keyword">module</span>&gt;()</span></span><br><span class="line">----&gt; <span class="number">1</span> assert <span class="number">2</span>==<span class="number">1</span>,<span class="string">'2不等于1'</span></span><br><span class="line"><span class="symbol">AssertionError:</span> <span class="number">2</span>不等于<span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; assert <span class="number">2</span>==<span class="number">2</span>,<span class="string">'2不等于1'</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="set数据类型">set数据类型</h2><p><i class="fa fa-link" aria-hidden="true"></i><span class="exturl" data-url="aHR0cDovL3d3dy5jbmJsb2dzLmNvbS9wYW53ZW5iaW4tbG9ncy9wLzU1MTk2MTcuaHRtbA==" title="http://www.cnblogs.com/panwenbin-logs/p/5519617.html">python中set和frozenset方法和区别<i class="fa fa-external-link"></i></span><br>set(可变集合)与frozenset(不可变集合)<br>set无序排序且不重复，是可变的，有add（），remove（）等方法。既然是可变的，所以它不存在哈希值。基本功能包括关系测试和消除重复元素. 集合对象还支持union(联合), intersection(交集), difference(差集)和sysmmetric difference(对称差集)等数学运算.<br>sets 支持<code>x in set, len(set)</code>,和 <code>for x in set</code>。作为一个无序的集合，sets不记录元素位置或者插入点。因此，sets不支持 indexing, 或其它类序列的操作。<br>frozenset是冻结的集合，它是不可变的，存在哈希值，好处是它可以作为字典的key，也可以作为其它集合的元素。缺点是一旦创建便不能更改，没有add，remove方法。<br><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">s1 = <span class="keyword">set</span>(<span class="string">"qiwsir"</span>)</span><br><span class="line"># <span class="keyword">set</span> <span class="comment">of integers</span></span><br><span class="line">my_set <span class="comment">= &#123;1, 2, 3&#125;</span></span><br><span class="line">print(my_set)</span><br><span class="line">my=<span class="keyword">set</span>([<span class="string">'Gh_A01G0993'</span>,<span class="string">'Gh_A03G0561'</span>,<span class="string">'Gh_A03G0561'</span>])   #返回唯一值 </span><br><span class="line">print <span class="comment">my</span></span><br><span class="line"># <span class="keyword">set</span> <span class="comment">of mixed datatypes</span></span><br><span class="line">my_set <span class="comment">= &#123;1.0,</span> <span class="comment">"Hello"</span><span class="comment">, (1, 2, 3)&#125;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="set_Operations">set Operations</h2><p><i class="fa fa-link" aria-hidden="true"></i><span class="exturl" data-url="aHR0cHM6Ly93d3cucHJvZ3JhbWl6LmNvbS9weXRob24tcHJvZ3JhbW1pbmcvc2V0" title="https://www.programiz.com/python-programming/set">Python Sets<i class="fa fa-external-link"></i></span><br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; A = &#123;1, 2, 3, 4, 5&#125;</span><br><span class="line"><span class="built_in">..</span>. B = &#123;4, 5, 6, 7, 8&#125;</span><br><span class="line"><span class="built_in">..</span>. # use | operator</span><br><span class="line"><span class="built_in">..</span>. # Output: &#123;1, 2, 3, 4, 5, 6, 7, 8&#125;</span><br><span class="line"><span class="built_in">..</span>. <span class="builtin-name">print</span>(A | B)</span><br><span class="line"><span class="built_in">..</span>. A |= B  #<span class="attribute">A</span>=A|B</span><br><span class="line"><span class="built_in">..</span>. A</span><br><span class="line"><span class="built_in">..</span>. </span><br><span class="line"><span class="builtin-name">set</span>([1, 2, 3, 4, 5, 6, 7, 8])</span><br><span class="line">&#123;1, 2, 3, 4, 5, 6, 7, 8&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="_,__,___"><code>_,__,___</code></h2><p><i class="fa fa-link" aria-hidden="true"></i><span class="exturl" data-url="aHR0cDovL3N0YWNrb3ZlcmZsb3cuY29tL3F1ZXN0aW9ucy8yNjg5NTM2Mi93aGF0LWRvZXMtaW4tcHl0aG9uLWRv" title="http://stackoverflow.com/questions/26895362/what-does-in-python-do">What does _ in Python do? [duplicate]<i class="fa fa-external-link"></i></span><br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[_] (a single underscore) : stores previous output, like Python’s<span class="built_in"> default </span>interpreter.</span><br><span class="line">[__] (two underscores): next previous.</span><br><span class="line">[___] (three underscores): next-next previous.</span><br><span class="line">1+1</span><br><span class="line"><span class="builtin-name">print</span> _</span><br><span class="line">2+2</span><br><span class="line"><span class="builtin-name">print</span> _</span><br><span class="line">3+3</span><br><span class="line"><span class="builtin-name">print</span> _</span><br><span class="line"><span class="builtin-name">print</span> __</span><br><span class="line"><span class="builtin-name">print</span> ___</span><br></pre></td></tr></table></figure></p>
+<p><strong>用于占位符，也可以是一个简单的变量，by convention it means that you don’t intend to use that value, just read it and ignore it.</strong><br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">x</span>=1</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> range(10):</span><br><span class="line">    x+=1</span><br><span class="line">    <span class="builtin-name">print</span> x</span><br></pre></td></tr></table></figure></p>
+<p><strong>“单下划线” 开始的成员变量叫做保护变量，意思是只有类对象和子类对象自己能访问到这些变量；</strong><br><strong>“双下划线” 开始的是私有成员，意思是只有类对象自己能访问，连子类对象也不能访问到这个数据。</strong><br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> (<span class="title">object</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(<span class="keyword">self</span>,name)</span></span><span class="symbol">:</span></span><br><span class="line">        <span class="keyword">self</span>._name=name</span><br><span class="line">sd=Student(<span class="string">"Tom"</span>)</span><br><span class="line">sd._name</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> (<span class="title">object</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(<span class="keyword">self</span>,name)</span></span><span class="symbol">:</span></span><br><span class="line">        <span class="keyword">self</span>.__name=name</span><br><span class="line">sd.__name</span><br><span class="line">sd._Student__name</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="*args_and_**kwargs">*args and **kwargs</h2><p><i class="fa fa-link" aria-hidden="true"></i><span class="exturl" data-url="aHR0cDovL2xvdmVzb28ub3JnL3B5dGhvbi1oYW4tc2h1LWtlLWJpYW4tY2FuLXNodS1hcmdzLWppLWt3YXJncy1zaGkteWkuaHRtbA==" title="http://lovesoo.org/python-han-shu-ke-bian-can-shu-args-ji-kwargs-shi-yi.html">Python函数可变参数args及kwargs释义<i class="fa fa-external-link"></i></span><br><strong>*args表示任何多个无名参数，它是一个tuple</strong><br><strong>**kwargs表示关键字参数，它是一个dict</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(*args,**kwargs)</span>:</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'args='</span>,args</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'kwargs='</span>,kwargs</span><br><span class="line">    <span class="keyword">print</span> <span class="string">'**********************'</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">'__main__'</span>:</span><br><span class="line">    foo(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">    foo(a=<span class="number">1</span>,b=<span class="number">2</span>,c=<span class="number">3</span>)</span><br><span class="line">	</span><br><span class="line"><span class="comment">#结果如下：</span></span><br><span class="line">args= (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">kwargs= &#123;&#125;</span><br><span class="line">**********************</span><br><span class="line">args= ()</span><br><span class="line">kwargs= &#123;<span class="string">'a'</span>: <span class="number">1</span>, <span class="string">'c'</span>: <span class="number">3</span>, <span class="string">'b'</span>: <span class="number">2</span>&#125;</span><br><span class="line">**********************</span><br></pre></td></tr></table></figure></p>
+<p>You can pass a default value to get() for keys that are not in the dictionary:<br><i class="fa fa-link" aria-hidden="true"></i><span class="exturl" data-url="aHR0cDovL3N0YWNrb3ZlcmZsb3cuY29tL3F1ZXN0aW9ucy8xMDk4NTQ5L3Byb3Blci13YXktdG8tdXNlLWt3YXJncy1pbi1weXRob24=" title="http://stackoverflow.com/questions/1098549/proper-way-to-use-kwargs-in-python">Proper way to use **kwargs in Python<i class="fa fa-external-link"></i></span><br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">val2</span> = kwargs.get(<span class="string">'val2'</span>,<span class="string">"default value"</span>)</span><br><span class="line"><span class="attr">val2</span> = kwargs.get(<span class="string">'val2'</span>,None)</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="除法运算">除法运算</h2><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; print <span class="number">5</span>*(<span class="number">2</span>/<span class="number">6</span>)</span><br><span class="line"><span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>运行结果总是0，WHY?<br>查找资料发现在Python里，整数初整数，只能得出整数。也就是 2 除 6 这个结果永远是0；<br>事实上不光python这样处理，C/C++，R也都是这样的，因为整数和浮点数本来就是两回事，用来计算除法的部件也不是同一个。<br><strong>解决办法：</strong><br>1. 如果想做浮点除法，就应该把至少一个操作数转化为浮点型。最简单的方法就是在后面加上<code>.0</code>。<br>2. 用类型转换的方法：<code>(float)2/6</code>。<br>3. 代码开头加上 <code>from __future__ import division</code>，在python3.0以后的版本中不存在这种情况的。</p>
+<h3 id="小数点位数">小数点位数</h3><p><i class="fa fa-link" aria-hidden="true"></i><span class="exturl" data-url="aHR0cDovL3d3dy5jbmJsb2dzLmNvbS9oZXJiZXJ0L3AvMzQwMjI0NS5odG1s" title="http://www.cnblogs.com/herbert/p/3402245.html">谈谈关于Python里面小数点精度控制的问题<i class="fa fa-external-link"></i></span><br>至于保留小数点后位数可以通过内置函数<code>round()</code>和使用格式化,如<code>&quot;%.2f&quot; % 2.645</code>；<br>round()如果只有一个数作为参数，不指定位数的时候，返回的是一个整数，而且是最靠近的整数（这点上类似四舍五入）。但是当出现.5的时候，两边的距离都一样，round()取靠近的偶数；<br>当指定取舍的小数点位数的时候，一般情况也是使用四舍五入的规则，但是碰到.5的这样情况，如果要取舍的位数前的小树是奇数，则直接舍弃，如果偶数这向上取舍。<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; round(<span class="number">2.635</span>, <span class="number">2</span>)</span><br><span class="line"><span class="number">2.63</span></span><br><span class="line">&gt;&gt;&gt; round(<span class="number">2.645</span>, <span class="number">2</span>)</span><br><span class="line"><span class="number">2.65</span></span><br></pre></td></tr></table></figure></p>
+<p>python默认的是17位小数的精度，但是这里有一个问题，就是当我们的计算需要使用更高的精度（超过17位小数）的时候可以使用<strong>高精度decimal模块，配合getcontext</strong>。</p>
+<h3 id="特殊取整">特殊取整</h3><p>math模块的ceil(x) : 取大于或者等于x的最小整数；<br>math模块的floor(x) : 取小于或者等于x的最大整数。</p>
+<hr>
+<h2 id="列表操作">列表操作</h2><p><i class="fa fa-link" aria-hidden="true"></i><span class="exturl" data-url="aHR0cDovL3N0YWNrb3ZlcmZsb3cuY29tL3F1ZXN0aW9ucy8zNzQ4MDYzL3doYXQtaXMtdGhlLXN5bnRheC10by1pbnNlcnQtb25lLWxpc3QtaW50by1hbm90aGVyLWxpc3QtaW4tcHl0aG9u" title="http://stackoverflow.com/questions/3748063/what-is-the-syntax-to-insert-one-list-into-another-list-in-python">What is the syntax to insert one list into another list in python?<i class="fa fa-external-link"></i></span></p>
+<h3 id="列表加法运算merge">列表加法运算merge</h3><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">&gt;&gt;&gt; y = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line">&gt;&gt;&gt; x + y</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line">&gt;&gt;&gt; x.extend(y)</span><br><span class="line">&gt;&gt;&gt; x</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br></pre></td></tr></table></figure>
+<p><strong>To extend a list at a specific insertion point you can use list slicing</strong><br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;</span>&gt; x[<span class="number">2</span><span class="symbol">:</span><span class="number">2</span>] = [<span class="string">'a'</span>,<span class="string">'b'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; x</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure></p>
+<p><em>**List slicing is quite flexible as it allows to replace a range of entries in a list with a range of entries from another list</em><br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;</span>&gt; x[<span class="number">1</span><span class="symbol">:</span><span class="number">2</span>] = [<span class="string">'a'</span>,<span class="string">'b'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; x</span><br><span class="line">[<span class="number">1</span>, <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure></p>
+<h3 id="列表附加append">列表附加append</h3><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">&gt;&gt;&gt; y = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]</span><br><span class="line">&gt;&gt;&gt; x.append(y)</span><br><span class="line">&gt;&gt;&gt; x</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]]</span><br></pre></td></tr></table></figure>
+<h3 id="插入insert">插入insert</h3><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x.insert(<span class="number">2</span>, y)</span><br><span class="line">&gt;&gt;&gt; x</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="计数count">计数count</h3><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">2</span>]</span><br><span class="line">&gt;&gt;&gt; x.count(<span class="number">2</span>)</span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+<h3 id="索引index">索引index</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;</span>&gt; x.index(<span class="number">2</span>)</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h3 id="反转reverse">反转reverse</h3><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x.reverse()</span><br><span class="line">&gt;&gt;&gt; x</span><br><span class="line">[<span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<p>其他还有<code>list.remove(x)</code>移除第一个item,<code>list.pop([i])</code>删除给定位置item,<code>list.clear()</code>,<code>list.sort(key=None, reverse=False)</code>,<code>list.copy()</code>。</p>
+<h3 id="List_Comprehensions">List Comprehensions</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[(x,y) for x in [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] for y in [<span class="number">4</span>,<span class="number">2</span>,<span class="number">6</span>] if x !=y]</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="eval和ast-literal_eval">eval和ast.literal_eval</h2><p><i class="fa fa-link" aria-hidden="true"></i><span class="exturl" data-url="aHR0cDovL3N0YWNrb3ZlcmZsb3cuY29tL3F1ZXN0aW9ucy8xNTE5NzY3My91c2luZy1weXRob25zLWV2YWwtdnMtYXN0LWxpdGVyYWwtZXZhbA==" title="http://stackoverflow.com/questions/15197673/using-pythons-eval-vs-ast-literal-eval">Using python’s eval() vs. ast.literal_eval()?<i class="fa fa-external-link"></i></span><br>eval是Python用于执行python表达式的一个内置函数，使用eval，可以很方便的将字符串动态执行,即将字符串str当成有效的表达式来求值并返回计算结果。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; <span class="built_in">eval</span>(<span class="string">"5+2"</span>)</span></span><br><span class="line">7</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; <span class="built_in">eval</span>(<span class="string">"[x for x in range(5)]"</span>)</span></span><br><span class="line">[0, 1, 2, 3, 4]</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt;a = <span class="string">"[[1,2], [9,0]]"</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; b = <span class="built_in">eval</span>(a)</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; <span class="built_in">print</span> b</span></span><br><span class="line">[[1, 2], [9, 0]]</span><br></pre></td></tr></table></figure></p>
+<p><strong>“安全”使用eval</strong><br>Eval函数的声明为<code>eval(expression[, globals[, locals]])</code>,第二三个参数分别指定能够在eval中使用的函数等，如果不指定，默认为globals()和locals()函数中 包含的模块和函数。<br>但<code>eval</code>的使用存在安全隐患，具体See also <span class="exturl" data-url="aHR0cDovL25lZGJhdGNoZWxkZXIuY29tL2Jsb2cvMjAxMjA2L2V2YWxfcmVhbGx5X2lzX2Rhbmdlcm91cy5odG1s" title="http://nedbatchelder.com/blog/201206/eval_really_is_dangerous.html">the dangers of <code>eval</code><i class="fa fa-external-link"></i></span>。<br>因此，<strong>Use <code>ast.literal_eval</code> whenever you need eval.<code>ast.literal_eval</code> raises an exception if the input isn’t a valid Python datatype, so the code won’t be executed if it’s not.</strong></p>
+<hr>
+<h2 id="zip函数">zip函数</h2><p><i class="fa fa-link" aria-hidden="true"></i><span class="exturl" data-url="aHR0cDovL3d3dy5jbmJsb2dzLmNvbS9CZWdpbk1hbi9hcmNoaXZlLzIwMTMvMDMvMTQvMjk1OTQ0Ny5odG1s" title="http://www.cnblogs.com/BeginMan/archive/2013/03/14/2959447.html">Python零碎知识(2):强大的zip<i class="fa fa-external-link"></i></span><br>1. 接受一系列可迭代对象作为参数，将对象中对应的元素打包成一个个tuple（元组），然后返回由这些tuples组成的list（列表）。若传入参数的长度不等，则返回list的长度和参数中长度最短的对象相同;<br>2. zip()配合*号操作符,可以将已经zip过的列表对象解压;<br>实例：找到字典中的最大值<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ages = &#123;<span class="string">'John'</span>: <span class="number">21</span>,</span><br><span class="line">        <span class="string">'Mike'</span>: <span class="number">52</span>,</span><br><span class="line">        <span class="string">'Sarah'</span>: <span class="number">12</span>,</span><br><span class="line">        <span class="string">'Bob'</span>: <span class="number">43</span></span><br><span class="line">       &#125;</span><br><span class="line"><span class="function"><span class="title">max</span><span class="params">(zip(ages.values()</span></span>, ages.keys()))</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="String_slices">String slices</h2><p><i class="fa fa-link" aria-hidden="true"></i><span class="exturl" data-url="aHR0cDovL3d3dy5ncmVlbnRlYXByZXNzLmNvbS90aGlua3B5dGhvbi9odG1sL3RoaW5rcHl0aG9uMDA5Lmh0bWwjdG9jODk=" title="http://www.greenteapress.com/thinkpython/html/thinkpython009.html#toc89">Chapter 8  Strings<i class="fa fa-external-link"></i></span><br>The operator [n:m] returns the part of the string from the “n-eth” character to the “m-eth” character, including the first but excluding the last. This behavior is counterintuitive, but it might help to imagine the indices pointing between the characters.<br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/String%20slices.png" alt=""></p>
+<hr>
+<p>贡献来源</p>
+<p><span class="exturl" data-url="aHR0cDovL3d3dy5lZHVjaXR5LmNuL3dlbmRhLzM1Njc0MC5odG1s" title="http://www.educity.cn/wenda/356740.html">http://www.educity.cn/wenda/356740.html<i class="fa fa-external-link"></i></span><br><span class="exturl" data-url="aHR0cDovL25idmlld2VyLmp1cHl0ZXIub3JnL2dpdGh1Yi9yYXNidC9weXRob25fcmVmZXJlbmNlL2Jsb2IvbWFzdGVyL3R1dG9yaWFscy9ub3Rfc29fb2J2aW91c19weXRob25fc3R1ZmYuaXB5bmIjcG1faW5fbGlzdHM=" title="http://nbviewer.jupyter.org/github/rasbt/python_reference/blob/master/tutorials/not_so_obvious_python_stuff.ipynb#pm_in_lists">http://nbviewer.jupyter.org/github/rasbt/python_reference/blob/master/tutorials/not_so_obvious_python_stuff.ipynb#pm_in_lists<i class="fa fa-external-link"></i></span></p>
+
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+      <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
+  <img id="wechat_subscriber_qcode" src="/images/Wechat.jpg" alt="tiramisutes wechat" style="width: 200px; max-width: 100%;"/>
+  <div>欢迎关注</div>
+</div>
+
+    
+
+    
+      
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>tiramisutes</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    
+    <a href="http://tiramisutes.github.io/2017/03/25/python-tip.html" title="python技巧总结（持续更新）">http://tiramisutes.github.io/2017/03/25/python-tip.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python-tip/" rel="tag"><i class="fa fa-tag"></i> python-tip</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+          
+            <span class="post-meta-divider">|</span>
+          
+          <div class="social_share">
+            
+            
+              <div id="needsharebutton-postbottom">
+                <span class="btn">
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/25/argparse.html" rel="next" title="Python 命令行解析argparse 模块">
+                <i class="fa fa-chevron-left"></i> Python 命令行解析argparse 模块
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/02/python-read-file.html" rel="prev" title="python读取文件的正确方式">
+                python读取文件的正确方式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <a href="/" class="site-author-image" rel="start" style="border:none">
+              <img class="site-author-image" itemprop="image"
+                src="/images/author.jpg"
+                alt="tiramisutes"/>
+              </a>
+            
+              <p class="site-author-name" itemprop="name">tiramisutes</p>
+              <div class="site-description motion-element" itemprop="description">hope bioinformatics blog</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">148</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">112</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RpcmFtaXN1dGVz" title="GitHub &rarr; https://github.com/tiramisutes"><i class="fa fa-fw fa-github"></i>GitHub</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="bWFpbHRvOnRpcmFtaXN1dGVze2F0fTEyNi5jb20=" title="E-Mail &rarr; mailto:tiramisutes{at}126.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cDovL3dlaWJvLmNvbS90aXJhbWlzdXRlc1Rlcw==" title="Weibo &rarr; http://weibo.com/tiramisutesTes"><i class="fa fa-fw fa-globe"></i>Weibo</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9ob3BldG9neQ==" title="Twitter &rarr; https://twitter.com/hopetogy"><i class="fa fa-fw fa-twitter"></i>Twitter</span>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"/></span>
+             </div>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9paG9wZS5zaGlueWFwcHMuaW8vcVJULVBDUi1QaXBlbGluZS8=" title="https://ihope.shinyapps.io/qRT-PCR-Pipeline/">qRT-PCR-Pipeline</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly90aXJhbWlzdXRlcy5naXRib29rcy5pby9hd2svY29udGVudC8=" title="https://tiramisutes.gitbooks.io/awk/content/">GitBook《awk学习总结》</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2NvdHRvbi5oemF1LmVkdS5jbi8=" title="http://cotton.hzau.edu.cn/">棉花遗传改良团队</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5iaW8taW5mby10cmFpbmVlLmNvbS8=" title="http://www.bio-info-trainee.com/">生信菜鸟团-深圳大学城</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5iaW90cmFpbmVlLmNvbS9mb3J1bS5waHA=" title="http://www.biotrainee.com/forum.php">生信技能树</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5pd2hnYW8uY29tLw==" title="http://www.iwhgao.com/">rabbit gao's blog</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9odWFucy5naXRodWIuaW8v" title="https://huans.github.io/">Huans(代谢+GWAS)</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5zZXF1ZW5jaW5nLnVpby5uby8=" title="http://www.sequencing.uio.no/">NSC-sequenceing</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2Jsb2cuam9iYm9sZS5jb20v" title="http://blog.jobbole.com/">伯乐在线</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9saW51eC5jbi8=" title="https://linux.cn/">Linux开源中文社区</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5yLWJsb2dnZXJzLmNvbS8=" title="http://www.r-bloggers.com/">R-bloggers</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvb3RoZXItZG9jcy5odG1s" title="https://cran.r-project.org/other-docs.html">R-resource</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3R1dG9yaWFscy5pcS5oYXJ2YXJkLmVkdS9SL1JncmFwaGljcy9SZ3JhcGhpY3MuaHRtbA==" title="http://tutorials.iq.harvard.edu/R/Rgraphics/Rgraphics.html">ggplot2</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2xpbGliZWkubmV0Lw==" title="http://lilibei.net/">pele' blog</span>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#多行字符串转换为单行"><span class="nav-text">多行字符串转换为单行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#替换"><span class="nav-text">替换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串转数组"><span class="nav-text">字符串转数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组转字符串"><span class="nav-text">数组转字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#global_vs-_local"><span class="nav-text">global vs. local</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#local_vs-_enclosed"><span class="nav-text">local vs. enclosed</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List_comprehensions_vs_generators"><span class="nav-text">List comprehensions vs generators</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#assert"><span class="nav-text">assert</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#set数据类型"><span class="nav-text">set数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#set_Operations"><span class="nav-text">set Operations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#_,__,___"><span class="nav-text">_,__,___</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#*args_and_**kwargs"><span class="nav-text">*args and **kwargs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#除法运算"><span class="nav-text">除法运算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#小数点位数"><span class="nav-text">小数点位数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊取整"><span class="nav-text">特殊取整</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表操作"><span class="nav-text">列表操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#列表加法运算merge"><span class="nav-text">列表加法运算merge</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表附加append"><span class="nav-text">列表附加append</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入insert"><span class="nav-text">插入insert</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计数count"><span class="nav-text">计数count</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#索引index"><span class="nav-text">索引index</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反转reverse"><span class="nav-text">反转reverse</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#List_Comprehensions"><span class="nav-text">List Comprehensions</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#eval和ast-literal_eval"><span class="nav-text">eval和ast.literal_eval</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zip函数"><span class="nav-text">zip函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String_slices"><span class="nav-text">String slices</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 – <span itemprop="copyrightYear">2023</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <a class="theme-link" target="_blank" href="http://tiramisutes.github.io/about/"><span class="author" itemprop="copyrightHolder">tiramisutes</span></a>
+
+  
+    <span class="post-meta-item-icon">
+    </span>
+    <span title="Symbols count total"></span>
+  
+
+  
+    <span class="post-meta-item-icon">
+    </span>
+    <span title="Reading time total"></span>
+  
+</div>
+
+
+  <div class="powered-by">Powered: <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">▽ – <span class="exturl theme-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0">NexT.Muse</span></div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-line-chart"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+    <a style="line-height: 1.5;" href="https://tongji.baidu.com/web/welcome/login" target="_blank">The total visits
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>&nbsp;times</a>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+    
+    
+      
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='20' src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest-nomobile.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+  <script src="/js/src/exturl.js?v=7.0.1"></script>
+
+
+  
+  
+  
+    
+  
+
+  
+
+  
+  
+  
+
+
+  
+  
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'c7x0fPmO8Ci9avDBRuGWHqpG-gzGzoHsz',
+    appKey: 'iVJ6ST0e1O5xaiIhVwOyhbf3',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+<style>
+.pdfobject-container {
+  position: relative;
+  overflow: auto;
+  width: 100%;
+}
+</style>
+<script>
+if ($('body').find('div.pdf').length) {
+  $.ajax({
+    type: 'GET',
+    url: '//cdn.jsdelivr.net/npm/pdfobject@2.1.1/pdfobject.min.js',
+    dataType: 'script',
+    cache: true,
+    success: function() {
+      $('body').find('div.pdf').each(function(i, o) {
+        PDFObject.embed($(o).attr('target'), $(o), {
+          pdfOpenParams: {
+            navpanes: 0,
+            toolbar: 0,
+            statusbar: 0,
+            pagemode: 'thumbs',
+            view: 'FitH'
+          },
+          PDFJS_URL: '/lib/pdf/web/viewer.html',
+          height: $(o).attr('height') || '500px'
+        });
+      });
+    },
+  });
+}
+</script>
+
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+  
+  
+    
+  
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Evernote,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+
+  
+  <script>
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id: 15314,
+      el: 'wpac-rating',
+      color: 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

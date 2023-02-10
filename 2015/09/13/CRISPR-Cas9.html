@@ -1,0 +1,2214 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=66189719" charset="UTF-8"></script>
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"/>
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/han.min.css"/>
+
+
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+
+
+  <meta name="google-site-verification" content="b12Zu40L63PLgCtcn0IW8KCNRolmyQlaF22tf4rRLEg"/>
+
+
+
+  <meta name="msvalidate.01" content="74A687E04D4EF9914B7AA20824207409"/>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="https://fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"/>
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/small_favicon.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/favicon.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":true,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="CRISPR/Cas9 gene editing technology has revolutionized the field of genome modification. This system is based on two key components that form a complex: Cas9 endonuclease and a target-specific RNA (si">
+<meta name="keywords" content="CRISPR&#x2F;Cas9">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CRISPR&#x2F;Cas9">
+<meta property="og:url" content="http://tiramisutes.github.io/2015/09/13/CRISPR-Cas9.html">
+<meta property="og:site_name" content="hope">
+<meta property="og:description" content="CRISPR/Cas9 gene editing technology has revolutionized the field of genome modification. This system is based on two key components that form a complex: Cas9 endonuclease and a target-specific RNA (si">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/cris.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/FA_Cas9_Fig1_Cas9InVivo.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/Genloci%20Classic%20CRISPR-Cas9%20protocol.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/FA_Cas9_GenomeEditingGlossary.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/crispr-process.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/crRNA-tracRNA.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/crispr.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/xxclt_ibcGetAttachment.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/xxclt_ib.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/CRISPRweb.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/deliver.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/5bfd74f6187e5b0020435c06d8060826.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/nature_crispr_gene_drive.png">
+<meta property="og:updated_time" content="2018-09-28T02:32:02.855Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CRISPR&#x2F;Cas9">
+<meta name="twitter:description" content="CRISPR/Cas9 gene editing technology has revolutionized the field of genome modification. This system is based on two key components that form a complex: Cas9 endonuclease and a target-specific RNA (si">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/cris.jpg">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="hope" type="application/atom+xml"/>
+
+
+
+
+  <link rel="canonical" href="http://tiramisutes.github.io/2015/09/13/CRISPR-Cas9.html"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>CRISPR/Cas9 | hope</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?08b17c69c7ba460d9ab5f188a048ee6d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">hope</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">A new day is coming,whether we like it or not. The question is will you control it,or will it control you?</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-code">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/code/" rel="section"><i class="menu-item-icon fa fa-fw fa-code"></i> <br/>Code</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-footprint">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/footprint/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br/>Footprint</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-qrt-pcr">
+
+    
+    
+    
+      
+    
+
+    
+
+    <span class="exturl" data-url="aHR0cHM6Ly9paG9wZS5zaGlueWFwcHMuaW8vcVJULVBDUi1QaXBlbGluZS8="><i class="menu-item-icon fa fa-fw fa-cloud"></i> <br/>qRT-PCR</span>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-project">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/project/" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br/>Project</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-publish">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/publish/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br/>Publish</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sci-figure">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/SCIFigure/" rel="section"><i class="menu-item-icon fa fa-fw fa-angellist"></i> <br/>SCI Figure</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-cv">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/resume/" rel="section"><i class="menu-item-icon fa fa-fw fa-address-card"></i> <br/>CV</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tiramisutes.github.io/2015/09/13/CRISPR-Cas9.html"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tiramisutes"/>
+      <meta itemprop="description" content="hope bioinformatics blog"/>
+      <meta itemprop="image" content="/images/author.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hope"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">CRISPR/Cas9
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2015-09-13 09:26:55" itemprop="dateCreated datePublished" datetime="2015-09-13T09:26:55+08:00">2015-09-13</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Bioinformatics/" itemprop="url" rel="index"><span itemprop="name">Bioinformatics</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2015/09/13/CRISPR-Cas9.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2015/09/13/CRISPR-Cas9.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2015/09/13/CRISPR-Cas9.html" class="leancloud_visitors" data-flag-title="CRISPR/Cas9">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+                <span>℃</span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article: </span>
+                
+                <span title="Words count in article"></span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time"></span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>CRISPR/Cas9 gene editing technology has revolutionized the field of genome modification. This system is based on two key components that form a complex: Cas9 endonuclease and a target-specific RNA (single guide RNA or sgRNA) that guides Cas9 to the genomic DNA target site. Targeting to a particular genomic locus is solely mediated by the sgRNA.<br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/cris.jpg" alt=""></p>
+<h2 id="CRISPR/Cas9_简介">CRISPR/Cas9 简介</h2><p>细菌（bacteria）和古细菌（archaea）都有一套防御机制抵御这种外来的侵入性因子，这种防御机制就是在成簇的、有规律间隔的多次重复短片段（clustered regularly interspaced short palindromic repeat, CRISPR）的基础上建立起来的适应性免疫系统（adaptive immune system）。<br>CRISPR系统能够将各种外源的病毒或质粒DNA短片段”集中”到细胞基因组里某个特定的重复片段区域上，将这些外源DNA当作细胞曾经经受过外源DNA入侵的一种记忆给储存起来。然后这段DNA会转录生成CRISPR前体RNA（precursor CRISPR RNA），前体RNA生成之后会被切割成一段一段的重复RNA片段，这些小RNA分子就是成熟的CRISPR RNA（crRNA）。然后crRNA会招募CRISPR相关蛋白（CRISPR-associated proteins, Cas）和tracrRNA与各种被细胞记住的外源的入侵DNA或mRNA片段结合，将它们彻底摧毁。<br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/FA_Cas9_Fig1_Cas9InVivo.png" alt=""></p>
+<h2 id="CRISPR/Cas9发现史">CRISPR/Cas9发现史</h2><p>1987年，日本人在大肠杆菌中发现有串联间隔重复序列，后来的研究发现，这种重复序列广泛存在于细菌和古细菌中。<br>2002年，正式命名为CRISPR(Clustered regulatory interspaced short palindromic repeats)。<br>2005年，三个研究组同时发现间隔序列和侵染细菌的病毒或phage高度同源。从而推测，这一系统可能是类似于siRNA一样，是细菌抵抗Phage的一种机理。<br>2007年，Science发表文章，证明细菌可能利用CRSPR系统对抗噬菌体入侵，并解释细菌抵抗外界入侵的大致流程，Cas位点编码多个核酸酶和解旋酶，他们把入侵的DNA切割，整合到CRISPR的重复序列中，形成记忆。当再次遭到入侵时，转录出RNA，Cas蛋白复合物利用这些和入侵的DNA同源的RNA去切割摧毁外源的DNA。<br>2012年，Jennifer A. Doudna和Emmanuelle Charpentier的这篇Science发现了一个比较简单的CRISPR（TypeII）系统的机理。<br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/Genloci%20Classic%20CRISPR-Cas9%20protocol.jpg" alt=""></p>
+<h2 id="CRISPR/Cas9_type_II_作用机制">CRISPR/Cas9 type II 作用机制</h2><h3 id="相关术语">相关术语</h3><p><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/FA_Cas9_GenomeEditingGlossary.png" alt=""><br>CRISPR–Cas系统也称作2型系统（type II systems），如图所示。Cas9内切酶在向导RNA的指引下能够对各种入侵的外源DNA分子进行定点切割，不过主要识别的还是保守的间隔相邻基序（proto-spacer adjacent motifs，PAM基序）。如果要形成一个有功能的DNA切割复合体，还需要另外两个RNA分子的帮助，它们就是CRISPR RNA (crRNA)和反式作用CRISPR RNA（trans -acting CRISPR RNA, tracrRNA)。不过最近有研究发现，这两种RNA可以被”改装”成一个向导RNA（single-guide RNA, sgRNA）。tracrRNA刚好与crRNA的小片段互补，同时它们还是RNA特异性的宿主核糖核酸酶RNase III的底物。经过RNase III的切割之后，这一对互补的RNA（其中包括一条42bp的crRNA和一条75bp的tracrRNA）就可以充当Cas9因子的向导，也就是说，tracrRNA分子能够帮助Cas9-crRNA复合体在细胞复杂的DNA环境中精准地定位到入侵的DNA序列上，这个sgRNA足以帮助Cas9内切酶对DNA进行定点切割,在完整基因组上的特定位点完成切割反应后细胞通常会通过两种方式对发生双链断裂的DNA进行修复，这两种方式分别是同源重组修复机制（homologous recombination, HR）和非同源末端连接修复机制（non-homologous end joining, NHEJ），不过在修复的过程中细胞有可能会对修复位点进行修饰，或者插入新的遗传信息。<br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/crispr-process.png" width="1024" height="768"></p>
+<h3 id="图例解释">图例解释</h3><p>The type II RNA-mediated CRISPR/Cas immune pathway. The expression and interference steps are represented in the drawing. The type II CRISPR/Cas loci are composed of an operon of four genes (blue) encoding the proteins Cas9, Cas1, Cas2 and Csn2, a CRISPR array consisting of a leader sequence followed by identical repeats (black rectangles) interspersed with unique genome-targeting spacers (colored diamonds) and a sequence encoding the trans-activating tracrRNA (red). Represented here is the type II CRISPR/Cas locus of S. pyogenes SF370 (Accession number NC_002737) (4). Experimentally confirmed promoters and transcriptional terminator in this locus are indicated (4). The CRISPR array is transcribed as a precursor CRISPR RNA (pre-crRNA) molecule that undergoes a maturation process specific to the type II systems (4). In S. pyogenes SF370, tracrRNA is transcribed as two primary transcripts of 171 and 89 nt in length that have complementarity to each repeat of the pre-crRNA. The first processing event involves pairing of tracrRNA to pre-crRNA, forming a duplex RNA that is recognized and cleaved by the housekeeping endoribonuclease RNase III (orange) in the presence of the Cas9 protein. RNase III-mediated cleavage of the duplex RNA generates a 75-nt processed tracrRNA and a 66-nt intermediate crRNAs consisting of a central region containing a sequence of one spacer, flanked by portions of the repeat sequence. A second processing event, mediated by unknown ribonuclease(s), leads to the formation of mature crRNAs of 39 to 42 nt in length consisting of 5’-terminal spacer-derived guide sequence and repeat-derived 3’-terminal sequence. Following the first and second processing events, mature tracrRNA remains paired to the mature crRNAs and bound to the Cas9 protein. In this ternary complex, the dual tracrRNA:crRNA structure acts as guide RNA that directs the endonuclease Cas9 to the cognate target DNA. Target recognition by the Cas9-tracrRNA:crRNA complex is initiated by scanning the invading DNA molecule for homology between the protospacer sequence in the target DNA and the spacer-derived sequence in the crRNA. In addition to the DNA protospacer-crRNA spacer complementarity, DNA targeting requires the presence of a short motif (NGG, where N can be any nucleotide) adjacent to the protospacer (protospacer adjacent motif - PAM). Following pairing between the dual-RNA and the protospacer sequence, an R-loop is formed and Cas9 subsequently introduces a double-stranded break (DSB) in the DNA. Cleavage of target DNA by Cas9 requires two catalytic domains in the protein. At a specific site relative to the PAM, the HNH domain cleaves the complementary strand of the DNA while the RuvC-like domain cleaves the noncomplementary strand.</p>
+<h3 id="关键点注释">关键点注释</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">5端是来源于spacer的序列，3端是来源于重复端（repeat）的序列，二者共同组成了39到42nt的成熟crRNAs，其中的3端重复端部分序列</span><br><span class="line">与成熟的tracrRNAs部分互补配对。</span><br><span class="line">tracrRNA:crRNA形成的二元结构招募Cas9形成Cas9-tracrRNA:crRNA三元复合体，开始扫描入侵的DNA，识别与成熟crRNA来源于5端</span><br><span class="line">的spacer序列互补的区段.</span><br><span class="line">PAM即为NGG序列，存在与入侵DNA也就是CRISPR/Cas9系统所要去切割的双链DNA上，对应于CRISPR/Cas9的crRNA上就是3端的CCN。</span><br><span class="line">参与三元复合体Cas9-tracrRNA:crRNA与目标DNA的识别.</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/crRNA-tracRNA.png" width="1024" height="768"><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Schematic representation of tracrRNA, crRNA-sp2, and protospacer 2 DNA sequences. Regions of crRNA </span><br><span class="line">complementarity to tracrRNA (orange) and the protospacer DNA (yellow) are represented. The PAM </span><br><span class="line">sequence is shown <span class="keyword">in</span> gray; cleavage sites mapped <span class="keyword">in</span> (C)and (D) are represented by blue arrows (C),</span><br><span class="line"> a red arrow [(D), complementary strand], and a red line [(D), noncomplementary strand].</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/crispr.jpg" alt=""><br>（A）Cas9蛋白需要crRNA和tracrRNA的共同帮助才能识别入侵的外来DNA分子，与之结合并将其降解。因为crRNA中的向导链部分可以与外源DNA的一条链互补并结合形成R环结构。在被识别区域两端的DNA基序也起到了非常重要的作用，它们可以帮助DNA链结旋打开双链，有利于crRNA链侵入。然后靶标DNA会在Cas9蛋白两个核酶结构域的作用下被切断。（B）级联反应复合体里含有一个crRNA，可是却最多携带了5种不同的Cas蛋白。所以它能够持续不断地招募核酶和解旋酶Cas3蛋白，不停歇地将入侵的外源DNA打开并切断。<br>Cas9蛋白能够凭借分子内的两个核酸酶结构域切割靶标DNA分子，形成平末端产物，其中每一个结构域负责切割靶标DNA分子R环状（R-loop）结构中的一条DNA链，具体来说，就是一个HNH核酶结构域负责切割与crRNA互补配对的那一条DNA链，RuvC核酶结构域负责切割另外一条DNA链。Jinek等人发现这种切割的效率非常高，而且不论靶标DNA分子是松弛型的，还是紧密的超螺旋型的都可以被毫不费力地被切割开，说明Cas9蛋白在细胞里是循环使用的，这样能保证在第一时间将所有来犯的入侵者全都消灭掉。</p>
+<h2 id="Choosing_a_Target_Sequence_for_CRISPR/Cas9_Gene_Editing">Choosing a Target Sequence for CRISPR/Cas9 Gene Editing</h2><p>CRISPR/Cas9 gene targeting requires a custom single guide RNA (sgRNA) that contains a targeting sequence (crRNA sequence) and a Cas9 nuclease-recruiting sequence (tracrRNA). The crRNA region (shown in red below) is a 20-nucleotide sequence that is homologous to a region in your gene of interest and will direct Cas9 nuclease activity.<br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/xxclt_ibcGetAttachment.gif" alt=""></p>
+<p>Selecting an appropriate DNA target sequence</p>
+<p>Use the following guidelines to select a genomic DNA region that corresponds to the crRNA sequence of the sgRNA:</p>
+<p>The 3′ end of the DNA target sequence must have a proto-spacer adjacent motif (PAM) sequence (5′-NGG-3′). The 20 nucleotides upstream of the PAM sequence will be your targeting sequence (crRNA) and Cas9 nuclease will cleave approximately 3 bases upstream of the PAM.<br>The PAM sequence itself is absolutely required for cleavage, but it is NOT part of the sgRNA sequence and therefore should not be included in the sgRNA.<br>The target sequence can be on either DNA strand.<br>There are online tools (e.g., <span class="exturl" data-url="aHR0cDovL2NyaXNwci5taXQuZWR1Lw==" title="http://crispr.mit.edu/">http://crispr.mit.edu/<i class="fa fa-external-link"></i></span> or <span class="exturl" data-url="aHR0cHM6Ly9jaG9wY2hvcC5yYy5mYXMuaGFydmFyZC5lZHUv" title="https://chopchop.rc.fas.harvard.edu/">https://chopchop.rc.fas.harvard.edu/<i class="fa fa-external-link"></i></span>) that detect PAM sequences and list possible crRNA sequences within a specific DNA region. These algorithms also predict off-target effects in different organisms, allowing you to choose the most specific crRNA.<br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/xxclt_ib.gif" alt=""></p>
+<h2 id="CRISPR/Cas9-sgRNA设计工具">CRISPR/Cas9-sgRNA设计工具</h2><p><i class="fa fa-database"></i>模式生物(Model Organism)</p>
+<ol>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy5lLWNyaXNwLm9yZy9FLUNSSVNQLw==" title="http://www.e-crisp.org/E-CRISP/">http://www.e-crisp.org/E-CRISP/<i class="fa fa-external-link"></i></span> currently the best online solution (Recommended).</li>
+<li><span class="exturl" data-url="aHR0cDovL3Rvb2xzLmZseWNyaXNwci5tb2xiaW8ud2lzYy5lZHUvdGFyZ2V0RmluZGVyLw==" title="http://tools.flycrispr.molbio.wisc.edu/targetFinder/">http://tools.flycrispr.molbio.wisc.edu/targetFinder/<i class="fa fa-external-link"></i></span>  a simple drosophila focused tool.</li>
+<li><span class="exturl" data-url="aHR0cDovL2NyaXNwci5taXQuZWR1Lw==" title="http://crispr.mit.edu/">http://crispr.mit.edu/<i class="fa fa-external-link"></i></span>  MIT’s online CRISPR tool is a little slow, but pretty decent if they support your genome of interest.</li>
+<li><span class="exturl" data-url="aHR0cDovL2NyaXNwci51LXBzdWQuZnIv" title="http://crispr.u-psud.fr/">http://crispr.u-psud.fr/<i class="fa fa-external-link"></i></span>  simple but effective, supports analysis of any sequence for target-sites.</li>
+<li><span class="exturl" data-url="aHR0cDovL3ppZml0LnBhcnRuZXJzLm9yZy9aaUZpVC8=" title="http://zifit.partners.org/ZiFiT/">http://zifit.partners.org/ZiFiT/<i class="fa fa-external-link"></i></span>  another simple but effective solution.</li>
+</ol>
+<p><i class="fa fa-database"></i>模式生物+部分非模式生物(Model Organism AND Some non-model organisms)</p>
+<ol>
+<li><span class="exturl" data-url="aHR0cHM6Ly9jcmlzcHIuZGJjbHMuanAv" title="https://crispr.dbcls.jp/">https://crispr.dbcls.jp/<i class="fa fa-external-link"></i></span> Rational design of CRISPR/Cas target.</li>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy5yZ2Vub21lLm5ldC9jYXMtb2ZmaW5kZXIv" title="http://www.rgenome.net/cas-offinder/">http://www.rgenome.net/cas-offinder/<i class="fa fa-external-link"></i></span> select genomes only, but allows for alternative Cas9 species.</li>
+<li><span class="exturl" data-url="aHR0cDovL3Rvb2xzLmZseWNyaXNwci5tb2xiaW8ud2lzYy5lZHUvdGFyZ2V0RmluZGVyLw==" title="http://tools.flycrispr.molbio.wisc.edu/targetFinder/">http://tools.flycrispr.molbio.wisc.edu/targetFinder/<i class="fa fa-external-link"></i></span> a simple drosophila focused tool.</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9jb2RlLmdvb2dsZS5jb20vcC9zc2ZpbmRlci8=" title="https://code.google.com/p/ssfinder/">https://code.google.com/p/ssfinder/<i class="fa fa-external-link"></i></span> (SSFinder) a simple but effective tool, it will likely be slow for large genomes.</li>
+<li><span class="exturl" data-url="aHR0cDovL2FyZXAubWVkLmhhcnZhcmQuZWR1L0Nhc0ZpbmRlci8=" title="http://arep.med.harvard.edu/CasFinder/">CasFinder<i class="fa fa-external-link"></i></span>: Flexible algorithm for identifying specific Cas9 targets in genomes</li>
+<li><span class="exturl" data-url="aHR0cDovL2NyaXNwci5oemF1LmVkdS5jbi9DUklTUFIyL2hlbHAucGhw" title="http://crispr.hzau.edu.cn/CRISPR2/help.php">http://crispr.hzau.edu.cn/CRISPR2/help.php<i class="fa fa-external-link"></i></span></li>
+</ol>
+<p><i class="fa fa-database"></i>可自己提供基因组的程序(use yourself genome data)</p>
+<ol>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy5yZ2Vub21lLm5ldC9jYXMtZGVzaWduZXIvcG9ydGFibGU=" title="http://www.rgenome.net/cas-designer/portable">Cas-Designer<i class="fa fa-external-link"></i></span>: provides all possible RGEN targets in the given input sequence</li>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy5iaW9vdG9vbHMuY29tL2NvbC5qc3A/aWQ9MTQz" title="http://www.biootools.com/col.jsp?id=143">sgRNAcas9<i class="fa fa-external-link"></i></span>: A software package for designing CRISPR sgRNA and evaluating potential off-target cleavagesites</li>
+</ol>
+<h2 id="CRISPR/Cas9存在的问题暨避免措施">CRISPR/Cas9存在的问题暨避免措施</h2><h3 id="Predicting_sgRNA_Efficacy">Predicting sgRNA Efficacy</h3><p>We have recently examined sequence features that enhance on-target activity of sgRNAs by creating all possible sgRNAs for a panel of genes and assessing, by flow cytometry, which sequences led to complete protein knockout (1). Some sequences worked better than others, and we also saw that variations in the protospacer-adjacent motif (PAM) led to differences in activity: specifically, CGGT tended to serve as a better PAM than the canonical NGG sequence. By examining the nucleotide features of the most-active sgRNAs from a set of 1,841 sgRNAs, we derived scoring rules and built a website implementation of these rules to design sgRNAs against genes of interest, available here: <span class="exturl" data-url="aHR0cDovL3d3dy5icm9hZGluc3RpdHV0ZS5vcmcvcm5haS9wdWJsaWMvYW5hbHlzaXMtdG9vbHMvc2dybmEtZGVzaWdu" title="http://www.broadinstitute.org/rnai/public/analysis-tools/sgrna-design">http://www.broadinstitute.org/rnai/public/analysis-tools/sgrna-design<i class="fa fa-external-link"></i></span>.</p>
+<p>Once sgRNA sequences most-likely to give high activity are identified, some filtering can be used to further winnow down a list. For example, basic features of the target gene can be used to eliminate some sgRNAs, such as those that target near the C’ terminus of a protein, as frameshifts are less-likely to be deleterious if most of the protein has already been translated. While every protein will be different, it seems reasonable that target sites in the first half of a protein will likely lead to a functional knockout. Indeed, for some of the genes we examined, even targets very close to the C’ terminus disrupted expression. Certainly, for any gene of interest, it would be unwise to make conclusions on the basis of the activity of a single sgRNA, and thus diversity of target sites across a gene should be examined.</p>
+<h3 id="Avoiding_Off-target_Sites">Avoiding Off-target Sites</h3><p>The off-target activity of sgRNAs is important to consider. Several papers have reached far-different conclusions regarding the extent of these effects, and certainly at least one reason for these observed differences is the expression levels of Cas9 and sgRNA used in these studies (2,3). Additionally, the ability to predict off-target sites in the genome is still in its infancy. While the basic landscape of mismatches that can lead to cutting has been established, and can be used to identify sites that are likely to give rise to an off-target effect, as yet there is not enough data to fully predict which sites will and will not show appreciable levels of modification. To further confound matters, it has recently been shown that bulges in either the RNA or DNA – that is, non-symmetrical basepairing of the strands – can give rise to off-target activity (4). Predicting such basepairing interactions is far-more computationally intensive, and thus existing algorithms ignore these potential off-target sites.</p>
+<p>Importantly, recent whole-genome sequencing of cells modified by CRISPR indicates that the consequences of off-target activity, at least for the experimental conditions used, led to no detectable mutations (5). Indeed, when working with single-cell clones, the authors note that “clonal heterogeneity may represent a more serious obstacle to the generation of truly isogenic cell lines than nuclease-mediated off-target effects.” Further, several genetic screens using genome-wide libraries have shown high concordance between different sequences targeting the same gene, suggesting that off-target effects did not overwhelm true signal in these assays (6-8). Again, the experimental strategy is clear: for any gene of interest, one should require that multiple sgRNAs of different sequence give rise to the same phenotype in order to conclude that the phenotype is due to an on-target effect.</p>
+<h3 id="How_Can_It_Go_Wrong?">How Can It Go Wrong?</h3><p>Even with optimized on-target design, and proper avoidance of off-target effects both explicitly when designing sgRNAs and experimentally by the use of multiple sgRNAs, it is apparent that not all genes are equally amenable to targeting in all cellular contexts. One major reason is the chromatin state of a target site. For genes that are in more restricted chromatin or, potentially, different locations in the nucleus, Cas9 will be less effective at finding the target (9). Achieving biallelic knockout of such a gene in a high percentage of target cells might therefore not be practical. Here, single cell-cloning might be necessary, and complementary technologies such as RNAi may be a better experimental choice (while still relying, of course, on multiple different sequences of small RNA to interpret a phenotype!)</p>
+<p>In sum, selection of sgRNAs for an experiment needs to balance maximizing on-target activity while minimizing off-target activity, which sounds obvious but can often require difficult decisions. For example, would it be better to use a less-active sgRNA that targets a truly unique site in the genome, or a more-active sgRNA with one additional target site in a region of the genome with no known function? For the creation of stable cell models that are to be used for long-term study, the former may be the better choice. For a genome-wide library to conduct genetic screens, however, a library composed of the latter would likely be more effective, so long as care is taken in the interpretation of results by requiring multiple sequences targeting a gene to score in order to call that gene as a hit. Indeed, existing genome-wide libraries have not taken into account on-target activity, and new libraries will surely incorporate such design rules in the near future.</p>
+<p>This is exciting time for functional genomics, with an ever-expanding list of tools to probe gene function. The best tools are only as good as the person using them, and the proper use of CRISPR technology will always depend on careful experimental design, execution, and analysis.</p>
+<h2 id="CRISPR/Cas9:_Planning_Your_Experiment">CRISPR/Cas9: Planning Your Experiment</h2><h3 id="How_do_I_get_started?">How do I get started?</h3><p>CRISPR (Clustered Regularly Interspaced Short Palindromic Repeats) genome editing is a popular new technology that uses a short RNA (gRNA) to guide a nuclease (generally, Cas9) to a DNA target. The technology has been quickly adopted due to its advantages, like speed, cost, efficiency, and ease of implementation, over protein-based targeting methods (zinc fingers and TALENs). This experimental guide is meant to provide a broad overview of the major steps and considerations in setting up a CRISPR experiment. With all genome engineering technologies, it is recommended that the user performs due diligence regarding off-target effects.</p>
+<p>Before getting started, familiarize yourself with the science behind CRISPR at our <a href="/crispr/guide/">CRISPR Science Guide</a>. You can also find more information from <span class="exturl" data-url="aHR0cDovL2Jsb2cuYWRkZ2VuZS5vcmcvdG9waWMvY3Jpc3By" title="http://blog.addgene.org/topic/crispr">our blog<i class="fa fa-external-link"></i></span> and our list of <a href="/crispr/reference/#forums">CRISPR forums and FAQs</a>.</p>
+<h3 id="Experimental_Design">Experimental Design</h3><p><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/CRISPRweb.png" width="1024" height="768"></p>
+<p>1.Choose a CRISPR system</p>
+<ul>
+<li><p>What do you want to use CRISPR for? Common uses of CRISPR are:</p>
+<ul>
+<li>Gene disruption (via insertion or deletion)</li>
+<li>Activation or repression of gene expression</li>
+<li>You can find more information about <span class="exturl" data-url="aHR0cDovL3d3dy5hZGRnZW5lLm9yZy9jcmlzcHIvZ3VpZGUvI0Rpc3J1cHQ=" title="http://www.addgene.org/crispr/guide/#Disrupt">CRISPR uses<i class="fa fa-external-link"></i></span> in our CRISPR guide or <a href="/CRISPR/">browse CRISPR plasmids</a> by function.</li>
+</ul>
+</li>
+<li><p>What system will you be using CRISPR in?</p>
+<ul>
+<li>You can browse <a href="/crispr/#modelorg">CRISPR plasmids by model organism</a> or browse <a href="/crispr/">CRISPR plasmids by function.</a></li>
+</ul>
+</li>
+<li><p>Once you know what you want to do and what system you want to use, you can design your gRNA.</p>
+</li>
+</ul>
+<p>2.Design a gRNA for your genome target</p>
+<p>As versatile as the Cas9 protein is, it requires the specificity of a gRNA to guide it to the desired genome target. Choosing an appropriate target sequence in the genomic DNA is a very important step in designing your experiment.</p>
+<p>Important characteristics of a genome target are:</p>
+<ul>
+<li>~20 nucleotides in length</li>
+<li>Followed (or preceded) by the appropriate Protospacer Adjacent Motif (PAM) sequence in the genomic DNA</li>
+</ul>
+<p>The PAM will vary depending on the bacterial species the Cas9 was derived from. The Cas9 and gRNA have to be from the same bacterial species. Read more about <a href="/crispr/guide/#PAM">PAM sequences</a>.<br>The majority of the CRISPR plasmids in Addgene’s collection are from the bacteria S. pyogenes unless otherwise noted.<br>gRNAs:</p>
+<ul>
+<li>should not contain the PAM sequence</li>
+<li>can be on either strand of the genomic DNA</li>
+</ul>
+<p>For genomic disruptions (via Insertions/Deletions or InDels), the gRNA should be targeted closer to the N-terminus of a protein coding region to increase the likelihood of gene disruption.<br>For genome editing or modification, the gRNA target site will be limited to the desired location of the edit or modification.</p>
+<ul>
+<li>should be designed using bioinformatics software to minimize off-target effects</li>
+</ul>
+<p>A gRNA sequence can potentially appear in multiple places in the genome.</p>
+<p>While we offer <a href="/crispr/validated-grnas/">validated gRNAs</a>, there are a <a href="/crispr/reference/#software">number of software tools</a> available to help you choose/design target sequences, as well as lists of bioinformatically determined (but not experimentally validated) unique gRNAs for different genes in different species.</p>
+<p>Looking for more help?</p>
+<p><span class="exturl" data-url="aHR0cDovL2Jsb2cuYWRkZ2VuZS5vcmcvaG93LXRvLWRlc2lnbi15b3VyLWdybmEtZm9yLWNyaXNwci1nZW5vbWUtZWRpdGluZw==" title="http://blog.addgene.org/how-to-design-your-grna-for-crispr-genome-editing">From our blog<i class="fa fa-external-link"></i></span>, John Doench and Ella Hartenian (Broad Institute) give practical advice for using CRISPRs, as well as designing your gRNA and introducing it into cells.<br>Additionally, we have <a href="/crispr/reference/#protocols">gRNA design protocols</a> from our CRISPR depositors and links to <span class="exturl" data-url="aHR0cDovL3d3dy5hZGRnZW5lLm9yZy9jcmlzcHIvcmVmZXJlbmNlLyNmb3J1bXM=" title="http://www.addgene.org/crispr/reference/#forums">CRISPR discussion groups.<i class="fa fa-external-link"></i></span></p>
+<p>Once you have your genomic target identified and gRNA designed, you can synthesize the oligos for your gRNA and find an <a href="/crispr/empty-grna-vectors/">empty gRNA vector</a>, or browse our selection of <a href="/crispr/validated-grnas/">validated gRNAs</a>.</p>
+<ol>
+<li>Clone the gRNA into a plasmid</li>
+</ol>
+<p>If you are using one of our validated gRNA plasmids, you can skip this step.</p>
+<p>If you have to clone your gRNA into your CRISPR plasmid:</p>
+<ul>
+<li>Depositor plasmids may have <a href="/crispr/reference/#protocols">specific cloning guides</a> in their protocols.  </li>
+<li>For a general overview of cloning, review our <a href="/plasmid-reference/index/">molecular biology tools and references</a>.</li>
+</ul>
+<p>After cloning, sequence verify your final plasmid product. Some depositor tools are designed so that a test digest can verify a successful insertion.</p>
+<ol>
+<li>Deliver your CRISPR components</li>
+</ol>
+<p>Each model system will have its best practices for efficient delivery of CRISPR components. CRISPR depositors have submitted protocols for a few model organisms like nematode, fly, and zebrafish.</p>
+<p>If you will be working in mammalian cell culture, some common mammalian DNA delivery methods are: </p>
+<p>Mammalian Cell Line DNA Delivery<br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/deliver.png" alt=""><br><em>This table is not inclusive of all methods and the user will want to <span class="exturl" data-url="aHR0cDovL3d3dy5uY2JpLm5sbS5uaWguZ292L3B1Ym1lZD90ZXJtPWNyaXNwcg==" title="http://www.ncbi.nlm.nih.gov/pubmed?term=crispr">review the current literature<i class="fa fa-external-link"></i></span> about their preferred model.</em></p>
+<ol>
+<li>Evaluate outcome</li>
+</ol>
+<p>If CRISPR is being used for genome modification, the modification has to be evaluated after delivery of CRISPR components.</p>
+<ul>
+<li>Design PCR (polymerase chain reaction) primers and amplify genomic region of modification.</li>
+</ul>
+<p>PCR is a method for making a copy of a piece of DNA.<br>There are many software tools available on the web for primer design. Example: <span class="exturl" data-url="aHR0cHM6Ly93d3cuaWR0ZG5hLmNvbS9wYWdlcy9zY2l0b29scy9zY2l0b29scy0tLW9saWdvLWFuYWx5c2lzLWFuZC1wcmltZXItZGVzaWduLXRvb2xz" title="https://www.idtdna.com/pages/scitools/scitools---oligo-analysis-and-primer-design-tools">IDT Web Tools<i class="fa fa-external-link"></i></span><br>View our walk-through of a basic <a href="/plasmid-protocols/pcr/">PCR reaction and the required reagents</a>.</p>
+<ul>
+<li>Two popular methods to assess genomic alteration from a PCR product are:</li>
+</ul>
+<p>Endonuclease mismatch detection assay<br><span class="exturl" data-url="aHR0cHM6Ly93d3cubmViLmNvbS9hcHBsaWNhdGlvbnMvY2xvbmluZy1hbmQtc3ludGhldGljLWJpb2xvZ3kvZ2Vub21lLWVkaXRpbmcvbWVhc3VyaW5nLXRhcmdldGluZy1lZmZpY2llbmN5LXdpdGgtdGhlLXQ3LWVuZG9udWNsZWFzZS1pLWFzc2F5" title="https://www.neb.com/applications/cloning-and-synthetic-biology/genome-editing/measuring-targeting-efficiency-with-the-t7-endonuclease-i-assay">NEB<i class="fa fa-external-link"></i></span> provides a graphical overview of the assay.<br>Sequence verification<br>Find tips for sequencing analysis and troubleshooting at our <span class="exturl" data-url="aHR0cDovL2Jsb2cuYWRkZ2VuZS5vcmcvNi10aXBzLWZvci1hbmFseXppbmctYW5kLXRyb3VibGVzaG9vdGluZy1kbmEtc2VxdWVuY2luZy1yZXN1bHRz" title="http://blog.addgene.org/6-tips-for-analyzing-and-troubleshooting-dna-sequencing-results">blog<i class="fa fa-external-link"></i></span>.</p>
+<h2 id="CRISPR-Cas9_FAQs_Answered!">CRISPR-Cas9 FAQs Answered!</h2><h3 id="Designing_Your_CRISPR_Genome_Editing_Experiment">Designing Your CRISPR Genome Editing Experiment</h3><p><strong>Q1:&nbsp;Should I use wildtype or double nickase for my CRISPR genome engineering experiments?</strong><br><strong>A1:&nbsp;</strong><span>When assessing which nickase type to use for your CRISPR genome engineering experiments, consider that wildtype Cas9 with optimized chimeric gRNA has high efficiency but has been shown to have off-target effects. ‘Double nickase’ is a new system, developed by the Zhang lab, which has comparable efficiency to the optimized chimeric design but with better accuracy (in other words, lower off-target effect.<br>The double nickase system is based on the Cas9 D10A nickase described in&nbsp;<span class="exturl" data-url="aHR0cDovL3d3dy5uY2JpLm5sbS5uaWguZ292L3BtYy9hcnRpY2xlcy9QTUMzNzk1NDExL2ZpZ3VyZS9GNC8=" title="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3795411/figure/F4/">Figure 4<i class="fa fa-external-link"></i></span>&nbsp;of the Cong, et. al, 2013 Science paper. For example, if you want to use double nickase, you could express two spacers and use&nbsp;<span class="exturl" data-url="aHR0cDovL3d3dy5hZGRnZW5lLm9yZy80MjMzNS8=" title="http://www.addgene.org/42335/">PX335<i class="fa fa-external-link"></i></span>&nbsp;to express the Cas9n (nickase).<br>The concept of the double nickase system is that you can express two different chimeric gRNAs with the Cas9 nickase which will together introduce cleavage of the target site with efficiency similar to using a single chimeric gRNA. At the same time, the off-target effects are reduced because the Cas9 nickase doesn’t have the ability to induce double-stranded breaks like the wildtype Cas9 does. There are a few references for the double nickase system, including&nbsp;<span class="exturl" data-url="aHR0cDovL3d3dy5jZWxsLmNvbS9hYnN0cmFjdC9TMDA5Mi04Njc0KDEzKTAxMDE1LTU=" title="http://www.cell.com/abstract/S0092-8674(13)01015-5">one recently from the Zhang group<i class="fa fa-external-link"></i></span>.<br>Learn more <span class="exturl" data-url="aHR0cHM6Ly93d3cuYWRkZ2VuZS5vcmcvQ1JJU1BSL2d1aWRlLyNOaWNrYXNl" title="https://www.addgene.org/CRISPR/guide/#Nickase">here<i class="fa fa-external-link"></i></span>.<br><strong>Q2:&nbsp;When designing oligos for cloning my target sequence into a backbone that uses the human U6 promoterto drive expression, is it necessary to add a G nucleotide to the start of my target sequence?</strong><br><strong style="font-size: inherit;">A2:&nbsp;</strong>The human U6 promoter prefers a ‘G’ at the transcription start site to have high expression, so adding this G couldhelp with expression, though it is possible for the plasmid to still express without the G. Because the G is only one base, the Zhang lab usually adds it when they order the oligo. If your spacer sequence starts with a ‘G’, you naturally have one and do not need to add an additional ‘G’.<br><strong>Q3:&nbsp;What is the maximum amount of DNA that can be inserted into the genome using CRISPR/Cas forHomologous Recombination (HR)? How long should the homology arms be for efficient recombination?</strong><br><strong>A3:&nbsp;</strong>The most we’ve tried to insert so far has been 1kb. We used homology arms that were 800bp long.</span></p>
+<h3 id="Tips_for_Using_CRISPR-Cas9_at_the_Lab_Bench">Tips for Using CRISPR-Cas9 at the Lab Bench</h3><p><strong>Q4:&nbsp;After the introduction of a mutation into the genome, how can cells with that mutation be selected/screened?</strong><br><strong>A4:</strong>&nbsp;Before starting your experiment, consider co-transfecting with GFP. This allows you to sort for GFP-positive cells and to enrich for those cells that were positively transfected. Alternatively, you can use a selection marker to select transfected cells (for example, plasmid with a puromycin resistance cassette, such as&nbsp;<span class="exturl" data-url="aHR0cDovL3d3dy5hZGRnZW5lLm9yZy80ODEzOS8=" title="http://www.addgene.org/48139/">PX459<i class="fa fa-external-link"></i></span>). After you co-transfect the CRISPR/Cas system with your homologous recombination (HR) template, you could then:</p>
+<ul>
+<li>Confirm your HR by doing Restriction Fragment Length Polymorphism (RFLP) (<span class="exturl" data-url="aHR0cDovL3d3dy5uY2JpLm5sbS5uaWguZ292L3BtYy9hcnRpY2xlcy9QTUMzNzk1NDExL2ZpZ3VyZS9GNC8=" title="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3795411/figure/F4/">see Figure 4<i class="fa fa-external-link"></i></span>&nbsp;of the Cong, et. al, 2013 Science paper).</li>
+<li>If you detect positive HR, isolate single-cell colonies, grow them up, then perform individual genotyping (using Sanger sequencing, for example) on each colony in order to screen for positive ones.&nbsp;</li>
+<li>If your HR template has a selection marker such as puromycin, you can (also) select for the positive colonies by puromycin selection. You could then confirm this purification by performing a genotyping assay (such as Sanger sequencing).<br><span class="exturl" data-url="aHR0cDovL3d3dy5zY2llbmNlZGlyZWN0LmNvbS9zY2llbmNlL2FydGljbGUvcGlpL1MwMDkyODY3NDEzMDA0Njc0" title="http://www.sciencedirect.com/science/article/pii/S0092867413004674">Click here<i class="fa fa-external-link"></i></span>for a useful reference.</li>
+</ul>
+<h3 id="More_FAQS,_CRISPR_Protocols,_and_gRNA_Design_Tools">More FAQS, CRISPR Protocols, and gRNA Design Tools</h3><p><em><strong>Need more questions answered about CRISPRs?</strong></em></p>
+<ul>
+<li>Check out the <span class="exturl" data-url="aHR0cDovL3d3dy5hZGRnZW5lLm9yZy9jcmlzcHIvemhhbmcvRkFRLw==" title="http://www.addgene.org/crispr/zhang/FAQ/">full list of 16 FAQs answered by Le Cong<i class="fa fa-external-link"></i></span></li>
+<li>Read Addgene’s <span class="exturl" data-url="aHR0cDovL3d3dy5hZGRnZW5lLm9yZy9DUklTUFIvZ3VpZGUv" title="http://www.addgene.org/CRISPR/guide/">CRISPR guide for background information<i class="fa fa-external-link"></i></span>&nbsp;on CRISPR/Cas9 systems</li>
+<li>Peruse the most recent genome editing review articles, such as: Sander JD &amp; Joung JK, <em><span class="exturl" data-url="aHR0cDovL3d3dy5uYXR1cmUuY29tL25idC9qb3VybmFsL3Zhb3AvbmN1cnJlbnQvcGRmL25idC4yODQyLnBkZg==" title="http://www.nature.com/nbt/journal/vaop/ncurrent/pdf/nbt.2842.pdf">Nature Biotech<i class="fa fa-external-link"></i></span>, </em>2 March 2014.</li>
+<li>Or browse the <span class="exturl" data-url="aHR0cDovL3d3dy5hZGRnZW5lLm9yZy9DUklTUFIvI0FydGljbGU=" title="http://www.addgene.org/CRISPR/#Article">articles related to the most frequently requested CRISPR<i class="fa fa-external-link"></i></span> plasmids at Addgene<br><em><strong>Find protocols and gRNA design tools:</strong></em></li>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy5hZGRnZW5lLm9yZy9DUklTUFIvcmVmZXJlbmNlLyNwcm90b2NvbHM=" title="http://www.addgene.org/CRISPR/reference/#protocols">List of CRISPR protocols<i class="fa fa-external-link"></i></span> developed by a variety of labs and optimized for specific plasmids</li>
+<li>Links to different <span class="exturl" data-url="aHR0cDovL3d3dy5hZGRnZW5lLm9yZy9DUklTUFIvcmVmZXJlbmNlLyNnUk5B" title="http://www.addgene.org/CRISPR/reference/#gRNA">software to help you identify your gRNA<i class="fa fa-external-link"></i></span> target sequences</li>
+</ul>
+<h2 id="CRISPR/Cas9_文献">CRISPR/Cas9 文献</h2><ul>
+<li><span class="exturl" data-url="aHR0cDovL29ubGluZWRpZ2VkaXRpb25zLmNvbS9wdWJsaWNhdGlvbi9mcmFtZS5waHA/aT0yMjMzMjI=" title="http://onlinedigeditions.com/publication/frame.php?i=223322">Cell Press Selections: CRISPR/Cas9<i class="fa fa-external-link"></i></span></li>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy5zY2llbmNlbWFnLm9yZy9jb250ZW50LzMzNy82MDk2LzgwOA==" title="http://www.sciencemag.org/content/337/6096/808">Science：A Swiss Army Knife of Immunity<i class="fa fa-external-link"></i></span></li>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy5zY2llbmNlbWFnLm9yZy9jb250ZW50LzMzNy82MDk2LzgxNi5sb25n" title="http://www.sciencemag.org/content/337/6096/816.long">Science：A Programmable Dual-RNA–Guided DNA Endonuclease in Adaptive Bacterial Immunity<i class="fa fa-external-link"></i></span></li>
+<li><span class="exturl" data-url="aHR0cDovL3d3dy5uYXR1cmUuY29tL25idC9qb3VybmFsL3YzMS9uOC9mdWxsL25idC4yNjU1Lmh0bWwjcmVmMw==" title="http://www.nature.com/nbt/journal/v31/n8/full/nbt.2655.html#ref3">Nature：Targeted mutagenesis in the model plant Nicotiana benthamiana using Cas9 RNA-guided endonuclease<i class="fa fa-external-link"></i></span></li>
+</ul>
+<h2 id="CRISPR/Cas9_科幻之力">CRISPR/Cas9 科幻之力</h2><p>◆ 自我复制<br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/5bfd74f6187e5b0020435c06d8060826.jpg" alt=""></p>
+<p>◆ 改变孟德尔遗传规律，改变整个种群<br><img src="https://raw.githubusercontent.com/wiki/tiramisutes/blog_image/nature_crispr_gene_drive.png" alt=""></p>
+
+      
+    </div>
+
+    
+      
+
+  <div class="popular-posts-header">Related Posts</div>
+  <ul class="popular-posts">
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="\2020\10\07\CRISPRi.html" rel="bookmark">Nature Methods | 多伦多大学通过优化KRAB来提高CRISPRi对靶基因的沉默效果</a></div>
+      
+    </li>
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="\2017\01\13\CRISPR-Designer.html" rel="bookmark">CRISPR-sgRNA-Designer：从来都不应该那么神秘</a></div>
+      
+    </li>
+  
+  </ul>
+
+
+    
+
+    
+    
+    
+
+    
+      <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
+  <img id="wechat_subscriber_qcode" src="/images/Wechat.jpg" alt="tiramisutes wechat" style="width: 200px; max-width: 100%;"/>
+  <div>欢迎关注</div>
+</div>
+
+    
+
+    
+      
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>tiramisutes</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    
+    <a href="http://tiramisutes.github.io/2015/09/13/CRISPR-Cas9.html" title="CRISPR/Cas9">http://tiramisutes.github.io/2015/09/13/CRISPR-Cas9.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CRISPR-Cas9/" rel="tag"><i class="fa fa-tag"></i> CRISPR/Cas9</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+          
+            <span class="post-meta-divider">|</span>
+          
+          <div class="social_share">
+            
+            
+              <div id="needsharebutton-postbottom">
+                <span class="btn">
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/08/22/error-bars.html" rel="next" title="Error bars (basic)">
+                <i class="fa fa-chevron-left"></i> Error bars (basic)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/09/21/ggplot2-error-bars.html" rel="prev" title="ggplot2 error bars (finished)-Quick start guide - R software and data visualization">
+                ggplot2 error bars (finished)-Quick start guide - R software and data visualization <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <a href="/" class="site-author-image" rel="start" style="border:none">
+              <img class="site-author-image" itemprop="image"
+                src="/images/author.jpg"
+                alt="tiramisutes"/>
+              </a>
+            
+              <p class="site-author-name" itemprop="name">tiramisutes</p>
+              <div class="site-description motion-element" itemprop="description">hope bioinformatics blog</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">148</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">112</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RpcmFtaXN1dGVz" title="GitHub &rarr; https://github.com/tiramisutes"><i class="fa fa-fw fa-github"></i>GitHub</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="bWFpbHRvOnRpcmFtaXN1dGVze2F0fTEyNi5jb20=" title="E-Mail &rarr; mailto:tiramisutes{at}126.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cDovL3dlaWJvLmNvbS90aXJhbWlzdXRlc1Rlcw==" title="Weibo &rarr; http://weibo.com/tiramisutesTes"><i class="fa fa-fw fa-globe"></i>Weibo</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9ob3BldG9neQ==" title="Twitter &rarr; https://twitter.com/hopetogy"><i class="fa fa-fw fa-twitter"></i>Twitter</span>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"/></span>
+             </div>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9paG9wZS5zaGlueWFwcHMuaW8vcVJULVBDUi1QaXBlbGluZS8=" title="https://ihope.shinyapps.io/qRT-PCR-Pipeline/">qRT-PCR-Pipeline</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly90aXJhbWlzdXRlcy5naXRib29rcy5pby9hd2svY29udGVudC8=" title="https://tiramisutes.gitbooks.io/awk/content/">GitBook《awk学习总结》</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2NvdHRvbi5oemF1LmVkdS5jbi8=" title="http://cotton.hzau.edu.cn/">棉花遗传改良团队</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5iaW8taW5mby10cmFpbmVlLmNvbS8=" title="http://www.bio-info-trainee.com/">生信菜鸟团-深圳大学城</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5iaW90cmFpbmVlLmNvbS9mb3J1bS5waHA=" title="http://www.biotrainee.com/forum.php">生信技能树</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5pd2hnYW8uY29tLw==" title="http://www.iwhgao.com/">rabbit gao's blog</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9odWFucy5naXRodWIuaW8v" title="https://huans.github.io/">Huans(代谢+GWAS)</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5zZXF1ZW5jaW5nLnVpby5uby8=" title="http://www.sequencing.uio.no/">NSC-sequenceing</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2Jsb2cuam9iYm9sZS5jb20v" title="http://blog.jobbole.com/">伯乐在线</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9saW51eC5jbi8=" title="https://linux.cn/">Linux开源中文社区</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5yLWJsb2dnZXJzLmNvbS8=" title="http://www.r-bloggers.com/">R-bloggers</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvb3RoZXItZG9jcy5odG1s" title="https://cran.r-project.org/other-docs.html">R-resource</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3R1dG9yaWFscy5pcS5oYXJ2YXJkLmVkdS9SL1JncmFwaGljcy9SZ3JhcGhpY3MuaHRtbA==" title="http://tutorials.iq.harvard.edu/R/Rgraphics/Rgraphics.html">ggplot2</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2xpbGliZWkubmV0Lw==" title="http://lilibei.net/">pele' blog</span>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CRISPR/Cas9_简介"><span class="nav-text">CRISPR/Cas9 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CRISPR/Cas9发现史"><span class="nav-text">CRISPR/Cas9发现史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CRISPR/Cas9_type_II_作用机制"><span class="nav-text">CRISPR/Cas9 type II 作用机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#相关术语"><span class="nav-text">相关术语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图例解释"><span class="nav-text">图例解释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关键点注释"><span class="nav-text">关键点注释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Choosing_a_Target_Sequence_for_CRISPR/Cas9_Gene_Editing"><span class="nav-text">Choosing a Target Sequence for CRISPR/Cas9 Gene Editing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CRISPR/Cas9-sgRNA设计工具"><span class="nav-text">CRISPR/Cas9-sgRNA设计工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CRISPR/Cas9存在的问题暨避免措施"><span class="nav-text">CRISPR/Cas9存在的问题暨避免措施</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Predicting_sgRNA_Efficacy"><span class="nav-text">Predicting sgRNA Efficacy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Avoiding_Off-target_Sites"><span class="nav-text">Avoiding Off-target Sites</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#How_Can_It_Go_Wrong?"><span class="nav-text">How Can It Go Wrong?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CRISPR/Cas9:_Planning_Your_Experiment"><span class="nav-text">CRISPR/Cas9: Planning Your Experiment</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#How_do_I_get_started?"><span class="nav-text">How do I get started?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Experimental_Design"><span class="nav-text">Experimental Design</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CRISPR-Cas9_FAQs_Answered!"><span class="nav-text">CRISPR-Cas9 FAQs Answered!</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Designing_Your_CRISPR_Genome_Editing_Experiment"><span class="nav-text">Designing Your CRISPR Genome Editing Experiment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tips_for_Using_CRISPR-Cas9_at_the_Lab_Bench"><span class="nav-text">Tips for Using CRISPR-Cas9 at the Lab Bench</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#More_FAQS,_CRISPR_Protocols,_and_gRNA_Design_Tools"><span class="nav-text">More FAQS, CRISPR Protocols, and gRNA Design Tools</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CRISPR/Cas9_文献"><span class="nav-text">CRISPR/Cas9 文献</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CRISPR/Cas9_科幻之力"><span class="nav-text">CRISPR/Cas9 科幻之力</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 – <span itemprop="copyrightYear">2023</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <a class="theme-link" target="_blank" href="http://tiramisutes.github.io/about/"><span class="author" itemprop="copyrightHolder">tiramisutes</span></a>
+
+  
+    <span class="post-meta-item-icon">
+    </span>
+    <span title="Symbols count total"></span>
+  
+
+  
+    <span class="post-meta-item-icon">
+    </span>
+    <span title="Reading time total"></span>
+  
+</div>
+
+
+  <div class="powered-by">Powered: <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">▽ – <span class="exturl theme-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0">NexT.Muse</span></div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-line-chart"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+    <a style="line-height: 1.5;" href="https://tongji.baidu.com/web/welcome/login" target="_blank">The total visits
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>&nbsp;times</a>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+    
+    
+      
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='20' src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest-nomobile.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+  <script src="/js/src/exturl.js?v=7.0.1"></script>
+
+
+  
+  
+  
+    
+  
+
+  
+
+  
+  
+  
+
+
+  
+  
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'c7x0fPmO8Ci9avDBRuGWHqpG-gzGzoHsz',
+    appKey: 'iVJ6ST0e1O5xaiIhVwOyhbf3',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+<style>
+.pdfobject-container {
+  position: relative;
+  overflow: auto;
+  width: 100%;
+}
+</style>
+<script>
+if ($('body').find('div.pdf').length) {
+  $.ajax({
+    type: 'GET',
+    url: '//cdn.jsdelivr.net/npm/pdfobject@2.1.1/pdfobject.min.js',
+    dataType: 'script',
+    cache: true,
+    success: function() {
+      $('body').find('div.pdf').each(function(i, o) {
+        PDFObject.embed($(o).attr('target'), $(o), {
+          pdfOpenParams: {
+            navpanes: 0,
+            toolbar: 0,
+            statusbar: 0,
+            pagemode: 'thumbs',
+            view: 'FitH'
+          },
+          PDFJS_URL: '/lib/pdf/web/viewer.html',
+          height: $(o).attr('height') || '500px'
+        });
+      });
+    },
+  });
+}
+</script>
+
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+  
+  
+    
+  
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Evernote,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+
+  
+  <script>
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id: 15314,
+      el: 'wpac-rating',
+      color: 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,2110 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=66189719" charset="UTF-8"></script>
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"/>
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/han.min.css"/>
+
+
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+
+
+  <meta name="google-site-verification" content="b12Zu40L63PLgCtcn0IW8KCNRolmyQlaF22tf4rRLEg"/>
+
+
+
+  <meta name="msvalidate.01" content="74A687E04D4EF9914B7AA20824207409"/>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="https://fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"/>
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/small_favicon.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/favicon.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":true,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="简介(Introduction)通过高通量测序识别发现de novo的somatic和germ line 突变，结构变异-SNV，包括重排突变（deletioin, duplication 以及copy number variation）以及SNP的座位；针对重排突变和SNP的功能性进行综合分析；我们将分析基因功能（包括miRNA），重组率（Recombination）情况，杂合性缺失（LOH）以">
+<meta name="keywords" content="resequencing">
+<meta property="og:type" content="article">
+<meta property="og:title" content="全基因组重测序数据分析(Whole genomr Resequencing Analysis)">
+<meta property="og:url" content="http://tiramisutes.github.io/2015/07/29/resequencing.html">
+<meta property="og:site_name" content="hope">
+<meta property="og:description" content="简介(Introduction)通过高通量测序识别发现de novo的somatic和germ line 突变，结构变异-SNV，包括重排突变（deletioin, duplication 以及copy number variation）以及SNP的座位；针对重排突变和SNP的功能性进行综合分析；我们将分析基因功能（包括miRNA），重组率（Recombination）情况，杂合性缺失（LOH）以">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://pic.biodiscover.com/uploads/7504adad8bb96320eb3afdd4df6e1f60/article/biodiscover_fda7838fd16452f881.jpg">
+<meta property="og:image" content="http://pic.biodiscover.com/uploads/7504adad8bb96320eb3afdd4df6e1f60/article/biodiscover_5ec32097f340e47881.jpg">
+<meta property="og:image" content="http://pic.biodiscover.com/uploads/7504adad8bb96320eb3afdd4df6e1f60/article/biodiscover_892310de264ab6c881.jpg">
+<meta property="og:image" content="http://pic.biodiscover.com/uploads/7504adad8bb96320eb3afdd4df6e1f60/article/biodiscover_1883c266694b5ae881.jpg">
+<meta property="og:image" content="http://pic.biodiscover.com/uploads/7504adad8bb96320eb3afdd4df6e1f60/article/biodiscover_42a6ff12ae6db79881.jpg">
+<meta property="og:image" content="http://pic.biodiscover.com/uploads/7504adad8bb96320eb3afdd4df6e1f60/article/biodiscover_e701a15884d0ef3881.jpg">
+<meta property="og:image" content="http://pic.biodiscover.com/uploads/7504adad8bb96320eb3afdd4df6e1f60/article/biodiscover_4de2924a2659023881.jpg">
+<meta property="og:image" content="http://pic.biodiscover.com/uploads/7504adad8bb96320eb3afdd4df6e1f60/article/biodiscover_294dc6a11175d87881.jpg">
+<meta property="og:image" content="http://pic.biodiscover.com/uploads/7504adad8bb96320eb3afdd4df6e1f60/article/biodiscover_1ef2f8ecce847e0881.jpg">
+<meta property="og:image" content="http://pic.biodiscover.com/uploads/7504adad8bb96320eb3afdd4df6e1f60/article/biodiscover_cfbf071cefe41f6881.jpg">
+<meta property="og:image" content="http://pic.biodiscover.com/uploads/7504adad8bb96320eb3afdd4df6e1f60/article/biodiscover_88118df3c49e866881.jpg">
+<meta property="og:image" content="http://pic.biodiscover.com/uploads/7504adad8bb96320eb3afdd4df6e1f60/article/biodiscover_6a5a41bf5d1e34b881.jpg">
+<meta property="og:image" content="http://pic.biodiscover.com/uploads/7504adad8bb96320eb3afdd4df6e1f60/article/biodiscover_564fff92e831b5c881.jpg">
+<meta property="og:image" content="http://pic.biodiscover.com/uploads/7504adad8bb96320eb3afdd4df6e1f60/article/biodiscover_e11d895fe949294881.jpg">
+<meta property="og:image" content="http://pic.biodiscover.com/uploads/7504adad8bb96320eb3afdd4df6e1f60/article/biodiscover_d4a62ad19ebc732881.jpg">
+<meta property="og:image" content="http://pic.biodiscover.com/uploads/7504adad8bb96320eb3afdd4df6e1f60/article/biodiscover_2596a5e119b63cc881.jpg">
+<meta property="og:updated_time" content="2016-01-07T02:45:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="全基因组重测序数据分析(Whole genomr Resequencing Analysis)">
+<meta name="twitter:description" content="简介(Introduction)通过高通量测序识别发现de novo的somatic和germ line 突变，结构变异-SNV，包括重排突变（deletioin, duplication 以及copy number variation）以及SNP的座位；针对重排突变和SNP的功能性进行综合分析；我们将分析基因功能（包括miRNA），重组率（Recombination）情况，杂合性缺失（LOH）以">
+<meta name="twitter:image" content="http://pic.biodiscover.com/uploads/7504adad8bb96320eb3afdd4df6e1f60/article/biodiscover_fda7838fd16452f881.jpg">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="hope" type="application/atom+xml"/>
+
+
+
+
+  <link rel="canonical" href="http://tiramisutes.github.io/2015/07/29/resequencing.html"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>全基因组重测序数据分析(Whole genomr Resequencing Analysis) | hope</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?08b17c69c7ba460d9ab5f188a048ee6d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">hope</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">A new day is coming,whether we like it or not. The question is will you control it,or will it control you?</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-code">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/code/" rel="section"><i class="menu-item-icon fa fa-fw fa-code"></i> <br/>Code</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-footprint">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/footprint/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br/>Footprint</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-qrt-pcr">
+
+    
+    
+    
+      
+    
+
+    
+
+    <span class="exturl" data-url="aHR0cHM6Ly9paG9wZS5zaGlueWFwcHMuaW8vcVJULVBDUi1QaXBlbGluZS8="><i class="menu-item-icon fa fa-fw fa-cloud"></i> <br/>qRT-PCR</span>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-project">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/project/" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br/>Project</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-publish">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/publish/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br/>Publish</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sci-figure">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/SCIFigure/" rel="section"><i class="menu-item-icon fa fa-fw fa-angellist"></i> <br/>SCI Figure</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-cv">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/resume/" rel="section"><i class="menu-item-icon fa fa-fw fa-address-card"></i> <br/>CV</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tiramisutes.github.io/2015/07/29/resequencing.html"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tiramisutes"/>
+      <meta itemprop="description" content="hope bioinformatics blog"/>
+      <meta itemprop="image" content="/images/author.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hope"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">全基因组重测序数据分析(Whole genomr Resequencing Analysis)
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2015-07-29 12:56:57" itemprop="dateCreated datePublished" datetime="2015-07-29T12:56:57+08:00">2015-07-29</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Bioinformatics/" itemprop="url" rel="index"><span itemprop="name">Bioinformatics</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2015/07/29/resequencing.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2015/07/29/resequencing.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2015/07/29/resequencing.html" class="leancloud_visitors" data-flag-title="全基因组重测序数据分析(Whole genomr Resequencing Analysis)">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+                <span>℃</span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article: </span>
+                
+                <span title="Words count in article"></span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time"></span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="简介(Introduction)">简介(Introduction)</h2><p>通过高通量测序识别发现de novo的somatic和germ line 突变，结构变异-SNV，包括重排突变（deletioin, duplication 以及copy number variation）以及SNP的座位；针对重排突变和SNP的功能性进行综合分析；我们将分析基因功能（包括miRNA），重组率（Recombination）情况，杂合性缺失（LOH）以及进化选择与mutation之间的关系；以及这些关系将怎样使得在disease（cancer）genome中的mutation产生对应的易感机制和功能。我们将在基因组学以及比较基因组学，群体遗传学综合层面上深入探索疾病基因组和癌症基因组。<br><img src="http://pic.biodiscover.com/uploads/7504adad8bb96320eb3afdd4df6e1f60/article/biodiscover_fda7838fd16452f881.jpg" alt=""></p>
+<h2 id="实验设计与样本">实验设计与样本</h2><p>（1）Case-Control 对照组设计 ；<br>（2）家庭成员组设计：父母-子女组（4人、3人组或多人）；</p>
+<h2 id="初级数据分析">初级数据分析</h2><p>1．数据量产出： 总碱基数量、Total Mapping Reads、Uniquely Mapping Reads统计，测序深度分析。<br>2．一致性序列组装：与参考基因组序列（Reference genome sequence）的比对分析，利用贝叶斯统计模型检测出每个碱基位点的最大可能性基因型，并组装出该个体基因组的一致序列。<br>3．SNP检测及在基因组中的分布：提取全基因组中所有多态性位点，结合质量值、测序深度、重复性等因素作进一步的过滤筛选，最终得到可信度高的SNP数据集。并根据参考基因组信息对检测到的变异进行注释。<br>4．InDel检测及在基因组的分布: 在进行mapping的过程中，进行容gap的比对并检测可信的short InDel。在检测过程中，gap的长度为1~5个碱基。对于每个InDel的检测，至少需要3个Paired-End序列的支持。<br>5．Structure Variation检测及在基因组中的分布: 能够检测到的结构变异类型主要有：插入、缺失、复制、倒位、易位等。根据测序个体序列与参考基因组序列比对分析结果，检测全基因组水平的结构变异并对检测到的变异进行注释。</p>
+<h2 id="高级数据分析">高级数据分析</h2><h3 id="1-测序短序列匹配（Read_Mapping）">1.测序短序列匹配（Read Mapping）</h3><p>（1）屏蔽掉Y染色体上假体染色体区域（pseudo-autosomal region）, 将Read与参考序列NCBI36进行匹配（包括所有染色体，未定位的contig，以及线粒体序列mtDNA（将用校正的剑桥参考序列做替代）)。采用标准序列匹配处理对原始序列文件进行基因组匹配， 将Read与参考基因组进行初始匹配；给出匹配的平均质量得分分布；<br>（2）碱基质量得分的校准。我们采用碱基质量校准算法对每个Read中每个碱基的质量进行评分，并校准一些显著性误差，包括来自测序循环和双核苷酸结构导致的误差。<br>（3）测序误差率估计。 pseudoautosomal contigs，short repeat regions（包括segmental duplication，simple repeat sequence-通过tandem repeat识别算法识别）将被过滤；</p>
+<h3 id="2-SNP_Calling_计算_（SNP_Calling）">2.SNP Calling 计算 （SNP Calling）</h3><p>我们可以采用整合多种SNP探测算法的结果，综合地，更准确地识别出SNP。通过对多种算法各自识别的SNP进行一致性分析，保留具有高度一致性的SNP作为最终SNP结果。这些具有高度一致性的SNP同时具有非常高的可信度。在分析中使用到的SNP识别算法包括基于贝叶斯和基因型似然值计算的方法，以及使用连锁不平衡LD或推断技术用于优化SNP识别检出的准确性。</p>
+<p>统计SNV的等位基因频率在全基因组上的分布<br>稀有等位基因数目在不同类别的SNV中的比率分布（a）；SNV的类别主要考虑：（1）无义（nonsense）,（2）化学结构中非同义，（3）所有非同义，（4）保守的非同义，（5）非编码，（6）同义，等类型SNV； 另外，针对保守性的讨论，我们将分析非编码区域SNV的保守型情况及其分布（图a, b）</p>
+<p><img src="http://pic.biodiscover.com/uploads/7504adad8bb96320eb3afdd4df6e1f60/article/biodiscover_5ec32097f340e47881.jpg" alt=""><br><img src="http://pic.biodiscover.com/uploads/7504adad8bb96320eb3afdd4df6e1f60/article/biodiscover_892310de264ab6c881.jpg" alt=""></p>
+<h3 id="3-短插入/缺失探测（Short_Insertion_/Deletion_（Indel）Call）">3.短插入/缺失探测（Short Insertion /Deletion （Indel）Call）</h3><p>(1). 计算全基因组的indel变异和基因型检出值的过程<br>计算过程主要包含3步：（1）潜在的indel的探测；（2）通过局部重匹配计算基因型的似然值；（3）基于LD连锁不平衡的基因型推断和检出识别。Indel在X，Y染色体上没有检出值得出。<br>(2). Indel 过滤处理</p>
+<h3 id="4-融合基因的发现（Fusion_gene_Discovery）">4.融合基因的发现（Fusion gene Discovery）</h3><p>选择注释的基因信息来自于当前最新版本的Ensemble Gene数据库，RefSeq数据库和Vega Gene数据库。下面图例给出的是融合基因的形成，即来自不同染色体的各自外显子经过重组形成融合基因的模式图。</p>
+<p><img src="http://pic.biodiscover.com/uploads/7504adad8bb96320eb3afdd4df6e1f60/article/biodiscover_1883c266694b5ae881.jpg" alt=""></p>
+<h3 id="5-结构变异（Structure_Variation）">5.结构变异（Structure Variation）</h3><p>结构变异（Structure Variation－SV）是基因组变异的一类主要来源，主要由大片段序列（一般&gt;1kb）的拷贝数变异（copy number variation, CNV）以及非平衡倒位（unbalance inversion）事件构成。目前主要一些基因组研究探测识别的SV大约有20,000个（DGV数据库）。在某些区域上，甚至SV形成的速率要大于SNP的速率，并与疾病临床表型具有很大关联。我们不仅可以通过测序方式识别公共的SV，也可以识别全新的SV。全新的SV的生成一般在germ line和突变机制方面都具有所报道。然而，当前对SV的精确解析需要更好的算法实现。同时，我们也需要对SV的形成机制要有更重要的认知，尤其是SV否起始于祖先基因组座位的插入或缺失，而不简单的根据等位基因频率或则与参考基因组序列比对判断。SV的功能性也结合群体遗传学和进化生物学结合起来，我们综合的考察SV的形成机制类别。</p>
+<p>SV形成机制分析，包括以下几种可能存在的主要机制的识别发现：<br>（A）同源性介导的直系同源序列区段重组（NAHR）；<br>（B）与DNA双链断裂修复或复制叉停顿修复相关的非同源重组（NHR）；<br>（C）通过扩展和压缩机制形成可变数量的串联重复序列（VNTR）；<br>（D）转座元件插入（一般主要是长／短间隔序列元件LINE/SINE或者伴随TEI相关事件的两者的组合）。<br>结构变异探测和扩增子（Amplicon）的探测与识别分析:如下图所示</p>
+<p><img src="http://pic.biodiscover.com/uploads/7504adad8bb96320eb3afdd4df6e1f60/article/biodiscover_42a6ff12ae6db79881.jpg" alt=""><br><img src="http://pic.biodiscover.com/uploads/7504adad8bb96320eb3afdd4df6e1f60/article/biodiscover_e701a15884d0ef3881.jpg" alt=""></p>
+<h3 id="6-测序深度分析">6.测序深度分析</h3><p>测序深度分析就是指根据基因组框内覆盖度深度与期望覆盖度深度进行关联，并识别出SV。我们也将采用不同算法识别原始测序数据中的缺失片段（deletion）和重复片段（duplication）。</p>
+<h3 id="7-SV探测识别结果的整合与FDR推断(可选步骤)">7.SV探测识别结果的整合与FDR推断(可选步骤)</h3><p>(1). PCR或者芯片方式验证SV<br>(2). 计算FDR-错误发现率（配合验证试验由客户指定）<br>(3)  筛选SV检出结果用于SV的合并和后续分析：我们通过不同方式探测识别SV的目的极大程度的检出SV，并且降低其FDR（&lt;=10%）。通过下属筛选方法决定后续分析所使用到的SV集合。每种SV探测识别算法得到的SV的FDR要求小于10%，并将各自符合条件的SV合并；对于FDR大于10% 的算法计算识别的SV结果，如果有PCR和芯片平台验证数据，同样可以纳入后续SV分析中。最后，针对不同算法得到的SV，整合处理根据breakpoint断点左右重合覆盖度的置信区间来评定；</p>
+<h3 id="8-变异属性分析">8.变异属性分析</h3><p>(1) neutral coalescent分析<br>测序数据可以探测到低频率的变异体（MAF&lt;=5%）。根据来自群体遗传学理论（neutral coalescent理论）的期望值可以计算低频度变异的分布。我们用不同等位基因频率下每Mb变异数目与neutral coalescent 选择下的期望值比值，即每Mb 基因组windows内的theta观测值，来刻画和反映自然纯化选择与种群（cancer cell-line可以特定的认为是可以区分的种群）增长速率。该分布分别考察SNP（蓝色线），Indel（红色线），具有基因型的大片段缺失（黑色线），以及外显子区域上的 SNP（绿色线）在不同等位基因频率区间上的theta情况（参见下图）。<br><img src="http://pic.biodiscover.com/uploads/7504adad8bb96320eb3afdd4df6e1f60/article/biodiscover_4de2924a2659023881.jpg" alt=""><br>(2). 全新变异体(novel variant)的等位基因频率和数量分布<br>分析对象包括全新预测的SNP，indel，large deletion, 以及外显子SNP在每个等位基因频率类别下的数目比率（fraction）（参见下图）；全新预测是指预测分析结果与dbSNP（当前版本129）以及deletion数据库dbVar（2010年6月份版本）和已经发表的有关indels研究的基因组数据经过比较后识别确定的全新的SNP，indel以及deletion。dbSNP包含SNP和indels; dbVAR包含有deletion,duplication,以及mobile element insertion。dbRIP以及其他基因组学研究（JC Ventrer 以及Watson 基因组，炎黄计划亚洲人基因组）结果提供的short indels和large deletion。<br><img src="http://pic.biodiscover.com/uploads/7504adad8bb96320eb3afdd4df6e1f60/article/biodiscover_294dc6a11175d87881.jpg" alt=""><br>(3). 变异体的大小分布以及新颖性分布</p>
+<p>计算SNP，Deletion，以及Insertion 大小分布；计算SNP，Deletion，以及Insertion中属于全新预测结果的数目占已有各自参考数据库数目的比例（相对于dbSNP数据库；dbSNP包含SNP和indels;dbVAR包含有deletion,duplication,以及mobile element insertion。dbRIP以及其他基因组学研究（JC Ventrer 以及Watson 基因组，炎黄计划亚洲人基因组）结果提供的short indels和large deletion）其中，可以给出LINE，Alu的特征位置。<br><img src="http://pic.biodiscover.com/uploads/7504adad8bb96320eb3afdd4df6e1f60/article/biodiscover_1ef2f8ecce847e0881.jpg" alt=""></p>
+<p>(4). 结构变异SV的断点联结点(BreakPoint Junction)分析<br>根据SV不同检出结果经过一些列筛选步骤构建所有结构变异SV的断点联结点数据库，保留长度大于等于50bp的SV；分析断点联结点处具有homology或者microhomology的SV；并将同一染色体，起始和终止位置坐标下的不同SV进行去冗余处理。</p>
+<p>分析识别SV 的断点联结点（Breakpoint）: 将Breakpoint按照可能形成的方式可以分类为以下几类：<br>（a）非等位基因同源重组型（non-allelic homologous recombination-NAHR）;<br>（b）非同源重组（nonhomologous recombination-NHR），包括nonhomologous end-joining (NHEJ)和fork stalling /template switching（FoSTeS/MMBIR）；<br>（c）可变串联重复（VNTR）<br>（d）转座插入元件（TEI）。</p>
+<p>图 C<br><img src="http://pic.biodiscover.com/uploads/7504adad8bb96320eb3afdd4df6e1f60/article/biodiscover_cfbf071cefe41f6881.jpg" alt=""><br>SV形成偏好性分析<br>分析SV形成机制与断裂点临近区域序列的关系，包括染色质界标（端粒，中心粒），重组高发热点区域，重复序列以及ＧＣ含量，短DNA motif和微同源区域（microhomology region）。</p>
+<p><img src="http://pic.biodiscover.com/uploads/7504adad8bb96320eb3afdd4df6e1f60/article/biodiscover_88118df3c49e866881.jpg" alt=""></p>
+<h3 id="9-突变率估计">9.突变率估计</h3><p>针对以家庭成员为单位的测序方案，我们主要探测de novo的突变（DNM）；通过采用不同的方法/算法，我们给出每个家庭一份推断的DNM报表；</p>
+<p>(1) 根据基因型推断结果，分别对每人每碱基位置上的de novo突变进行综合度量；<br>(2) 采用贝叶斯方法计算家庭组设计中DNM的后验概率</p>
+<h3 id="10-SNP，SNV功能分析与注释">10.SNP，SNV功能分析与注释</h3><p>(1). 祖先等位基因的注释<br>通过将人类（NCBI36），黑猩猩（chimpanzee2.1），猩猩（PPYG2）以及恒河猴（MMUL1）4种基因组进行基因组比对，发现保守的序列区域，计算祖先等位基因；以及duplication/deletion事件的进化分析。<br>(2). 分析基因结构序列上不同区域的多样性（Diversity）与分歧进化（divergence）<br>根据基因型分析结果计算基因结构序列上的多样性程度，即杂合度(heterozygosity); 杂合度指标可以说明选择效应的存在以及局部变异的结构分布特征模式。我们将考虑基因5’UTR上游200bp ，5’UTR ，第一个外显子，第一个内含子，中间外显子，中间内含子，最末外显子和内含子，以及3’UTR及其下游200bp区域左右考察的范围(参见下图a)。   分析编码转录本的起始/终止位置临近区域的多样性和进化分歧度（参见下图b）。</p>
+<p>(3). 疾病变异体探测<br>将样本测序中分析得到SV与HGMD疾病变异体数据进行比对，得到交叉记录的错义和无义的SNP；通过将HGMD疾病关联突变与CUI（疾病概念分类标识数据库）比对获得HGMD中所有SV的疾病表型，并获得HGMD与测序数据分析得到的SV的疾病表型；并通过Fisher检验和Bonferroni多重假设检验校正计算样本SV所富集的疾病表型。</p>
+<p><img src="http://pic.biodiscover.com/uploads/7504adad8bb96320eb3afdd4df6e1f60/article/biodiscover_6a5a41bf5d1e34b881.jpg" alt=""></p>
+<p>(4). 拷贝数变异CNV所含基因的功能注释<br>将CNV是否覆盖区段重复SD区域分类为2大类，每类CNV的所含基因的功能富集情况计算，显著性在横轴表示；各种显著性功能在纵轴表示。</p>
+<p>(5). 变异的功能性分析与注释<br>（a）. SNP, Indels以及大的结构变异SV的功能注释;<br>（b）. 对包含翻译起始注释信息的转录本编码区上的SNP分类为：同义SNP，非同义SNP和无义SNP（引入终止子），干扰终止子的SNP，以及干扰剪接位点的SNP；为了降低假阳性，我们采用严格的筛选方式过滤来自indels的错误；<br>（c）.对错义编码区突变的功能性分析: 通过信息学分析算法评估相对于生殖系变异的体细胞突变对蛋白质的结构和功能的影响效应。</p>
+<p>(6). SNV，SNP与miRNA研究之间的关联分析<br>miRNA是起重要的调控作用的小分子，我们将对miRNA的pri-mRNA，pre-miRNA以及miRNA靶基因序列进行分析，识别潜在的SNP功能位点。据文献研究提供证据表明Human pre-miRNA的二级结构中存在不同位置上的SNP，我们将通过热力学稳定性分析方法评估SNP对pre-miRNA结构的影响；另外，我们也将对miRNA-Target靶基因相互作用位点做分析，评估对SNP对靶基因靶向性的影响。</p>
+<p>(7). SNV，SNP与GWAS研究之间的关联分析<br>分析GWAS研究中得到的易感基因在基因组上不同坐标上的OR值分布情况； 将当前已知的GWAS研究成果与SNP进行比较；根据LD连锁不平衡将SNP与易感基因的关系进行深入讨论;直接与间接关联方法可以分别识别与表型相关的SNP，对于不易获得（missing）和定位的SNP，通过LD连锁不平衡推断疾病易感基因突变座位。</p>
+<p>(8) 生物学通路（代谢通路，信号通路）分析<br>生物学通路（Biological pathway），包括代谢通路和信号转导通路是生物功能的重要组成部分，我们将各种形式的突变、变异，包括SNV和SNP，的对应基因放到生物学通路中进行综合分析，考察功能性突变对pathway的影响程度和影响的规律。通过GSEA（配合芯片表达谱数据），KS检验，超几何分布检验等方法对变异基因在某些pathway的富集程度进行排序，识别发生功能改变的潜在通路。<br><img src="http://pic.biodiscover.com/uploads/7504adad8bb96320eb3afdd4df6e1f60/article/biodiscover_564fff92e831b5c881.jpg" alt=""></p>
+<p>(9). 蛋白质-蛋白质相互作用（PPI）网络分析<br>蛋白质相互作用也是生物分子功能增益和缺失的重要途径，因此我们针对蛋白质相互作用网络中的突变的蛋白及其收到影响的网络节点蛋白进行系统分析，并对收到影响的网络子结构进行功能注释分析和聚类富分析。我们采用网络分析算法对由于各种突变所受到影响的子网络（subnetwork）进行功能富集度的分析；</p>
+<p>(10). 顺式基因调控网络模块（CRM）分析</p>
+<p>(a) 启动子序列分析<br>    包括动子区域上的Motif预测，并与已知转录因子数据库TRANSFAC和JASPAR中的TFBS结合位点进行比对；<br>    启动子区域上保守性分析，分析突变位置和保守性区域的关联；<br>(b) 计算全基因组保守性。确定TFBS的保守性以及mutation位置的保守性；</p>
+<p>（11）重排（arrangements）与突变（mutation）的全基因组统计</p>
+<p>（a）. 体细胞(somatic)和生殖系（germline）重排（arrangements）</p>
+<p>体细胞突变是相对于germ line 突变的一类需要重要分析的内容，我们针对Case-control设计的测序方案可以分别分析突变的情况，包括SNV，indel，以及CNV；如果仅在tumor/disease(Case组)出现而不在normal（对照组）出现的突变我们可以认为是somatic体细胞突变。将somatic mutation 与dbSNP数据库比对可以发现潜在的全新的突变和有记录的突变位置。然后，将突变分别比对到基因区域和非基因区域。基因区域具体包括：内含子区，UTR，剪接位点区和外显子区。其中外显子区分别统计：同义（synonymous），缺失（deletion），阅读框移位（frameshift），插入（insertion）,错义（missense）,无义（nonsense）以及非编码蛋白外显子（non-protein coding exon）等不同类型。综合不同方面分析的结果，并按照突变分类给出各重排(arrangements)类型：SNV，CNV的数目统计数据表（参见下图） 。对每一测序样本分别进行标注，包括体细胞突变和生殖系突变。</p>
+<p>（b） 全基因组全局重排分布特征分析</p>
+<p><img src="http://pic.biodiscover.com/uploads/7504adad8bb96320eb3afdd4df6e1f60/article/biodiscover_e11d895fe949294881.jpg" alt=""></p>
+<p>主要将（a）染色体间和染色体内部的结构变异，（b）杂合体缺失（LOH）与等位基因不平衡的状况，（c）拷贝数变异（增益或者缺失）以及高可信度的SNV（在1Mb间隔区间统计）等不同情况配合染色体核型在环状图的不同层次上分别的表示出来（参见下图例对应a-d）</p>
+<p>(c) 单核苷酸突变趋势与模式分析</p>
+<p><img src="http://pic.biodiscover.com/uploads/7504adad8bb96320eb3afdd4df6e1f60/article/biodiscover_d4a62ad19ebc732881.jpg" alt=""></p>
+<p>分别统计在体细胞和生殖系细胞水平上的transversion的主要形式与各自所占比重（a）；如果有表达谱数据，可以分析表达基因与非表达基因所分别具有的突变重排数目或者种类（b）；转录起始位点上游区域的体细胞变异，生殖系germline变异以及随机变异的各自数目统计（c）和已知210种的不同肿瘤疾病的突变谱进行比较.</p>
+<h3 id="11-自然选择分析">11.自然选择分析</h3><p>我们通过测序所观测到的体细胞突变可能是经历了复杂的过程所成的。因此，我们在研究这些突变的起源，突变如何受到DNA修复机制的影响，以及在疾病发展与进化过程中突变的规律方面需要做深入的分析。自然选择一般在两个方面发挥作用，即保留有利于疾病发展进化的突变的同时限制其在基因组中重要功能区域发生突变，例如转录调控区域和编码蛋白质的区域。因此，（1）如果实验设计是将primary disease与normal control做比较的话，系统的分析可以解析复杂疾病在形成突变过程中可能的机制和自然选择的因素。（2）如果实验设计是基于病灶及其转移位置或者邻接位置样本作测序，我们可以构建突变进化与转移的模型解析突变的动态模式和基因组中不稳定态变异的模式。</p>
+<p>正向选择的判定:  分析SNP，SNV区域的正向选择趋势，在进化和群体遗传水平解释SNV，SNP的功能性；对待control与case 组样本,我们分别采用不同统计算法计算SNP，CNV在各自样本中的差异，进而从中发现具有正向选择特征的SV。<br><img src="http://pic.biodiscover.com/uploads/7504adad8bb96320eb3afdd4df6e1f60/article/biodiscover_2596a5e119b63cc881.jpg" alt=""></p>
+<h2 id="相关文献(References)">相关文献(References)</h2><p>◆ <span class="exturl" data-url="aHR0cDovL3d3dy5uYXR1cmUuY29tL25nL2pvdXJuYWwvdjQyL24xMi9mdWxsL25nLjcxNS5odG1s" title="http://www.nature.com/ng/journal/v42/n12/full/ng.715.html">Resequencing of 31 wild and cultivated soybean genomes identifies patterns of genetic diversity and selection<i class="fa fa-external-link"></i></span><br>◆ <span class="exturl" data-url="aHR0cDovL3d3dy5uYXR1cmUuY29tL25idC9qb3VybmFsL3YzMy9uNC9mdWxsL25idC4zMDk2Lmh0bWw=" title="http://www.nature.com/nbt/journal/v33/n4/full/nbt.3096.html">Resequencing 302 wild and cultivated accessions identifies genes related to domestication and improvement in soybean<i class="fa fa-external-link"></i></span></p>
+
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+      <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
+  <img id="wechat_subscriber_qcode" src="/images/Wechat.jpg" alt="tiramisutes wechat" style="width: 200px; max-width: 100%;"/>
+  <div>欢迎关注</div>
+</div>
+
+    
+
+    
+      
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>tiramisutes</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    
+    <a href="http://tiramisutes.github.io/2015/07/29/resequencing.html" title="全基因组重测序数据分析(Whole genomr Resequencing Analysis)">http://tiramisutes.github.io/2015/07/29/resequencing.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/resequencing/" rel="tag"><i class="fa fa-tag"></i> resequencing</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+          
+            <span class="post-meta-divider">|</span>
+          
+          <div class="social_share">
+            
+            
+              <div id="needsharebutton-postbottom">
+                <span class="btn">
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/07/28/google.html" rel="next" title="Google Web">
+                <i class="fa fa-chevron-left"></i> Google Web
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/07/29/RStudio.html" rel="prev" title="RStudio">
+                RStudio <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <a href="/" class="site-author-image" rel="start" style="border:none">
+              <img class="site-author-image" itemprop="image"
+                src="/images/author.jpg"
+                alt="tiramisutes"/>
+              </a>
+            
+              <p class="site-author-name" itemprop="name">tiramisutes</p>
+              <div class="site-description motion-element" itemprop="description">hope bioinformatics blog</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">148</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">112</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RpcmFtaXN1dGVz" title="GitHub &rarr; https://github.com/tiramisutes"><i class="fa fa-fw fa-github"></i>GitHub</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="bWFpbHRvOnRpcmFtaXN1dGVze2F0fTEyNi5jb20=" title="E-Mail &rarr; mailto:tiramisutes{at}126.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cDovL3dlaWJvLmNvbS90aXJhbWlzdXRlc1Rlcw==" title="Weibo &rarr; http://weibo.com/tiramisutesTes"><i class="fa fa-fw fa-globe"></i>Weibo</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9ob3BldG9neQ==" title="Twitter &rarr; https://twitter.com/hopetogy"><i class="fa fa-fw fa-twitter"></i>Twitter</span>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"/></span>
+             </div>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9paG9wZS5zaGlueWFwcHMuaW8vcVJULVBDUi1QaXBlbGluZS8=" title="https://ihope.shinyapps.io/qRT-PCR-Pipeline/">qRT-PCR-Pipeline</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly90aXJhbWlzdXRlcy5naXRib29rcy5pby9hd2svY29udGVudC8=" title="https://tiramisutes.gitbooks.io/awk/content/">GitBook《awk学习总结》</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2NvdHRvbi5oemF1LmVkdS5jbi8=" title="http://cotton.hzau.edu.cn/">棉花遗传改良团队</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5iaW8taW5mby10cmFpbmVlLmNvbS8=" title="http://www.bio-info-trainee.com/">生信菜鸟团-深圳大学城</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5iaW90cmFpbmVlLmNvbS9mb3J1bS5waHA=" title="http://www.biotrainee.com/forum.php">生信技能树</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5pd2hnYW8uY29tLw==" title="http://www.iwhgao.com/">rabbit gao's blog</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9odWFucy5naXRodWIuaW8v" title="https://huans.github.io/">Huans(代谢+GWAS)</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5zZXF1ZW5jaW5nLnVpby5uby8=" title="http://www.sequencing.uio.no/">NSC-sequenceing</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2Jsb2cuam9iYm9sZS5jb20v" title="http://blog.jobbole.com/">伯乐在线</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9saW51eC5jbi8=" title="https://linux.cn/">Linux开源中文社区</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5yLWJsb2dnZXJzLmNvbS8=" title="http://www.r-bloggers.com/">R-bloggers</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvb3RoZXItZG9jcy5odG1s" title="https://cran.r-project.org/other-docs.html">R-resource</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3R1dG9yaWFscy5pcS5oYXJ2YXJkLmVkdS9SL1JncmFwaGljcy9SZ3JhcGhpY3MuaHRtbA==" title="http://tutorials.iq.harvard.edu/R/Rgraphics/Rgraphics.html">ggplot2</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2xpbGliZWkubmV0Lw==" title="http://lilibei.net/">pele' blog</span>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介(Introduction)"><span class="nav-text">简介(Introduction)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验设计与样本"><span class="nav-text">实验设计与样本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初级数据分析"><span class="nav-text">初级数据分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高级数据分析"><span class="nav-text">高级数据分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-测序短序列匹配（Read_Mapping）"><span class="nav-text">1.测序短序列匹配（Read Mapping）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-SNP_Calling_计算_（SNP_Calling）"><span class="nav-text">2.SNP Calling 计算 （SNP Calling）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-短插入/缺失探测（Short_Insertion_/Deletion_（Indel）Call）"><span class="nav-text">3.短插入/缺失探测（Short Insertion /Deletion （Indel）Call）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-融合基因的发现（Fusion_gene_Discovery）"><span class="nav-text">4.融合基因的发现（Fusion gene Discovery）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-结构变异（Structure_Variation）"><span class="nav-text">5.结构变异（Structure Variation）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-测序深度分析"><span class="nav-text">6.测序深度分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-SV探测识别结果的整合与FDR推断(可选步骤)"><span class="nav-text">7.SV探测识别结果的整合与FDR推断(可选步骤)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-变异属性分析"><span class="nav-text">8.变异属性分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-突变率估计"><span class="nav-text">9.突变率估计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-SNP，SNV功能分析与注释"><span class="nav-text">10.SNP，SNV功能分析与注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-自然选择分析"><span class="nav-text">11.自然选择分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关文献(References)"><span class="nav-text">相关文献(References)</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 – <span itemprop="copyrightYear">2023</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <a class="theme-link" target="_blank" href="http://tiramisutes.github.io/about/"><span class="author" itemprop="copyrightHolder">tiramisutes</span></a>
+
+  
+    <span class="post-meta-item-icon">
+    </span>
+    <span title="Symbols count total"></span>
+  
+
+  
+    <span class="post-meta-item-icon">
+    </span>
+    <span title="Reading time total"></span>
+  
+</div>
+
+
+  <div class="powered-by">Powered: <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">▽ – <span class="exturl theme-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0">NexT.Muse</span></div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-line-chart"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+    <a style="line-height: 1.5;" href="https://tongji.baidu.com/web/welcome/login" target="_blank">The total visits
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>&nbsp;times</a>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+    
+    
+      
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='20' src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest-nomobile.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+  <script src="/js/src/exturl.js?v=7.0.1"></script>
+
+
+  
+  
+  
+    
+  
+
+  
+
+  
+  
+  
+
+
+  
+  
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'c7x0fPmO8Ci9avDBRuGWHqpG-gzGzoHsz',
+    appKey: 'iVJ6ST0e1O5xaiIhVwOyhbf3',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+<style>
+.pdfobject-container {
+  position: relative;
+  overflow: auto;
+  width: 100%;
+}
+</style>
+<script>
+if ($('body').find('div.pdf').length) {
+  $.ajax({
+    type: 'GET',
+    url: '//cdn.jsdelivr.net/npm/pdfobject@2.1.1/pdfobject.min.js',
+    dataType: 'script',
+    cache: true,
+    success: function() {
+      $('body').find('div.pdf').each(function(i, o) {
+        PDFObject.embed($(o).attr('target'), $(o), {
+          pdfOpenParams: {
+            navpanes: 0,
+            toolbar: 0,
+            statusbar: 0,
+            pagemode: 'thumbs',
+            view: 'FitH'
+          },
+          PDFJS_URL: '/lib/pdf/web/viewer.html',
+          height: $(o).attr('height') || '500px'
+        });
+      });
+    },
+  });
+}
+</script>
+
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+  
+  
+    
+  
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Evernote,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+
+  
+  <script>
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id: 15314,
+      el: 'wpac-rating',
+      color: 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

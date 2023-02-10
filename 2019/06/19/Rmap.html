@@ -1,0 +1,2138 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=66189719" charset="UTF-8"></script>
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"/>
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/Han/3.3.0/han.min.css"/>
+
+
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+
+
+  <meta name="google-site-verification" content="b12Zu40L63PLgCtcn0IW8KCNRolmyQlaF22tf4rRLEg"/>
+
+
+
+  <meta name="msvalidate.01" content="74A687E04D4EF9914B7AA20824207409"/>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="https://fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"/>
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/small_favicon.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/favicon.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":true,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="在重测序文章中经常见到用地图来描述测序样品分布，而地图涉及到主权，属敏感问题，但在R中可轻(fu)松(za)复现。">
+<meta name="keywords" content="map">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R 标准地图记（区分四川和重庆且有台湾和南海诸岛）">
+<meta property="og:url" content="http://tiramisutes.github.io/2019/06/19/Rmap.html">
+<meta property="og:site_name" content="hope">
+<meta property="og:description" content="在重测序文章中经常见到用地图来描述测序样品分布，而地图涉及到主权，属敏感问题，但在R中可轻(fu)松(za)复现。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://tiramisutes.github.io/images/map0.png">
+<meta property="og:image" content="http://tiramisutes.github.io/images/map2.png">
+<meta property="og:image" content="http://tiramisutes.github.io/images/map1.png">
+<meta property="og:image" content="http://tiramisutes.github.io/images/map3.png">
+<meta property="og:image" content="http://tiramisutes.github.io/images/map4.png">
+<meta property="og:image" content="http://tiramisutes.github.io/images/map17.png">
+<meta property="og:image" content="http://tiramisutes.github.io/images/map5.png">
+<meta property="og:image" content="http://tiramisutes.github.io/images/map6.png">
+<meta property="og:image" content="http://tiramisutes.github.io/images/map7.png">
+<meta property="og:image" content="http://tiramisutes.github.io/images/map8.png">
+<meta property="og:image" content="http://tiramisutes.github.io/images/map9.png">
+<meta property="og:image" content="http://tiramisutes.github.io/images/map10.png">
+<meta property="og:image" content="http://tiramisutes.github.io/images/map11.png">
+<meta property="og:image" content="http://tiramisutes.github.io/images/map12.png">
+<meta property="og:image" content="http://tiramisutes.github.io/images/map13.png">
+<meta property="og:image" content="http://tiramisutes.github.io/images/map14.png">
+<meta property="og:image" content="http://tiramisutes.github.io/images/map15.png">
+<meta property="og:image" content="http://tiramisutes.github.io/images/map16.png">
+<meta property="og:updated_time" content="2019-06-28T07:32:22.619Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="R 标准地图记（区分四川和重庆且有台湾和南海诸岛）">
+<meta name="twitter:description" content="在重测序文章中经常见到用地图来描述测序样品分布，而地图涉及到主权，属敏感问题，但在R中可轻(fu)松(za)复现。">
+<meta name="twitter:image" content="http://tiramisutes.github.io/images/map0.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="hope" type="application/atom+xml"/>
+
+
+
+
+  <link rel="canonical" href="http://tiramisutes.github.io/2019/06/19/Rmap.html"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>R 标准地图记（区分四川和重庆且有台湾和南海诸岛） | hope</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?08b17c69c7ba460d9ab5f188a048ee6d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">hope</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">A new day is coming,whether we like it or not. The question is will you control it,or will it control you?</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-code">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/code/" rel="section"><i class="menu-item-icon fa fa-fw fa-code"></i> <br/>Code</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-footprint">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/footprint/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br/>Footprint</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-qrt-pcr">
+
+    
+    
+    
+      
+    
+
+    
+
+    <span class="exturl" data-url="aHR0cHM6Ly9paG9wZS5zaGlueWFwcHMuaW8vcVJULVBDUi1QaXBlbGluZS8="><i class="menu-item-icon fa fa-fw fa-cloud"></i> <br/>qRT-PCR</span>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-project">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/project/" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br/>Project</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-publish">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/publish/" rel="section"><i class="menu-item-icon fa fa-fw fa-book"></i> <br/>Publish</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sci-figure">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/SCIFigure/" rel="section"><i class="menu-item-icon fa fa-fw fa-angellist"></i> <br/>SCI Figure</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-cv">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/resume/" rel="section"><i class="menu-item-icon fa fa-fw fa-address-card"></i> <br/>CV</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tiramisutes.github.io/2019/06/19/Rmap.html"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tiramisutes"/>
+      <meta itemprop="description" content="hope bioinformatics blog"/>
+      <meta itemprop="image" content="/images/author.jpg"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hope"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">R 标准地图记（区分四川和重庆且有台湾和南海诸岛）
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-06-19 14:33:27" itemprop="dateCreated datePublished" datetime="2019-06-19T14:33:27+08:00">2019-06-19</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/R/" itemprop="url" rel="index"><span itemprop="name">R</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2019/06/19/Rmap.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/19/Rmap.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/06/19/Rmap.html" class="leancloud_visitors" data-flag-title="R 标准地图记（区分四川和重庆且有台湾和南海诸岛）">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Views: </span>
+              
+                <span class="leancloud-visitors-count"></span>
+                <span>℃</span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article: </span>
+                
+                <span title="Words count in article"></span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time"></span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在重测序文章中经常见到用地图来描述测序样品分布，而地图涉及到主权，属敏感问题，但在R中可轻(fu)松(za)复现。<br><img src="/images/map0.png" alt=""><br><a id="more"></a></p>
+<h1 id="1-_不同方法比较">1. 不同方法比较</h1><h2 id="ggplot2">ggplot2</h2><p>可灵活调整图形的任意组成成分，同时可在图形上添加2个或多个维度的数据；</p>
+<h2 id="maps">maps</h2><p>简单易操作，但原先中国的基础地图中，没有将四川和重庆区分开，现在虽然已经区分，但每个省份轮廓看起来还是与地图略有区别（<span class="exturl" data-url="aHR0cDovL3d3dy5uZ2NjLmNuLw==" title="http://www.ngcc.cn/">国家基础地理信息中心<i class="fa fa-external-link"></i></span>）；<br><img src="/images/map2.png" alt=""></p>
+<h2 id="googleVis">googleVis</h2><p>绘制基础地图方法，仍然只能绘制一维的数据。同时绘制的地图依赖google地图；</p>
+<h2 id="REmap">REmap</h2><p>国人开发的基于百度地图Echart。优点，绘制地图方便快捷，省市级地区的二级地图非常精准，并可绘制炫酷的迁徙图和热图，推荐学习网址：<span class="exturl" data-url="aHR0cDovL2xjaGlmZm9uLmdpdGh1Yi5pby9SRW1hcC8=" title="http://lchiffon.github.io/REmap/">http://lchiffon.github.io/REmap/<i class="fa fa-external-link"></i></span> ；缺点，同googleVis一样，只能绘制一维的数据，同时地图上只能显示中文地名。</p>
+<h1 id="2-_地图数据下载">2. 地图数据下载</h1><h2 id="Download_GADM_data"><span class="exturl" data-url="aHR0cHM6Ly9nYWRtLm9yZy9kb3dubG9hZF9jb3VudHJ5X3YzLmh0bWw=" title="https://gadm.org/download_country_v3.html">Download GADM data<i class="fa fa-external-link"></i></span></h2><p><img src="/images/map1.png" alt=""><br>但是从GDM网站下载的中国地图没有台湾，果断差评。</p>
+<h2 id="GIS数据">GIS数据</h2><p><span class="exturl" data-url="aHR0cDovL2Nvcy5uYW1lL3dwLWNvbnRlbnQvdXBsb2Fkcy8yMDA5LzA3L2NoaW5hcHJvdmluY2Vib3JkZXJkYXRhX3Rhcl9nei56aXA=" title="http://cos.name/wp-content/uploads/2009/07/chinaprovinceborderdata_tar_gz.zip">http://cos.name/wp-content/uploads/2009/07/chinaprovinceborderdata_tar_gz.zip<i class="fa fa-external-link"></i></span><br>主要是下载三个中国行政区地图数据信息文件： bou2_4p.dbf，bou2_4p.shp和bou2_4p.shx；<br>使用中如果出现中文省份名称乱码，设置<code>Sys.setlocale(&quot;LC_ALL&quot;, &quot;chinese&quot;)</code>即可。<br>中国行政区地图数据信息数据中包含了925条记录，每条记录中都含有<br>面积（AREA）<br>周长（PERIMETER）<br>各种编号，ADCODE99 是国家基础地理信息中心定义的区域代码，共有 6 位数字，由省、地市、县各两位代码组成。<br>中文名（NAME）等字段,其中中文名（NAME）字段是以GBK编码的。可利用iconv 格式转换函数来转换各省名称<code>table(iconv(map$NAME, from = &quot;GBK&quot;))</code></p>
+<p>解压后三个文件放到相同目录下；虽然只读取.shp 文件，.shx 和 .dbf文件也必须在同一个文件目录下才能读取成功。<br>但是没有中国南海的八段线的线条绘制数据，由于南海诸岛的面积较小，如果不使用八段线标记的话，有时候如果地图展示面积太小的，南海诸岛就几乎难以辨清。</p>
+<h1 id="3-_地图绘制">3. 地图绘制</h1><h2 id="1-_Preparation">1. Preparation</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">setwd</span><span class="params">(<span class="string">"F:/Rwork/china_map"</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">library</span><span class="params">(maptools)</span></span></span><br><span class="line"><span class="function"><span class="title">library</span><span class="params">(dplyr)</span></span></span><br><span class="line"><span class="function"><span class="title">library</span><span class="params">(ggplot2)</span></span></span><br><span class="line"><span class="function"><span class="title">library</span><span class="params">(RColorBrewer)</span></span></span><br><span class="line">Sys.setlocale(<span class="string">"LC_ALL"</span>, <span class="string">"chinese"</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="2-_Map_Data">2. Map Data</h2><p>Download GIS数据：<span class="exturl" data-url="aHR0cDovL2Nvcy5uYW1lL3dwLWNvbnRlbnQvdXBsb2Fkcy8yMDA5LzA3L2NoaW5hcHJvdmluY2Vib3JkZXJkYXRhX3Rhcl9nei56aXA=" title="http://cos.name/wp-content/uploads/2009/07/chinaprovinceborderdata_tar_gz.zip">http://cos.name/wp-content/uploads/2009/07/chinaprovinceborderdata_tar_gz.zip<i class="fa fa-external-link"></i></span><br>解压后三个文件放到当前目录(<code>getwd()</code>)下；<br>虽然只读取.shp 文件，.shx 和 .dbf文件也必须在同一个文件目录下才能读取成功。<br><figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">map_data</span> &lt;- readShapePoly(<span class="string">"bou2_4p.shp"</span>)</span><br><span class="line"><span class="title">names</span>(map_data)</span><br><span class="line"><span class="title">map_data</span>@<span class="class"><span class="keyword">data</span>$<span class="type">ID</span> &lt;- row.names(<span class="title">map_data</span>@<span class="title">data</span>)</span></span><br><span class="line"><span class="meta"># 去掉包含NA的数据</span></span><br><span class="line"><span class="title">map_data</span>@<span class="class"><span class="keyword">data</span> &lt;- na.omit(<span class="title">map_data</span>@<span class="title">data</span>)</span></span><br><span class="line"><span class="title">nrow</span>(map_data@<span class="class"><span class="keyword">data</span>)</span></span><br><span class="line"><span class="meta"># 可选，按照省份面积(AREA)筛选,主要为去掉南沙群岛和围绕南海的许多小岛</span></span><br><span class="line"><span class="type">Fmap_data</span> &lt;- subset(map_data, <span class="type">AREA</span> &gt; <span class="number">0.005</span>)</span><br><span class="line"><span class="title">nrow</span>(<span class="type">Fmap_data</span>@<span class="class"><span class="keyword">data</span>)</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="添加省会拼音">添加省会拼音</h3><p>Create a data.frame called <strong>cnmapdf</strong> which contains id, prov_en and prov_cn and key map plotting info;<br><figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">prov_cn</span> &lt;- unique(map_data$<span class="type">NAME</span>)</span><br><span class="line"><span class="title">prov_en</span> &lt;- c(<span class="string">"Heilongjiang"</span>, <span class="string">"Inner Mongolia"</span>, <span class="string">"Xinjiang"</span>, <span class="string">"Jilin"</span>,</span><br><span class="line">             <span class="string">"Liaoning"</span>, <span class="string">"Gansu"</span>, <span class="string">"Hebei"</span>, <span class="string">"Beijing"</span>, <span class="string">"Shanxi"</span>,</span><br><span class="line">             <span class="string">"Tianjin"</span>, <span class="string">"Shaanxi"</span>, <span class="string">"Ningxia"</span>, <span class="string">"Qinghai"</span>, <span class="string">"Shandong"</span>,</span><br><span class="line">             <span class="string">"Tibet"</span>, <span class="string">"Henan"</span>, <span class="string">"Jiangsu"</span>, <span class="string">"Anhui"</span>, <span class="string">"Sichuan"</span>, <span class="string">"Hubei"</span>,</span><br><span class="line">             <span class="string">"Chongqing"</span>, <span class="string">"Shanghai"</span>, <span class="string">"Zhejiang"</span>, <span class="string">"Hunan"</span>, <span class="string">"Jiangxi"</span>,</span><br><span class="line">             <span class="string">"Yunnan"</span>, <span class="string">"Guizhou"</span>, <span class="string">"Fujian"</span>, <span class="string">"Guangxi"</span>, <span class="string">"Taiwan"</span>, </span><br><span class="line">             <span class="string">"Guangdong"</span>, <span class="string">"Hong Kong"</span>, <span class="string">"Hainan"</span>)</span><br><span class="line"></span><br><span class="line"><span class="title">prov</span> &lt;- <span class="class"><span class="keyword">data</span>.frame(<span class="title">prov_cn</span>, <span class="title">prov_en</span>)</span></span><br><span class="line"><span class="title">id_prov</span> &lt;- map_data@<span class="class"><span class="keyword">data</span> %&gt;%</span></span><br><span class="line">  mutate(prov_en = sapply(<span class="type">NAME</span>, function(x) prov$prov_en[which(prov_cn == x)])) %&gt;%</span><br><span class="line">  mutate(prov_cn = <span class="keyword">as</span>.character(<span class="type">NAME</span>),prov_en = <span class="keyword">as</span>.character(prov_en)) %&gt;%</span><br><span class="line">  select(id = <span class="type">ID</span>, prov_cn, prov_en)</span><br><span class="line"></span><br><span class="line"><span class="title">cnmapdf</span> &lt;- plyr::join(fortify(map_data), id_prov, by = <span class="string">"id"</span>)</span><br><span class="line"><span class="title">head</span>(cnmapdf)</span><br></pre></td></tr></table></figure></p>
+<h3 id="添加省会城市坐标">添加省会城市坐标</h3><figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">cap_coord</span> &lt;- c(</span><br><span class="line">  <span class="string">"Beijing"</span>, <span class="string">"北京"</span>, <span class="string">"Beijing"</span>, <span class="number">116.4666667</span>, <span class="number">39.9</span>,</span><br><span class="line">  <span class="string">"Shanghai"</span>, <span class="string">"上海"</span>, <span class="string">"Shanghai"</span>, <span class="number">121.4833333</span>, <span class="number">31.23333333</span>,</span><br><span class="line">  <span class="string">"Tianjin"</span>, <span class="string">"天津"</span>, <span class="string">"Tianjin"</span>, <span class="number">117.1833333</span>, <span class="number">39.15</span>,</span><br><span class="line">  <span class="string">"Chongqing"</span>, <span class="string">"重庆"</span>, <span class="string">"Chongqing"</span>, <span class="number">106.5333333</span>, <span class="number">29.53333333</span>,</span><br><span class="line">  <span class="string">"Harbin"</span>, <span class="string">"哈尔滨"</span>, <span class="string">"Heilongjiang"</span>, <span class="number">126.6833333</span>, <span class="number">45.75</span>,</span><br><span class="line">  <span class="string">"Changchun"</span>, <span class="string">"长春"</span>, <span class="string">"Jilin"</span>, <span class="number">125.3166667</span>, <span class="number">43.86666667</span>,</span><br><span class="line">  <span class="string">"Shenyang"</span>, <span class="string">"沈阳"</span>, <span class="string">"Liaoning"</span>, <span class="number">123.4</span>, <span class="number">41.83333333</span>,</span><br><span class="line">  <span class="string">"Hohhot"</span>, <span class="string">"呼和浩特"</span>, <span class="string">"Inner Mongolia"</span>, <span class="number">111.8</span>, <span class="number">40.81666667</span>,</span><br><span class="line">  <span class="string">"Shijiazhuang"</span>, <span class="string">"石家庄"</span>, <span class="string">"Hebei"</span>, <span class="number">114.4666667</span>, <span class="number">38.03333333</span>,</span><br><span class="line">  <span class="string">"Taiyuan"</span>, <span class="string">"太原"</span>, <span class="string">"Shanxi"</span>, <span class="number">112.5666667</span>, <span class="number">37.86666667</span>,</span><br><span class="line">  <span class="string">"Jinan"</span>, <span class="string">"济南"</span>,<span class="string">"Shandong"</span>, <span class="number">117</span>, <span class="number">36.63333333</span>,</span><br><span class="line">  <span class="string">"Zhengzhou"</span>, <span class="string">"郑州"</span>, <span class="string">"Henan"</span>, <span class="number">113.7</span>, <span class="number">34.8</span>, </span><br><span class="line">  <span class="string">"Xi'an"</span>, <span class="string">"西安"</span>, <span class="string">"Shaanxi"</span>, <span class="number">108.9</span>, <span class="number">34.26666667</span>,</span><br><span class="line">  <span class="string">"Lanzhou"</span>, <span class="string">"兰州"</span>, <span class="string">"Gansu"</span>, <span class="number">103.8166667</span>, <span class="number">36.05</span>,</span><br><span class="line">  <span class="string">"Yinchuan"</span>, <span class="string">"银川"</span>, <span class="string">"Ningxia"</span>, <span class="number">106.2666667</span>, <span class="number">38.33333333</span>,</span><br><span class="line">  <span class="string">"Xining"</span>, <span class="string">"西宁"</span>, <span class="string">"Qinghai"</span>, <span class="number">101.75</span>, <span class="number">36.63333333</span>,</span><br><span class="line">  <span class="string">"Urumqi"</span>, <span class="string">"乌鲁木齐"</span>, <span class="string">"Xinjiang"</span>, <span class="number">87.6</span>, <span class="number">43.8</span>,</span><br><span class="line">  <span class="string">"Hefei"</span>, <span class="string">"合肥"</span>, <span class="string">"Anhui"</span>, <span class="number">117.3</span>, <span class="number">31.85</span>,</span><br><span class="line">  <span class="string">"Nanjing"</span>, <span class="string">"南京"</span>, <span class="string">"Jiangsu"</span>, <span class="number">118.8333333</span>, <span class="number">32.03333333</span>,</span><br><span class="line">  <span class="string">"Hangzhou"</span>, <span class="string">"杭州"</span>, <span class="string">"Zhejiang"</span>, <span class="number">120.15</span>, <span class="number">30.23333333</span>,</span><br><span class="line">  <span class="string">"Changsha"</span>, <span class="string">"长沙"</span>, <span class="string">"Hunan"</span>, <span class="number">113</span>, <span class="number">28.18333333</span>,</span><br><span class="line">  <span class="string">"Nanchang"</span>, <span class="string">"南昌"</span>, <span class="string">"Jiangxi"</span>, <span class="number">115.8666667</span>, <span class="number">28.68333333</span>,</span><br><span class="line">  <span class="string">"Wuhan"</span>, <span class="string">"武汉"</span>, <span class="string">"Hubei"</span>, <span class="number">114.35</span>, <span class="number">30.61666667</span>,</span><br><span class="line">  <span class="string">"Chengdu"</span>, <span class="string">"成都"</span>, <span class="string">"Sichuan"</span>, <span class="number">104.0833333</span>, <span class="number">30.65</span>,</span><br><span class="line">  <span class="string">"Guiyang"</span>, <span class="string">"贵阳"</span>, <span class="string">"Guizhou"</span>, <span class="number">106.7</span>, <span class="number">26.58333333</span>,</span><br><span class="line">  <span class="string">"Fuzhou"</span>, <span class="string">"福州"</span>, <span class="string">"Fujian"</span>, <span class="number">119.3</span>, <span class="number">26.08333333</span>,</span><br><span class="line">  <span class="string">"Taibei"</span>, <span class="string">"台北"</span>, <span class="string">"Taiwan"</span>, <span class="number">121.5166667</span>, <span class="number">25.05</span>,</span><br><span class="line">  <span class="string">"Guangzhou"</span>, <span class="string">"广州"</span>, <span class="string">"Guangdong"</span>, <span class="number">113.25</span>, <span class="number">23.13333333</span>,</span><br><span class="line">  <span class="string">"Haikou"</span>, <span class="string">"海口"</span>, <span class="string">"Hainan"</span>, <span class="number">110.3333333</span>, <span class="number">20.03333333</span>,</span><br><span class="line">  <span class="string">"Nanning"</span>, <span class="string">"南宁"</span>, <span class="string">"Guangxi"</span>, <span class="number">108.3333333</span>, <span class="number">22.8</span>,</span><br><span class="line">  <span class="string">"Kunming"</span>, <span class="string">"昆明"</span>, <span class="string">"Yunnan"</span>, <span class="number">102.6833333</span>, <span class="number">25</span>,</span><br><span class="line">  <span class="string">"Lhasa"</span>, <span class="string">"拉萨"</span>, <span class="string">"Tibet"</span>, <span class="number">91.16666667</span>, <span class="number">29.66666667</span>,</span><br><span class="line">  <span class="string">"Hong Kong"</span>, <span class="string">"香港"</span>, <span class="string">"Hong Kong"</span>, <span class="number">114.1666667</span>, <span class="number">22.3</span>,</span><br><span class="line">  <span class="string">"Macau"</span>, <span class="string">"澳门"</span>, <span class="string">"Macau"</span>, <span class="number">113.5</span>, <span class="number">22.2</span>)</span><br><span class="line"></span><br><span class="line"><span class="title">cap_coord</span> &lt;- <span class="keyword">as</span>.<span class="class"><span class="keyword">data</span>.frame(<span class="title">matrix</span>(<span class="title">cap_coord</span>, <span class="title">nrow</span> = 34, <span class="title">byrow</span> = <span class="type">TRUE</span>))</span></span><br><span class="line"><span class="title">names</span>(cap_coord) &lt;- c(<span class="string">"city_en"</span>, <span class="string">"city_cn"</span>, <span class="string">"prov_en"</span>, <span class="string">"long"</span>, <span class="string">"lat"</span>)</span><br><span class="line"><span class="title">cap_coord</span> &lt;- cap_coord %&gt;%</span><br><span class="line">  mutate(prov_en = <span class="keyword">as</span>.vector(prov_en),</span><br><span class="line">         city_en = <span class="keyword">as</span>.vector(city_en),</span><br><span class="line">         city_cn = <span class="keyword">as</span>.vector(city_cn),</span><br><span class="line">         cap_long = <span class="keyword">as</span>.double(<span class="keyword">as</span>.vector(long)),</span><br><span class="line">         cap_lat = <span class="keyword">as</span>.double(<span class="keyword">as</span>.vector(lat))) %&gt;%</span><br><span class="line">  select(prov_en, city_en, city_cn, cap_long, cap_lat)</span><br><span class="line"></span><br><span class="line"><span class="title">head</span>(cap_coord)</span><br><span class="line"><span class="title">cnmapdf</span> &lt;- plyr::join(cnmapdf, cap_coord, by = <span class="string">"prov_en"</span>, <span class="class"><span class="keyword">type</span> = "full")</span></span><br></pre></td></tr></table></figure>
+<h3 id="筛选南海区域和添加九段线">筛选南海区域和添加九段线</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">Ncnmapdf &lt;- cnmapdf</span><br><span class="line">Ncnmapdf<span class="variable">$class</span>&lt;-rep(<span class="string">"Mainland"</span>,nrow(Ncnmapdf))</span><br><span class="line">Width&lt;-<span class="number">9</span></span><br><span class="line">Height&lt;-<span class="number">9</span></span><br><span class="line">long_Start&lt;-<span class="number">124</span></span><br><span class="line">lat_Start&lt;-<span class="number">16</span></span><br><span class="line"></span><br><span class="line">df_Nanhai&lt;-Ncnmapdf[Ncnmapdf<span class="variable">$long</span>&gt;<span class="number">106.55</span> &amp; Ncnmapdf<span class="variable">$long</span>&lt;<span class="number">123.58</span>,]</span><br><span class="line">df_Nanhai&lt;-df_Nanhai[df_Nanhai<span class="variable">$lat</span>&gt;<span class="number">4.61</span> &amp; df_Nanhai<span class="variable">$lat</span>&lt;<span class="number">25.45</span>,]</span><br><span class="line"></span><br><span class="line">min_long&lt;-min(df_Nanhai<span class="variable">$long</span>, na<span class="selector-class">.rm</span> = TRUE)</span><br><span class="line">min_lat&lt;-min(df_Nanhai<span class="variable">$lat</span>, na<span class="selector-class">.rm</span> = TRUE)</span><br><span class="line">max_long&lt;-max(df_Nanhai<span class="variable">$long</span>, na<span class="selector-class">.rm</span> = TRUE)</span><br><span class="line">max_lat&lt;-max(df_Nanhai<span class="variable">$lat</span>, na<span class="selector-class">.rm</span> = TRUE)</span><br><span class="line"></span><br><span class="line">df_Nanhai<span class="variable">$long</span>&lt;-(df_Nanhai<span class="variable">$long</span>-min_long)/(max_long-min_long)*Width+long_Start</span><br><span class="line">df_Nanhai<span class="variable">$lat</span>&lt;-(df_Nanhai<span class="variable">$lat</span>-min_lat)/(max_lat-min_lat)*Height+lat_Start</span><br><span class="line">df_Nanhai<span class="variable">$class</span>&lt;-rep(<span class="string">"NanHai"</span>,nrow(df_Nanhai))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Ncnmapdf&lt;-rbind(Ncnmapdf,df_Nanhai)</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#df_NanHaiLine</span>:Nanhai Line</span><br><span class="line">df_NanHaiLine &lt;- read.csv(<span class="string">"中国南海九段线.csv"</span>)  </span><br><span class="line"><span class="function"><span class="title">colnames</span><span class="params">(df_NanHaiLine)</span></span>&lt;-c(<span class="string">"long"</span>,<span class="string">"lat"</span>,<span class="string">"ID"</span>)</span><br><span class="line"></span><br><span class="line">df_NanHaiLine<span class="variable">$long</span>&lt;-(df_NanHaiLine<span class="variable">$long</span>-min_long)/(max_long-min_long)*Width+long_Start</span><br><span class="line">df_NanHaiLine<span class="variable">$lat</span>&lt;-(df_NanHaiLine<span class="variable">$lat</span>-min_lat)/(max_lat-min_lat)*Height+lat_Start</span><br></pre></td></tr></table></figure>
+<h2 id="3-_开始绘制地图">3. 开始绘制地图</h2><h3 id="选择一个省画图">选择一个省画图</h3><p>默认绘制的地图的形状有些扁平。这是因为，在绘图的过程中，默认把经度和纬度作为普通数据，均匀平等对待，绘制在笛卡尔坐标系上造成的。其实，地球的球面图形如何映射到平面图上，在地理学上是有一系列不同的专业算法的。地图不应该画在普通的笛卡尔坐标系上，而是要画在地理学专业的坐标系上。在这一点上，R 的 ggplot2 包提供了专门的coord_map()函数。<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">shanghai &lt;- cnmapdf[cnmapdf<span class="variable">$prov_en</span> == <span class="string">"Shanghai"</span>,]</span><br><span class="line">shanghai %&gt;%</span><br><span class="line">  ggplot(aes(x = long, y = lat,<span class="built_in"> group </span>= group, <span class="attribute">fill</span>=factor(prov_en))) +</span><br><span class="line">  geom_polygon( color = <span class="string">"grey"</span>) +</span><br><span class="line">  coord_map() +</span><br><span class="line">  ggtitle(<span class="string">"上海直辖市"</span>) +</span><br><span class="line">  xlab(<span class="string">"经度"</span>) +</span><br><span class="line">  ylab(<span class="string">"维度"</span>) +</span><br><span class="line">  scale_fill_brewer(<span class="attribute">palette</span>=<span class="string">"Paired"</span>)</span><br></pre></td></tr></table></figure></p>
+<p><img src="/images/map3.png" alt=""></p>
+<h3 id="画多个省">画多个省</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">map1 &lt;- cnmapdf %&gt;%</span><br><span class="line">  filter(prov_en %<span class="keyword">in</span>% c(<span class="string">"Jiangsu"</span>, <span class="string">"Zhejiang"</span>, <span class="string">"Shanghai"</span>))  %&gt;%</span><br><span class="line">  ggplot() +</span><br><span class="line">  geom_polygon(aes(x = long, y = lat,<span class="built_in"> group </span>= group, fill = prov_cn), color = <span class="string">"grey"</span>)</span><br><span class="line"></span><br><span class="line">coord_delta_cap &lt;- subset(cap_coord, prov_en %<span class="keyword">in</span>% c(<span class="string">"Zhejiang"</span>, <span class="string">"Shanghai"</span>, <span class="string">"Jiangsu"</span>))</span><br><span class="line">map1 +</span><br><span class="line">  geom_point(data = coord_delta_cap, aes(x = cap_long, y = cap_lat)) +</span><br><span class="line">  geom_text(data = coord_delta_cap, aes(cap_long, cap_lat - .25, label = city_cn)) +</span><br><span class="line">  coord_map() +</span><br><span class="line">  ggtitle(<span class="string">"长江三角洲"</span>) +</span><br><span class="line">  xlab(<span class="string">"经度"</span>) +</span><br><span class="line">  ylab(<span class="string">"维度"</span>) +</span><br><span class="line">  scale_fill_brewer(<span class="attribute">palette</span>=<span class="string">"Set2"</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="/images/map4.png" alt=""></p>
+<h3 id="南海诸岛局部放大的全国地图">南海诸岛局部放大的全国地图</h3><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">nb.cols &lt;- length(unique(Ncnmapdf$prov_en))</span><br><span class="line">mycolors &lt;- colorRampPalette(brewer.pal(<span class="number">8</span>, <span class="string">"Set2"</span>))(nb.cols)</span><br><span class="line"></span><br><span class="line">map00 &lt;- ggplot()+</span><br><span class="line">  geom_polygon(<span class="attr">data=Ncnmapdf,</span> aes(<span class="attr">x=long,</span> <span class="attr">y=lat,</span> <span class="attr">group=interaction(class,group),fill=prov_cn),colour="grey",size=0.25)+</span> </span><br><span class="line">  <span class="comment">#中国地图，包括中国主体部分和长方形方块内的南海诸岛数据</span></span><br><span class="line">  geom_rect(aes(<span class="attr">xmin=long_Start,</span> <span class="attr">xmax=long_Start+Width+1,</span> <span class="attr">ymin=lat_Start-1,</span> <span class="attr">ymax=lat_Start+Height),fill=NA,</span> <span class="attr">colour="black",size=0.25)+</span></span><br><span class="line">  <span class="comment">#绘制长方形方框</span></span><br><span class="line">  geom_line(<span class="attr">data=df_NanHaiLine,</span> aes(<span class="attr">x=long,</span> <span class="attr">y=lat,</span> <span class="attr">group=ID),</span> <span class="attr">colour="black",</span> <span class="attr">size=1)+</span>  </span><br><span class="line">  <span class="comment">#绘制长方形方框内的中国南海八段线 </span></span><br><span class="line">  <span class="comment">#scale_fill_manual(values = colorRampPalette(rev(brewer.pal(11,'Spectral')))(33))+</span></span><br><span class="line">  theme(legend.<span class="attr">position</span> = <span class="string">"none"</span>) +</span><br><span class="line">  scale_fill_manual(<span class="attr">values</span> = mycolors) +</span><br><span class="line">  coord_cartesian()+</span><br><span class="line">  ylim(<span class="number">15</span>,<span class="number">55</span>)+</span><br><span class="line">  theme(</span><br><span class="line">    <span class="comment">#legend.position=c(0.15,0.2),</span></span><br><span class="line">    legend.<span class="attr">background</span> = element_blank()</span><br><span class="line">  )</span><br><span class="line"></span><br><span class="line">Ncoord_delta_cap &lt;- subset(cap_coord, prov_en %<span class="keyword">in</span>% unique(Ncnmapdf$prov_en))</span><br><span class="line"><span class="comment"># 解决重叠地名</span></span><br><span class="line">library(ggrepel)</span><br><span class="line">spec.city &lt;- c(<span class="string">"香港"</span>,<span class="string">"澳门"</span>)</span><br><span class="line">Ncap_map_data01 &lt;- Ncoord_delta_cap[Ncoord_delta_cap$city_cn %<span class="keyword">in</span>% spec.city,]</span><br><span class="line">Ncap_map_data02 &lt;- Ncoord_delta_cap[!Ncoord_delta_cap$city_cn %<span class="keyword">in</span>% spec.city,]</span><br><span class="line">map00 + geom_point(<span class="attr">data=Ncap_map_data02,aes(x=cap_long,</span> <span class="attr">y=</span> cap_lat),<span class="attr">shape=1,colour="white")</span> +</span><br><span class="line">          geom_text(<span class="attr">data=Ncap_map_data02,aes(x=cap_long,</span> <span class="attr">y=</span> cap_lat,<span class="attr">label=city_cn))</span> +</span><br><span class="line">          geom_text_repel(<span class="attr">data=Ncap_map_data01,aes(x=cap_long,</span> <span class="attr">y=</span> cap_lat,<span class="attr">label=city_cn))</span> +</span><br><span class="line">          annotate(<span class="string">"text"</span>, <span class="attr">x=132.6,</span> <span class="attr">y=15.5,</span> <span class="attr">label="南海诸岛")</span> +</span><br><span class="line">          theme_void() + </span><br><span class="line">          theme(legend.<span class="attr">position</span> = <span class="string">"none"</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="/images/map17.png" alt=""></p>
+<h3 id="全国地图">全国地图</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">map0 &lt;- cnmapdf %&gt;%</span><br><span class="line">  filter(prov_en %<span class="keyword">in</span>% unique(cnmapdf<span class="variable">$prov_en</span>))  %&gt;%</span><br><span class="line">  ggplot() +</span><br><span class="line">  geom_polygon(aes(x = long, y = lat,<span class="built_in"> group </span>= group, fill = <span class="string">"white"</span>), color = <span class="string">"grey"</span>) +</span><br><span class="line">  scale_fill_identity()</span><br><span class="line">coord_delta_cap &lt;- subset(cap_coord, prov_en %<span class="keyword">in</span>% unique(cnmapdf<span class="variable">$prov_en</span>))</span><br><span class="line"><span class="comment"># 解决重叠地名</span></span><br><span class="line">library(ggrepel)</span><br><span class="line">spec.city &lt;- c(<span class="string">"香港"</span>,<span class="string">"澳门"</span>)</span><br><span class="line">cap_map_data01 &lt;- coord_delta_cap[coord_delta_cap<span class="variable">$city_cn</span> %<span class="keyword">in</span>% spec.city,]</span><br><span class="line">cap_map_data02 &lt;- coord_delta_cap[!coord_delta_cap<span class="variable">$city_cn</span> %<span class="keyword">in</span>% spec.city,]</span><br><span class="line">cnmap &lt;-  map0 + geom_point(<span class="attribute">data</span>=cap_map_data02,aes(x=cap_long, y= cap_lat),<span class="attribute">shape</span>=1,colour="white") +</span><br><span class="line">          geom_text(<span class="attribute">data</span>=cap_map_data02,aes(x=cap_long, y= cap_lat,<span class="attribute">label</span>=city_cn)) +</span><br><span class="line">          geom_text_repel(<span class="attribute">data</span>=cap_map_data01,aes(x=cap_long, y= cap_lat,<span class="attribute">label</span>=city_cn)) +</span><br><span class="line">          coord_map() +</span><br><span class="line">          theme_void() + </span><br><span class="line">          theme(legend.position = <span class="string">"none"</span>) +</span><br><span class="line">          scale_fill_identity()</span><br><span class="line">cnmap</span><br></pre></td></tr></table></figure>
+<p><img src="/images/map5.png" alt=""><br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">map1 &lt;- cnmapdf %&gt;%</span><br><span class="line">  filter(prov_en %<span class="keyword">in</span>% unique(cnmapdf<span class="variable">$prov_en</span>))  %&gt;%</span><br><span class="line">  ggplot() +</span><br><span class="line">  geom_polygon(aes(x = long, y = lat,<span class="built_in"> group </span>= group, fill = prov_cn), color = <span class="string">"grey"</span>)</span><br><span class="line"></span><br><span class="line">coord_delta_cap &lt;- subset(cap_coord, prov_en %<span class="keyword">in</span>% unique(cnmapdf<span class="variable">$prov_en</span>))</span><br><span class="line"></span><br><span class="line">nb.cols &lt;- length(unique(coord_delta_cap<span class="variable">$prov_en</span>))</span><br><span class="line">mycolors &lt;- colorRampPalette(brewer.pal(8, <span class="string">"Set2"</span>))(nb.cols)</span><br><span class="line"></span><br><span class="line">map1 +</span><br><span class="line">  geom_point(data = coord_delta_cap, aes(x = cap_long, y = cap_lat)) +</span><br><span class="line">  geom_text(data = coord_delta_cap, aes(cap_long, cap_lat - .25, label = city_cn)) +</span><br><span class="line">  coord_map() +</span><br><span class="line">  ggtitle(<span class="string">"中国"</span>) +</span><br><span class="line">  xlab(<span class="string">"经度"</span>) +</span><br><span class="line">  ylab(<span class="string">"维度"</span>) +</span><br><span class="line">  theme_void() + </span><br><span class="line">  theme(legend.position = <span class="string">"none"</span>) +</span><br><span class="line">  scale_fill_manual(values = mycolors)</span><br></pre></td></tr></table></figure></p>
+<p><img src="/images/map6.png" alt=""></p>
+<h3 id="解决重叠地名">解决重叠地名</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">library(ggrepel)</span><br><span class="line">spec.city &lt;- c(<span class="string">"香港"</span>,<span class="string">"澳门"</span>)</span><br><span class="line">cap_map_data1 &lt;- coord_delta_cap[coord_delta_cap<span class="variable">$city_cn</span> %<span class="keyword">in</span>% spec.city,]</span><br><span class="line">cap_map_data2 &lt;- coord_delta_cap[!coord_delta_cap<span class="variable">$city_cn</span> %<span class="keyword">in</span>% spec.city,]</span><br><span class="line">map1 + geom_point(<span class="attribute">data</span>=cap_map_data2,aes(x=cap_long, y= cap_lat),<span class="attribute">shape</span>=1,colour="white") +</span><br><span class="line">  geom_text(<span class="attribute">data</span>=cap_map_data2,aes(x=cap_long, y= cap_lat,<span class="attribute">label</span>=city_cn)) +</span><br><span class="line">  geom_text_repel(<span class="attribute">data</span>=cap_map_data1,aes(x=cap_long, y= cap_lat,<span class="attribute">label</span>=city_cn)) +</span><br><span class="line">  coord_map() +</span><br><span class="line">  theme_void() + </span><br><span class="line">  theme(legend.position = <span class="string">"none"</span>) +</span><br><span class="line">  scale_fill_manual(values = mycolors)</span><br></pre></td></tr></table></figure>
+<p><img src="/images/map7.png" alt=""></p>
+<h3 id="颜色标注全国地图某几个省">颜色标注全国地图某几个省</h3><p><span class="exturl" data-url="aHR0cHM6Ly9jb3N4Lm9yZy8yMDA5LzA3L2RyYXdpbmctY2hpbmEtbWFwLXVzaW5nLXIv" title="https://cosx.org/2009/07/drawing-china-map-using-r/">https://cosx.org/2009/07/drawing-china-map-using-r/<i class="fa fa-external-link"></i></span><br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">par(mar=rep(<span class="number">0</span>,<span class="number">4</span>))</span><br><span class="line">library(maps)</span><br><span class="line">library(mapdata)</span><br><span class="line">getColor = function(mapdata, provname, provcol, othercol)&#123;</span><br><span class="line">	f = function(x, y) ifelse(x %in% y, which(y == x), <span class="number">0</span>)</span><br><span class="line">	colIndex = sapply(mapdata@data$NAME, f, provname)</span><br><span class="line">	fg = c(othercol, provcol)[colIndex + <span class="number">1</span>]</span><br><span class="line">	return(fg)</span><br><span class="line">&#125;</span><br><span class="line">provname = c(<span class="string">"北京市"</span>, <span class="string">"天津市"</span>, <span class="string">"上海市"</span>, <span class="string">"重庆市"</span>)</span><br><span class="line">provcol = c(<span class="string">"red"</span>, <span class="string">"green"</span>, <span class="string">"yellow"</span>, <span class="string">"purple"</span>)</span><br><span class="line">plot(map_data, col = getColor(map_data, provname, provcol, <span class="string">"white"</span>))</span><br><span class="line">points(cap_coord$cap_long, cap_coord$cap_lat, pch = <span class="number">19</span>, col = rgb(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.5</span>))</span><br><span class="line">text(cap_coord$cap_long, cap_coord$cap_lat, cap_coord[, <span class="number">3</span>], cex = <span class="number">0.9</span>, col = rgb(<span class="number">0</span>,<span class="number">0</span>, <span class="number">0</span>, <span class="number">0.7</span>), </span><br><span class="line">     pos = c(<span class="number">2</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">2</span>))</span><br><span class="line">axis(<span class="number">1</span>, lwd = <span class="number">0</span>); axis(<span class="number">2</span>, lwd = <span class="number">0</span>); axis(<span class="number">3</span>, lwd = <span class="number">0</span>); axis(<span class="number">4</span>, lwd = <span class="number">0</span>)</span><br><span class="line">as.character(na.omit(unique(map_data@data$NAME)))</span><br></pre></td></tr></table></figure></p>
+<p><img src="/images/map8.png" alt=""></p>
+<h3 id="颜色标注全国地图某几个省_(推荐)">颜色标注全国地图某几个省 (推荐)</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">provname = c(<span class="string">"北京市"</span>, <span class="string">"天津市"</span>, <span class="string">"上海市"</span>, <span class="string">"重庆市"</span>)</span><br><span class="line">provcol = c(<span class="string">"red"</span>, <span class="string">"green"</span>, <span class="string">"yellow"</span>, <span class="string">"purple"</span>)</span><br><span class="line">getColors = function(mapdata, provname, provcol, othercol)&#123;</span><br><span class="line">	f = function(x, y) ifelse(x %<span class="keyword">in</span>% y, which(y == x), 0)</span><br><span class="line">	colIndex = sapply(mapdata<span class="variable">$prov_cn</span>, f, provname)</span><br><span class="line">	fg = c(othercol, provcol)[colIndex + 1]</span><br><span class="line">	return(fg)</span><br><span class="line">&#125;</span><br><span class="line"><span class="attribute">mc</span>=getColors(cnmapdf, provname, provcol, <span class="string">"white"</span>)</span><br><span class="line">map2 &lt;- cnmapdf %&gt;%</span><br><span class="line">  filter(prov_en %<span class="keyword">in</span>% unique(cnmapdf<span class="variable">$prov_en</span>))  %&gt;%</span><br><span class="line">  ggplot() +</span><br><span class="line">  geom_polygon(aes(x = long, y = lat,<span class="built_in"> group </span>= group, fill = mc), color = <span class="string">"grey"</span>)</span><br><span class="line"></span><br><span class="line">coord_delta_cap &lt;- subset(cap_coord, prov_en %<span class="keyword">in</span>% unique(cnmapdf<span class="variable">$prov_en</span>))</span><br><span class="line"><span class="comment"># 解决重叠地名</span></span><br><span class="line">library(ggrepel)</span><br><span class="line">spec.city &lt;- c(<span class="string">"香港"</span>,<span class="string">"澳门"</span>)</span><br><span class="line">cap_map_data21 &lt;- coord_delta_cap[coord_delta_cap<span class="variable">$city_cn</span> %<span class="keyword">in</span>% spec.city,]</span><br><span class="line">cap_map_data22 &lt;- coord_delta_cap[!coord_delta_cap<span class="variable">$city_cn</span> %<span class="keyword">in</span>% spec.city,]</span><br><span class="line">map2 + geom_point(<span class="attribute">data</span>=cap_map_data22,aes(x=cap_long, y= cap_lat),<span class="attribute">shape</span>=1,colour="white") +</span><br><span class="line">  geom_text(<span class="attribute">data</span>=cap_map_data22,aes(x=cap_long, y= cap_lat,<span class="attribute">label</span>=city_cn)) +</span><br><span class="line">  geom_text_repel(<span class="attribute">data</span>=cap_map_data21,aes(x=cap_long, y= cap_lat,<span class="attribute">label</span>=city_cn)) +</span><br><span class="line">  coord_map() +</span><br><span class="line">  theme_void() + </span><br><span class="line">  theme(legend.position = <span class="string">"none"</span>) +</span><br><span class="line">  scale_fill_identity()</span><br></pre></td></tr></table></figure>
+<p><img src="/images/map9.png" alt=""></p>
+<h2 id="4-_地图添加数据">4. 地图添加数据</h2><p>实例数据下载：<span class="exturl" data-url="aHR0cDovL2RhdGEuc3RhdHMuZ292LmNuL2Vhc3lxdWVyeS5odG0/Y249RTAxMDM=" title="http://data.stats.gov.cn/easyquery.htm?cn=E0103">中华人民共和国国家统计局<i class="fa fa-external-link"></i></span></p>
+<h3 id="Heatmap">Heatmap</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">democn &lt;- read.csv(<span class="string">"China_pop.csv"</span>, stringsAsFactors = F, check.<span class="attribute">names</span>=<span class="literal">FALSE</span>)</span><br><span class="line">library(tidyr)</span><br><span class="line">library(reshape2)</span><br><span class="line">democndf &lt;- melt(democn,variable.name =<span class="string">"year"</span>, value.name = <span class="string">"population"</span>)</span><br><span class="line">head(spread(democndf, year, population))</span><br><span class="line"></span><br><span class="line">map2df &lt;- cnmapdf %&gt;% </span><br><span class="line">  plyr::join(subset(democndf, year == <span class="string">"2018年"</span>), by = <span class="string">"prov_cn"</span>) %&gt;%</span><br><span class="line">  mutate(population = as.numeric(population))</span><br><span class="line">  </span><br><span class="line">map2df %&gt;%</span><br><span class="line">  ggplot() +</span><br><span class="line">  geom_polygon(aes(x = long, y = lat,<span class="built_in"> group </span>= group, fill = population), color = <span class="string">"grey"</span>) +</span><br><span class="line">  geom_point(<span class="attribute">data</span>=cap_map_data22,aes(x=cap_long, y= cap_lat),<span class="attribute">shape</span>=1,colour="white") +</span><br><span class="line">  geom_text(<span class="attribute">data</span>=cap_map_data22,aes(x=cap_long, y= cap_lat,<span class="attribute">label</span>=city_cn),size=2) +</span><br><span class="line">  geom_text_repel(<span class="attribute">data</span>=cap_map_data21,aes(x=cap_long, y= cap_lat,<span class="attribute">label</span>=city_cn),size=2) +</span><br><span class="line">  scale_fill_gradient(low = <span class="string">"red"</span>, high = <span class="string">"yellow"</span>) +</span><br><span class="line">  theme_void()</span><br></pre></td></tr></table></figure>
+<p><img src="/images/map10.png" alt=""><br>多个图<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">map3df &lt;- cnmapdf %&gt;% </span><br><span class="line">  plyr::join(democndf, by = <span class="string">"prov_cn"</span>) %&gt;%</span><br><span class="line">  mutate(population = as.numeric(population)) %&gt;%</span><br><span class="line">  na.omit()</span><br><span class="line">map3df %&gt;%</span><br><span class="line">  ggplot(aes(x = long, y = lat,<span class="built_in"> group </span>= group, fill = population)) +</span><br><span class="line">  geom_polygon(color = <span class="string">"grey"</span>, lwd = .1) +</span><br><span class="line">  coord_equal() +</span><br><span class="line">  facet_wrap(~year)</span><br></pre></td></tr></table></figure></p>
+<p><img src="/images/map11.png" alt=""></p>
+<h3 id="Bubbles">Bubbles</h3><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">map1 + </span><br><span class="line">  geom_point(<span class="name">data</span> = map2df, aes(<span class="name">cap_long</span>, cap_lat, size = population), shape = <span class="number">21</span>, fill=<span class="string">"#9070c7"</span>,colour=<span class="string">"grey"</span>, alpha = .<span class="number">5</span>) +</span><br><span class="line">  scale_size_area(<span class="name">max_size=5</span>) +</span><br><span class="line">  geom_text(<span class="name">data=cap_map_data2</span>,aes(<span class="name">x=cap_long</span>, y= cap_lat,label=city_cn),size=2,vjust=0,nudge_y=0.<span class="number">5</span>) +</span><br><span class="line">  geom_text_repel(<span class="name">data=cap_map_data1</span>,aes(<span class="name">x=cap_long</span>, y= cap_lat,label=city_cn),size=2,vjust=0,nudge_y=0.<span class="number">5</span>) +</span><br><span class="line">  coord_map() +</span><br><span class="line">  theme_void() + </span><br><span class="line">  theme(<span class="name">legend</span>.position = <span class="string">"none"</span>) +</span><br><span class="line">  scale_fill_manual(<span class="name">values</span> = mycolors)</span><br></pre></td></tr></table></figure>
+<p><img src="/images/map12.png" alt=""></p>
+<h3 id="Bar">Bar</h3><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">map1 + </span><br><span class="line">  geom_errorbar(<span class="name">data=map2df</span>,aes(<span class="name">x=cap_long</span>, ymin=cap_lat, ymax=cap_lat + population/3000 ),</span><br><span class="line">                colour=<span class="string">"blue"</span>,size=2, width=0,alpha=0.<span class="number">5</span>) +</span><br><span class="line">  geom_text(<span class="name">data=cap_map_data2</span>,aes(<span class="name">x=cap_long</span>, y= cap_lat,label=city_cn),size=2,vjust=0,nudge_y=0.<span class="number">5</span>) +</span><br><span class="line">  geom_text_repel(<span class="name">data=cap_map_data1</span>,aes(<span class="name">x=cap_long</span>, y= cap_lat,label=city_cn),size=2,vjust=0,nudge_y=0.<span class="number">5</span>) +</span><br><span class="line">  coord_map() +</span><br><span class="line">  theme_void() + </span><br><span class="line">  theme(<span class="name">legend</span>.position = <span class="string">"none"</span>) +</span><br><span class="line">  scale_fill_manual(<span class="name">values</span> = mycolors)</span><br></pre></td></tr></table></figure>
+<p><img src="/images/map13.png" alt=""></p>
+<h2 id="5-_世界地图">5. 世界地图</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">library</span><span class="params">(rworldmap)</span></span></span><br><span class="line">met &lt;- as<span class="selector-class">.data</span><span class="selector-class">.frame</span>(read.csv(<span class="string">"MetObjects_5k-sample.csv"</span>))</span><br><span class="line">countries<span class="selector-class">.met</span> &lt;- as<span class="selector-class">.data</span><span class="selector-class">.frame</span>(table(met<span class="variable">$Country</span>))</span><br><span class="line"><span class="function"><span class="title">head</span><span class="params">(countries.met)</span></span></span><br><span class="line"><span class="function"><span class="title">colnames</span><span class="params">(countries.met)</span></span> &lt;- c(<span class="string">"country"</span>, <span class="string">"value"</span>)</span><br><span class="line">matched &lt;- joinCountryData2Map(countries<span class="selector-class">.met</span>, joinCode=<span class="string">"NAME"</span>, nameJoinColumn=<span class="string">"country"</span>)</span><br><span class="line"><span class="function"><span class="title">mapCountryData</span><span class="params">(matched, nameColumnToPlot=<span class="string">"value"</span>, mapTitle=<span class="string">"Met Collection Country Sample"</span>, catMethod = <span class="string">"pretty"</span>, colourPalette = <span class="string">"heat"</span>,oceanCol=<span class="string">"aliceblue"</span>)</span></span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/map14.png" alt=""></p>
+<h3 id="仅显示某一区域">仅显示某一区域</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mapCountryData(matched, <span class="attribute">nameColumnToPlot</span>=<span class="string">"value"</span>, <span class="attribute">mapTitle</span>=<span class="string">"Met Collection in Eurasia"</span>, <span class="attribute">mapRegion</span>=<span class="string">"Eurasia"</span>, <span class="attribute">colourPalette</span>=<span class="string">"heat"</span>, <span class="attribute">catMethod</span>=<span class="string">"pretty"</span>, <span class="attribute">oceanCol</span>=<span class="string">"aliceblue"</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="/images/map15.png" alt=""><br><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">library(ggplot2)</span><br><span class="line">library(dplyr)</span><br><span class="line"></span><br><span class="line">WorldData &lt;- map_data('world') %&gt;% filter(region != <span class="string">"Antarctica"</span>) %&gt;% fortify</span><br><span class="line"></span><br><span class="line">df &lt;- data.frame(<span class="attr">region=c('Hungary','Lithuania','Argentina'),</span> </span><br><span class="line">                 <span class="attr">value=c(4,10,11),</span> </span><br><span class="line">                 <span class="attr">stringsAsFactors=FALSE)</span></span><br><span class="line"></span><br><span class="line">p &lt;- ggplot() +</span><br><span class="line">    geom_map(<span class="attr">data</span> = WorldData, <span class="attr">map</span> = WorldData,</span><br><span class="line">                  aes(<span class="attr">x</span> =long , <span class="attr">y</span> = lat, <span class="attr">group</span> = group, <span class="attr">map_id=region),</span></span><br><span class="line">                  <span class="attr">fill</span> = <span class="string">"white"</span>, <span class="attr">colour</span> = <span class="string">"#7f7f7f"</span>, <span class="attr">size=0.5)</span> + </span><br><span class="line">    geom_map(<span class="attr">data</span> = df, <span class="attr">map=WorldData,</span> aes(<span class="attr">fill=value,</span> <span class="attr">map_id=region),colour="#7f7f7f",</span> <span class="attr">size=0.5)</span> +</span><br><span class="line">    coord_map(<span class="string">"rectangular"</span>, <span class="attr">lat0=0,</span> <span class="attr">xlim=c(-180,180),</span> <span class="attr">ylim=c(-60,</span> <span class="number">90</span>)) +</span><br><span class="line">    scale_fill_continuous(<span class="attr">low="thistle2",</span> <span class="attr">high="darkred",</span> <span class="attr">guide="colorbar")</span> +</span><br><span class="line">    scale_y_continuous(<span class="attr">breaks=c())</span> +</span><br><span class="line">    scale_x_continuous(<span class="attr">breaks=c())</span> +</span><br><span class="line">    labs(<span class="attr">fill="legend",</span> <span class="attr">title="Title",</span> <span class="attr">x="",</span> <span class="attr">y="")</span> +</span><br><span class="line">    theme(<span class="attr">text</span> = element_text( <span class="attr">color</span> = <span class="string">"#FFFFFF"</span>)</span><br><span class="line">        ,panel.<span class="attr">background</span> = element_rect(<span class="attr">fill</span> = <span class="string">"aliceblue"</span>)</span><br><span class="line">        ,plot.<span class="attr">background</span> = element_rect(<span class="attr">fill</span> = <span class="string">"aliceblue"</span>)</span><br><span class="line">        ,panel.<span class="attr">grid</span> = element_blank()</span><br><span class="line">        ,plot.<span class="attr">title</span> = element_text(<span class="attr">size</span> = <span class="number">30</span>)</span><br><span class="line">        ,plot.<span class="attr">subtitle</span> = element_text(<span class="attr">size</span> = <span class="number">10</span>)</span><br><span class="line">        ,axis.<span class="attr">text</span> = element_blank()</span><br><span class="line">        ,axis.<span class="attr">title</span> = element_blank()</span><br><span class="line">        ,axis.<span class="attr">ticks</span> = element_blank()</span><br><span class="line">        ,legend.<span class="attr">position</span> = <span class="string">"right"</span></span><br><span class="line">        )</span><br><span class="line">    <span class="comment">#theme_bw()</span></span><br><span class="line">p</span><br></pre></td></tr></table></figure></p>
+<p><img src="/images/map16.png" alt=""></p>
+<h2 id="6-_Info">6. Info</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># R version 3.4.2 (2017-09-28)</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># Platform: x86_64-w64-mingw32/x64 (64-bit)</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># Running under: Windows 10 x64 (build 17134)</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># Matrix products: default</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># locale:</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># [1] LC_COLLATE=Chinese (Simplified)_China.936 </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># [2] LC_CTYPE=Chinese (Simplified)_China.936   </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># [3] LC_MONETARY=Chinese (Simplified)_China.936</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># [4] LC_NUMERIC=C                              </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># [5] LC_TIME=Chinese (Simplified)_China.936    </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># attached base packages:</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># [1] stats     graphics  grDevices utils     datasets  methods   base     </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># other attached packages:</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#  [1] rworldmap_1.3-6    reshape2_1.4.3     tidyr_0.8.3       </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#  [4] mapdata_2.3.0      maps_3.3.0         ggrepel_0.8.0     </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#  [7] RColorBrewer_1.1-2 ggplot2_3.1.0      dplyr_0.8.0.1     </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># [10] maptools_0.9-5     sp_1.3-1          </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># loaded via a namespace (and not attached):</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#  [1] Rcpp_1.0.0       pillar_1.3.1     compiler_3.4.2   plyr_1.8.4      </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#  [5] tools_3.4.2      dotCall64_1.0-0  digest_0.6.18    evaluate_0.13   </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#  [9] tibble_2.0.1     gtable_0.2.0     lattice_0.20-38  pkgconfig_2.0.2 </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># [13] rlang_0.3.1      mapproj_1.2.6    yaml_2.2.0       spam_2.2-2      </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># [17] xfun_0.5         withr_2.1.2      stringr_1.4.0    knitr_1.21      </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># [21] fields_9.8-3     grid_3.4.2       tidyselect_0.2.5 glue_1.3.0      </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># [25] R6_2.4.0         foreign_0.8-71   rmarkdown_1.11   purrr_0.3.1     </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># [29] searcher_0.0.3   magrittr_1.5     scales_1.0.0     htmltools_0.3.6 </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># [33] assertthat_0.2.0 colorspace_1.4-0 labeling_0.3     stringi_1.3.1   </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># [37] lazyeval_0.2.1   munsell_0.5.0    crayon_1.3.4</span></span></span><br></pre></td></tr></table></figure>
+<h1 id="4-_参考">4. 参考</h1><p><span class="exturl" data-url="aHR0cDovL3BhcGFjb2Nob24uY29tLzIwMTUvMTAvMTUvQ29kYWdlLTExLXItdmlzdWFsaXphdGlvbi0yLWNuLW1hcC0yLw==" title="http://papacochon.com/2015/10/15/Codage-11-r-visualization-2-cn-map-2/">R Visual. - China Map Part II<i class="fa fa-external-link"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly93d3cuZGF0YW5vdmlhLmNvbS9lbi9ibG9nL2dncGxvdC1jb2xvcnMtYmVzdC10cmlja3MteW91LXdpbGwtbG92ZS8=" title="https://www.datanovia.com/en/blog/ggplot-colors-best-tricks-you-will-love/">https://www.datanovia.com/en/blog/ggplot-colors-best-tricks-you-will-love/<i class="fa fa-external-link"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly93d3cuZGF0YW5vdmlhLmNvbS9lbi9ibG9nL3RvcC1yLWNvbG9yLXBhbGV0dGVzLXRvLWtub3ctZm9yLWdyZWF0LWRhdGEtdmlzdWFsaXphdGlvbi8=" title="https://www.datanovia.com/en/blog/top-r-color-palettes-to-know-for-great-data-visualization/">https://www.datanovia.com/en/blog/top-r-color-palettes-to-know-for-great-data-visualization/<i class="fa fa-external-link"></i></span><br><span class="exturl" data-url="aHR0cDovL3d3dy5lYXN5Y2hhcnRzLmNsdWIvcG9zdC8xNw==" title="http://www.easycharts.club/post/17">标准中国地图的绘制<i class="fa fa-external-link"></i></span></p>
+
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+      <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center;">
+  <img id="wechat_subscriber_qcode" src="/images/Wechat.jpg" alt="tiramisutes wechat" style="width: 200px; max-width: 100%;"/>
+  <div>欢迎关注</div>
+</div>
+
+    
+
+    
+      
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2019/06/19/Rmap.html">R 标准地图记（区分四川和重庆且有台湾和南海诸岛）</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 tiramisutes 的个人博客">tiramisutes</a></p>
+  <p><span>发布时间:</span>2019年06月19日 - 14:33</p>
+  <p><span>最后更新:</span>2019年06月28日 - 15:32</p>
+  <p><span>原始链接:</span><a href="/2019/06/19/Rmap.html" title="R 标准地图记（区分四川和重庆且有台湾和南海诸岛）">http://tiramisutes.github.io/2019/06/19/Rmap.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://tiramisutes.github.io/2019/06/19/Rmap.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+	});
+    });  
+</script>
+
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>tiramisutes</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    
+    <a href="http://tiramisutes.github.io/2019/06/19/Rmap.html" title="R 标准地图记（区分四川和重庆且有台湾和南海诸岛）">http://tiramisutes.github.io/2019/06/19/Rmap.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/map/" rel="tag"><i class="fa fa-tag"></i> map</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+          
+            <span class="post-meta-divider">|</span>
+          
+          <div class="social_share">
+            
+            
+              <div id="needsharebutton-postbottom">
+                <span class="btn">
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/18/Biotechnology-Vs-Bioinformatics.html" rel="next" title="分子生物学 or 生物信息学, that's a question">
+                <i class="fa fa-chevron-left"></i> 分子生物学 or 生物信息学, that's a question
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/24/AT-GeneFamily.html" rel="prev" title="高能预警：拟南芥&基因家族分析也能发Cell">
+                高能预警：拟南芥&基因家族分析也能发Cell <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <a href="/" class="site-author-image" rel="start" style="border:none">
+              <img class="site-author-image" itemprop="image"
+                src="/images/author.jpg"
+                alt="tiramisutes"/>
+              </a>
+            
+              <p class="site-author-name" itemprop="name">tiramisutes</p>
+              <div class="site-description motion-element" itemprop="description">hope bioinformatics blog</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">148</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">112</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RpcmFtaXN1dGVz" title="GitHub &rarr; https://github.com/tiramisutes"><i class="fa fa-fw fa-github"></i>GitHub</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="bWFpbHRvOnRpcmFtaXN1dGVze2F0fTEyNi5jb20=" title="E-Mail &rarr; mailto:tiramisutes{at}126.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cDovL3dlaWJvLmNvbS90aXJhbWlzdXRlc1Rlcw==" title="Weibo &rarr; http://weibo.com/tiramisutesTes"><i class="fa fa-fw fa-globe"></i>Weibo</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9ob3BldG9neQ==" title="Twitter &rarr; https://twitter.com/hopetogy"><i class="fa fa-fw fa-twitter"></i>Twitter</span>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"/></span>
+             </div>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9paG9wZS5zaGlueWFwcHMuaW8vcVJULVBDUi1QaXBlbGluZS8=" title="https://ihope.shinyapps.io/qRT-PCR-Pipeline/">qRT-PCR-Pipeline</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly90aXJhbWlzdXRlcy5naXRib29rcy5pby9hd2svY29udGVudC8=" title="https://tiramisutes.gitbooks.io/awk/content/">GitBook《awk学习总结》</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2NvdHRvbi5oemF1LmVkdS5jbi8=" title="http://cotton.hzau.edu.cn/">棉花遗传改良团队</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5iaW8taW5mby10cmFpbmVlLmNvbS8=" title="http://www.bio-info-trainee.com/">生信菜鸟团-深圳大学城</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5iaW90cmFpbmVlLmNvbS9mb3J1bS5waHA=" title="http://www.biotrainee.com/forum.php">生信技能树</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5pd2hnYW8uY29tLw==" title="http://www.iwhgao.com/">rabbit gao's blog</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9odWFucy5naXRodWIuaW8v" title="https://huans.github.io/">Huans(代谢+GWAS)</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5zZXF1ZW5jaW5nLnVpby5uby8=" title="http://www.sequencing.uio.no/">NSC-sequenceing</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2Jsb2cuam9iYm9sZS5jb20v" title="http://blog.jobbole.com/">伯乐在线</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9saW51eC5jbi8=" title="https://linux.cn/">Linux开源中文社区</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3d3dy5yLWJsb2dnZXJzLmNvbS8=" title="http://www.r-bloggers.com/">R-bloggers</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cHM6Ly9jcmFuLnItcHJvamVjdC5vcmcvb3RoZXItZG9jcy5odG1s" title="https://cran.r-project.org/other-docs.html">R-resource</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3R1dG9yaWFscy5pcS5oYXJ2YXJkLmVkdS9SL1JncmFwaGljcy9SZ3JhcGhpY3MuaHRtbA==" title="http://tutorials.iq.harvard.edu/R/Rgraphics/Rgraphics.html">ggplot2</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2xpbGliZWkubmV0Lw==" title="http://lilibei.net/">pele' blog</span>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-_不同方法比较"><span class="nav-text">1. 不同方法比较</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ggplot2"><span class="nav-text">ggplot2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#maps"><span class="nav-text">maps</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#googleVis"><span class="nav-text">googleVis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#REmap"><span class="nav-text">REmap</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-_地图数据下载"><span class="nav-text">2. 地图数据下载</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Download_GADM_data"><span class="nav-text">Download GADM data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GIS数据"><span class="nav-text">GIS数据</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-_地图绘制"><span class="nav-text">3. 地图绘制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-_Preparation"><span class="nav-text">1. Preparation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-_Map_Data"><span class="nav-text">2. Map Data</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加省会拼音"><span class="nav-text">添加省会拼音</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加省会城市坐标"><span class="nav-text">添加省会城市坐标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#筛选南海区域和添加九段线"><span class="nav-text">筛选南海区域和添加九段线</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-_开始绘制地图"><span class="nav-text">3. 开始绘制地图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#选择一个省画图"><span class="nav-text">选择一个省画图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#画多个省"><span class="nav-text">画多个省</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#南海诸岛局部放大的全国地图"><span class="nav-text">南海诸岛局部放大的全国地图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全国地图"><span class="nav-text">全国地图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决重叠地名"><span class="nav-text">解决重叠地名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#颜色标注全国地图某几个省"><span class="nav-text">颜色标注全国地图某几个省</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#颜色标注全国地图某几个省_(推荐)"><span class="nav-text">颜色标注全国地图某几个省 (推荐)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-_地图添加数据"><span class="nav-text">4. 地图添加数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Heatmap"><span class="nav-text">Heatmap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bubbles"><span class="nav-text">Bubbles</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bar"><span class="nav-text">Bar</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-_世界地图"><span class="nav-text">5. 世界地图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#仅显示某一区域"><span class="nav-text">仅显示某一区域</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-_Info"><span class="nav-text">6. Info</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-_参考"><span class="nav-text">4. 参考</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 – <span itemprop="copyrightYear">2023</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <a class="theme-link" target="_blank" href="http://tiramisutes.github.io/about/"><span class="author" itemprop="copyrightHolder">tiramisutes</span></a>
+
+  
+    <span class="post-meta-item-icon">
+    </span>
+    <span title="Symbols count total"></span>
+  
+
+  
+    <span class="post-meta-item-icon">
+    </span>
+    <span title="Reading time total"></span>
+  
+</div>
+
+
+  <div class="powered-by">Powered: <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">▽ – <span class="exturl theme-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0">NexT.Muse</span></div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-line-chart"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+    <a style="line-height: 1.5;" href="https://tongji.baidu.com/web/welcome/login" target="_blank">The total visits
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>&nbsp;times</a>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+    
+    
+      
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='20' src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest-nomobile.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+  <script src="/js/src/exturl.js?v=7.0.1"></script>
+
+
+  
+  
+  
+    
+  
+
+  
+
+  
+  
+  
+
+
+  
+  
+
+  
+
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'c7x0fPmO8Ci9avDBRuGWHqpG-gzGzoHsz',
+    appKey: 'iVJ6ST0e1O5xaiIhVwOyhbf3',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+<style>
+.pdfobject-container {
+  position: relative;
+  overflow: auto;
+  width: 100%;
+}
+</style>
+<script>
+if ($('body').find('div.pdf').length) {
+  $.ajax({
+    type: 'GET',
+    url: '//cdn.jsdelivr.net/npm/pdfobject@2.1.1/pdfobject.min.js',
+    dataType: 'script',
+    cache: true,
+    success: function() {
+      $('body').find('div.pdf').each(function(i, o) {
+        PDFObject.embed($(o).attr('target'), $(o), {
+          pdfOpenParams: {
+            navpanes: 0,
+            toolbar: 0,
+            statusbar: 0,
+            pagemode: 'thumbs',
+            view: 'FitH'
+          },
+          PDFJS_URL: '/lib/pdf/web/viewer.html',
+          height: $(o).attr('height') || '500px'
+        });
+      });
+    },
+  });
+}
+</script>
+
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+  
+  
+    
+  
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Evernote,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+
+  
+  <script>
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id: 15314,
+      el: 'wpac-rating',
+      color: 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  </script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
